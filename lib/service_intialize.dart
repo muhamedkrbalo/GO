@@ -13,7 +13,7 @@ import 'package:flutter/foundation.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:path_provider/path_provider.dart';
 
-Future<void> onAppBackground(RemoteMessage message) async {}
+// Future<void> onAppBackground(RemoteMessage message) async {}
 class ServiceInitialize {
   ServiceInitialize._();
   static Future<void> initialize() async {
@@ -33,7 +33,7 @@ class ServiceInitialize {
 
     // Ensure Hive is properly initialized and debug
     await HiveMethods.ensureHiveInitialized();
-    FirebaseMessaging.onBackgroundMessage(onAppBackground);
+    // FirebaseMessaging.onBackgroundMessage(onAppBackground);
     timeago.setLocaleMessages('en', timeago.EnMessages());
     timeago.setLocaleMessages('en_short', timeago.EnShortMessages());
     timeago.setLocaleMessages('ar', timeago.ArMessages());
