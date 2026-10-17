@@ -7,6 +7,14 @@ import 'app_fonts.dart';
 class AppTextStyles {
   const AppTextStyles._();
 
+
+
+  static const buttonStyle = TextStyle(
+    fontFamily: AppFonts.poppins,
+    fontSize: 15,
+    fontWeight: FontWeight.w700,
+  );
+
   // xs - 12
   static const xsRegular = TextStyle(
     fontFamily: AppFonts.poppins,

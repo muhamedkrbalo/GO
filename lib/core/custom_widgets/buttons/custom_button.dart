@@ -30,9 +30,9 @@ class CustomButton extends StatefulWidget {
 
   const CustomButton({
     super.key,
-    this.radius = 12,
+    this.radius = 14.4,
     this.width,
-    this.height = 48,
+    this.height = 56,
     this.style,
     this.text,
     this.prefixIcon = const SizedBox(),
@@ -82,7 +82,9 @@ class _CustomButtonState extends State<CustomButton> with SingleTickerProviderSt
   Widget build(BuildContext context) {
     return widget.isLoading || widget.cubitState == CubitStatus.loading
         ? Center(
-            child: LottieBuilder.asset(AppImages.assetsLottieLogoAnimation, width: 60, height: 60),
+            child: CircularProgressIndicator(
+              color: widget.loaderColor ?? AppColors.white,
+            ),
           )
         : ScaleTransition(
             scale: _scaleAnimation,
@@ -145,7 +147,7 @@ class _CustomButtonState extends State<CustomButton> with SingleTickerProviderSt
                                     textAlign: TextAlign.center,
                                     style:
                                         widget.style ??
-                                        AppTextStyles.sMedium.copyWith(
+                                        AppTextStyles.buttonStyle.copyWith(
                                           color:
                                               widget.textColor ?? AppColors.white,
                                         ),
