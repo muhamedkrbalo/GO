@@ -19,7 +19,7 @@ class _FakeSecureStorage extends SecureStorageService {
   Future<void> setAccessToken(String token) async => this.token = token;
 
   @override
-  Future<void> deleteAllTokens() async {
+  Future<void> deleteAccessToken() async {
     deleteCalls++;
     token = null;
   }

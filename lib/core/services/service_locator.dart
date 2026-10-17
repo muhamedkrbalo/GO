@@ -43,7 +43,7 @@ void _initCore() {
   // Network
   sl.registerLazySingleton<Dio>(Dio.new);
   sl.registerLazySingleton<AppInterceptors>(
-    () => AppInterceptors(sl<Dio>(), secureStorage: sl(), authSession: sl()),
+    () => AppInterceptors(secureStorage: sl(), authSession: sl()),
   );
   sl.registerLazySingleton<ApiConsumer>(
     () => DioConsumer(client: sl(), interceptors: sl()),

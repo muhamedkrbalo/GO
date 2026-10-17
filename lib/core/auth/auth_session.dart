@@ -24,10 +24,8 @@ class AuthSession extends ValueNotifier<AuthStatus> {
     value = (token == null || token.isEmpty) ? AuthStatus.unauthenticated : AuthStatus.authenticated;
   }
 
-  Future<void> signIn({required String accessToken, String? refreshToken, String? expiresAt}) async {
+  Future<void> signIn({required String accessToken}) async {
     await _secureStorage.setAccessToken(accessToken);
-    if (refreshToken != null) await _secureStorage.setRefreshToken(refreshToken);
-    if (expiresAt != null) await _secureStorage.setTokenExpiresAt(expiresAt);
     value = AuthStatus.authenticated;
   }
 
@@ -36,7 +34,7 @@ class AuthSession extends ValueNotifier<AuthStatus> {
   Future<void> signOut() async {
     if (value == AuthStatus.unauthenticated) return;
     value = AuthStatus.unauthenticated;
-    await _secureStorage.deleteAllTokens();
+    await _secureStorage.deleteAccessToken();
     await HiveMethods.deleteAuthEntity();
   }
 }
