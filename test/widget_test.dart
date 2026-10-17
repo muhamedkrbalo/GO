@@ -7,8 +7,5 @@ void main() {
     await tester.pumpWidget(const MaterialApp(home: SplashScreen()));
 
     expect(find.text('Splash Screen'), findsOneWidget);
-
-    // Let the splash delay timer complete so no timers are left pending.
-    await tester.pump(const Duration(seconds: 5));
   });
 }

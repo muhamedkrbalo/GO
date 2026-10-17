@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 
 import '../../utils/navigator_methods.dart';
+import '../../routes/routes_name.dart';
 import '../zoom_image/zoom_image_screen.dart';
 
 class CustomFileImage extends StatelessWidget {
@@ -32,7 +33,7 @@ class CustomFileImage extends StatelessWidget {
           ? () {
               NavigatorMethods.pushNamed(
                 context,
-                ZoomImageScreen.routeName,
+                RouteNames.zoomImage,
                 arguments: ZoomImageArgs(imageFile: imageFile),
               );
             }

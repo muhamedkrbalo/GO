@@ -1,27 +1,28 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 
+import '../auth/auth_session.dart';
 import '../cache/hive/hive_methods.dart';
 import '../cache/secure_storage/secure_storage_service.dart';
-import '../routes/app_routers.dart';
-import '../utils/navigator_methods.dart';
 import 'status_code.dart';
-import '../routes/routes_name.dart';
 // import 'token_refresh_service.dart';
 
 class AppInterceptors extends Interceptor {
   final Dio _dio;
   // final TokenRefreshService _tokenRefreshService;
   final SecureStorageService _secureStorage;
+  final AuthSession _authSession;
 
   AppInterceptors(
     this._dio, {
     // TokenRefreshService? tokenRefreshService,
     required SecureStorageService secureStorage,
+    required AuthSession authSession,
   })
   :
   //_tokenRefreshService = tokenRefreshService ?? TokenRefreshService.instance,
-        _secureStorage = secureStorage;
+        _secureStorage = secureStorage,
+        _authSession = authSession;
 
   // No pre-flight internet check here: Dio already fails with
   // DioExceptionType.connectionError, which handleDioRequest maps to NetworkFailure.
@@ -71,10 +72,11 @@ class AppInterceptors extends Interceptor {
     );
 
     if (err.response?.statusCode == StatusCode.unauthorized) {
-          await _handleAuthFailure();
+      // Only clear the session; the router's redirect sends the user to login.
+      await _authSession.signOut();
       // if (_isRefreshRequest(err.requestOptions)) {
       //   debugPrint('Refresh token request failed, logging out...');
-      //   await _handleAuthFailure();
+      //   await _authSession.signOut();
       //   return handler.reject(err);
       // }
 
@@ -121,18 +123,5 @@ class AppInterceptors extends Interceptor {
         },
       ),
     );
-  }
-
-  Future<void> _handleAuthFailure() async {
-    await _secureStorage.deleteAllTokens();
-    await HiveMethods.deleteAuthEntity();
-
-    final context = AppRouters.navigatorKey.currentContext;
-    if (context != null) {
-      NavigatorMethods.pushNamedAndRemoveUntil(
-        context,
-        RoutesName.splashScreen,
-      );
-    }
   }
 }

@@ -4,6 +4,7 @@ import 'package:internet_connection_checker_plus/internet_connection_checker_plu
 
 import '../../features/splash/data/repository/splash_repository.dart';
 import '../../features/splash/presentation/controller/splash_cubit.dart';
+import '../auth/auth_session.dart';
 import '../cache/secure_storage/secure_storage_service.dart';
 import '../network/api_consumer.dart';
 import '../network/app_interceptors.dart';
@@ -36,10 +37,13 @@ void _initCore() {
   // Storage
   sl.registerLazySingleton<SecureStorageService>(SecureStorageService.new);
 
+  // Auth
+  sl.registerLazySingleton<AuthSession>(() => AuthSession(sl()));
+
   // Network
   sl.registerLazySingleton<Dio>(Dio.new);
   sl.registerLazySingleton<AppInterceptors>(
-    () => AppInterceptors(sl<Dio>(), secureStorage: sl()),
+    () => AppInterceptors(sl<Dio>(), secureStorage: sl(), authSession: sl()),
   );
   sl.registerLazySingleton<ApiConsumer>(
     () => DioConsumer(client: sl(), interceptors: sl()),

@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter_hr_erb/core/images/app_images.dart';
 import 'package:flutter/cupertino.dart';
 import '../../utils/navigator_methods.dart';
+import '../../routes/routes_name.dart';
 import '../zoom_image/zoom_image_screen.dart';
 import 'package:flutter_hr_erb/core/theme/app_colors.dart';
 
@@ -30,7 +31,7 @@ class CustomNetworkImage extends StatelessWidget {
           ? () {
               NavigatorMethods.pushNamed(
                 context,
-                ZoomImageScreen.routeName,
+                RouteNames.zoomImage,
                 arguments: ZoomImageArgs(imageUrl: imageUrl),
               );
             }

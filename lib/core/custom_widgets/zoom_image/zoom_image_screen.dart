@@ -23,8 +23,6 @@ class ZoomImageScreen extends StatefulWidget {
     required this.args,
   });
 
-  static const String routeName = 'ZoomImageScreen';
-
   @override
   State<ZoomImageScreen> createState() => _ZoomImageScreenState();
 }
