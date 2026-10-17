@@ -22,7 +22,8 @@ class ServiceInitialize {
   static Future<void> initialize() async {
     //! Initialize all services here
     WidgetsFlutterBinding.ensureInitialized();
-    Bloc.observer = AppBlocObserver();
+    // Logs every Bloc/Cubit change: debug builds only.
+    if (kDebugMode) Bloc.observer = AppBlocObserver();
     await EasyLocalization.ensureInitialized();
     // await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
     await initDependencies();

@@ -4,7 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:image_picker/image_picker.dart';
 
 import '../custom_widgets/bottom_sheet/choose_gallery_or_camera_bottom_sheet.dart';
-import '../utils/navigator_methods.dart';
+import '../extension/context_ui_extension.dart';
 
 class ImageMethods {
   static Future<void> pickImage({
@@ -33,8 +33,7 @@ class ImageMethods {
     required void Function(File) onSuccessCamera,
     required void Function(List<File>) onSuccessGallery,
   }) {
-    NavigatorMethods.showAppBottomSheet(
-      context,
+    context.showAppBottomSheet(
       ChooseGalleryOrCameraBottomSheet(
         onCamera: () => ImageMethods.pickImage(
           source: ImageSource.camera,

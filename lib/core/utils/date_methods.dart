@@ -3,7 +3,6 @@ import 'package:timeago/timeago.dart' as timeago;
 import 'package:easy_localization/easy_localization.dart';
 import '../extension/context_extension.dart';
 import '../extension/date_time_extension.dart';
-import '../routes/app_routers.dart';
 import 'package:flutter_hr_erb/core/theme/app_colors.dart';
 
 class DateMethods {
@@ -12,27 +11,27 @@ class DateMethods {
     return dateTime != null ? DateFormat('yyyy-MM-dd', 'en').format(dateTime) : "";
   }
 
-  static String formatToFullData(String? date) {
+  static String formatToFullData(String? date, BuildContext context) {
     DateTime? dateTime = DateTime.tryParse(date.toString());
     return dateTime != null
         ? DateFormat(
             'dd MMMM yyyy - hh:mm a',
-            AppRouters.navigatorKey.currentContext!.locale.languageCode,
+            context.locale.languageCode,
           ).format(dateTime)
         : "";
   }
 
-  static String formatToTime(String? date) {
+  static String formatToTime(String? date, BuildContext context) {
     DateTime? dateTime = DateTime.tryParse(date.toString());
     return dateTime != null
         ? DateFormat(
             "hh:mm a",
-            AppRouters.navigatorKey.currentContext!.locale.languageCode,
+            context.locale.languageCode,
           ).format(dateTime)
         : "";
   }
 
-  static String formatTime(String? time) {
+  static String formatTime(String? time, BuildContext context) {
     Map<int, String>? s = time?.split(':').asMap();
 
     int hours = s?.containsKey(0) == true ? int.parse(s![0]!) : 00;
@@ -42,7 +41,7 @@ class DateMethods {
     return dateTime != null
         ? DateFormat(
             "hh:mm a",
-            AppRouters.navigatorKey.currentContext!.locale.languageCode,
+            context.locale.languageCode,
           ).format(dateTime)
         : "";
   }
@@ -116,11 +115,11 @@ class DateMethods {
     return leapYear;
   }
 
-  static String monthName(int month) {
+  static String monthName(int month, BuildContext context) {
     DateTime dateTime = DateTime(0, month);
     return DateFormat(
       'MMMM',
-      AppRouters.navigatorKey.currentContext!.locale.languageCode,
+      context.locale.languageCode,
     ).format(dateTime);
   }
 

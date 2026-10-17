@@ -4,8 +4,7 @@ import 'package:flutter_hr_erb/core/custom_widgets/custom_image/custom_network_i
 import '../../enum/cubit_state/cubit_status.dart';
 import '../../extension/context_extension.dart';
 import '../../locale/app_locale_key.dart';
-import '../../utils/common_methods.dart';
-import '../../utils/navigator_methods.dart';
+import '../../extension/context_ui_extension.dart';
 import '../api_response_widget/api_response_widget.dart';
 import '../buttons/custom_button.dart';
 import '../custom_form_field/custom_form_field.dart';
@@ -110,8 +109,7 @@ class _CustomMultiSelectState extends State<CustomMultiSelect> {
                 ? null
                 : widget.items != null && widget.items?.isNotEmpty == true
                 ? () {
-                    NavigatorMethods.showAppBottomSheet(
-                      context,
+                    context.showAppBottomSheet(
                       CustomMultiSelectBottomSheet(
                         value: widget.value,
                         items: widget.items,
@@ -123,7 +121,7 @@ class _CustomMultiSelectState extends State<CustomMultiSelect> {
                     );
                   }
                 : () {
-                    CommonMethods.showAlertDialog(
+                    context.showAlertDialog(
                       message: context.apiTr(ar: "لا توجد بيانات", en: "There is no data"),
                     );
                   },

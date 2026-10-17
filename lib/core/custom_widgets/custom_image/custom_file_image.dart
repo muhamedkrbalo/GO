@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 
-import '../../utils/navigator_methods.dart';
+import 'package:go_router/go_router.dart';
 import '../../routes/routes_name.dart';
 import '../zoom_image/zoom_image_screen.dart';
 
@@ -31,10 +31,9 @@ class CustomFileImage extends StatelessWidget {
     return GestureDetector(
       onTap: hasZoom && imageFile != null
           ? () {
-              NavigatorMethods.pushNamed(
-                context,
+              context.pushNamed(
                 RouteNames.zoomImage,
-                arguments: ZoomImageArgs(imageFile: imageFile),
+                extra: ZoomImageArgs(imageFile: imageFile),
               );
             }
           : null,

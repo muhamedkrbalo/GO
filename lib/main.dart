@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 import 'app.dart';
 import 'core/cache/hive/hive_methods.dart';
-import 'service_intialize.dart';
+import 'service_initialize.dart';
 
 void main() async {
   await ServiceInitialize.initialize();

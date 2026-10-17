@@ -4,8 +4,7 @@ import 'package:flutter/material.dart';
 import '../../enum/cubit_state/cubit_status.dart';
 import '../../extension/context_extension.dart';
 import '../../locale/app_locale_key.dart';
-import '../../utils/common_methods.dart';
-import '../../utils/navigator_methods.dart';
+import '../../extension/context_ui_extension.dart';
 import '../api_response_widget/api_response_widget.dart';
 import '../buttons/custom_button.dart';
 import '../custom_form_field/custom_form_field.dart';
@@ -145,8 +144,7 @@ class _CustomSingleSelectState extends State<CustomSingleSelect> {
                 ? null
                 : widget.items != null && widget.items?.isNotEmpty == true
                 ? () {
-                    NavigatorMethods.showAppBottomSheet(
-                      context,
+                    context.showAppBottomSheet(
                       CustomSingleSelectBottomSheet(
                         value: widget.value,
                         items: widget.items,
@@ -159,7 +157,7 @@ class _CustomSingleSelectState extends State<CustomSingleSelect> {
                     );
                   }
                 : () {
-                    CommonMethods.showAlertDialog(
+                    context.showAlertDialog(
                       message: context.apiTr(ar: "لا توجد بيانات", en: "There is no data"),
                     );
                   },

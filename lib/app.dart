@@ -22,6 +22,7 @@ class _GOState extends State<GO> {
   // Built once, not on every rebuild.
   final _lightTheme = getLightTheme();
   final _darkTheme = getDarkTheme();
+  final _botToastBuilder = BotToastInit();
 
   @override
   Widget build(BuildContext context) {
@@ -40,12 +41,9 @@ class _GOState extends State<GO> {
             theme: _lightTheme,
             darkTheme: _darkTheme,
             themeMode: themeMode,
-            builder: (context, child) {
-              final botToastBuilder = BotToastInit();
-              return ConnectivityWrapper(
-                child: botToastBuilder(context, child),
-              );
-            },
+            builder: (context, child) => ConnectivityWrapper(
+              child: _botToastBuilder(context, child),
+            ),
             routerConfig: AppRouters.router,
           );
         },

@@ -6,7 +6,7 @@ abstract final class RoutePaths {
   static const String zoomImage = '/zoom-image';
 }
 
-/// Route names, used by `context.pushNamed(...)` / `NavigatorMethods`.
+/// Route names, used by `context.pushNamed(...)`.
 abstract final class RouteNames {
   static const String splash = 'splash';
   static const String login = 'login';

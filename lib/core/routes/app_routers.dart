@@ -13,6 +13,8 @@ import '../services/service_locator.dart';
 import 'routes_name.dart';
 
 class AppRouters {
+  /// Owned by the router. Don't use `navigatorKey.currentContext` in helpers:
+  /// pass a [BuildContext] (see `context_ui_extension.dart`) instead.
   static final GlobalKey<NavigatorState> navigatorKey =
       GlobalKey<NavigatorState>();
 

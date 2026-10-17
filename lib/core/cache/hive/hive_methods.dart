@@ -17,7 +17,7 @@ class HiveMethods {
   //! Language Methods
   /// Single source of truth for the app language: read at startup
   /// (EasyLocalization.startLocale) and by the API interceptor (Accept-Language).
-  /// Change it only through `CommonMethods.setLanguage` so the UI stays in sync.
+  /// Change it only through `context.setAppLanguage` so the UI stays in sync.
   static String getLang() {
     return _box.get('lang', defaultValue: 'en');
   }
