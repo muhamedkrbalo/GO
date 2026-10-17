@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_hr_erb/core/theme/app_sizes.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import '../../images/app_images.dart';
 import '../../locale/app_locale_key.dart';
@@ -26,15 +27,15 @@ class ChooseGalleryOrCameraBottomSheet extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          const SizedBox(height: 15),
+          AppSpacing.gapV15,
           SizedBox(
             width: 40,
             child: Divider(color: context.customColors.hint),
           ),
-          const SizedBox(height: 15),
+          AppSpacing.gapV15,
           Flexible(
             child: SingleChildScrollView(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
+              padding: AppPadding.h20,
               child: Column(
                 children: [
                   TextButton(
@@ -48,7 +49,7 @@ class ChooseGalleryOrCameraBottomSheet extends StatelessWidget {
                             BlendMode.srcIn,
                           ),
                         ),
-                        const SizedBox(width: 10),
+                        AppSpacing.gapH10,
                         Text(
                           AppLocaleKey.camera.tr(),
                           style:  TextStyle(
@@ -74,7 +75,7 @@ class ChooseGalleryOrCameraBottomSheet extends StatelessWidget {
                             BlendMode.srcIn,
                           ),
                         ),
-                        const SizedBox(width: 10),
+                        AppSpacing.gapH10,
                         Text(
                           tr(AppLocaleKey.gallery),
                           style: const TextStyle(
@@ -86,7 +87,7 @@ class ChooseGalleryOrCameraBottomSheet extends StatelessWidget {
                       ],
                     ),
                   ),
-                  const SizedBox(height: 15),
+                  AppSpacing.gapV15,
                 ],
               ),
             ),

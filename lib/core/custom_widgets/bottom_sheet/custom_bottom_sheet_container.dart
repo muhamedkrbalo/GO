@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_hr_erb/core/theme/app_sizes.dart';
 import 'package:flutter_hr_erb/core/theme/app_text_styles.dart';
 import 'package:flutter_hr_erb/core/theme/extensions/theme_extensions.dart';
 
@@ -29,14 +30,14 @@ class _CustomBottomSheetContainerState extends State<CustomBottomSheetContainer>
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisSize: MainAxisSize.min,
           children: [
-            const SizedBox(height: 15),
+            AppSpacing.gapV15,
             Center(
               child: SizedBox(
                 width: 30,
                 child: Divider(color: context.customColors.lightGrey, thickness: 2),
               ),
             ),
-            const SizedBox(height: 24),
+            AppSpacing.gapV24,
             Text(widget.headerText ?? '', style: AppTextStyles.mMedium.copyWith(color: context.customColors.textSecondary)),
             widget.content,
           ],

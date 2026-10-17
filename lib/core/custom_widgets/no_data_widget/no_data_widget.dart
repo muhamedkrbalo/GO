@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_hr_erb/core/theme/app_sizes.dart';
 import 'package:flutter_svg/svg.dart';
 import '../../extension/context_extension.dart';
 import '../../images/app_images.dart';
@@ -17,10 +18,10 @@ class NoDataWidget extends StatelessWidget {
     switch (axis) {
       case Axis.horizontal:
         return Container(
-          padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
-          decoration: BoxDecoration(
+          padding: AppPadding.v5h10,
+          decoration: const BoxDecoration(
             //     color: AppColors.primary.withOpacity(0),
-            borderRadius: BorderRadius.circular(7),
+            borderRadius: AppRadius.brS,
           ),
           child: IntrinsicHeight(
             child: Row(
@@ -35,7 +36,7 @@ class NoDataWidget extends StatelessWidget {
                   height: 40,
                   fit: BoxFit.contain,
                 ),
-                const SizedBox(width: 10),
+                AppSpacing.gapH10,
                 Expanded(
                   child: Align(
                     alignment: AlignmentDirectional.centerStart,
@@ -61,10 +62,10 @@ class NoDataWidget extends StatelessWidget {
       case Axis.vertical:
         return Container(
           width: double.infinity,
-          padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 10),
-          decoration: BoxDecoration(
+          padding: AppPadding.v20h10,
+          decoration: const BoxDecoration(
             //   color: AppColors.primary.withOpacity(0.2),
-            borderRadius: BorderRadius.circular(7),
+            borderRadius: AppRadius.brS,
           ),
           child: Column(
             mainAxisSize: MainAxisSize.min,
@@ -79,7 +80,7 @@ class NoDataWidget extends StatelessWidget {
                 height: 100,
                 fit: BoxFit.contain,
               ),
-              const SizedBox(height: 10),
+              AppSpacing.gapV10,
               Text(
                 message ??
                     context.apiTr(

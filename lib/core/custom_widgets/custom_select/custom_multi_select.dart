@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hr_erb/core/custom_widgets/custom_image/custom_network_image.dart';
+import 'package:flutter_hr_erb/core/theme/app_sizes.dart';
 import '../../enum/cubit_state/cubit_status.dart';
 import '../../extension/context_extension.dart';
 import '../../locale/app_locale_key.dart';
@@ -100,7 +101,7 @@ class _CustomMultiSelectState extends State<CustomMultiSelect> {
             ],
           ),
           if (widget.title != null || widget.otherSideTitle != null) ...{
-            const SizedBox(height: 10),
+            AppSpacing.gapV10,
           },
           TextFormField(
             controller: _selectedEC,
@@ -149,7 +150,7 @@ class _CustomMultiSelectState extends State<CustomMultiSelect> {
               enabledBorder: _border(
                 color: widget.unFocusColor ?? context.customColors.textFormBorder,
               ),
-              contentPadding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+              contentPadding: AppPadding.all10,
               suffixIconConstraints: BoxConstraints(maxWidth: widget.suffixIcon != null ? 110 : 40),
               prefixIcon: widget.prefixIcon,
               suffixIcon: Row(
@@ -198,7 +199,7 @@ class _CustomMultiSelectState extends State<CustomMultiSelect> {
                   ),
                   if (widget.suffixIcon != null) ...{
                     widget.suffixIcon ?? const SizedBox(),
-                    const SizedBox(width: 10),
+                    AppSpacing.gapH10,
                   },
                 ],
               ),
@@ -270,13 +271,13 @@ class _CustomMultiSelectBottomSheetState extends State<CustomMultiSelectBottomSh
               height: 4,
               decoration: BoxDecoration(
                 color: context.customColors.primaryLight,
-                borderRadius: BorderRadius.circular(8),
+                borderRadius: AppRadius.brS,
               ),
             ),
           ),
           const SizedBox(height: 2),
           Padding(
-            padding: const EdgeInsets.all(10),
+            padding: AppPadding.all10,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -296,7 +297,7 @@ class _CustomMultiSelectBottomSheetState extends State<CustomMultiSelectBottomSh
           ),
           // SizedBox(height: 16),
           Padding(
-            padding: const EdgeInsets.all(10),
+            padding: AppPadding.all10,
             child: Row(
               children: [
                 CustomButton(
@@ -308,7 +309,7 @@ class _CustomMultiSelectBottomSheetState extends State<CustomMultiSelectBottomSh
                     Navigator.pop(context);
                   },
                 ),
-                const SizedBox(width: 10),
+                AppSpacing.gapH10,
                 Expanded(
                   child: CustomFormField(
                     fillColor: context.customColors.surfaceVariant,
@@ -327,7 +328,7 @@ class _CustomMultiSelectBottomSheetState extends State<CustomMultiSelectBottomSh
           ),
           Flexible(
             child: SingleChildScrollView(
-              padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+              padding: AppPadding.v10h20,
               child: Column(
                 children: [
                   ...List.generate(
@@ -349,7 +350,7 @@ class _CustomMultiSelectBottomSheetState extends State<CustomMultiSelectBottomSh
                               }
                             },
                             child: Padding(
-                              padding: const EdgeInsets.symmetric(vertical: 5),
+                              padding: AppPadding.v5,
                               child: Row(
                                 children: [
                                   CustomNetworkImage(
@@ -368,7 +369,7 @@ class _CustomMultiSelectBottomSheetState extends State<CustomMultiSelectBottomSh
                                       ),
                                     ),
                                   ),
-                                  const SizedBox(width: 10),
+                                  AppSpacing.gapH10,
                                   Container(
                                     width: 22,
                                     height: 22,
@@ -399,7 +400,7 @@ class _CustomMultiSelectBottomSheetState extends State<CustomMultiSelectBottomSh
                             ),
                           ),
                         ),
-                        const SizedBox(height: 5),
+                        AppSpacing.gapV5,
                       ],
                     ),
                   ),

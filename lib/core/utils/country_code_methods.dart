@@ -1,5 +1,6 @@
 import 'package:country_picker/country_picker.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_hr_erb/core/theme/app_sizes.dart';
 import '../extension/context_extension.dart';
 import '../locale/app_locale_key.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -55,22 +56,22 @@ class CountryCodeMethods {
           fillColor: context.customColors.textFormFill,
           filled: true,
           border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(25),
+            borderRadius: AppRadius.brL,
             borderSide: BorderSide(color: context.customColors.textFormBorder),
           ),
           disabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(25),
+            borderRadius: AppRadius.brL,
             borderSide: BorderSide(color: context.customColors.textFormBorder),
           ),
-          focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(25),
-            borderSide: const BorderSide(color: AppColors.primary),
+          focusedBorder: const OutlineInputBorder(
+            borderRadius: AppRadius.brL,
+            borderSide: BorderSide(color: AppColors.primary),
           ),
           enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(25),
+            borderRadius: AppRadius.brL,
             borderSide: BorderSide(color: context.customColors.textFormBorder),
           ),
-          contentPadding: const EdgeInsets.symmetric(vertical: 5, horizontal: 20),
+          contentPadding: AppPadding.v5h20,
         ),
       ),
       onSelect: onSelect,

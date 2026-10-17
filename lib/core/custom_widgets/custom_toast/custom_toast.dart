@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_hr_erb/core/theme/app_sizes.dart';
 
 enum ToastType { success, error, offline, warning, help }
 
@@ -25,16 +26,16 @@ class CustomToast extends StatelessWidget {
     return Container(
       //   width: double.infinity,
       //   height: 50,
-      padding: const EdgeInsets.all(10),
-      margin: const EdgeInsets.all(20),
+      padding: AppPadding.all10,
+      margin: AppMargin.all20,
       decoration: BoxDecoration(
         color: backgroundColor ?? _backgroundColor(),
-        borderRadius: BorderRadius.circular(50),
+        borderRadius: AppRadius.brCircle,
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          const SizedBox(width: 10),
+          AppSpacing.gapH10,
           Expanded(
             child: Column(
               mainAxisSize: MainAxisSize.min,
@@ -51,7 +52,7 @@ class CustomToast extends StatelessWidget {
                     ),
                     maxLines: 1,
                   ),
-                  const SizedBox(height: 8),
+                  AppSpacing.gapV8,
                 },
                 Center(
                   child: Text(

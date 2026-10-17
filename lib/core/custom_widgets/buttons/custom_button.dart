@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hr_erb/core/images/app_images.dart';
+import 'package:flutter_hr_erb/core/theme/app_sizes.dart';
 import 'package:lottie/lottie.dart';
 import '../../enum/cubit_state/cubit_status.dart';
 import 'package:flutter_hr_erb/core/theme/app_text_styles.dart';
@@ -137,7 +138,7 @@ class _CustomButtonState extends State<CustomButton> with SingleTickerProviderSt
                           children: [
                             if (widget.prefixIcon != null) ...{
                               widget.prefixIcon!,
-                              const SizedBox(width: 5),
+                              AppSpacing.gapH5,
                             },
                             Flexible(
                               child:
@@ -154,7 +155,7 @@ class _CustomButtonState extends State<CustomButton> with SingleTickerProviderSt
                                   ),
                             ),
                             if (widget.suffixIcon != null) ...{
-                              const SizedBox(width: 5),
+                              AppSpacing.gapH5,
                               widget.suffixIcon!,
                             },
                           ],

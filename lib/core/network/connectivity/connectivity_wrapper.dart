@@ -2,6 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hr_erb/core/locale/app_locale_key.dart';
+import 'package:flutter_hr_erb/core/theme/app_sizes.dart';
 import 'connectivity_cubit.dart';
 import 'package:flutter_hr_erb/core/theme/app_text_styles.dart';
 import 'package:flutter_hr_erb/core/theme/app_colors.dart';
@@ -57,12 +58,12 @@ class NoInternetBanner extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const Icon(Icons.wifi_off_rounded, color: AppColors.white, size: 18),
-              const SizedBox(width: 8),
+              AppSpacing.gapH8,
               Text(
                 AppLocaleKey.noInternet.tr(),
                 style: AppTextStyles.sMedium.copyWith(color: AppColors.white),
               ),
-              const SizedBox(width: 8),
+              AppSpacing.gapH8,
               const SizedBox(
                 width: 16,
                 height: 16,

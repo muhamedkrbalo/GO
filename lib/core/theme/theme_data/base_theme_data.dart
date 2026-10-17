@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_hr_erb/core/theme/app_sizes.dart';
 
 import '../app_colors.dart';
 import '../app_fonts.dart';
@@ -14,7 +15,7 @@ ThemeData buildAppTheme({
   required CustomColors colors,
 }) {
   OutlineInputBorder border(Color color) => OutlineInputBorder(
-        borderRadius: BorderRadius.circular(10),
+        borderRadius: AppRadius.brM,
         borderSide: BorderSide(color: color),
       );
 
@@ -68,10 +69,10 @@ ThemeData buildAppTheme({
     tabBarTheme: TabBarThemeData(
       dividerColor: Colors.transparent,
       indicatorSize: TabBarIndicatorSize.tab,
-      indicator: BoxDecoration(
+      indicator: const BoxDecoration(
         boxShadow: AppShadows.shadow1,
         color: AppColors.primary,
-        borderRadius: BorderRadius.circular(50),
+        borderRadius: AppRadius.brCircle,
       ),
       labelStyle: AppTextStyles.xsRegular.copyWith(color: AppColors.white),
       unselectedLabelStyle: AppTextStyles.xsRegular.copyWith(color: colors.darkGrey),

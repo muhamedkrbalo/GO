@@ -3,6 +3,7 @@ import 'dart:ui' as ui;
 import 'package:country_picker/country_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_hr_erb/core/theme/app_sizes.dart';
 import '../../extension/context_extension.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter_hr_erb/core/theme/app_text_styles.dart';
@@ -108,7 +109,7 @@ class _CustomFormFieldState extends State<CustomFormField> {
               },
             ],
           ),
-          if (widget.title != null || widget.otherSideTitle != null) ...{const SizedBox(height: 8)},
+          if (widget.title != null || widget.otherSideTitle != null) ...{AppSpacing.gapV8},
           Directionality(
             textDirection: widget.textDirection != null
                 ? widget.textDirection!
@@ -156,7 +157,7 @@ class _CustomFormFieldState extends State<CustomFormField> {
                 enabledBorder: _border(
                   color: widget.unFocusColor ?? context.customColors.textFormBorder,
                 ),
-                contentPadding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+                contentPadding: AppPadding.all10,
                 prefixIcon: widget.country != null && context.locale == const Locale('en')
                     ? Row(
                         mainAxisSize: MainAxisSize.min,

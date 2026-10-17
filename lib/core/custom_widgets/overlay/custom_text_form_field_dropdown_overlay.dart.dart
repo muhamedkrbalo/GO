@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import 'package:flutter_hr_erb/core/theme/app_sizes.dart';
 import 'package:flutter_svg/svg.dart';
 import '../custom_form_field/custom_form_field.dart';
 import '../../../../core/enum/cubit_state/cubit_status.dart';
@@ -57,14 +58,14 @@ class _CustomTextFormFieldDropdownOverlayState extends State<CustomTextFormField
             offset: Offset(0, widget.height ?? 40),
             child: Material(
               elevation: 1,
-              borderRadius: BorderRadius.circular(8),
+              borderRadius: AppRadius.brS,
               color: context.customColors.surface,
               child: ConstrainedBox(
                 constraints: const BoxConstraints(maxHeight: 250, minHeight: 50),
                 child: widget.items.isEmpty
                     ? const Center(
                         child: Padding(
-                          padding: EdgeInsets.all(10.0),
+                          padding: AppPadding.all10,
                           child: Text("لا يوجد بيانات"),
                         ),
                       )
@@ -149,7 +150,7 @@ class _CustomTextFormFieldDropdownOverlayState extends State<CustomTextFormField
             : ValueListenableBuilder(
                 valueListenable: _isDropdownVisible,
                 builder: (BuildContext context, bool isVisible, _) => Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 15),
+                  padding: AppPadding.h15,
                   child: isVisible
                       ? RotatedBox(
                           quarterTurns: 2,

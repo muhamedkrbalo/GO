@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_hr_erb/core/theme/app_sizes.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import '../../extension/context_extension.dart';
 import '../../images/app_images.dart';
@@ -15,10 +16,10 @@ class OfflineWidget extends StatelessWidget {
     switch (axis) {
       case Axis.horizontal:
         return Container(
-          padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+          padding: AppPadding.v5h10,
           decoration: BoxDecoration(
             color: AppColors.primary.withValues(alpha: 0.2),
-            borderRadius: BorderRadius.circular(7),
+            borderRadius: AppRadius.brS,
           ),
           child: IntrinsicHeight(
             child: Row(
@@ -33,7 +34,7 @@ class OfflineWidget extends StatelessWidget {
                   height: 40,
                   fit: BoxFit.contain,
                 ),
-                const SizedBox(width: 10),
+                AppSpacing.gapH10,
                 Expanded(
                   child: Text(
                     context.apiTr(
@@ -48,7 +49,7 @@ class OfflineWidget extends StatelessWidget {
                     textAlign: TextAlign.justify,
                   ),
                 ),
-                const SizedBox(width: 10),
+                AppSpacing.gapH10,
                 IconButton(
                   onPressed: onReload,
                   icon: SvgPicture.asset(
@@ -69,10 +70,10 @@ class OfflineWidget extends StatelessWidget {
       case Axis.vertical:
         return Container(
           width: double.infinity,
-          padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 10),
+          padding: AppPadding.v20h10,
           decoration: BoxDecoration(
             color: AppColors.primary.withValues(alpha: 0.2),
-            borderRadius: BorderRadius.circular(7),
+            borderRadius: AppRadius.brS,
           ),
           child: Column(
             mainAxisSize: MainAxisSize.min,
@@ -87,7 +88,7 @@ class OfflineWidget extends StatelessWidget {
                 height: 80,
                 fit: BoxFit.contain,
               ),
-              const SizedBox(height: 10),
+              AppSpacing.gapV10,
               Text(
                 context.apiTr(
                   ar: "تأكد من الاتصال بالإنترنت",
@@ -100,7 +101,7 @@ class OfflineWidget extends StatelessWidget {
                 ),
                 textAlign: TextAlign.center,
               ),
-              const SizedBox(height: 10),
+              AppSpacing.gapV10,
               CustomButton(
                 width: MediaQuery.of(context).size.width * 0.5,
                 text: context.apiTr(ar: "إعادة تحميل", en: "Reload"),

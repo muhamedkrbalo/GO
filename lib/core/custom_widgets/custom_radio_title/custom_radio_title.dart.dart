@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_hr_erb/core/theme/app_sizes.dart';
 import 'package:flutter_hr_erb/core/theme/app_text_styles.dart';
 import 'package:flutter_hr_erb/core/theme/extensions/theme_extensions.dart';
 import 'package:flutter_hr_erb/core/theme/app_colors.dart';
@@ -37,7 +38,7 @@ class CustomRadioTitle extends StatelessWidget {
           },
           borderRadius: BorderRadius.circular(24),
           child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 10),
+            padding: AppPadding.v10,
             child: Row(
               children: [
                 AnimatedContainer(
@@ -58,7 +59,7 @@ class CustomRadioTitle extends StatelessWidget {
                     ),
                   ),
                 ),
-                const SizedBox(width: 8),
+                AppSpacing.gapH8,
                 Expanded(
                   child: Text(option.labelKey.tr(), style: AppTextStyles.mRegular.copyWith(color: context.customColors.textSecondary)),
                 ),

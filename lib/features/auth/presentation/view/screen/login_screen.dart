@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hr_erb/core/custom_widgets/buttons/custom_button.dart';
 import 'package:flutter_hr_erb/core/custom_widgets/custom_form_field/custom_form_field.dart';
+import 'package:flutter_hr_erb/core/theme/app_sizes.dart';
 
 // TODO: build the login UI. On success call `sl<AuthSession>().signIn(...)`;
 // the router redirects to home on its own.
@@ -11,7 +12,7 @@ class LoginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Scaffold(
       body: Padding(
-        padding: EdgeInsets.all(20),
+        padding: AppPadding.all20,
         child: Column(
           children: [
             SizedBox(height: 300),

@@ -1,6 +1,7 @@
 import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
+import 'package:flutter_hr_erb/core/theme/app_sizes.dart';
 import 'package:pinput/pinput.dart';
 import '../../extension/context_extension.dart';
 import 'package:flutter_hr_erb/core/theme/app_text_styles.dart';
@@ -43,7 +44,7 @@ class _CustomOtpFieldState extends State<CustomOtpField> {
             decoration: BoxDecoration(
               border: Border.all(color: AppColors.primary),
               color: context.customColors.textFormFill,
-              borderRadius: BorderRadius.circular(10),
+              borderRadius: AppRadius.brM,
             ),
           ),
           submittedPinTheme: PinTheme(
@@ -53,7 +54,7 @@ class _CustomOtpFieldState extends State<CustomOtpField> {
             decoration: BoxDecoration(
               border: Border.all(color: AppColors.primary),
               color: context.customColors.surface,
-              borderRadius: BorderRadius.circular(10),
+              borderRadius: AppRadius.brM,
             ),
           ),
           errorPinTheme: PinTheme(
@@ -63,7 +64,7 @@ class _CustomOtpFieldState extends State<CustomOtpField> {
             decoration: BoxDecoration(
               color: context.customColors.surfaceVariant,
               border: Border.all(color: Colors.red.shade700),
-              borderRadius: BorderRadius.circular(10.0),
+              borderRadius: AppRadius.brM,
             ),
           ),
           errorBuilder: (errorText, pin) {
@@ -73,7 +74,7 @@ class _CustomOtpFieldState extends State<CustomOtpField> {
                 en: AlignmentDirectional.centerStart,
               ),
               child: Padding(
-                padding: const EdgeInsets.all(5),
+                padding: AppPadding.all5,
                 child: Text(
                   errorText!,
                   style: TextStyle(

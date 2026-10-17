@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_hr_erb/core/theme/app_sizes.dart';
 import '../../enum/cubit_state/cubit_status.dart';
 import '../../extension/context_extension.dart';
 import '../../locale/app_locale_key.dart';
@@ -135,7 +136,7 @@ class _CustomSingleSelectState extends State<CustomSingleSelect> {
             ],
           ),
           if (widget.title != null || widget.otherSideTitle != null) ...{
-            const SizedBox(height: 10),
+            AppSpacing.gapV10,
           },
           TextFormField(
             controller: _selectedEC,
@@ -184,7 +185,7 @@ class _CustomSingleSelectState extends State<CustomSingleSelect> {
               enabledBorder: _border(
                 color: widget.unFocusColor ?? context.customColors.textFormBorder,
               ),
-              contentPadding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+              contentPadding: AppPadding.all10,
               suffixIconConstraints: BoxConstraints(maxWidth: widget.suffixIcon != null ? 110 : 40),
               prefixIcon: widget.prefixIcon,
               suffixIcon: Row(
@@ -233,7 +234,7 @@ class _CustomSingleSelectState extends State<CustomSingleSelect> {
                   ),
                   if (widget.suffixIcon != null) ...{
                     widget.suffixIcon ?? const SizedBox(),
-                    const SizedBox(width: 10),
+                    AppSpacing.gapH10,
                   },
                 ],
               ),
@@ -302,7 +303,7 @@ class _CustomSingleSelectBottomSheetState extends State<CustomSingleSelectBottom
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
         children: [
-          const SizedBox(height: 15),
+          AppSpacing.gapV15,
           Center(
             child: SizedBox(
               width: 30,
@@ -310,11 +311,11 @@ class _CustomSingleSelectBottomSheetState extends State<CustomSingleSelectBottom
             ),
           ),
           Padding(
-            padding: const EdgeInsets.all(10),
+            padding: AppPadding.all10,
             child: Text(AppLocaleKey.search.tr(), style: AppTextStyles.mMedium.copyWith(color: context.customColors.textSecondary)),
           ),
           Padding(
-            padding: const EdgeInsets.all(10),
+            padding: AppPadding.all10,
             child: Row(
               children: [
                 CustomButton(
@@ -326,7 +327,7 @@ class _CustomSingleSelectBottomSheetState extends State<CustomSingleSelectBottom
                     Navigator.pop(context);
                   },
                 ),
-                const SizedBox(width: 10),
+                AppSpacing.gapH10,
                 Expanded(
                   child: CustomFormField(
                     fillColor: context.customColors.surfaceVariant,
@@ -375,7 +376,7 @@ class _CustomSingleSelectBottomSheetState extends State<CustomSingleSelectBottom
                               }
                             },
                             child: Padding(
-                              padding: const EdgeInsets.symmetric(horizontal: 20),
+                              padding: AppPadding.h20,
                               child: Row(
                                 children: [
                                   _initialValue == _items?[index].value
@@ -421,7 +422,7 @@ class _CustomSingleSelectBottomSheetState extends State<CustomSingleSelectBottom
                                     ),
                                   ),
                                   */
-                                  const SizedBox(width: 10),
+                                  AppSpacing.gapH10,
                                   //Expanded
                                   Text(
                                     _items?[index].name ?? "",
@@ -436,12 +437,12 @@ class _CustomSingleSelectBottomSheetState extends State<CustomSingleSelectBottom
                             ),
                           ),
                         ),
-                        const SizedBox(height: 5),
+                        AppSpacing.gapV5,
                         Padding(
                           padding: const EdgeInsetsDirectional.only(start: 22),
                           child: Divider(color: context.customColors.divider, thickness: 1),
                         ),
-                        const SizedBox(height: 5),
+                        AppSpacing.gapV5,
                       ],
                     ),
                   ),
