@@ -24,7 +24,7 @@ ThemeData buildAppTheme({
     brightness: brightness,
     platform: TargetPlatform.iOS,
     visualDensity: VisualDensity.adaptivePlatformDensity,
-    fontFamily: AppFonts.poppins,
+    fontFamily: AppFonts.inter,
     primaryColor: AppColors.primary,
     hintColor: colors.hint,
     scaffoldBackgroundColor: scaffold,
@@ -38,7 +38,7 @@ ThemeData buildAppTheme({
       error: AppColors.red,
     ),
     textTheme: ThemeData(brightness: brightness).textTheme.apply(
-          fontFamily: AppFonts.poppins,
+          fontFamily: AppFonts.inter,
           bodyColor: colors.textSecondary,
           displayColor: colors.textPrimary,
         ),

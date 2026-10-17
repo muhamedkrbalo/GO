@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_hr_erb/core/theme/app_fonts.dart';
 import 'package:intl/intl.dart' as intl;
 
 extension ContextExtension on BuildContext {
@@ -7,9 +8,9 @@ extension ContextExtension on BuildContext {
 
   double height() => MediaQuery.sizeOf(this).height;
 
-  String fontFamily() => apiTr(ar: 'Poppins', en: 'Poppins');
-  String fontFamilyAr() => 'Poppins';
-  String fontFamilyEn() => 'Poppins';
+  String fontFamily() => apiTr(ar: AppFonts.inter, en: AppFonts.inter);
+  String fontFamilyAr() => AppFonts.inter;
+  String fontFamilyEn() => AppFonts.inter;
 
   String apiTr({required String ar, required String en}) {
     String text = '';

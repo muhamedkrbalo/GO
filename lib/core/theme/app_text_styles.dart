@@ -10,7 +10,7 @@ class AppTextStyles {
 
 
   static const buttonStyle = TextStyle(
-    fontFamily: AppFonts.poppins,
+    fontFamily: AppFonts.inter,
     fontSize: 15,
     fontWeight: FontWeight.w700,
   );
@@ -18,13 +18,13 @@ class AppTextStyles {
 
   // xs - 12
   static const xsRegular = TextStyle(
-    fontFamily: AppFonts.poppins,
+    fontFamily: AppFonts.inter,
     fontSize: 12,
     fontWeight: FontWeight.w400,
   );
 
    static const xsSemiBold = TextStyle(
-    fontFamily: AppFonts.poppins,
+    fontFamily: AppFonts.inter,
     fontSize: 13,
     fontWeight: FontWeight.w600,
   );
@@ -32,45 +32,45 @@ class AppTextStyles {
 
   // s - 14
   static const sRegular = TextStyle(
-    fontFamily: AppFonts.poppins,
+    fontFamily: AppFonts.inter,
     fontSize: 14,
     fontWeight: FontWeight.w400,
   );
 
   static const sMedium = TextStyle(
-    fontFamily: AppFonts.poppins,
+    fontFamily: AppFonts.inter,
     fontSize: 14,
     fontWeight: FontWeight.w500,
   );
 
   // m - 16
   static const mRegular = TextStyle(
-    fontFamily: AppFonts.poppins,
+    fontFamily: AppFonts.inter,
     fontSize: 16,
     fontWeight: FontWeight.w400,
   );
 
   static const mMedium = TextStyle(
-    fontFamily: AppFonts.poppins,
+    fontFamily: AppFonts.inter,
     fontSize: 16,
     fontWeight: FontWeight.w500,
   );
 
   static const mBold = TextStyle(
-    fontFamily: AppFonts.poppins,
+    fontFamily: AppFonts.inter,
     fontSize: 16,
     fontWeight: FontWeight.w700,
   );
 
   // xl - 20
   static const xlSemiBold = TextStyle(
-    fontFamily: AppFonts.poppins,
+    fontFamily: AppFonts.inter,
     fontSize: 20,
     fontWeight: FontWeight.w600,
   );
 
   static const xlBold = TextStyle(
-    fontFamily: AppFonts.poppins,
+    fontFamily: AppFonts.inter,
     fontSize: 20,
     fontWeight: FontWeight.w700,
   );
