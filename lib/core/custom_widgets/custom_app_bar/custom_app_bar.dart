@@ -51,9 +51,10 @@ class CustomAppBar extends PreferredSize {
            title: title,
            leading: InkWell(
              onTap: leadingOnTap ?? () => Navigator.pop(context),
-             child: Padding(
-               padding: const EdgeInsetsDirectional.only(start: 16.0, bottom: 20.0, top: 20.0),
-               child: leading ?? SvgPicture.asset(AppImages.assetsSvgArrowBackIos),
+             child:const Padding(
+               padding:  EdgeInsetsDirectional.only(start: 16.0, bottom: 20.0, top: 20.0),
+               
+              //  child: leading ?? SvgPicture.asset(AppImages.assetsSvgArrowBackIos),
              ),
            ),
            actions: actions,

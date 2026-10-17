@@ -44,12 +44,14 @@ class CustomNetworkImage extends StatelessWidget {
           height: height,
           placeholder: (context, url) =>
               const CupertinoActivityIndicator(color: AppColors.primary),
-          errorWidget: (context, url, error) => Image(
-            image: const AssetImage(AppImages.assetsImagesLogoPng),
-            fit: fit,
-            width: width,
-            height: height,
-          ),
+          errorWidget: (context, url, error) =>
+          Text("data")
+          //  Image(
+          //   image: const AssetImage(AppImages.assetsPngGoLogo), // fallback image asset
+          //   fit: fit,
+          //   width: width,
+          //   height: height,
+          // ),
         ),
       ),
     );

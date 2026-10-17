@@ -39,7 +39,7 @@ class CachedNetworkSvgImage extends StatelessWidget {
           color: color,
           placeholder: const CupertinoActivityIndicator(color: AppColors.primary),
           errorWidget: SvgPicture.asset(
-            AppImages.assetsSvgLogo, // fallback SVG asset
+            AppImages.assetsSvgGoLogo, // fallback SVG asset
             width: width,
             height: height,
             fit: fit ?? BoxFit.contain,

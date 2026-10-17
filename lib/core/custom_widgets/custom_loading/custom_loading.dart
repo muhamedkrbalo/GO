@@ -29,6 +29,11 @@ class CustomLoading extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return LottieBuilder.asset(AppImages.assetsLottieLogoAnimation, width: size, height: size);
+    return Center(
+      child: CircularProgressIndicator(
+        color: color ?? Theme.of(context).primaryColor,
+        strokeWidth: 3.0,
+      ),
+    );
   }
 }
