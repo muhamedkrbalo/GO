@@ -17,6 +17,9 @@ class AppRouters {
       GoRoute(
         path: '/zoom-image',
         name: ZoomImageScreen.routeName,
+        // `extra` is null on deep links, web refresh and state restoration.
+        redirect: (context, state) =>
+            state.extra is ZoomImageArgs ? null : RoutesName.splashScreen,
         builder: (context, state) => ZoomImageScreen(
           args: state.extra as ZoomImageArgs,
         ),

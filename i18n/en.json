@@ -64,5 +64,10 @@
   "confirm": "Confirm",
   "language": "Language",
   "noInternet": "No Internet",
-  "PleaseCheckYourConnectionAndTryAgain": "Please check your connection and try again."
+  "PleaseCheckYourConnectionAndTryAgain": "Please check your connection and try again.",
+  "errorOccurred": "Something went wrong, please try again.",
+  "connectionTimeout": "The connection timed out, please try again.",
+  "requestCancelled": "The request was cancelled.",
+  "resourceNotFound": "The requested resource was not found.",
+  "serverError": "Server error, please try again later."
 }

@@ -64,6 +64,11 @@
     "confirm": "تأكيد",
     "language": "اللغة",
     "noInternet" : "لا يوجد شبكه",
-    "PleaseCheckYourConnectionAndTryAgain" : "يرجى التحقق من اتصالك ثم المحاولة مرة أخرى."
+    "PleaseCheckYourConnectionAndTryAgain" : "يرجى التحقق من اتصالك ثم المحاولة مرة أخرى.",
+    "errorOccurred": "حدث خطأ ما، يرجى المحاولة مرة أخرى.",
+    "connectionTimeout": "انتهت مهلة الاتصال، يرجى المحاولة مرة أخرى.",
+    "requestCancelled": "تم إلغاء الطلب.",
+    "resourceNotFound": "العنصر المطلوب غير موجود.",
+    "serverError": "خطأ في الخادم، يرجى المحاولة لاحقاً."
   }
   

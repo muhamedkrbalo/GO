@@ -534,6 +534,10 @@ class AppLocaleKey {
   static const noMessagesYet = 'noMessagesYet';
   static const uploading = 'uploading';
   static const errorOccurred = 'errorOccurred';
+  static const connectionTimeout = 'connectionTimeout';
+  static const requestCancelled = 'requestCancelled';
+  static const resourceNotFound = 'resourceNotFound';
+  static const serverError = 'serverError';
   static const typeYourMessage = 'typeYourMessage';
   static const selectFileType = 'selectFileType';
   static const imageFromGallery = 'imageFromGallery';

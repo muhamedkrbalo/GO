@@ -1,6 +1,3 @@
-import 'dart:io';
-
-import 'package:dio/io.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_hr_erb/core/services/service_locator.imports.dart';
@@ -14,17 +11,9 @@ class DioConsumer implements ApiConsumer {
   DioConsumer({required this.client}) {
     client.options
       ..baseUrl = ""
-      ..followRedirects = false;
-
-    if (!kIsWeb ) {
-      client.httpClientAdapter = IOHttpClientAdapter(
-        createHttpClient: () {
-          final httpClient = HttpClient();
-          httpClient.badCertificateCallback = (cert, host, port) => true;
-          return httpClient;
-        },
-      );
-    }
+      ..followRedirects = false
+      // Content-Type is left to Dio: JSON for maps, multipart (with boundary) for FormData.
+      ..headers[Headers.acceptHeader] = Headers.jsonContentType;
 
     client.interceptors.add(sl<AppInterceptors>());
     if (kDebugMode) {

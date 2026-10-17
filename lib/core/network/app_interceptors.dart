@@ -4,7 +4,6 @@ import 'package:flutter/foundation.dart';
 import '../cache/hive/hive_methods.dart';
 import '../cache/secure_storage/secure_storage_service.dart';
 import '../routes/app_routers_import.dart';
-import '../utils/common_methods.dart';
 import '../utils/navigator_methods.dart';
 import 'status_code.dart';
 import '../routes/routes_name.dart';
@@ -14,19 +13,18 @@ class AppInterceptors extends Interceptor {
   final Dio _dio;
   // final TokenRefreshService _tokenRefreshService;
   final SecureStorageService _secureStorage;
-  final Future<bool> Function() _hasConnection;
 
   AppInterceptors(
     this._dio, {
     // TokenRefreshService? tokenRefreshService,
     SecureStorageService? secureStorage,
-    Future<bool> Function()? hasConnection,
-  })  
-  : 
+  })
+  :
   //_tokenRefreshService = tokenRefreshService ?? TokenRefreshService.instance,
-        _secureStorage = secureStorage ?? SecureStorageService.instance,
-        _hasConnection = hasConnection ?? CommonMethods.hasConnection;
+        _secureStorage = secureStorage ?? SecureStorageService.instance;
 
+  // No pre-flight internet check here: Dio already fails with
+  // DioExceptionType.connectionError, which handleDioRequest maps to NetworkFailure.
   @override
   Future<void> onRequest(
     RequestOptions options,
@@ -34,19 +32,7 @@ class AppInterceptors extends Interceptor {
   ) async {
     debugPrint('REQUEST[${options.method}] => PATH: ${options.path}');
 
-    options.headers['Content-Type'] = 'application/json';
-    options.headers['Accept'] = 'application/json';
     options.headers['Accept-Language'] = HiveMethods.getLang();
-
-    if (!await _hasConnection()) {
-      return handler.reject(
-        DioException(
-          requestOptions: options,
-          error: 'No Internet Connection',
-          type: DioExceptionType.connectionError,
-        ),
-      );
-    }
 
     //final token = await _secureStorage.getAccessToken();
     // if (token != null) {

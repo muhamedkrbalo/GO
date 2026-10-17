@@ -2,13 +2,14 @@ part of 'service_locator.imports.dart';
 
 final sl = GetIt.instance;
 
-/// Tears down all long-lived resource holders in dependency order.
+/// Tears down user-scoped resources in dependency order.
 /// Call this at logout before deleting tokens.
-void disposeAllServices() {
-
-  // ignore: unawaited_futures
-  sl<ConnectivityCubit>().close();
-}
+///
+/// Do not close app-lifetime singletons here (e.g. [ConnectivityCubit]):
+/// GetIt would keep returning the closed instance and its next emit throws.
+/// For user-scoped singletons use `sl.resetLazySingleton<T>()` so a fresh
+/// instance is created on next access.
+void disposeAllServices() {}
 
 Future<void> initDependencies() async {
  
