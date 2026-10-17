@@ -2,7 +2,7 @@ import 'package:bot_toast/bot_toast.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import '../custom_widgets/custom_loading/custom_loading.dart';
-import '../routes/app_routers_import.dart';
+import '../routes/app_routers.dart';
 import 'package:flutter_hr_erb/core/theme/app_colors.dart';
 
 

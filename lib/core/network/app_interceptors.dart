@@ -3,7 +3,7 @@ import 'package:flutter/foundation.dart';
 
 import '../cache/hive/hive_methods.dart';
 import '../cache/secure_storage/secure_storage_service.dart';
-import '../routes/app_routers_import.dart';
+import '../routes/app_routers.dart';
 import '../utils/navigator_methods.dart';
 import 'status_code.dart';
 import '../routes/routes_name.dart';
@@ -17,11 +17,11 @@ class AppInterceptors extends Interceptor {
   AppInterceptors(
     this._dio, {
     // TokenRefreshService? tokenRefreshService,
-    SecureStorageService? secureStorage,
+    required SecureStorageService secureStorage,
   })
   :
   //_tokenRefreshService = tokenRefreshService ?? TokenRefreshService.instance,
-        _secureStorage = secureStorage ?? SecureStorageService.instance;
+        _secureStorage = secureStorage;
 
   // No pre-flight internet check here: Dio already fails with
   // DioExceptionType.connectionError, which handleDioRequest maps to NetworkFailure.

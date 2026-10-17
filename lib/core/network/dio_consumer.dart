@@ -1,6 +1,5 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
-import 'package:flutter_hr_erb/core/services/service_locator.imports.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 import 'api_consumer.dart';
 import 'app_interceptors.dart';
@@ -8,14 +7,14 @@ import 'app_interceptors.dart';
 class DioConsumer implements ApiConsumer {
   final Dio client;
 
-  DioConsumer({required this.client}) {
+  DioConsumer({required this.client, required AppInterceptors interceptors}) {
     client.options
       ..baseUrl = ""
       ..followRedirects = false
       // Content-Type is left to Dio: JSON for maps, multipart (with boundary) for FormData.
       ..headers[Headers.acceptHeader] = Headers.jsonContentType;
 
-    client.interceptors.add(sl<AppInterceptors>());
+    client.interceptors.add(interceptors);
     if (kDebugMode) {
       client.interceptors.addAll(
         kDebugMode

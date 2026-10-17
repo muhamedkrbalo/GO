@@ -14,13 +14,10 @@ class HiveMethods {
     }
   }
 
-  static Future<void> ensureHiveInitialized() async {
-    if (!Hive.isBoxOpen('app')) {
-      await Hive.openBox('app');
-    }
-  }
-
   //! Language Methods
+  /// Single source of truth for the app language: read at startup
+  /// (EasyLocalization.startLocale) and by the API interceptor (Accept-Language).
+  /// Change it only through `CommonMethods.setLanguage` so the UI stays in sync.
   static String getLang() {
     return _box.get('lang', defaultValue: 'en');
   }
@@ -61,27 +58,4 @@ class HiveMethods {
     await _box.flush();
   }
 
-  //! User Entity Helper Methods
-
-  //! Migration Methods - for migrating from old Hive storage to secure storage
-  static String? getLegacyToken() {
-    return _box.get('token');
-  }
-
-  static String? getLegacyRefreshToken() {
-    return _box.get('refreshToken');
-  }
-
-  static String? getLegacyTokenExpiresAt() {
-    return _box.get('tokenExpiresAt');
-  }
-
-  static Future<void> deleteLegacyTokens() async {
-    await _box.delete('token');
-    await _box.delete('refreshToken');
-    await _box.delete('tokenExpiresAt');
-    await _box.flush();
-  }
-
-  
 }

@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hr_erb/core/network/connectivity/connectivity_cubit.dart';
 import 'package:flutter_hr_erb/core/network/connectivity/connectivity_wrapper.dart';
-import 'package:flutter_hr_erb/core/services/service_locator.imports.dart';
-import 'core/routes/app_routers_import.dart';
+import 'package:flutter_hr_erb/core/services/service_locator.dart';
+import 'core/routes/app_routers.dart';
 import 'core/theme/cubit/theme_cubit.dart';
 import 'core/theme/theme_data/theme_data_dark.dart';
 import 'core/theme/theme_data/theme_data_light.dart';
@@ -25,8 +25,11 @@ class _GOState extends State<GO> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider<ConnectivityCubit>.value(
-      value: sl<ConnectivityCubit>(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<ThemeCubit>.value(value: sl<ThemeCubit>()),
+        BlocProvider<ConnectivityCubit>.value(value: sl<ConnectivityCubit>()),
+      ],
       child: BlocBuilder<ThemeCubit, ThemeMode>(
         builder: (context, themeMode) {
           return MaterialApp.router(

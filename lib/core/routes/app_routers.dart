@@ -1,4 +1,13 @@
-part of 'app_routers_import.dart';
+import 'package:bot_toast/bot_toast.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
+
+import '../../features/splash/presentation/controller/splash_cubit.dart';
+import '../../features/splash/presentation/view/screen/splash_screen.dart';
+import '../custom_widgets/zoom_image/zoom_image_screen.dart';
+import '../services/service_locator.dart';
+import 'routes_name.dart';
 
 class AppRouters {
   static final GlobalKey<NavigatorState> navigatorKey =
@@ -12,7 +21,10 @@ class AppRouters {
       GoRoute(
         path: RoutesName.splashScreen,
         name: RoutesName.splashScreen,
-        builder: (context, state) => const SplashScreen(),
+        builder: (context, state) => BlocProvider(
+          create: (_) => sl<SplashCubit>(),
+          child: const SplashScreen(),
+        ),
       ),
       GoRoute(
         path: '/zoom-image',

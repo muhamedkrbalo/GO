@@ -6,10 +6,10 @@ import '../network/connection_checker.dart';
 import '../cache/hive/hive_methods.dart';
 import '../custom_widgets/custom_select/custom_select_item.dart';
 import '../extension/context_extension.dart';
-import '../routes/app_routers_import.dart';
+import '../routes/app_routers.dart';
 import 'package:easy_localization/easy_localization.dart';
 import '../locale/app_locale_key.dart';
-import '../services/service_locator.imports.dart';
+import '../services/service_locator.dart';
 import 'package:flutter_hr_erb/core/theme/app_colors.dart';
 import 'package:flutter_hr_erb/core/theme/extensions/theme_extensions.dart';
 
@@ -247,8 +247,7 @@ class CommonMethods {
           CupertinoActionSheetAction(
             isDefaultAction: true,
             onPressed: () {
-              HiveMethods.updateLang(const Locale('ar'));
-              context.setLocale(const Locale('ar'));
+              setLanguage(context, const Locale('ar'));
               onTap.call();
               // ElectronicEngineer.setMyAppState(context);
               Navigator.pop(context);
@@ -266,8 +265,7 @@ class CommonMethods {
           CupertinoActionSheetAction(
             isDefaultAction: true,
             onPressed: () {
-              HiveMethods.updateLang(const Locale('en'));
-              context.setLocale(const Locale('en'));
+              setLanguage(context, const Locale('en'));
               onTap.call();
               // ElectronicEngineer.setMyAppState(context);
               Navigator.pop(context);
@@ -299,6 +297,13 @@ class CommonMethods {
         ),
       ),
     );
+  }
+
+  /// The only way to change the app language: persists it to Hive (read by
+  /// startup and the API interceptor) and updates the UI.
+  static Future<void> setLanguage(BuildContext context, Locale locale) {
+    HiveMethods.updateLang(locale);
+    return context.setLocale(locale);
   }
 
   static Future<bool> hasConnection() async {

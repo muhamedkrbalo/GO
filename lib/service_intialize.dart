@@ -1,8 +1,7 @@
-import 'core/services/service_locator.imports.dart';
+import 'core/services/service_locator.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'core/app_bloc_observer.dart/app_bloc_observer.dart';
-import 'core/cache/hive/hive_methods.dart';
 
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:timeago/timeago.dart' as timeago;
@@ -32,8 +31,6 @@ class ServiceInitialize {
           : HydratedStorageDirectory((await getApplicationDocumentsDirectory()).path),
     );
 
-    // Ensure Hive is properly initialized and debug
-    await HiveMethods.ensureHiveInitialized();
     // FirebaseMessaging.onBackgroundMessage(onAppBackground);
     timeago.setLocaleMessages('en', timeago.EnMessages());
     timeago.setLocaleMessages('en_short', timeago.EnShortMessages());

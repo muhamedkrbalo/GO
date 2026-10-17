@@ -3,7 +3,7 @@ import 'package:timeago/timeago.dart' as timeago;
 import 'package:easy_localization/easy_localization.dart';
 import '../extension/context_extension.dart';
 import '../extension/date_time_extension.dart';
-import '../routes/app_routers_import.dart';
+import '../routes/app_routers.dart';
 import 'package:flutter_hr_erb/core/theme/app_colors.dart';
 
 class DateMethods {

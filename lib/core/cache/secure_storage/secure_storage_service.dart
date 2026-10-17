@@ -1,18 +1,15 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
+/// Stores auth tokens. Get it from the service locator (`sl<SecureStorageService>()`).
 class SecureStorageService {
-  SecureStorageService._();
-
-  static final SecureStorageService _instance = SecureStorageService._();
-  static SecureStorageService get instance => _instance;
+  SecureStorageService({FlutterSecureStorage? storage}) : _storage = storage ?? _defaultStorage;
 
   static const String _accessTokenKey = 'access_token';
   static const String _refreshTokenKey = 'refresh_token';
   static const String _tokenExpiresAtKey = 'token_expires_at';
-  static const String _migrationCompletedKey = 'migration_completed';
 
-  final FlutterSecureStorage _storage = const FlutterSecureStorage(
+  static const FlutterSecureStorage _defaultStorage = FlutterSecureStorage(
     aOptions: AndroidOptions(
       resetOnError: true,
     ),
@@ -20,6 +17,8 @@ class SecureStorageService {
       accessibility: KeychainAccessibility.first_unlock,
     ),
   );
+
+  final FlutterSecureStorage _storage;
 
   Future<String?> getAccessToken() async {
     try {
@@ -102,22 +101,5 @@ class SecureStorageService {
       deleteRefreshToken(),
       deleteTokenExpiresAt(),
     ]);
-  }
-
-  Future<bool> isMigrationCompleted() async {
-    try {
-      final value = await _storage.read(key: _migrationCompletedKey);
-      return value == 'true';
-    } catch (e) {
-      return false;
-    }
-  }
-
-  Future<void> setMigrationCompleted() async {
-    try {
-      await _storage.write(key: _migrationCompletedKey, value: 'true');
-    } catch (e) {
-      debugPrint('SecureStorage: Error setting migration flag: $e');
-    }
   }
 }
