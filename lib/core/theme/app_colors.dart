@@ -18,14 +18,14 @@ class AppColors {
   static const offWhite = Color(0xFFF5F5F5);
   static const black = Color(0xff000000);
   static const text = Color(0xFF0A0A0A);
-  static const hint = Color(0xff717182);
+  static const hint = Color(0xff94A3B8);
   static const lightText = Color(0xffD1D5DC);
   static const grey = Color(0xFF888888);
   static const darkGrey = Color(0xff666666);
   static const lightGrey = Color(0xffA6A6A6);
-  static const border = Color(0xffF4F4F4);
+  static const border = Color(0xffCBD5E1);
   static const divider = Color(0xFFDADADA);
-  static const textFormFill = Color(0xFFF3F3F5);
+  static const textFormFill = Color(0xffffffff);
 
   // dark mode neutrals
   static const darkScaffold = Color(0xff0D0D12);

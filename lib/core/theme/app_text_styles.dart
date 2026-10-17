@@ -15,12 +15,20 @@ class AppTextStyles {
     fontWeight: FontWeight.w700,
   );
 
+
   // xs - 12
   static const xsRegular = TextStyle(
     fontFamily: AppFonts.poppins,
     fontSize: 12,
     fontWeight: FontWeight.w400,
   );
+
+   static const xsSemiBold = TextStyle(
+    fontFamily: AppFonts.poppins,
+    fontSize: 13,
+    fontWeight: FontWeight.w600,
+  );
+
 
   // s - 14
   static const sRegular = TextStyle(

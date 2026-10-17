@@ -96,7 +96,7 @@ class _CustomFormFieldState extends State<CustomFormField> {
                 Expanded(
                   child: Text(
                     widget.title!,
-                    style: widget.titleStyle ?? AppTextStyles.sMedium.copyWith(color: context.customColors.textPrimary),
+                    style: widget.titleStyle ?? AppTextStyles.xsSemiBold.copyWith(color: context.customColors.textSecondary),
                   ),
                 ),
               },
@@ -108,7 +108,7 @@ class _CustomFormFieldState extends State<CustomFormField> {
               },
             ],
           ),
-          if (widget.title != null || widget.otherSideTitle != null) ...{const SizedBox(height: 5)},
+          if (widget.title != null || widget.otherSideTitle != null) ...{const SizedBox(height: 8)},
           Directionality(
             textDirection: widget.textDirection != null
                 ? widget.textDirection!
@@ -139,10 +139,10 @@ class _CustomFormFieldState extends State<CustomFormField> {
                 hintText: widget.hintText,
                 hintStyle: widget.hintStyle ?? AppTextStyles.sRegular.copyWith(color: context.customColors.hint),
                 fillColor:
-                    widget.fillColor ??
-                    (widget.formFieldBorder == FormFieldBorder.underLine
-                        ? Colors.transparent
-                        : context.customColors.textFormFill),
+                    widget.fillColor ??context.customColors.textFormFill,
+                    // (widget.formFieldBorder == FormFieldBorder.underLine
+                    //     ? context.customColors.textFormFill
+                    //     : context.customColors.textFormFill),
                 filled: true,
                 border: _border(
                   color: widget.unFocusColor ?? context.customColors.textFormBorder,
@@ -219,12 +219,12 @@ class _CustomFormFieldState extends State<CustomFormField> {
       case FormFieldBorder.outLine:
         return OutlineInputBorder(
           borderRadius: BorderRadius.circular(widget.radius),
-          borderSide: BorderSide(color: color),
+          borderSide: BorderSide(color: color, width: 1.59),
         );
       case FormFieldBorder.underLine:
         return UnderlineInputBorder(
           borderRadius: BorderRadius.circular(0),
-          borderSide: BorderSide(color: color),
+          borderSide: BorderSide(color: color, width: 1.59),
         );
       case FormFieldBorder.none:
         return InputBorder.none;

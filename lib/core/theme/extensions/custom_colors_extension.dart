@@ -34,7 +34,7 @@ class CustomColors extends ThemeExtension<CustomColors> {
     surfaceVariant: AppColors.offWhite,
     appBar: AppColors.white,
     textFormFill: AppColors.textFormFill,
-    textFormBorder: Colors.transparent,
+    textFormBorder: AppColors.border,
     divider: AppColors.divider,
     grey: AppColors.grey,
     lightGrey: AppColors.lightGrey,
