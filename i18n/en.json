@@ -103,5 +103,17 @@
   "receiveCodeOnMobile": "Receive a verification code on your mobile number.",
   "receiveCodeInInbox": "Receive a verification code in your inbox.",
   "sendVerificationCode": "Send Verification Code",
-  "contactDetailPrivacyNote": "We’ll only use this contact detail to secure your account."
+  "contactDetailPrivacyNote": "We’ll only use this contact detail to secure your account.",
+  "secureVerification": "SECURE VERIFICATION",
+  "enterVerificationCode": "Enter verification code",
+  "weSentAVerificationCode": "We sent a verification code to your selected contact.",
+  "resendCodeIn": "Resend code in {}s",
+  "changeVerificationMethod": "Change verification method",
+  "verifyCode": "Verify Code",
+  "accountVerified": "Your account has been verified.",
+  "incorrectCodeAttempts": {
+    "zero": "Too many incorrect attempts. Request a new code.",
+    "one": "That code is incorrect. 1 attempt remaining.",
+    "other": "That code is incorrect. {} attempts remaining."
+  }
 }

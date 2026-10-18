@@ -103,6 +103,21 @@
     "receiveCodeOnMobile": "استلم رمز التحقق على رقم جوالك.",
     "receiveCodeInInbox": "استلم رمز التحقق في بريدك الإلكتروني.",
     "sendVerificationCode": "إرسال رمز التحقق",
-    "contactDetailPrivacyNote": "سنستخدم وسيلة التواصل هذه لحماية حسابك فقط."
+    "contactDetailPrivacyNote": "سنستخدم وسيلة التواصل هذه لحماية حسابك فقط.",
+    "secureVerification": "تحقق آمن",
+    "enterVerificationCode": "أدخل رمز التحقق",
+    "weSentAVerificationCode": "أرسلنا رمز التحقق إلى وسيلة التواصل التي اخترتها.",
+    "resendCodeIn": "إعادة الإرسال بعد {} ث",
+    "changeVerificationMethod": "تغيير طريقة التحقق",
+    "verifyCode": "تحقق من الرمز",
+    "accountVerified": "تم التحقق من حسابك.",
+    "incorrectCodeAttempts": {
+      "zero": "محاولات خاطئة كثيرة. اطلب رمزاً جديداً.",
+      "one": "الرمز غير صحيح. تبقّت محاولة واحدة.",
+      "two": "الرمز غير صحيح. تبقّت محاولتان.",
+      "few": "الرمز غير صحيح. تبقّت {} محاولات.",
+      "many": "الرمز غير صحيح. تبقّت {} محاولة.",
+      "other": "الرمز غير صحيح. تبقّت {} محاولة."
+    }
   }
   

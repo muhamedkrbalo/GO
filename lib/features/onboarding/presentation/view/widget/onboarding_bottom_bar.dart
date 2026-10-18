@@ -6,7 +6,6 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import '../../../../../core/custom_widgets/buttons/custom_button.dart';
 import '../../../../../core/locale/app_locale_key.dart';
 import '../../../../../core/theme/app_colors.dart';
-import '../../../../../core/theme/app_shadows.dart';
 import '../../../../../core/theme/app_sizes.dart';
 import '../../../../../core/theme/app_text_styles.dart';
 import '../../../../../core/theme/extensions/theme_extensions.dart';
@@ -57,7 +56,6 @@ class OnboardingBottomBar extends StatelessWidget {
                 CustomButton(
                   text: (isLastPage ? AppLocaleKey.getStarted : AppLocaleKey.next).tr(),
                   hasShadow: true,
-                  boxShadow: AppShadows.primaryButton,
                   onPressed: isLastPage ? onFinish : onNext,
                 ),
                 AppSpacing.gapV8,

@@ -10,6 +10,11 @@ class VerifyAccountArgs extends Equatable {
   final String phone;
   final String email;
 
+  String destination(VerificationMethod method) => switch (method) {
+    VerificationMethod.sms => '+$phoneCode$phone',
+    VerificationMethod.email => email,
+  };
+
   String maskedDestination(VerificationMethod method) => switch (method) {
     VerificationMethod.sms => '+$phoneCode ${phone.maskPhone()}',
     VerificationMethod.email => email.maskEmail(),

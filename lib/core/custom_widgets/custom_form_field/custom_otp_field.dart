@@ -1,105 +1,89 @@
 import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
-import 'package:flutter_hr_erb/core/theme/app_sizes.dart';
+import 'package:flutter/services.dart';
 import 'package:pinput/pinput.dart';
-import '../../extension/context_extension.dart';
-import 'package:flutter_hr_erb/core/theme/app_text_styles.dart';
-import 'package:flutter_hr_erb/core/theme/extensions/theme_extensions.dart';
-import 'package:flutter_hr_erb/core/theme/app_colors.dart';
 
-class CustomOtpField extends StatefulWidget {
+import '../../theme/app_colors.dart';
+import '../../theme/app_text_styles.dart';
+import '../../theme/extensions/theme_extensions.dart';
+
+class CustomOtpField extends StatelessWidget {
+  const CustomOtpField({
+    super.key,
+    this.length = 6,
+    this.controller,
+    this.focusNode,
+    this.onChanged,
+    this.onCompleted,
+    this.hasError = false,
+    this.enabled = true,
+    this.autofocus = true,
+  });
+
   final int length;
   final TextEditingController? controller;
-  final void Function(String)? onCompleted;
-  const CustomOtpField({super.key, this.length = 6, this.controller, this.onCompleted});
+  final FocusNode? focusNode;
+  final ValueChanged<String>? onChanged;
+  final ValueChanged<String>? onCompleted;
+  final bool hasError;
+  final bool enabled;
+  final bool autofocus;
 
-  @override
-  State<CustomOtpField> createState() => _CustomOtpFieldState();
-}
+  static const _gap = 8.8;
+  static const _height = 56.0;
+  static const _maxBoxWidth = 56.0;
+  static const _borderWidth = 1.6;
+  static const _radius = BorderRadius.all(Radius.circular(12.8));
 
-class _CustomOtpFieldState extends State<CustomOtpField> {
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Directionality(
-        textDirection: ui.TextDirection.ltr,
-        child: Pinput(
-          controller: widget.controller,
-          length: widget.length,
-          defaultPinTheme: PinTheme(
-            height: 48,
-            width: 48,
-            textStyle: AppTextStyles.xlSemiBold.copyWith(color: context.customColors.textSecondary),
+    final colors = context.customColors;
+
+    return SizedBox(
+      height: _height,
+      child: LayoutBuilder(
+        builder: (context, constraints) {
+          final boxWidth = ((constraints.maxWidth - _gap * (length - 1)) / length).clamp(
+            0.0,
+            _maxBoxWidth,
+          );
+
+          PinTheme theme(Color fill, Color border) => PinTheme(
+            width: boxWidth,
+            height: _height,
+            textStyle: AppTextStyles.xlBold.copyWith(color: colors.textSecondary),
             decoration: BoxDecoration(
-              color: context.customColors.textFormFill,
-              borderRadius: BorderRadius.circular(12),
-              border: Border.all(color: context.customColors.textFormBorder),
+              color: fill,
+              borderRadius: _radius,
+              border: Border.all(color: border, width: _borderWidth),
             ),
-          ),
-          focusedPinTheme: PinTheme(
-            height: 56,
-            width: 56,
-            textStyle: AppTextStyles.xlSemiBold.copyWith(color: context.customColors.textSecondary),
-            decoration: BoxDecoration(
-              border: Border.all(color: AppColors.primary),
-              color: context.customColors.textFormFill,
-              borderRadius: AppRadius.brM,
+          );
+
+          return Directionality(
+            textDirection: ui.TextDirection.ltr,
+            child: Pinput(
+              length: length,
+              controller: controller,
+              focusNode: focusNode,
+              enabled: enabled,
+              autofocus: autofocus,
+              forceErrorState: hasError,
+              inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              separatorBuilder: (_) => const SizedBox(width: _gap),
+              hapticFeedbackType: HapticFeedbackType.lightImpact,
+              defaultPinTheme: theme(colors.surface, colors.border),
+              focusedPinTheme: theme(colors.surface, AppColors.primary),
+              submittedPinTheme: theme(colors.selectedSurface, colors.filledBorder),
+              errorPinTheme: theme(colors.errorSurface, colors.error),
+              errorBuilder: (_, _) => const SizedBox.shrink(),
+              onChanged: onChanged,
+              onCompleted: onCompleted,
+              onTapOutside: (_) => FocusManager.instance.primaryFocus?.unfocus(),
             ),
-          ),
-          submittedPinTheme: PinTheme(
-            height: 56,
-            width: 56,
-            textStyle: AppTextStyles.xlSemiBold.copyWith(color: context.customColors.textSecondary),
-            decoration: BoxDecoration(
-              border: Border.all(color: AppColors.primary),
-              color: context.customColors.surface,
-              borderRadius: AppRadius.brM,
-            ),
-          ),
-          errorPinTheme: PinTheme(
-            height: 56,
-            width: 56,
-            textStyle: AppTextStyles.xlSemiBold.copyWith(color: context.customColors.textSecondary),
-            decoration: BoxDecoration(
-              color: context.customColors.surfaceVariant,
-              border: Border.all(color: Colors.red.shade700),
-              borderRadius: AppRadius.brM,
-            ),
-          ),
-          errorBuilder: (errorText, pin) {
-            return Align(
-              alignment: context.getByLang(
-                ar: AlignmentDirectional.centerEnd,
-                en: AlignmentDirectional.centerStart,
-              ),
-              child: Padding(
-                padding: AppPadding.all5,
-                child: Text(
-                  errorText!,
-                  style: TextStyle(
-                    fontSize: 12,
-                    color: Colors.red.shade700,
-                    fontWeight: FontWeight.w400,
-                  ),
-                ),
-              ),
-            );
-          },
-          validator: (s) {
-            return s!.trim().length == widget.length
-                ? null
-                : context.apiTr(
-                    ar: 'الكود مكون من ${widget.length} ارقام',
-                    en: 'The code consists of ${widget.length} digits',
-                  );
-          },
-          pinputAutovalidateMode: PinputAutovalidateMode.onSubmit,
-          onTapOutside: (event) {
-            FocusManager.instance.primaryFocus?.unfocus();
-          },
-          onCompleted: widget.onCompleted,
-        ),
+          );
+        },
       ),
     );
   }

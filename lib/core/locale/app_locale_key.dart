@@ -678,4 +678,13 @@ class AppLocaleKey {
   static const receiveCodeInInbox = 'receiveCodeInInbox';
   static const sendVerificationCode = 'sendVerificationCode';
   static const contactDetailPrivacyNote = 'contactDetailPrivacyNote';
+
+  // verify code
+  static const secureVerification = 'secureVerification';
+  static const enterVerificationCode = 'enterVerificationCode';
+  static const weSentAVerificationCode = 'weSentAVerificationCode';
+  static const resendCodeIn = 'resendCodeIn';
+  static const changeVerificationMethod = 'changeVerificationMethod';
+  static const verifyCode = 'verifyCode';
+  static const incorrectCodeAttempts = 'incorrectCodeAttempts';
 }

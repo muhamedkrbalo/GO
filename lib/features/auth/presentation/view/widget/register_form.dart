@@ -9,7 +9,6 @@ import '../../../../../core/custom_widgets/custom_form_field/custom_form_field.d
 import '../../../../../core/custom_widgets/validation/validation_mixin.dart';
 import '../../../../../core/locale/app_locale_key.dart';
 import '../../../../../core/routes/routes_name.dart';
-import '../../../../../core/theme/app_shadows.dart';
 import '../../../../../core/theme/app_sizes.dart';
 import '../../../data/model/verify_account_args.dart';
 import '../../controller/register_cubit.dart';
@@ -121,7 +120,6 @@ class _RegisterFormState extends State<RegisterForm> with ValidationMixin {
             CustomButton(
               text: AppLocaleKey.continue_.tr(),
               hasShadow: true,
-              boxShadow: AppShadows.primaryButton,
               onPressed: _submit,
             ),
           ],

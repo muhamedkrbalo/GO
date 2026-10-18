@@ -33,6 +33,7 @@ class AppSpacing {
   static const gapV20 = SizedBox(height: xl20);
   static const gapV24 = SizedBox(height: xxl24);
   static const gapV32 = SizedBox(height: xxxl32);
+  static const gapV40 = SizedBox(height: xxxxl40);
   static const gapV52 = SizedBox(height: xxxxxl52);
 }
 
@@ -98,6 +99,7 @@ class AppRadius {
 
   static const double s8 = 8;
   static const double m10 = 10;
+  static const double sm12 = 12;
   static const double card = 16;
   static const double l25 = 25;
   static const double circle = 50;
@@ -106,5 +108,6 @@ class AppRadius {
   static const brM = BorderRadius.all(Radius.circular(m10));
   static const brL = BorderRadius.all(Radius.circular(l25));
   static const brCard = BorderRadius.all(Radius.circular(card));
+  static const brSm = BorderRadius.all(Radius.circular(sm12));
   static const brCircle = BorderRadius.all(Radius.circular(circle));
 }

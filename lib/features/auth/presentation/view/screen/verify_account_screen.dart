@@ -1,15 +1,17 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../../core/custom_widgets/buttons/custom_button.dart';
 import '../../../../../core/locale/app_locale_key.dart';
-import '../../../../../core/theme/app_shadows.dart';
+import '../../../../../core/routes/routes_name.dart';
 import '../../../../../core/theme/app_sizes.dart';
 import '../../../../../core/theme/app_text_styles.dart';
 import '../../../../../core/theme/extensions/theme_extensions.dart';
 import '../../../data/model/verification_method.dart';
 import '../../../data/model/verify_account_args.dart';
+import '../../../data/model/verify_code_args.dart';
 import '../../controller/verify_account_cubit.dart';
 import '../widget/auth_header.dart';
 import '../widget/verification_method_card.dart';
@@ -76,7 +78,13 @@ class VerifyAccountScreen extends StatelessWidget {
                     CustomButton(
                       text: AppLocaleKey.sendVerificationCode.tr(),
                       hasShadow: true,
-                      boxShadow: AppShadows.primaryButton,
+                      onPressed: () => context.pushNamed(
+                        RouteNames.verifyCode,
+                        extra: VerifyCodeArgs(
+                          method: context.read<VerifyAccountCubit>().state,
+                          account: args,
+                        ),
+                      ),
                     ),
                     AppSpacing.gapV15,
                     Center(

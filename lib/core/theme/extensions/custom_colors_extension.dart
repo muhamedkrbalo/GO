@@ -30,6 +30,9 @@ class CustomColors extends ThemeExtension<CustomColors> {
     required this.subtleBorder,
     required this.surfaceWarm,
     required this.selectedSurface,
+    required this.error,
+    required this.errorSurface,
+    required this.filledBorder,
   });
 
   static const light = CustomColors(
@@ -54,6 +57,9 @@ class CustomColors extends ThemeExtension<CustomColors> {
     subtleBorder: AppColors.lightBorder,
     surfaceWarm: AppColors.ivory,
     selectedSurface: AppColors.primarySurface,
+    error: AppColors.error,
+    errorSurface: AppColors.errorSurface,
+    filledBorder: AppColors.primaryMuted,
   );
 
   static const dark = CustomColors(
@@ -78,6 +84,9 @@ class CustomColors extends ThemeExtension<CustomColors> {
     subtleBorder: AppColors.darkBorder,
     surfaceWarm: AppColors.darkSurfaceVariant,
     selectedSurface: AppColors.darkSurfaceVariant,
+    error: AppColors.darkError,
+    errorSurface: AppColors.darkErrorSurface,
+    filledBorder: AppColors.primary,
   );
 
   /// Strong text: titles, form labels, input text.
@@ -118,6 +127,9 @@ class CustomColors extends ThemeExtension<CustomColors> {
 
   final Color surfaceWarm;
   final Color selectedSurface;
+  final Color error;
+  final Color errorSurface;
+  final Color filledBorder;
 
   @override
   CustomColors copyWith({
@@ -142,6 +154,9 @@ class CustomColors extends ThemeExtension<CustomColors> {
     Color? subtleBorder,
     Color? surfaceWarm,
     Color? selectedSurface,
+    Color? error,
+    Color? errorSurface,
+    Color? filledBorder,
   }) {
     return CustomColors(
       textPrimary: textPrimary ?? this.textPrimary,
@@ -165,6 +180,9 @@ class CustomColors extends ThemeExtension<CustomColors> {
       subtleBorder: subtleBorder ?? this.subtleBorder,
       surfaceWarm: surfaceWarm ?? this.surfaceWarm,
       selectedSurface: selectedSurface ?? this.selectedSurface,
+      error: error ?? this.error,
+      errorSurface: errorSurface ?? this.errorSurface,
+      filledBorder: filledBorder ?? this.filledBorder,
     );
   }
 
@@ -193,6 +211,9 @@ class CustomColors extends ThemeExtension<CustomColors> {
       subtleBorder: Color.lerp(subtleBorder, other.subtleBorder, t)!,
       surfaceWarm: Color.lerp(surfaceWarm, other.surfaceWarm, t)!,
       selectedSurface: Color.lerp(selectedSurface, other.selectedSurface, t)!,
+      error: Color.lerp(error, other.error, t)!,
+      errorSurface: Color.lerp(errorSurface, other.errorSurface, t)!,
+      filledBorder: Color.lerp(filledBorder, other.filledBorder, t)!,
     );
   }
 }

@@ -12,6 +12,7 @@ class AppColors {
   static const primaryLight = Color(0xffCCFBF1);
   static const primaryDark = Color(0xff115E59);
   static const primarySurface = Color(0xffF0FDFA);
+  static const primaryMuted = Color(0xff79AAA6);
   static const secondary = Color(0xff0F172A);
 
   // neutrals
@@ -42,6 +43,10 @@ class AppColors {
 
   // status
   static const red = Color(0xffF5222D);
+  static const error = Color(0xffB42318);
+  static const errorSurface = Color(0xffFEF3F2);
+  static const darkError = Color(0xffF97066);
+  static const darkErrorSurface = Color(0xff3B1D1D);
 
 
 
