@@ -14,7 +14,7 @@ class AuthSession extends ValueNotifier<AuthStatus> {
   bool get isAuthenticated => value == AuthStatus.authenticated;
 
   Future<void> restore({
-    Duration minSplashDuration = const Duration(seconds: 1000),
+    Duration minSplashDuration = const Duration(seconds: 3),
   }) async {
     final (token, _) = await (
       _secureStorage.getAccessToken(),
