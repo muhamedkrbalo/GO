@@ -95,5 +95,13 @@
   "emailAddress": "Email Address",
   "enterEmailAddress": "Enter email address",
   "createAPassword": "Create a password",
-  "reEnterYourPassword": "Re-enter your password"
+  "reEnterYourPassword": "Re-enter your password",
+  "accountSecurity": "ACCOUNT SECURITY",
+  "verifyYourAccount": "Verify your account",
+  "chooseHowToReceiveVerificationCode": "Choose how you'd like to receive your verification code.",
+  "textMessageSms": "Text message (SMS)",
+  "receiveCodeOnMobile": "Receive a verification code on your mobile number.",
+  "receiveCodeInInbox": "Receive a verification code in your inbox.",
+  "sendVerificationCode": "Send Verification Code",
+  "contactDetailPrivacyNote": "We’ll only use this contact detail to secure your account."
 }

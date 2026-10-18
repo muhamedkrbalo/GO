@@ -11,6 +11,7 @@ class AppColors {
   static const primary = Color(0xff0F766E);
   static const primaryLight = Color(0xffCCFBF1);
   static const primaryDark = Color(0xff115E59);
+  static const primarySurface = Color(0xffF0FDFA);
   static const secondary = Color(0xff0F172A);
 
   // neutrals

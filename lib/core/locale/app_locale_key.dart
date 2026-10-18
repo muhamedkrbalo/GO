@@ -668,4 +668,14 @@ class AppLocaleKey {
   static const enterEmailAddress = 'enterEmailAddress';
   static const createAPassword = 'createAPassword';
   static const reEnterYourPassword = 'reEnterYourPassword';
+
+  // verify account
+  static const accountSecurity = 'accountSecurity';
+  static const verifyYourAccount = 'verifyYourAccount';
+  static const chooseHowToReceiveVerificationCode = 'chooseHowToReceiveVerificationCode';
+  static const textMessageSms = 'textMessageSms';
+  static const receiveCodeOnMobile = 'receiveCodeOnMobile';
+  static const receiveCodeInInbox = 'receiveCodeInInbox';
+  static const sendVerificationCode = 'sendVerificationCode';
+  static const contactDetailPrivacyNote = 'contactDetailPrivacyNote';
 }

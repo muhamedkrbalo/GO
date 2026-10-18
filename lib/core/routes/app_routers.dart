@@ -3,9 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../features/auth/data/model/verify_account_args.dart';
 import '../../features/auth/presentation/controller/register_cubit.dart';
+import '../../features/auth/presentation/controller/verify_account_cubit.dart';
 import '../../features/auth/presentation/view/screen/login_screen.dart';
 import '../../features/auth/presentation/view/screen/register_screen.dart';
+import '../../features/auth/presentation/view/screen/verify_account_screen.dart';
 import '../../features/home/presentation/view/screen/home_screen.dart';
 import '../../features/onboarding/presentation/controller/onboarding_cubit.dart';
 import '../../features/onboarding/presentation/view/screen/onboarding_screen.dart';
@@ -64,6 +67,16 @@ class AppRouters {
         ),
       ),
       GoRoute(
+        path: RoutePaths.verifyAccount,
+        name: RouteNames.verifyAccount,
+        redirect: (context, state) =>
+            state.extra is VerifyAccountArgs ? null : RoutePaths.register,
+        builder: (context, state) => BlocProvider(
+          create: (_) => sl<VerifyAccountCubit>(),
+          child: VerifyAccountScreen(args: state.extra! as VerifyAccountArgs),
+        ),
+      ),
+      GoRoute(
         path: RoutePaths.home,
         name: RouteNames.home,
         builder: (context, state) => const HomeScreen(),
@@ -87,6 +100,7 @@ class AppRouters {
     RoutePaths.welcome,
     RoutePaths.login,
     RoutePaths.register,
+    RoutePaths.verifyAccount,
   };
 
   /// Login gating, in one place:

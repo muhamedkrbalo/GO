@@ -2,16 +2,17 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../../core/custom_widgets/buttons/custom_button.dart';
 import '../../../../../core/custom_widgets/custom_form_field/custom_form_field.dart';
 import '../../../../../core/custom_widgets/validation/validation_mixin.dart';
 import '../../../../../core/locale/app_locale_key.dart';
+import '../../../../../core/routes/routes_name.dart';
 import '../../../../../core/theme/app_shadows.dart';
 import '../../../../../core/theme/app_sizes.dart';
-import '../../../../../core/theme/app_text_styles.dart';
-import '../../../../../core/theme/extensions/theme_extensions.dart';
-
+import '../../../data/model/verify_account_args.dart';
+import '../../controller/register_cubit.dart';
 import 'country_code_picker.dart';
 import 'password_visibility_icon.dart';
 
@@ -41,7 +42,18 @@ class _RegisterFormState extends State<RegisterForm> with ValidationMixin {
     super.dispose();
   }
 
- 
+  void _submit() {
+    // if (!(_formKey.currentState?.validate() ?? false)) return;
+    context.pushNamed(
+      RouteNames.verifyAccount,
+      extra: VerifyAccountArgs(
+        phoneCode: context.read<RegisterCubit>().state.country.phoneCode,
+        phone: _phoneController.text.trim(),
+        email: _emailController.text.trim(),
+      ),
+    );
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -110,7 +122,7 @@ class _RegisterFormState extends State<RegisterForm> with ValidationMixin {
               text: AppLocaleKey.continue_.tr(),
               hasShadow: true,
               boxShadow: AppShadows.primaryButton,
-              onPressed: (){},
+              onPressed: _submit,
             ),
           ],
         ),

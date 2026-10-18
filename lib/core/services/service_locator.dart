@@ -3,6 +3,7 @@ import 'package:get_it/get_it.dart';
 import 'package:internet_connection_checker_plus/internet_connection_checker_plus.dart';
 
 import '../../features/auth/presentation/controller/register_cubit.dart';
+import '../../features/auth/presentation/controller/verify_account_cubit.dart';
 import '../../features/onboarding/presentation/controller/onboarding_cubit.dart';
 import '../../features/splash/data/repository/splash_repository.dart';
 import '../../features/splash/presentation/controller/splash_cubit.dart';
@@ -73,4 +74,5 @@ void _initOnboarding() {
 
 void _initAuth() {
   sl.registerFactory<RegisterCubit>(RegisterCubit.new);
+  sl.registerFactory<VerifyAccountCubit>(VerifyAccountCubit.new);
 }

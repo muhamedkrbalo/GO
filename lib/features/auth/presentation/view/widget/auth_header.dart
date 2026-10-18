@@ -5,8 +5,8 @@ import 'package:go_router/go_router.dart';
 import '../../../../../core/images/app_images.dart';
 import '../../../../../core/theme/extensions/theme_extensions.dart';
 
-class RegisterHeader extends StatelessWidget {
-  const RegisterHeader({super.key});
+class AuthHeader extends StatelessWidget {
+  const AuthHeader({super.key});
 
 
   @override

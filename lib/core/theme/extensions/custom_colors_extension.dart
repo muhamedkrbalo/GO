@@ -29,6 +29,7 @@ class CustomColors extends ThemeExtension<CustomColors> {
     required this.accentText,
     required this.subtleBorder,
     required this.surfaceWarm,
+    required this.selectedSurface,
   });
 
   static const light = CustomColors(
@@ -52,6 +53,7 @@ class CustomColors extends ThemeExtension<CustomColors> {
     accentText: AppColors.primaryDark,
     subtleBorder: AppColors.lightBorder,
     surfaceWarm: AppColors.ivory,
+    selectedSurface: AppColors.primarySurface,
   );
 
   static const dark = CustomColors(
@@ -75,6 +77,7 @@ class CustomColors extends ThemeExtension<CustomColors> {
     accentText: AppColors.primaryLight,
     subtleBorder: AppColors.darkBorder,
     surfaceWarm: AppColors.darkSurfaceVariant,
+    selectedSurface: AppColors.darkSurfaceVariant,
   );
 
   /// Strong text: titles, form labels, input text.
@@ -114,6 +117,7 @@ class CustomColors extends ThemeExtension<CustomColors> {
   final Color subtleBorder;
 
   final Color surfaceWarm;
+  final Color selectedSurface;
 
   @override
   CustomColors copyWith({
@@ -137,6 +141,7 @@ class CustomColors extends ThemeExtension<CustomColors> {
     Color? accentText,
     Color? subtleBorder,
     Color? surfaceWarm,
+    Color? selectedSurface,
   }) {
     return CustomColors(
       textPrimary: textPrimary ?? this.textPrimary,
@@ -159,6 +164,7 @@ class CustomColors extends ThemeExtension<CustomColors> {
       accentText: accentText ?? this.accentText,
       subtleBorder: subtleBorder ?? this.subtleBorder,
       surfaceWarm: surfaceWarm ?? this.surfaceWarm,
+      selectedSurface: selectedSurface ?? this.selectedSurface,
     );
   }
 
@@ -186,6 +192,7 @@ class CustomColors extends ThemeExtension<CustomColors> {
       accentText: Color.lerp(accentText, other.accentText, t)!,
       subtleBorder: Color.lerp(subtleBorder, other.subtleBorder, t)!,
       surfaceWarm: Color.lerp(surfaceWarm, other.surfaceWarm, t)!,
+      selectedSurface: Color.lerp(selectedSurface, other.selectedSurface, t)!,
     );
   }
 }

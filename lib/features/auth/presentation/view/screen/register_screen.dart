@@ -1,15 +1,13 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../core/locale/app_locale_key.dart';
 import '../../../../../core/theme/app_sizes.dart';
 import '../../../../../core/theme/app_text_styles.dart';
 import '../../../../../core/theme/extensions/theme_extensions.dart';
-import '../../controller/register_cubit.dart';
+import '../widget/auth_header.dart';
 import '../widget/have_account_prompt.dart';
 import '../widget/register_form.dart';
-import '../widget/register_header.dart';
 import '../widget/register_step_indicator.dart';
 
 class RegisterScreen extends StatelessWidget {
@@ -28,7 +26,7 @@ class RegisterScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const RegisterHeader(),
+              const AuthHeader(),
               AppSpacing.gapV20,
              const RegisterStepIndicator(step: 1, stepCount: 3),
               AppSpacing.gapV32,

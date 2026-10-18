@@ -15,6 +15,7 @@ class AppSpacing {
   static const double xxl24 = 24;
   static const double xxxl32 = 32;
   static const double xxxxl40 = 40;
+  static const double xxxxxl52 = 52;
 
   // Gaps (use inside Row / Column)
   static const gapH5 = SizedBox(width: xs5);
@@ -32,6 +33,7 @@ class AppSpacing {
   static const gapV20 = SizedBox(height: xl20);
   static const gapV24 = SizedBox(height: xxl24);
   static const gapV32 = SizedBox(height: xxxl32);
+  static const gapV52 = SizedBox(height: xxxxxl52);
 }
 
 /// Ready-made [EdgeInsets] for `padding:` (and `margin:` via [AppMargin]).
@@ -96,11 +98,13 @@ class AppRadius {
 
   static const double s8 = 8;
   static const double m10 = 10;
+  static const double card = 16;
   static const double l25 = 25;
   static const double circle = 50;
 
   static const brS = BorderRadius.all(Radius.circular(s8));
   static const brM = BorderRadius.all(Radius.circular(m10));
   static const brL = BorderRadius.all(Radius.circular(l25));
+  static const brCard = BorderRadius.all(Radius.circular(card));
   static const brCircle = BorderRadius.all(Radius.circular(circle));
 }

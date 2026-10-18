@@ -95,6 +95,14 @@
     "emailAddress": "البريد الإلكتروني",
     "enterEmailAddress": "أدخل البريد الإلكتروني",
     "createAPassword": "أنشئ كلمة مرور",
-    "reEnterYourPassword": "أعد إدخال كلمة المرور"
+    "reEnterYourPassword": "أعد إدخال كلمة المرور",
+    "accountSecurity": "أمان الحساب",
+    "verifyYourAccount": "تحقق من حسابك",
+    "chooseHowToReceiveVerificationCode": "اختر الطريقة التي تفضّل استلام رمز التحقق بها.",
+    "textMessageSms": "رسالة نصية (SMS)",
+    "receiveCodeOnMobile": "استلم رمز التحقق على رقم جوالك.",
+    "receiveCodeInInbox": "استلم رمز التحقق في بريدك الإلكتروني.",
+    "sendVerificationCode": "إرسال رمز التحقق",
+    "contactDetailPrivacyNote": "سنستخدم وسيلة التواصل هذه لحماية حسابك فقط."
   }
   
