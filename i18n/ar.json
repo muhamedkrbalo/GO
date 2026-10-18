@@ -70,6 +70,19 @@
     "requestCancelled": "تم إلغاء الطلب.",
     "resourceNotFound": "العنصر المطلوب غير موجود.",
     "serverError": "خطأ في الخادم، يرجى المحاولة لاحقاً.",
-    "splashTagline": "عطلتك، على طريقتك."
+    "splashTagline": "عطلتك، على طريقتك.",
+    "onboardingTag": "عطلات GO · {}",
+    "onboardingTitle1": "اكتشف عطلتك القادمة",
+    "onboardingDescription1": "استكشف أماكن الإقامة واعثر على مكان تشعر فيه وكأنك في بيتك.",
+    "onboardingTitle2": "اعثر على إقامتك المثالية",
+    "onboardingDescription2": "اختر الموقع والتواريخ والتفاصيل التي تناسب خططك.",
+    "onboardingTitle3": "رحلتك مع GO تبدأ من هنا",
+    "onboardingDescription3": "أنشئ حسابك واستعد لاستكشاف خياراتك.",
+    "getStarted": "ابدأ الآن",
+    "welcomeTag": "ملاذك بانتظارك",
+    "welcomeTitle": "مرحباً بك في GO",
+    "welcomeSubtitle": "عطلتك القادمة تبدأ من هنا.",
+    "createAnAccount": "إنشاء حساب",
+    "logIn": "تسجيل الدخول"
   }
   

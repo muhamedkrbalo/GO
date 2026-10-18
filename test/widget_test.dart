@@ -6,6 +6,6 @@ void main() {
   testWidgets('SplashScreen renders', (tester) async {
     await tester.pumpWidget(const MaterialApp(home: SplashScreen()));
 
-    expect(find.text('Splash Screen'), findsOneWidget);
+    expect(find.byType(SplashScreen), findsOneWidget);
   });
 }

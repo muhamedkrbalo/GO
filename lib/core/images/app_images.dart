@@ -109,5 +109,20 @@ class AppImages {
   /// Assets for assetsSvgGoSplash
   /// assets/svg/goSplash.svg
   static const String assetsSvgGoSplash = "assets/svg/goSplash.svg";
-}
 
+  /// Assets for assetsSvgOnboarding1
+  /// assets/svg/onboarding1.svg
+  static const String assetsSvgOnboarding1 = "assets/svg/onboarding1.svg";
+
+  /// Assets for assetsSvgOnboarding2
+  /// assets/svg/onboarding2.svg
+  static const String assetsSvgOnboarding2 = "assets/svg/onboarding2.svg";
+
+  /// Assets for assetsSvgOnboarding3
+  /// assets/svg/onboarding3.svg
+  static const String assetsSvgOnboarding3 = "assets/svg/onboarding3.svg";
+
+  /// Assets for assetsImagesWelcome
+  /// assets/images/welcome.jpg
+  static const String assetsImagesWelcome = "assets/images/welcome.jpg";
+}

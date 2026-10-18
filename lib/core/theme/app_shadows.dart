@@ -9,4 +9,22 @@ class AppShadows {
       blurRadius: 30,
     ),
   ];
+
+  /// Soft brand-colored glow under primary buttons.
+  static const primaryButton = [
+    BoxShadow(
+      color: Color(0x2E0F766E),
+      offset: Offset(0, 10),
+      blurRadius: 12,
+    ),
+  ];
+
+  /// Large, soft shadow under hero images and cards.
+  static const card = [
+    BoxShadow(
+      color: Color(0x170F172A),
+      offset: Offset(0, 16),
+      blurRadius: 32,
+    ),
+  ];
 }

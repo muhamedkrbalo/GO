@@ -89,9 +89,7 @@ class _CustomButtonState extends State<CustomButton> with SingleTickerProviderSt
           )
         : ScaleTransition(
             scale: _scaleAnimation,
-            child: ClipRRect(
-              borderRadius: widget.borderRadius ?? BorderRadius.circular(widget.radius),
-              child: Container(
+            child: Container(
                 width: widget.width ?? double.infinity,
                 height: widget.height,
                 decoration: BoxDecoration(
@@ -117,7 +115,10 @@ class _CustomButtonState extends State<CustomButton> with SingleTickerProviderSt
                             ]
                       : null,
                 ),
-                child: Center(
+                // Clip inside the decoration so the ripple is rounded but the
+                // shadow is not cut off.
+                child: ClipRRect(
+                  borderRadius: widget.borderRadius ?? BorderRadius.circular(widget.radius),
                   child: Material(
                     color: Colors.transparent,
                     child: InkWell(
@@ -165,7 +166,6 @@ class _CustomButtonState extends State<CustomButton> with SingleTickerProviderSt
                   ),
                 ),
               ),
-            ),
           );
   }
 }

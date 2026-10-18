@@ -20,7 +20,7 @@ flutter test --plain-name "name"         # single test by name
 **Startup.** `main.dart` → `ServiceInitialize.initialize()` (EasyLocalization, GetIt, Hive box `app`, HydratedBloc storage) → `runApp(GO)` (`app.dart`, a `MaterialApp.router`).
 
 **Auth and navigation (`core/auth/auth_session.dart`, `core/routes/app_routers.dart`).**
-- `AuthSession` is a `ValueNotifier<AuthStatus>` (`unknown` / `authenticated` / `unauthenticated`), and it is the router's `refreshListenable`. All auth navigation goes through the single `_authRedirect`: `unknown` → splash, `unauthenticated` → login, `authenticated` → home.
+- `AuthSession` is a `ValueNotifier<AuthStatus>` (`unknown` / `authenticated` / `unauthenticated`), and it is the router's `refreshListenable`. All auth navigation goes through the single `_authRedirect`: `unknown` → splash, `unauthenticated` → onboarding on first launch (`HiveMethods.isFirstTime`) or welcome afterwards (login is also allowed), `authenticated` → home.
 - Screens never navigate because of auth. Call `AuthSession.signIn` / `signOut` and the router redirects.
 - `restore()` is started (not awaited) during init. While it runs the status stays `unknown`, which keeps the splash on screen. `minSplashDuration` sets the minimum splash time.
 - On a 401, `AppInterceptors` calls `signOut()`.

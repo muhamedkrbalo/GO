@@ -16,7 +16,20 @@ class AppTextStyles {
   );
 
 
+  // xxs - 11
+  static const xxsBold = TextStyle(
+    fontFamily: AppFonts.inter,
+    fontSize: 11,
+    fontWeight: FontWeight.w700,
+  );
+
   // xs - 12
+  static const xsMedium = TextStyle(
+    fontFamily: AppFonts.inter,
+    fontSize: 12,
+    fontWeight: FontWeight.w500,
+  );
+
   static const xsRegular = TextStyle(
     fontFamily: AppFonts.inter,
     fontSize: 12,
@@ -78,6 +91,20 @@ class AppTextStyles {
   static const xlBold = TextStyle(
     fontFamily: AppFonts.inter,
     fontSize: 20,
+    fontWeight: FontWeight.w700,
+  );
+
+  // xxl - 28
+  static const xxlBold = TextStyle(
+    fontFamily: AppFonts.inter,
+    fontSize: 28,
+    fontWeight: FontWeight.w700,
+  );
+
+  // xxxl - 32
+  static const xxxlBold = TextStyle(
+    fontFamily: AppFonts.inter,
+    fontSize: 32,
     fontWeight: FontWeight.w700,
   );
 }
