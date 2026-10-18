@@ -4,6 +4,7 @@ abstract final class RoutePaths {
   static const String onboarding = '/onboarding';
   static const String welcome = '/welcome';
   static const String login = '/login';
+  static const String register = '/register';
   static const String home = '/home';
   static const String zoomImage = '/zoom-image';
 }
@@ -14,6 +15,7 @@ abstract final class RouteNames {
   static const String onboarding = 'onboarding';
   static const String welcome = 'welcome';
   static const String login = 'login';
+  static const String register = 'register';
   static const String home = 'home';
   static const String zoomImage = 'zoomImage';
 }

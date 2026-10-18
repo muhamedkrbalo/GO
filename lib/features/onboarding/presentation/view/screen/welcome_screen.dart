@@ -64,8 +64,7 @@ class WelcomeScreen extends StatelessWidget {
                 text: AppLocaleKey.createAnAccount.tr(),
                 hasShadow: true,
                 boxShadow: AppShadows.primaryButton,
-                // TODO: go to the register screen once it exists.
-                onPressed: () => context.pushNamed(RouteNames.login),
+                onPressed: () => context.pushNamed(RouteNames.register),
               ),
               AppSpacing.gapV12,
               CustomButton(

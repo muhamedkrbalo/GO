@@ -29,6 +29,14 @@ mixin ValidationMixin<T extends StatefulWidget> on State<T> {
     return regExp.hasMatch(email);
   }
 
+  String? validatePhone(String? value) {
+    final phone = value?.trim() ?? '';
+    if (phone.length < 7 || phone.length > 15 || int.tryParse(phone) == null) {
+      return tr(AppLocaleKey.validatePhone);
+    }
+    return null;
+  }
+
   String? validatePhoneSa(String? value) {
     if (value == null || value.isEmpty) {
       return tr(AppLocaleKey.validatePhone);

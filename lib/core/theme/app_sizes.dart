@@ -9,6 +9,7 @@ class AppSpacing {
   static const double s8= 8;
   static const double m10= 10;
   static const double l15 = 15;
+  static const double l16 = 16;
   static const double xl20 = 20;
   static const double sm12 = 12;
   static const double xxl24 = 24;
@@ -20,6 +21,7 @@ class AppSpacing {
   static const gapH8 = SizedBox(width: s8);
   static const gapH10 = SizedBox(width: m10);
   static const gapH15 = SizedBox(width: l15);
+  static const gapH16 = SizedBox(width: l16);
   static const gapH20 = SizedBox(width: xl20);
 
   static const gapV5 = SizedBox(height: xs5);
@@ -47,6 +49,7 @@ class AppPadding {
   static const h10 = EdgeInsets.symmetric(horizontal: AppSpacing.m10);
   static const h15 = EdgeInsets.symmetric(horizontal: AppSpacing.l15);
   static const h20 = EdgeInsets.symmetric(horizontal: AppSpacing.xl20);
+  static const h16 = EdgeInsets.symmetric(horizontal: AppSpacing.l16);
   static const h24 = EdgeInsets.symmetric(horizontal: AppSpacing.xxl24);
 
   // Vertical only
@@ -60,9 +63,16 @@ class AppPadding {
   static const v10h15 = EdgeInsets.symmetric(vertical: AppSpacing.m10, horizontal: AppSpacing.l15);
   static const v10h20 = EdgeInsets.symmetric(vertical: AppSpacing.m10, horizontal: AppSpacing.xl20);
   static const v20h10 = EdgeInsets.symmetric(vertical: AppSpacing.xl20, horizontal: AppSpacing.m10);
+  static const v16h16 = EdgeInsets.symmetric(vertical: AppSpacing.l16, horizontal: AppSpacing.l16);
 
   // Per side (t = top, h = horizontal, b = bottom)
   static const h24b24 = EdgeInsets.fromLTRB(AppSpacing.xxl24, 0, AppSpacing.xxl24, AppSpacing.xxl24);
+  static const t15h24b24 = EdgeInsets.fromLTRB(
+    AppSpacing.xxl24,
+    AppSpacing.l15,
+    AppSpacing.xxl24,
+    AppSpacing.xxl24,
+  );
   static const t40h24b20 = EdgeInsets.fromLTRB(
     AppSpacing.xxl24,
     AppSpacing.xxxxl40,

@@ -27,6 +27,8 @@ class CustomColors extends ThemeExtension<CustomColors> {
     required this.border,
     required this.imagePlaceholder,
     required this.accentText,
+    required this.subtleBorder,
+    required this.surfaceWarm,
   });
 
   static const light = CustomColors(
@@ -48,6 +50,8 @@ class CustomColors extends ThemeExtension<CustomColors> {
     border: AppColors.border,
     imagePlaceholder: AppColors.mist,
     accentText: AppColors.primaryDark,
+    subtleBorder: AppColors.lightBorder,
+    surfaceWarm: AppColors.ivory,
   );
 
   static const dark = CustomColors(
@@ -69,6 +73,8 @@ class CustomColors extends ThemeExtension<CustomColors> {
     border: AppColors.darkBorder,
     imagePlaceholder: AppColors.darkSurfaceVariant,
     accentText: AppColors.primaryLight,
+    subtleBorder: AppColors.darkBorder,
+    surfaceWarm: AppColors.darkSurfaceVariant,
   );
 
   /// Strong text: titles, form labels, input text.
@@ -105,6 +111,10 @@ class CustomColors extends ThemeExtension<CustomColors> {
   /// Brand-colored text on a light surface (e.g. outlined button labels).
   final Color accentText;
 
+  final Color subtleBorder;
+
+  final Color surfaceWarm;
+
   @override
   CustomColors copyWith({
     Color? textPrimary,
@@ -125,6 +135,8 @@ class CustomColors extends ThemeExtension<CustomColors> {
     Color? border,
     Color? imagePlaceholder,
     Color? accentText,
+    Color? subtleBorder,
+    Color? surfaceWarm,
   }) {
     return CustomColors(
       textPrimary: textPrimary ?? this.textPrimary,
@@ -145,6 +157,8 @@ class CustomColors extends ThemeExtension<CustomColors> {
       border: border ?? this.border,
       imagePlaceholder: imagePlaceholder ?? this.imagePlaceholder,
       accentText: accentText ?? this.accentText,
+      subtleBorder: subtleBorder ?? this.subtleBorder,
+      surfaceWarm: surfaceWarm ?? this.surfaceWarm,
     );
   }
 
@@ -170,6 +184,8 @@ class CustomColors extends ThemeExtension<CustomColors> {
       border: Color.lerp(border, other.border, t)!,
       imagePlaceholder: Color.lerp(imagePlaceholder, other.imagePlaceholder, t)!,
       accentText: Color.lerp(accentText, other.accentText, t)!,
+      subtleBorder: Color.lerp(subtleBorder, other.subtleBorder, t)!,
+      surfaceWarm: Color.lerp(surfaceWarm, other.surfaceWarm, t)!,
     );
   }
 }

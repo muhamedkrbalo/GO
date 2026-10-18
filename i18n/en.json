@@ -83,5 +83,17 @@
   "welcomeTitle": "Welcome to GO",
   "welcomeSubtitle": "Your next getaway starts here.",
   "createAnAccount": "Create an Account",
-  "logIn": "Log In"
+  "logIn": "Log In",
+  "continue": "Continue",
+  "fullName": "Full Name",
+  "createYourAccount": "Create your account",
+  "accountCreation": "ACCOUNT CREATION",
+  "stepOf": "{} OF {}",
+  "enterYourDetailsToGetStarted": "Enter your details to get started.",
+  "enterYourFullName": "Enter your full name",
+  "enterMobileNumber": "Enter mobile number",
+  "emailAddress": "Email Address",
+  "enterEmailAddress": "Enter email address",
+  "createAPassword": "Create a password",
+  "reEnterYourPassword": "Re-enter your password"
 }

@@ -657,4 +657,15 @@ class AppLocaleKey {
   static const welcomeSubtitle = 'welcomeSubtitle';
   static const createAnAccount = 'createAnAccount';
   static const logIn = 'logIn';
+
+  // register
+  static const mobileNumber = 'mobileNumber';
+  static const accountCreation = 'accountCreation';
+  static const stepOf = 'stepOf';
+  static const enterYourDetailsToGetStarted = 'enterYourDetailsToGetStarted';
+  static const enterMobileNumber = 'enterMobileNumber';
+  static const emailAddress = 'emailAddress';
+  static const enterEmailAddress = 'enterEmailAddress';
+  static const createAPassword = 'createAPassword';
+  static const reEnterYourPassword = 'reEnterYourPassword';
 }

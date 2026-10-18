@@ -61,6 +61,12 @@ class AppTextStyles {
     fontWeight: FontWeight.w600,
   );
 
+  static const sBold = TextStyle(
+    fontFamily: AppFonts.inter,
+    fontSize: 14,
+    fontWeight: FontWeight.w700,
+  );
+
 
   // m - 16
   static const mRegular = TextStyle(

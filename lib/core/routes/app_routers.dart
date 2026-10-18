@@ -3,12 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../features/auth/presentation/controller/register_cubit.dart';
 import '../../features/auth/presentation/view/screen/login_screen.dart';
+import '../../features/auth/presentation/view/screen/register_screen.dart';
 import '../../features/home/presentation/view/screen/home_screen.dart';
 import '../../features/onboarding/presentation/controller/onboarding_cubit.dart';
 import '../../features/onboarding/presentation/view/screen/onboarding_screen.dart';
 import '../../features/onboarding/presentation/view/screen/welcome_screen.dart';
-import '../../features/splash/presentation/controller/splash_cubit.dart';
 import '../../features/splash/presentation/view/screen/splash_screen.dart';
 import '../auth/auth_session.dart';
 import '../cache/hive/hive_methods.dart';
@@ -55,6 +56,14 @@ class AppRouters {
         builder: (context, state) => const LoginScreen(),
       ),
       GoRoute(
+        path: RoutePaths.register,
+        name: RouteNames.register,
+        builder: (context, state) => BlocProvider(
+          create: (_) => sl<RegisterCubit>(),
+          child: const RegisterScreen(),
+        ),
+      ),
+      GoRoute(
         path: RoutePaths.home,
         name: RouteNames.home,
         builder: (context, state) => const HomeScreen(),
@@ -77,6 +86,7 @@ class AppRouters {
     RoutePaths.onboarding,
     RoutePaths.welcome,
     RoutePaths.login,
+    RoutePaths.register,
   };
 
   /// Login gating, in one place:

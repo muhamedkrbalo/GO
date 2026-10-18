@@ -16,6 +16,7 @@ class AppColors {
   // neutrals
   static const white = Color(0xffffffff);
   static const offWhite = Color(0xFFF5F5F5);
+  static const ivory = Color(0xffFAF8F3);
   static const black = Color(0xff000000);
   static const text = Color(0xFF0A0A0A);
   static const hint = Color(0xff94A3B8);
@@ -24,6 +25,7 @@ class AppColors {
   static const darkGrey = Color(0xff666666);
   static const lightGrey = Color(0xffA6A6A6);
   static const border = Color(0xffCBD5E1);
+  static const lightBorder = Color(0xffE2E8F0);
   static const muted = Color(0xff64748B);
   static const mist = Color(0xffD8E8E8);
   static const divider = Color(0xFFDADADA);

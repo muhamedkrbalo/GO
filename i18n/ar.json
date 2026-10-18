@@ -83,6 +83,18 @@
     "welcomeTitle": "مرحباً بك في GO",
     "welcomeSubtitle": "عطلتك القادمة تبدأ من هنا.",
     "createAnAccount": "إنشاء حساب",
-    "logIn": "تسجيل الدخول"
+    "logIn": "تسجيل الدخول",
+    "continue": "متابعة",
+    "fullName": "الاسم الكامل",
+    "createYourAccount": "أنشئ حسابك",
+    "accountCreation": "إنشاء الحساب",
+    "stepOf": "{} من {}",
+    "enterYourDetailsToGetStarted": "أدخل بياناتك للبدء.",
+    "enterYourFullName": "أدخل اسمك الكامل",
+    "enterMobileNumber": "أدخل رقم الجوال",
+    "emailAddress": "البريد الإلكتروني",
+    "enterEmailAddress": "أدخل البريد الإلكتروني",
+    "createAPassword": "أنشئ كلمة مرور",
+    "reEnterYourPassword": "أعد إدخال كلمة المرور"
   }
   

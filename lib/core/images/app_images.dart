@@ -90,6 +90,10 @@ class AppImages {
   /// assets/global_icon/warning.svg
   static const String assetsGlobalIconWarning = "assets/global_icon/warning.svg";
 
+  /// Assets for assetsImagesGoLogo
+  /// assets/images/goLogo.png
+  static const String assetsImagesGoLogo = "assets/images/goLogo.png";
+
   /// Assets for assetsImagesGoSplashLogo
   /// assets/images/goSplashLogo.png
   static const String assetsImagesGoSplashLogo = "assets/images/goSplashLogo.png";
@@ -101,6 +105,22 @@ class AppImages {
   /// Assets for assetsImagesSplashImage
   /// assets/images/splashImage.png
   static const String assetsImagesSplashImage = "assets/images/splashImage.png";
+
+  /// Assets for assetsImagesWelcome
+  /// assets/images/welcome.jpg
+  static const String assetsImagesWelcome = "assets/images/welcome.jpg";
+
+  /// Assets for assetsSvgArrowBack
+  /// assets/svg/arrowBack.svg
+  static const String assetsSvgArrowBack = "assets/svg/arrowBack.svg";
+
+  /// Assets for assetsSvgChevronDown
+  /// assets/svg/chevronDown.svg
+  static const String assetsSvgChevronDown = "assets/svg/chevronDown.svg";
+
+  /// Assets for assetsSvgEye
+  /// assets/svg/eye.svg
+  static const String assetsSvgEye = "assets/svg/eye.svg";
 
   /// Assets for assetsSvgGoLogo
   /// assets/svg/goLogo.svg
@@ -121,8 +141,5 @@ class AppImages {
   /// Assets for assetsSvgOnboarding3
   /// assets/svg/onboarding3.svg
   static const String assetsSvgOnboarding3 = "assets/svg/onboarding3.svg";
-
-  /// Assets for assetsImagesWelcome
-  /// assets/images/welcome.jpg
-  static const String assetsImagesWelcome = "assets/images/welcome.jpg";
 }
+
