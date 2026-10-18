@@ -2,9 +2,14 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_hr_erb/core/auth/auth_session.dart';
+import 'package:flutter_hr_erb/core/cache/hive/hive_methods.dart';
 import 'package:flutter_hr_erb/core/cache/secure_storage/secure_storage_service.dart';
 import 'package:flutter_hr_erb/core/routes/app_routers.dart';
 import 'package:flutter_hr_erb/core/services/service_locator.dart';
+import 'package:flutter_hr_erb/features/onboarding/presentation/controller/onboarding_cubit.dart';
+import 'package:flutter_hr_erb/features/onboarding/presentation/view/screen/onboarding_screen.dart';
+import 'package:flutter_hr_erb/features/onboarding/presentation/view/screen/welcome_screen.dart';
+import 'package:flutter_hr_erb/features/splash/presentation/view/screen/splash_screen.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:hive/hive.dart';
 
@@ -38,6 +43,7 @@ void main() {
     storage = _FakeSecureStorage();
     session = AuthSession(storage);
     sl.registerSingleton<AuthSession>(session);
+    sl.registerFactory<OnboardingCubit>(OnboardingCubit.new);
   });
 
   tearDownAll(() async {
@@ -73,19 +79,22 @@ void main() {
     session.value = AuthStatus.unknown;
     await tester.pumpWidget(MaterialApp.router(routerConfig: AppRouters.router));
     await tester.pumpAndSettle();
-    expect(find.text('Splash Screen'), findsOneWidget);
+    expect(find.byType(SplashScreen), findsOneWidget);
 
+    // First launch → onboarding.
     session.value = AuthStatus.unauthenticated;
     await tester.pumpAndSettle();
-    expect(find.text('Login Screen'), findsOneWidget);
+    expect(find.byType(OnboardingScreen), findsOneWidget);
 
     session.value = AuthStatus.authenticated;
     await tester.pumpAndSettle();
     expect(find.text('Home Screen'), findsOneWidget);
 
-    // e.g. a 401 from the interceptor
+    // e.g. a 401 from the interceptor, after onboarding was seen → welcome.
+    // Real async: a Hive write left pending in fake time would hang Hive.close().
+    await tester.runAsync(() async => HiveMethods.updateFirstTime());
     session.value = AuthStatus.unauthenticated;
     await tester.pumpAndSettle();
-    expect(find.text('Login Screen'), findsOneWidget);
+    expect(find.byType(WelcomeScreen), findsOneWidget);
   });
 }

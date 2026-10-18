@@ -23,10 +23,14 @@ class CustomColors extends ThemeExtension<CustomColors> {
     required this.lightGrey,
     required this.darkGrey,
     required this.primaryLight,
+    required this.textMuted,
+    required this.border,
+    required this.imagePlaceholder,
+    required this.accentText,
   });
 
   static const light = CustomColors(
-    textPrimary: AppColors.text,
+    textPrimary: AppColors.primary,
     textSecondary: AppColors.secondary,
     hint: AppColors.hint,
     onBackground: AppColors.black,
@@ -40,10 +44,14 @@ class CustomColors extends ThemeExtension<CustomColors> {
     lightGrey: AppColors.lightGrey,
     darkGrey: AppColors.darkGrey,
     primaryLight: AppColors.primaryLight,
+    textMuted: AppColors.muted,
+    border: AppColors.border,
+    imagePlaceholder: AppColors.mist,
+    accentText: AppColors.primaryDark,
   );
 
   static const dark = CustomColors(
-    textPrimary: AppColors.white,
+    textPrimary: AppColors.primary,
     textSecondary: AppColors.darkSecondaryText,
     hint: AppColors.darkHint,
     onBackground: AppColors.white,
@@ -57,6 +65,10 @@ class CustomColors extends ThemeExtension<CustomColors> {
     lightGrey: AppColors.darkGrey,
     darkGrey: AppColors.darkHint,
     primaryLight: AppColors.primaryDark,
+    textMuted: AppColors.darkHint,
+    border: AppColors.darkBorder,
+    imagePlaceholder: AppColors.darkSurfaceVariant,
+    accentText: AppColors.primaryLight,
   );
 
   /// Strong text: titles, form labels, input text.
@@ -81,6 +93,18 @@ class CustomColors extends ThemeExtension<CustomColors> {
   final Color darkGrey;
   final Color primaryLight;
 
+  /// Low-emphasis text: descriptions, captions, secondary buttons.
+  final Color textMuted;
+
+  /// Outlines of secondary buttons and inactive indicators.
+  final Color border;
+
+  /// Shown behind images while they load.
+  final Color imagePlaceholder;
+
+  /// Brand-colored text on a light surface (e.g. outlined button labels).
+  final Color accentText;
+
   @override
   CustomColors copyWith({
     Color? textPrimary,
@@ -97,6 +121,10 @@ class CustomColors extends ThemeExtension<CustomColors> {
     Color? lightGrey,
     Color? darkGrey,
     Color? primaryLight,
+    Color? textMuted,
+    Color? border,
+    Color? imagePlaceholder,
+    Color? accentText,
   }) {
     return CustomColors(
       textPrimary: textPrimary ?? this.textPrimary,
@@ -113,6 +141,10 @@ class CustomColors extends ThemeExtension<CustomColors> {
       lightGrey: lightGrey ?? this.lightGrey,
       darkGrey: darkGrey ?? this.darkGrey,
       primaryLight: primaryLight ?? this.primaryLight,
+      textMuted: textMuted ?? this.textMuted,
+      border: border ?? this.border,
+      imagePlaceholder: imagePlaceholder ?? this.imagePlaceholder,
+      accentText: accentText ?? this.accentText,
     );
   }
 
@@ -134,6 +166,10 @@ class CustomColors extends ThemeExtension<CustomColors> {
       lightGrey: Color.lerp(lightGrey, other.lightGrey, t)!,
       darkGrey: Color.lerp(darkGrey, other.darkGrey, t)!,
       primaryLight: Color.lerp(primaryLight, other.primaryLight, t)!,
+      textMuted: Color.lerp(textMuted, other.textMuted, t)!,
+      border: Color.lerp(border, other.border, t)!,
+      imagePlaceholder: Color.lerp(imagePlaceholder, other.imagePlaceholder, t)!,
+      accentText: Color.lerp(accentText, other.accentText, t)!,
     );
   }
 }

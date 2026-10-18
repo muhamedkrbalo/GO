@@ -69,5 +69,19 @@
   "connectionTimeout": "The connection timed out, please try again.",
   "requestCancelled": "The request was cancelled.",
   "resourceNotFound": "The requested resource was not found.",
-  "serverError": "Server error, please try again later."
+  "serverError": "Server error, please try again later.",
+  "splashTagline": "Your getaway, your way.",
+  "onboardingTag": "GO GETAWAYS · {}",
+  "onboardingTitle1": "Discover Your Next Getaway",
+  "onboardingDescription1": "Explore vacation stays and find a place that feels like yours.",
+  "onboardingTitle2": "Find Your Perfect Stay",
+  "onboardingDescription2": "Choose the location, dates, and details that match your plans.",
+  "onboardingTitle3": "Your GO Journey Starts Here",
+  "onboardingDescription3": "Create your account and get ready to explore your options.",
+  "getStarted": "Get Started",
+  "welcomeTag": "YOUR ESCAPE AWAITS",
+  "welcomeTitle": "Welcome to GO",
+  "welcomeSubtitle": "Your next getaway starts here.",
+  "createAnAccount": "Create an Account",
+  "logIn": "Log In"
 }

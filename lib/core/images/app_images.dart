@@ -2,6 +2,46 @@
 class AppImages {
   AppImages._();
   
+  /// Assets for assetsFontsInterBlack
+  /// assets/fonts/Inter-Black.ttf
+  static const String assetsFontsInterBlack = "assets/fonts/Inter-Black.ttf";
+
+  /// Assets for assetsFontsInterBold
+  /// assets/fonts/Inter-Bold.ttf
+  static const String assetsFontsInterBold = "assets/fonts/Inter-Bold.ttf";
+
+  /// Assets for assetsFontsInterExtraBold
+  /// assets/fonts/Inter-ExtraBold.ttf
+  static const String assetsFontsInterExtraBold = "assets/fonts/Inter-ExtraBold.ttf";
+
+  /// Assets for assetsFontsInterExtraLight
+  /// assets/fonts/Inter-ExtraLight.ttf
+  static const String assetsFontsInterExtraLight = "assets/fonts/Inter-ExtraLight.ttf";
+
+  /// Assets for assetsFontsInterLICENSE
+  /// assets/fonts/Inter-LICENSE.txt
+  static const String assetsFontsInterLICENSE = "assets/fonts/Inter-LICENSE.txt";
+
+  /// Assets for assetsFontsInterLight
+  /// assets/fonts/Inter-Light.ttf
+  static const String assetsFontsInterLight = "assets/fonts/Inter-Light.ttf";
+
+  /// Assets for assetsFontsInterMedium
+  /// assets/fonts/Inter-Medium.ttf
+  static const String assetsFontsInterMedium = "assets/fonts/Inter-Medium.ttf";
+
+  /// Assets for assetsFontsInterRegular
+  /// assets/fonts/Inter-Regular.ttf
+  static const String assetsFontsInterRegular = "assets/fonts/Inter-Regular.ttf";
+
+  /// Assets for assetsFontsInterSemiBold
+  /// assets/fonts/Inter-SemiBold.ttf
+  static const String assetsFontsInterSemiBold = "assets/fonts/Inter-SemiBold.ttf";
+
+  /// Assets for assetsFontsInterThin
+  /// assets/fonts/Inter-Thin.ttf
+  static const String assetsFontsInterThin = "assets/fonts/Inter-Thin.ttf";
+
   /// Assets for assetsGlobalIconCamera
   /// assets/global_icon/camera.svg
   static const String assetsGlobalIconCamera = "assets/global_icon/camera.svg";
@@ -50,8 +90,39 @@ class AppImages {
   /// assets/global_icon/warning.svg
   static const String assetsGlobalIconWarning = "assets/global_icon/warning.svg";
 
+  /// Assets for assetsImagesGoSplashLogo
+  /// assets/images/goSplashLogo.png
+  static const String assetsImagesGoSplashLogo = "assets/images/goSplashLogo.png";
+
+  /// Assets for assetsImagesOnBoarding3
+  /// assets/images/onBoarding3.png
+  static const String assetsImagesOnBoarding3 = "assets/images/onBoarding3.png";
+
+  /// Assets for assetsImagesSplashImage
+  /// assets/images/splashImage.png
+  static const String assetsImagesSplashImage = "assets/images/splashImage.png";
+
   /// Assets for assetsSvgGoLogo
   /// assets/svg/goLogo.svg
   static const String assetsSvgGoLogo = "assets/svg/goLogo.svg";
-}
 
+  /// Assets for assetsSvgGoSplash
+  /// assets/svg/goSplash.svg
+  static const String assetsSvgGoSplash = "assets/svg/goSplash.svg";
+
+  /// Assets for assetsSvgOnboarding1
+  /// assets/svg/onboarding1.svg
+  static const String assetsSvgOnboarding1 = "assets/svg/onboarding1.svg";
+
+  /// Assets for assetsSvgOnboarding2
+  /// assets/svg/onboarding2.svg
+  static const String assetsSvgOnboarding2 = "assets/svg/onboarding2.svg";
+
+  /// Assets for assetsSvgOnboarding3
+  /// assets/svg/onboarding3.svg
+  static const String assetsSvgOnboarding3 = "assets/svg/onboarding3.svg";
+
+  /// Assets for assetsImagesWelcome
+  /// assets/images/welcome.jpg
+  static const String assetsImagesWelcome = "assets/images/welcome.jpg";
+}

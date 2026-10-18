@@ -641,4 +641,20 @@ class AppLocaleKey {
   static const approved = 'approved';
   static const expired = 'expired';
   static const areYouSureYouWantToDeleteTheAttorney = 'areYouSureYouWantToDeleteTheAttorney';
+  static const splashTagline = 'splashTagline';
+
+  // onboarding
+  static const onboardingTag = 'onboardingTag';
+  static const onboardingTitle1 = 'onboardingTitle1';
+  static const onboardingDescription1 = 'onboardingDescription1';
+  static const onboardingTitle2 = 'onboardingTitle2';
+  static const onboardingDescription2 = 'onboardingDescription2';
+  static const onboardingTitle3 = 'onboardingTitle3';
+  static const onboardingDescription3 = 'onboardingDescription3';
+  static const getStarted = 'getStarted';
+  static const welcomeTag = 'welcomeTag';
+  static const welcomeTitle = 'welcomeTitle';
+  static const welcomeSubtitle = 'welcomeSubtitle';
+  static const createAnAccount = 'createAnAccount';
+  static const logIn = 'logIn';
 }
