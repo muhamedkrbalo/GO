@@ -42,6 +42,12 @@ class AppTextStyles {
     fontSize: 14,
     fontWeight: FontWeight.w500,
   );
+   static const sSemiBold = TextStyle(
+    fontFamily: AppFonts.inter,
+    fontSize: 14,
+    fontWeight: FontWeight.w600,
+  );
+
 
   // m - 16
   static const mRegular = TextStyle(

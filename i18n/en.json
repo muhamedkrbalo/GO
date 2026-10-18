@@ -69,5 +69,6 @@
   "connectionTimeout": "The connection timed out, please try again.",
   "requestCancelled": "The request was cancelled.",
   "resourceNotFound": "The requested resource was not found.",
-  "serverError": "Server error, please try again later."
+  "serverError": "Server error, please try again later.",
+  "splashTagline": "Your getaway, your way."
 }

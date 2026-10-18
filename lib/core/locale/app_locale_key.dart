@@ -641,4 +641,5 @@ class AppLocaleKey {
   static const approved = 'approved';
   static const expired = 'expired';
   static const areYouSureYouWantToDeleteTheAttorney = 'areYouSureYouWantToDeleteTheAttorney';
+  static const splashTagline = 'splashTagline';
 }
