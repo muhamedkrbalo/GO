@@ -687,4 +687,16 @@ class AppLocaleKey {
   static const changeVerificationMethod = 'changeVerificationMethod';
   static const verifyCode = 'verifyCode';
   static const incorrectCodeAttempts = 'incorrectCodeAttempts';
+
+  static const accountVerifiedBadge = 'accountVerifiedBadge';
+  static const businessRegistration = 'businessRegistration';
+  static const howWillYouUseGo = 'howWillYouUseGo';
+  static const chooseBusinessRelationship = 'chooseBusinessRelationship';
+  static const owner = 'owner';
+  static const ownerDescription = 'ownerDescription';
+  static const broker = 'broker';
+  static const brokerDescription = 'brokerDescription';
+  static const serviceProvider = 'serviceProvider';
+  static const serviceProviderDescription = 'serviceProviderDescription';
+  static const businessSelectionNote = 'businessSelectionNote';
 }

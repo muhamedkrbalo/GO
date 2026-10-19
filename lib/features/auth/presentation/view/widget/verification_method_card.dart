@@ -9,6 +9,7 @@ import '../../../../../core/theme/app_sizes.dart';
 import '../../../../../core/theme/app_text_styles.dart';
 import '../../../../../core/theme/extensions/theme_extensions.dart';
 import '../../../data/model/verification_method.dart';
+import 'selection_indicator.dart';
 
 class VerificationMethodCard extends StatelessWidget {
   const VerificationMethodCard({
@@ -110,50 +111,11 @@ class VerificationMethodCard extends StatelessWidget {
                     ),
                   ),
                   AppSpacing.gapH15,
-                  _SelectionIndicator(isSelected: isSelected, duration: _duration),
+                  SelectionIndicator(isSelected: isSelected, duration: _duration),
                 ],
               ),
             ),
           ),
-        ),
-      ),
-    );
-  }
-}
-
-class _SelectionIndicator extends StatelessWidget {
-  const _SelectionIndicator({required this.isSelected, required this.duration});
-
-  final bool isSelected;
-  final Duration duration;
-
-  static const _size = 20.0;
-  static const _dotSize = 9.3;
-  static const _borderWidth = 1.6;
-
-  @override
-  Widget build(BuildContext context) {
-    final colors = context.customColors;
-
-    return AnimatedContainer(
-      duration: duration,
-      width: _size,
-      height: _size,
-      alignment: Alignment.center,
-      decoration: BoxDecoration(
-        color: colors.surface,
-        shape: BoxShape.circle,
-        border: Border.all(
-          color: isSelected ? AppColors.primary : colors.hint,
-          width: _borderWidth,
-        ),
-      ),
-      child: AnimatedScale(
-        scale: isSelected ? 1 : 0,
-        duration: duration,
-        child: const DecoratedBox(
-          decoration: BoxDecoration(color: AppColors.primary, shape: BoxShape.circle),
-          child: SizedBox.square(dimension: _dotSize),
         ),
       ),
     );

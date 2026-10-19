@@ -5,6 +5,7 @@ import 'package:internet_connection_checker_plus/internet_connection_checker_plu
 import '../../features/auth/data/model/verify_code_args.dart';
 import '../../features/auth/data/repository/auth_repository.dart';
 import '../../features/auth/data/repository/mock_auth_repository.dart';
+import '../../features/auth/presentation/controller/business_role_cubit.dart';
 import '../../features/auth/presentation/controller/register_cubit.dart';
 import '../../features/auth/presentation/controller/verify_account_cubit.dart';
 import '../../features/auth/presentation/controller/verify_code_cubit.dart';
@@ -86,4 +87,5 @@ void _initAuth() {
   sl.registerFactoryParam<VerifyCodeCubit, VerifyCodeArgs, void>(
     (args, _) => VerifyCodeCubit(sl(), args),
   );
+  sl.registerFactory<BusinessRoleCubit>(BusinessRoleCubit.new);
 }

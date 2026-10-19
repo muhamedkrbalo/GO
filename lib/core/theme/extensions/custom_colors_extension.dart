@@ -33,6 +33,9 @@ class CustomColors extends ThemeExtension<CustomColors> {
     required this.error,
     required this.errorSurface,
     required this.filledBorder,
+    required this.success,
+    required this.successSurface,
+    required this.successBorder,
   });
 
   static const light = CustomColors(
@@ -60,6 +63,9 @@ class CustomColors extends ThemeExtension<CustomColors> {
     error: AppColors.error,
     errorSurface: AppColors.errorSurface,
     filledBorder: AppColors.primaryMuted,
+    success: AppColors.success,
+    successSurface: AppColors.successSurface,
+    successBorder: AppColors.successBorder,
   );
 
   static const dark = CustomColors(
@@ -87,6 +93,9 @@ class CustomColors extends ThemeExtension<CustomColors> {
     error: AppColors.darkError,
     errorSurface: AppColors.darkErrorSurface,
     filledBorder: AppColors.primary,
+    success: AppColors.darkSuccess,
+    successSurface: AppColors.darkSuccessSurface,
+    successBorder: AppColors.darkSuccessBorder,
   );
 
   /// Strong text: titles, form labels, input text.
@@ -130,6 +139,9 @@ class CustomColors extends ThemeExtension<CustomColors> {
   final Color error;
   final Color errorSurface;
   final Color filledBorder;
+  final Color success;
+  final Color successSurface;
+  final Color successBorder;
 
   @override
   CustomColors copyWith({
@@ -157,6 +169,9 @@ class CustomColors extends ThemeExtension<CustomColors> {
     Color? error,
     Color? errorSurface,
     Color? filledBorder,
+    Color? success,
+    Color? successSurface,
+    Color? successBorder,
   }) {
     return CustomColors(
       textPrimary: textPrimary ?? this.textPrimary,
@@ -183,6 +198,9 @@ class CustomColors extends ThemeExtension<CustomColors> {
       error: error ?? this.error,
       errorSurface: errorSurface ?? this.errorSurface,
       filledBorder: filledBorder ?? this.filledBorder,
+      success: success ?? this.success,
+      successSurface: successSurface ?? this.successSurface,
+      successBorder: successBorder ?? this.successBorder,
     );
   }
 
@@ -214,6 +232,9 @@ class CustomColors extends ThemeExtension<CustomColors> {
       error: Color.lerp(error, other.error, t)!,
       errorSurface: Color.lerp(errorSurface, other.errorSurface, t)!,
       filledBorder: Color.lerp(filledBorder, other.filledBorder, t)!,
+      success: Color.lerp(success, other.success, t)!,
+      successSurface: Color.lerp(successSurface, other.successSurface, t)!,
+      successBorder: Color.lerp(successBorder, other.successBorder, t)!,
     );
   }
 }

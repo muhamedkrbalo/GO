@@ -5,9 +5,11 @@ import 'package:go_router/go_router.dart';
 
 import '../../features/auth/data/model/verify_account_args.dart';
 import '../../features/auth/data/model/verify_code_args.dart';
+import '../../features/auth/presentation/controller/business_role_cubit.dart';
 import '../../features/auth/presentation/controller/register_cubit.dart';
 import '../../features/auth/presentation/controller/verify_account_cubit.dart';
 import '../../features/auth/presentation/controller/verify_code_cubit.dart';
+import '../../features/auth/presentation/view/screen/business_role_screen.dart';
 import '../../features/auth/presentation/view/screen/login_screen.dart';
 import '../../features/auth/presentation/view/screen/register_screen.dart';
 import '../../features/auth/presentation/view/screen/verify_account_screen.dart';
@@ -90,6 +92,14 @@ class AppRouters {
         ),
       ),
       GoRoute(
+        path: RoutePaths.businessRole,
+        name: RouteNames.businessRole,
+        builder: (context, state) => BlocProvider(
+          create: (_) => sl<BusinessRoleCubit>(),
+          child: const BusinessRoleScreen(),
+        ),
+      ),
+      GoRoute(
         path: RoutePaths.home,
         name: RouteNames.home,
         builder: (context, state) => const HomeScreen(),
@@ -115,6 +125,7 @@ class AppRouters {
     RoutePaths.register,
     RoutePaths.verifyAccount,
     RoutePaths.verifyCode,
+    RoutePaths.businessRole,
   };
 
   /// Login gating, in one place:

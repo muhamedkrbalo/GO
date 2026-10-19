@@ -114,6 +114,14 @@ class AppImages {
   /// assets/svg/arrowBack.svg
   static const String assetsSvgArrowBack = "assets/svg/arrowBack.svg";
 
+  /// Assets for assetsSvgBroker
+  /// assets/svg/broker.svg
+  static const String assetsSvgBroker = "assets/svg/broker.svg";
+
+  /// Assets for assetsSvgCheck
+  /// assets/svg/check.svg
+  static const String assetsSvgCheck = "assets/svg/check.svg";
+
   /// Assets for assetsSvgChevronDown
   /// assets/svg/chevronDown.svg
   static const String assetsSvgChevronDown = "assets/svg/chevronDown.svg";
@@ -145,6 +153,14 @@ class AppImages {
   /// Assets for assetsSvgOnboarding3
   /// assets/svg/onboarding3.svg
   static const String assetsSvgOnboarding3 = "assets/svg/onboarding3.svg";
+
+  /// Assets for assetsSvgOwner
+  /// assets/svg/owner.svg
+  static const String assetsSvgOwner = "assets/svg/owner.svg";
+
+  /// Assets for assetsSvgServiceProvider
+  /// assets/svg/serviceProvider.svg
+  static const String assetsSvgServiceProvider = "assets/svg/serviceProvider.svg";
 
   /// Assets for assetsSvgSms
   /// assets/svg/sms.svg
