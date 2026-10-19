@@ -61,3 +61,11 @@ flutter test --plain-name "name"         # single test by name
 - a fake `SecureStorageService`,
 - `Hive.init` on a temp dir,
 - registering `AuthSession` in `sl` before touching `AppRouters`.
+
+## Rules
+
+Detailed working rules live in `.claude/rules/` and are loaded automatically:
+- `workflow.md`: scope, verification (`flutter analyze` must be clean) and git conventions.
+- `dart-flutter.md`: new-feature checklist, Cubit/state, widget, theme and navigation rules.
+- `localization.md`: every string needs an `AppLocaleKey` plus `en.json` and `ar.json` entries.
+- `testing.md`: how Cubit and router tests are written.
