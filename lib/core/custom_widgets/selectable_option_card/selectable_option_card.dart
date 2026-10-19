@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-import '../../theme/app_colors.dart';
 import '../../theme/app_sizes.dart';
 import '../../theme/app_text_styles.dart';
 import '../../theme/extensions/theme_extensions.dart';
@@ -51,7 +50,7 @@ class SelectableOptionCard extends StatelessWidget {
           color: isSelected ? colors.selectedSurface : colors.surface,
           borderRadius: AppRadius.brCard,
           border: Border.all(
-            color: isSelected ? AppColors.primary : colors.subtleBorder,
+            color: isSelected ? colors.primary : colors.subtleBorder,
             width: isSelected ? _selectedBorderWidth : _borderWidth,
           ),
         ),

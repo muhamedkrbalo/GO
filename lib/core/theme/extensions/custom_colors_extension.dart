@@ -37,6 +37,8 @@ class CustomColors extends ThemeExtension<CustomColors> {
     required this.successSurface,
     required this.successBorder,
     required this.canvas,
+    required this.primary,
+    required this.onPrimary,
   });
 
   static const light = CustomColors(
@@ -68,6 +70,8 @@ class CustomColors extends ThemeExtension<CustomColors> {
     successSurface: AppColors.successSurface,
     successBorder: AppColors.successBorder,
     canvas: AppColors.canvas,
+    primary: AppColors.primary,
+    onPrimary: AppColors.white,
   );
 
   static const dark = CustomColors(
@@ -99,6 +103,8 @@ class CustomColors extends ThemeExtension<CustomColors> {
     successSurface: AppColors.darkSuccessSurface,
     successBorder: AppColors.darkSuccessBorder,
     canvas: AppColors.darkScaffold,
+    primary: AppColors.primary,
+    onPrimary: AppColors.white,
   );
 
   /// Strong text: titles, form labels, input text.
@@ -146,6 +152,8 @@ class CustomColors extends ThemeExtension<CustomColors> {
   final Color successSurface;
   final Color successBorder;
   final Color canvas;
+  final Color primary;
+  final Color onPrimary;
 
   @override
   CustomColors copyWith({
@@ -177,6 +185,8 @@ class CustomColors extends ThemeExtension<CustomColors> {
     Color? successSurface,
     Color? successBorder,
     Color? canvas,
+    Color? primary,
+    Color? onPrimary,
   }) {
     return CustomColors(
       textPrimary: textPrimary ?? this.textPrimary,
@@ -207,6 +217,8 @@ class CustomColors extends ThemeExtension<CustomColors> {
       successSurface: successSurface ?? this.successSurface,
       successBorder: successBorder ?? this.successBorder,
       canvas: canvas ?? this.canvas,
+      primary: primary ?? this.primary,
+      onPrimary: onPrimary ?? this.onPrimary,
     );
   }
 
@@ -242,6 +254,8 @@ class CustomColors extends ThemeExtension<CustomColors> {
       successSurface: Color.lerp(successSurface, other.successSurface, t)!,
       successBorder: Color.lerp(successBorder, other.successBorder, t)!,
       canvas: Color.lerp(canvas, other.canvas, t)!,
+      primary: Color.lerp(primary, other.primary, t)!,
+      onPrimary: Color.lerp(onPrimary, other.onPrimary, t)!,
     );
   }
 }

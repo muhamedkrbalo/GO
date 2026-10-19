@@ -18,7 +18,9 @@ import '../../features/home/presentation/view/screen/home_screen.dart';
 import '../../features/onboarding/presentation/controller/onboarding_cubit.dart';
 import '../../features/onboarding/presentation/view/screen/onboarding_screen.dart';
 import '../../features/onboarding/presentation/view/screen/welcome_screen.dart';
+import '../../features/owner_registration/presentation/controller/individual_info_cubit.dart';
 import '../../features/owner_registration/presentation/controller/owner_type_cubit.dart';
+import '../../features/owner_registration/presentation/view/screen/individual_info_screen.dart';
 import '../../features/owner_registration/presentation/view/screen/owner_type_screen.dart';
 import '../../features/splash/presentation/view/screen/splash_screen.dart';
 import '../auth/auth_session.dart';
@@ -109,6 +111,14 @@ class AppRouters {
         ),
       ),
       GoRoute(
+        path: RoutePaths.individualInfo,
+        name: RouteNames.individualInfo,
+        builder: (context, state) => BlocProvider(
+          create: (_) => sl<IndividualInfoCubit>(),
+          child: const IndividualInfoScreen(),
+        ),
+      ),
+      GoRoute(
         path: RoutePaths.home,
         name: RouteNames.home,
         builder: (context, state) => const HomeScreen(),
@@ -136,6 +146,7 @@ class AppRouters {
     RoutePaths.verifyCode,
     RoutePaths.businessRole,
     RoutePaths.ownerType,
+    RoutePaths.individualInfo,
   };
 
   /// Login gating, in one place:

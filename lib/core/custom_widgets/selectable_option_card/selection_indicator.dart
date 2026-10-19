@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../theme/app_colors.dart';
 import '../../theme/extensions/theme_extensions.dart';
 
 class SelectionIndicator extends StatelessWidget {
@@ -26,16 +25,16 @@ class SelectionIndicator extends StatelessWidget {
         color: colors.surface,
         shape: BoxShape.circle,
         border: Border.all(
-          color: isSelected ? AppColors.primary : colors.hint,
+          color: isSelected ? colors.primary : colors.hint,
           width: _borderWidth,
         ),
       ),
       child: AnimatedScale(
         scale: isSelected ? 1 : 0,
         duration: duration,
-        child: const DecoratedBox(
-          decoration: BoxDecoration(color: AppColors.primary, shape: BoxShape.circle),
-          child: SizedBox.square(dimension: _dotSize),
+        child: DecoratedBox(
+          decoration: BoxDecoration(color: colors.primary, shape: BoxShape.circle),
+          child: const SizedBox.square(dimension: _dotSize),
         ),
       ),
     );

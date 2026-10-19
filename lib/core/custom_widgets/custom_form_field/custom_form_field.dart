@@ -4,6 +4,7 @@ import 'package:country_picker/country_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_hr_erb/core/theme/app_sizes.dart';
+import 'package:flutter_hr_erb/core/theme/extensions/custom_colors_extension.dart';
 import '../../extension/context_extension.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter_hr_erb/core/theme/app_text_styles.dart';
@@ -31,6 +32,7 @@ class CustomFormField extends StatefulWidget {
   final Color? unFocusColor;
   final Color? passwordColor;
   final String? title;
+  final bool isRequired;
   final String? otherSideTitle;
   final ui.TextDirection? textDirection;
   final Country? country;
@@ -59,11 +61,12 @@ class CustomFormField extends StatefulWidget {
     this.readOnly = false,
     this.prefixIcon,
     this.suffixIcon,
-    this.radius = 14,
+    this.radius = 12.0,
     this.fillColor,
     this.focusColor,
     this.unFocusColor,
     this.title,
+    this.isRequired = false,
     this.textDirection,
     this.otherSideTitle,
     this.country,
@@ -99,8 +102,17 @@ class _CustomFormFieldState extends State<CustomFormField> {
             children: [
               if (widget.title != null) ...{
                 Expanded(
-                  child: Text(
-                    widget.title!,
+                  child: Text.rich(
+                    TextSpan(
+                      text: widget.title,
+                      children: [
+                        if (widget.isRequired)
+                          TextSpan(
+                            text: ' *',
+                            style: TextStyle(color: context.customColors.error),
+                          ),
+                      ],
+                    ),
                     style: widget.titleStyle ?? AppTextStyles.xsSemiBold.copyWith(color: context.customColors.textSecondary),
                   ),
                 ),
@@ -132,7 +144,7 @@ class _CustomFormFieldState extends State<CustomFormField> {
               readOnly: widget.readOnly,
               keyboardType: widget.keyboardType,
               obscureText: widget.isPassword ? _obscureText : false,
-              style: widget.textStyle ?? AppTextStyles.sRegular.copyWith(color: context.customColors.textPrimary),
+              style: widget.textStyle ?? AppTextStyles.sRegular.copyWith(color: Theme.of(context).customColors.textSecondary),
               autovalidateMode: widget.autovalidateMode ?? AutovalidateMode.onUserInteraction,
               maxLines: widget.maxLines,
               cursorColor: widget.focusColor ?? AppColors.primary,
@@ -161,7 +173,7 @@ class _CustomFormFieldState extends State<CustomFormField> {
                 enabledBorder: _border(
                   color: widget.unFocusColor ?? context.customColors.textFormBorder,
                 ),
-                contentPadding: widget.contentPadding ?? AppPadding.all10,
+                contentPadding: widget.contentPadding ?? AppPadding.v16h16,
                 prefixIcon: widget.country != null && context.locale == const Locale('en')
                     ? Row(
                         mainAxisSize: MainAxisSize.min,

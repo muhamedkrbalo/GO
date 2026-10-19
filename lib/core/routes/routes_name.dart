@@ -9,6 +9,7 @@ abstract final class RoutePaths {
   static const String verifyCode = '/verify-code';
   static const String businessRole = '/business-role';
   static const String ownerType = '/owner-type';
+  static const String individualInfo = '/individual-info';
   static const String home = '/home';
   static const String zoomImage = '/zoom-image';
 }
@@ -24,6 +25,7 @@ abstract final class RouteNames {
   static const String verifyCode = 'verifyCode';
   static const String businessRole = 'businessRole';
   static const String ownerType = 'ownerType';
+  static const String individualInfo = 'individualInfo';
   static const String home = 'home';
   static const String zoomImage = 'zoomImage';
 }

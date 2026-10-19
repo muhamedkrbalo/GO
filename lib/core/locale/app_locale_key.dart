@@ -708,4 +708,27 @@ class AppLocaleKey {
   static const individualDescription = 'individualDescription';
   static const companyDescription = 'companyDescription';
   static const reviewBeforeSubmitting = 'reviewBeforeSubmitting';
+  static const stepOfOwnerRegistration = 'stepOfOwnerRegistration';
+  static const ownerTypeSelected = 'ownerTypeSelected';
+  static const individualOwner = 'individualOwner';
+  static const yourPersonalInformation = 'yourPersonalInformation';
+  static const enterLegalDetails = 'enterLegalDetails';
+  static const fullLegalName = 'fullLegalName';
+  static const enterFullLegalName = 'enterFullLegalName';
+  static const idType = 'idType';
+  static const selectIdType = 'selectIdType';
+  static const nationalId = 'nationalId';
+  static const passport = 'passport';
+  static const idNumber = 'idNumber';
+  static const enterIdNumber = 'enterIdNumber';
+  static const nationality = 'nationality';
+  static const selectNationality = 'selectNationality';
+  static const selectDateOfBirth = 'selectDateOfBirth';
+  static const gender = 'gender';
+  static const selectGender = 'selectGender';
+  static const male = 'male';
+  static const female = 'female';
+  static const businessContact = 'businessContact';
+  static const businessContactDescription = 'businessContactDescription';
+  static const back = 'back';
 }

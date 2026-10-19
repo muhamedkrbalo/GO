@@ -16,10 +16,11 @@ class CountryCodeMethods {
   static void pickCountry({
     required void Function(Country) onSelect,
     required BuildContext context,
+    bool showPhoneCode = true,
   }) {
     showCountryPicker(
       context: context,
-      showPhoneCode: true,
+      showPhoneCode: showPhoneCode,
       favorite: [
         'AE',
         // 'SA',

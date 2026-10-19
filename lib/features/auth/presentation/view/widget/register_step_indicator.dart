@@ -2,7 +2,6 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../core/locale/app_locale_key.dart';
-import '../../../../../core/theme/app_colors.dart';
 import '../../../../../core/theme/app_sizes.dart';
 import '../../../../../core/theme/app_text_styles.dart';
 import '../../../../../core/theme/extensions/theme_extensions.dart';
@@ -40,7 +39,7 @@ class RegisterStepIndicator extends StatelessWidget {
               Expanded(
                 child: DecoratedBox(
                   decoration: BoxDecoration(
-                    color: i <= step ? AppColors.primary : colors.subtleBorder,
+                    color: i <= step ? colors.primary : colors.subtleBorder,
                     borderRadius: AppRadius.brCircle,
                   ),
                   child: const SizedBox(height: 4.0),

@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../../../core/custom_widgets/selectable_option_card/selection_indicator.dart';
-import '../../../../../core/theme/app_colors.dart';
 import '../../../../../core/theme/app_sizes.dart';
 import '../../../../../core/theme/app_text_styles.dart';
 import '../../../../../core/theme/extensions/theme_extensions.dart';
@@ -47,7 +46,7 @@ class VerificationMethodCard extends StatelessWidget {
           color: isSelected ? colors.selectedSurface : colors.surface,
           borderRadius: AppRadius.brCard,
           border: Border.all(
-            color: isSelected ? AppColors.primary : colors.border,
+            color: isSelected ? colors.primary : colors.border,
             width: isSelected ? _selectedBorderWidth : _borderWidth,
           ),
         ),

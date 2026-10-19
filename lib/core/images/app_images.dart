@@ -166,6 +166,14 @@ class AppImages {
   /// assets/svg/owner.svg
   static const String assetsSvgOwner = "assets/svg/owner.svg";
 
+  /// Assets for assetsSvgSearch
+  /// assets/svg/search.svg
+  static const String assetsSvgSearch = "assets/svg/search.svg";
+
+  /// Assets for assetsSvgSelectArrow
+  /// assets/svg/selectArrow.svg
+  static const String assetsSvgSelectArrow = "assets/svg/selectArrow.svg";
+
   /// Assets for assetsSvgServiceProvider
   /// assets/svg/serviceProvider.svg
   static const String assetsSvgServiceProvider = "assets/svg/serviceProvider.svg";
