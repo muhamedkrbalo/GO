@@ -1,18 +1,18 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_hr_erb/features/auth/presentation/view/widget/business_role_header.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../../core/custom_widgets/buttons/custom_button.dart';
-import '../../../../../core/images/app_images.dart';
 import '../../../../../core/locale/app_locale_key.dart';
+import '../../../../../core/routes/routes_name.dart';
 import '../../../../../core/theme/app_sizes.dart';
 import '../../../../../core/theme/app_text_styles.dart';
 import '../../../../../core/theme/extensions/theme_extensions.dart';
 import '../../../data/model/business_role.dart';
 import '../../controller/business_role_cubit.dart';
-import '../widget/account_verified_badge.dart';
 import '../widget/business_role_card.dart';
+import '../widget/business_role_header.dart';
 
 class BusinessRoleScreen extends StatelessWidget {
   const BusinessRoleScreen({super.key});
@@ -86,12 +86,14 @@ class BusinessRoleScreen extends StatelessWidget {
                     ),
                     const Spacer(),
                     AppSpacing.gapV24,
-                    BlocSelector<BusinessRoleCubit, BusinessRole?, bool>(
-                      selector: (selected) => selected != null,
-                      builder: (context, hasSelection) => CustomButton(
+                    BlocBuilder<BusinessRoleCubit, BusinessRole?>(
+                      builder: (context, selected) => CustomButton(
                         text: AppLocaleKey.continue_.tr(),
-                        isEnabled: hasSelection,
+                        isEnabled: selected != null,
                         hasShadow: true,
+                        onPressed: selected == BusinessRole.owner
+                            ? () => context.pushNamed(RouteNames.ownerType)
+                            : null,
                       ),
                     ),
                   ],

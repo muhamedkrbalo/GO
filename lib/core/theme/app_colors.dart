@@ -28,6 +28,7 @@ class AppColors {
   static const lightGrey = Color(0xffA6A6A6);
   static const border = Color(0xffCBD5E1);
   static const lightBorder = Color(0xffE2E8F0);
+  static const canvas = Color(0xffF8FAFC);
   static const muted = Color(0xff64748B);
   static const mist = Color(0xffD8E8E8);
   static const divider = Color(0xFFDADADA);

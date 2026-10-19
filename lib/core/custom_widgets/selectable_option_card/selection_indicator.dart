@@ -1,14 +1,10 @@
 import 'package:flutter/material.dart';
 
-import '../../../../../core/theme/app_colors.dart';
-import '../../../../../core/theme/extensions/theme_extensions.dart';
+import '../../theme/app_colors.dart';
+import '../../theme/extensions/theme_extensions.dart';
 
 class SelectionIndicator extends StatelessWidget {
-  const SelectionIndicator({
-    super.key,
-    required this.isSelected,
-    required this.duration,
-  });
+  const SelectionIndicator({super.key, required this.isSelected, required this.duration});
 
   final bool isSelected;
   final Duration duration;
@@ -38,10 +34,7 @@ class SelectionIndicator extends StatelessWidget {
         scale: isSelected ? 1 : 0,
         duration: duration,
         child: const DecoratedBox(
-          decoration: BoxDecoration(
-            color: AppColors.primary,
-            shape: BoxShape.circle,
-          ),
+          decoration: BoxDecoration(color: AppColors.primary, shape: BoxShape.circle),
           child: SizedBox.square(dimension: _dotSize),
         ),
       ),

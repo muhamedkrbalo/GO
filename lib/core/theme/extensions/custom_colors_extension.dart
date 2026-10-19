@@ -36,6 +36,7 @@ class CustomColors extends ThemeExtension<CustomColors> {
     required this.success,
     required this.successSurface,
     required this.successBorder,
+    required this.canvas,
   });
 
   static const light = CustomColors(
@@ -66,6 +67,7 @@ class CustomColors extends ThemeExtension<CustomColors> {
     success: AppColors.success,
     successSurface: AppColors.successSurface,
     successBorder: AppColors.successBorder,
+    canvas: AppColors.canvas,
   );
 
   static const dark = CustomColors(
@@ -96,6 +98,7 @@ class CustomColors extends ThemeExtension<CustomColors> {
     success: AppColors.darkSuccess,
     successSurface: AppColors.darkSuccessSurface,
     successBorder: AppColors.darkSuccessBorder,
+    canvas: AppColors.darkScaffold,
   );
 
   /// Strong text: titles, form labels, input text.
@@ -142,6 +145,7 @@ class CustomColors extends ThemeExtension<CustomColors> {
   final Color success;
   final Color successSurface;
   final Color successBorder;
+  final Color canvas;
 
   @override
   CustomColors copyWith({
@@ -172,6 +176,7 @@ class CustomColors extends ThemeExtension<CustomColors> {
     Color? success,
     Color? successSurface,
     Color? successBorder,
+    Color? canvas,
   }) {
     return CustomColors(
       textPrimary: textPrimary ?? this.textPrimary,
@@ -201,6 +206,7 @@ class CustomColors extends ThemeExtension<CustomColors> {
       success: success ?? this.success,
       successSurface: successSurface ?? this.successSurface,
       successBorder: successBorder ?? this.successBorder,
+      canvas: canvas ?? this.canvas,
     );
   }
 
@@ -235,6 +241,7 @@ class CustomColors extends ThemeExtension<CustomColors> {
       success: Color.lerp(success, other.success, t)!,
       successSurface: Color.lerp(successSurface, other.successSurface, t)!,
       successBorder: Color.lerp(successBorder, other.successBorder, t)!,
+      canvas: Color.lerp(canvas, other.canvas, t)!,
     );
   }
 }

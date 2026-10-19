@@ -18,6 +18,8 @@ import '../../features/home/presentation/view/screen/home_screen.dart';
 import '../../features/onboarding/presentation/controller/onboarding_cubit.dart';
 import '../../features/onboarding/presentation/view/screen/onboarding_screen.dart';
 import '../../features/onboarding/presentation/view/screen/welcome_screen.dart';
+import '../../features/owner_registration/presentation/controller/owner_type_cubit.dart';
+import '../../features/owner_registration/presentation/view/screen/owner_type_screen.dart';
 import '../../features/splash/presentation/view/screen/splash_screen.dart';
 import '../auth/auth_session.dart';
 import '../cache/hive/hive_methods.dart';
@@ -99,6 +101,14 @@ class AppRouters {
         ),
       ),
       GoRoute(
+        path: RoutePaths.ownerType,
+        name: RouteNames.ownerType,
+        builder: (context, state) => BlocProvider(
+          create: (_) => sl<OwnerTypeCubit>(),
+          child: const OwnerTypeScreen(),
+        ),
+      ),
+      GoRoute(
         path: RoutePaths.home,
         name: RouteNames.home,
         builder: (context, state) => const HomeScreen(),
@@ -125,6 +135,7 @@ class AppRouters {
     RoutePaths.verifyAccount,
     RoutePaths.verifyCode,
     RoutePaths.businessRole,
+    RoutePaths.ownerType,
   };
 
   /// Login gating, in one place:

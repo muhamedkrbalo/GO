@@ -699,4 +699,13 @@ class AppLocaleKey {
   static const serviceProvider = 'serviceProvider';
   static const serviceProviderDescription = 'serviceProviderDescription';
   static const businessSelectionNote = 'businessSelectionNote';
+  static const saveAndExit = 'saveAndExit';
+  static const stepNumber = 'stepNumber';
+  static const ownerRegistration = 'ownerRegistration';
+  static const setUpOwnerProfile = 'setUpOwnerProfile';
+  static const howAreYouRegistering = 'howAreYouRegistering';
+  static const chooseOwnerType = 'chooseOwnerType';
+  static const individualDescription = 'individualDescription';
+  static const companyDescription = 'companyDescription';
+  static const reviewBeforeSubmitting = 'reviewBeforeSubmitting';
 }
