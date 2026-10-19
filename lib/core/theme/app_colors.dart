@@ -13,6 +13,7 @@ class AppColors {
   static const primaryDark = Color(0xff115E59);
   static const primarySurface = Color(0xffF0FDFA);
   static const primaryMuted = Color(0xff79AAA6);
+  static const primaryBorder = Color(0xff99D5CF);
   static const secondary = Color(0xff0F172A);
 
   // neutrals

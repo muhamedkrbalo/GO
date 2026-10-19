@@ -44,6 +44,7 @@ class CustomColors extends ThemeExtension<CustomColors> {
     required this.infoBorder,
     required this.warning,
     required this.warningSurface,
+    required this.primaryBorder,
   });
 
   static const light = CustomColors(
@@ -82,6 +83,7 @@ class CustomColors extends ThemeExtension<CustomColors> {
     infoBorder: AppColors.infoBorder,
     warning: AppColors.warning,
     warningSurface: AppColors.warningSurface,
+    primaryBorder: AppColors.primaryBorder,
   );
 
   static const dark = CustomColors(
@@ -120,6 +122,7 @@ class CustomColors extends ThemeExtension<CustomColors> {
     infoBorder: AppColors.darkInfoBorder,
     warning: AppColors.darkWarning,
     warningSurface: AppColors.darkWarningSurface,
+    primaryBorder: AppColors.primaryDark,
   );
 
   /// Strong text: titles, form labels, input text.
@@ -174,6 +177,7 @@ class CustomColors extends ThemeExtension<CustomColors> {
   final Color infoBorder;
   final Color warning;
   final Color warningSurface;
+  final Color primaryBorder;
 
   @override
   CustomColors copyWith({
@@ -212,6 +216,7 @@ class CustomColors extends ThemeExtension<CustomColors> {
     Color? infoBorder,
     Color? warning,
     Color? warningSurface,
+    Color? primaryBorder,
   }) {
     return CustomColors(
       textPrimary: textPrimary ?? this.textPrimary,
@@ -249,6 +254,7 @@ class CustomColors extends ThemeExtension<CustomColors> {
       infoBorder: infoBorder ?? this.infoBorder,
       warning: warning ?? this.warning,
       warningSurface: warningSurface ?? this.warningSurface,
+      primaryBorder: primaryBorder ?? this.primaryBorder,
     );
   }
 
@@ -291,6 +297,7 @@ class CustomColors extends ThemeExtension<CustomColors> {
       infoBorder: Color.lerp(infoBorder, other.infoBorder, t)!,
       warning: Color.lerp(warning, other.warning, t)!,
       warningSurface: Color.lerp(warningSurface, other.warningSurface, t)!,
+      primaryBorder: Color.lerp(primaryBorder, other.primaryBorder, t)!,
     );
   }
 }

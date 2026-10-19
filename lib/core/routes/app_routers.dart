@@ -18,13 +18,16 @@ import '../../features/home/presentation/view/screen/home_screen.dart';
 import '../../features/onboarding/presentation/controller/onboarding_cubit.dart';
 import '../../features/onboarding/presentation/view/screen/onboarding_screen.dart';
 import '../../features/onboarding/presentation/view/screen/welcome_screen.dart';
+import '../../features/owner_registration/data/model/owner_unit.dart';
 import '../../features/owner_registration/presentation/controller/individual_info_cubit.dart';
 import '../../features/owner_registration/presentation/controller/owner_address_cubit.dart';
 import '../../features/owner_registration/presentation/controller/owner_type_cubit.dart';
+import '../../features/owner_registration/presentation/controller/ownership_details_cubit.dart';
 import '../../features/owner_registration/presentation/controller/unit_selection_cubit.dart';
 import '../../features/owner_registration/presentation/view/screen/individual_info_screen.dart';
 import '../../features/owner_registration/presentation/view/screen/owner_address_screen.dart';
 import '../../features/owner_registration/presentation/view/screen/owner_type_screen.dart';
+import '../../features/owner_registration/presentation/view/screen/ownership_details_screen.dart';
 import '../../features/owner_registration/presentation/view/screen/unit_selection_screen.dart';
 import '../../features/splash/presentation/view/screen/splash_screen.dart';
 import '../auth/auth_session.dart';
@@ -139,6 +142,16 @@ class AppRouters {
         ),
       ),
       GoRoute(
+        path: RoutePaths.ownershipDetails,
+        name: RouteNames.ownershipDetails,
+        redirect: (context, state) =>
+            state.extra is List<OwnerUnit> ? null : RoutePaths.unitSelection,
+        builder: (context, state) => BlocProvider(
+          create: (_) => sl<OwnershipDetailsCubit>(param1: state.extra! as List<OwnerUnit>),
+          child: const OwnershipDetailsScreen(),
+        ),
+      ),
+      GoRoute(
         path: RoutePaths.home,
         name: RouteNames.home,
         builder: (context, state) => const HomeScreen(),
@@ -169,6 +182,7 @@ class AppRouters {
     RoutePaths.individualInfo,
     RoutePaths.ownerAddress,
     RoutePaths.unitSelection,
+    RoutePaths.ownershipDetails,
   };
 
   /// Login gating, in one place:

@@ -23,6 +23,11 @@ class UnitSelectionState extends Equatable {
 
   int get selectedCount => selectedIds.length;
 
+  List<OwnerUnit> get selectedUnits => [
+    for (final unit in units)
+      if (selectedIds.contains(unit.id)) unit,
+  ];
+
   List<String> get villages => {for (final unit in units) unit.village}.toList();
 
   List<String> get buildings => {

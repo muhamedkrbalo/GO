@@ -780,4 +780,23 @@ class AppLocaleKey {
   static const registeredToAnotherOwner = 'registeredToAnotherOwner';
   static const unitNotEligible = 'unitNotEligible';
   static const unitInactive = 'unitInactive';
+  static const unitsSelectedComplete = 'unitsSelectedComplete';
+  static const ownershipVerification = 'ownershipVerification';
+  static const tellUsAboutOwnership = 'tellUsAboutOwnership';
+  static const ownershipDetailsDescription = 'ownershipDetailsDescription';
+  static const detailsSavedPerUnit = 'detailsSavedPerUnit';
+  static const editUnits = 'editUnits';
+  static const ownershipDetails = 'ownershipDetails';
+  static const completeCount = 'completeCount';
+  static const detailsRequired = 'detailsRequired';
+  static const detailsComplete = 'detailsComplete';
+  static const ownershipType = 'ownershipType';
+  static const selectOwnershipType = 'selectOwnershipType';
+  static const ownershipDate = 'ownershipDate';
+  static const dateHint = 'dateHint';
+  static const soleOwnership = 'soleOwnership';
+  static const jointOwnership = 'jointOwnership';
+  static const inheritedOwnership = 'inheritedOwnership';
+  static const ownershipReviewNotice = 'ownershipReviewNotice';
+  static const continueToDocuments = 'continueToDocuments';
 }
