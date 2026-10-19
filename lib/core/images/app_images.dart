@@ -146,6 +146,10 @@ class AppImages {
   /// assets/svg/individual.svg
   static const String assetsSvgIndividual = "assets/svg/individual.svg";
 
+  /// Assets for assetsSvgInfo
+  /// assets/svg/info.svg
+  static const String assetsSvgInfo = "assets/svg/info.svg";
+
   /// Assets for assetsSvgMail
   /// assets/svg/mail.svg
   static const String assetsSvgMail = "assets/svg/mail.svg";
@@ -169,6 +173,10 @@ class AppImages {
   /// Assets for assetsSvgSearch
   /// assets/svg/search.svg
   static const String assetsSvgSearch = "assets/svg/search.svg";
+
+  /// Assets for assetsSvgSearchLarge
+  /// assets/svg/searchLarge.svg
+  static const String assetsSvgSearchLarge = "assets/svg/searchLarge.svg";
 
   /// Assets for assetsSvgSelectArrow
   /// assets/svg/selectArrow.svg

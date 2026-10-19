@@ -21,9 +21,11 @@ import '../../features/onboarding/presentation/view/screen/welcome_screen.dart';
 import '../../features/owner_registration/presentation/controller/individual_info_cubit.dart';
 import '../../features/owner_registration/presentation/controller/owner_address_cubit.dart';
 import '../../features/owner_registration/presentation/controller/owner_type_cubit.dart';
+import '../../features/owner_registration/presentation/controller/unit_selection_cubit.dart';
 import '../../features/owner_registration/presentation/view/screen/individual_info_screen.dart';
 import '../../features/owner_registration/presentation/view/screen/owner_address_screen.dart';
 import '../../features/owner_registration/presentation/view/screen/owner_type_screen.dart';
+import '../../features/owner_registration/presentation/view/screen/unit_selection_screen.dart';
 import '../../features/splash/presentation/view/screen/splash_screen.dart';
 import '../auth/auth_session.dart';
 import '../cache/hive/hive_methods.dart';
@@ -129,6 +131,14 @@ class AppRouters {
         ),
       ),
       GoRoute(
+        path: RoutePaths.unitSelection,
+        name: RouteNames.unitSelection,
+        builder: (context, state) => BlocProvider(
+          create: (_) => sl<UnitSelectionCubit>(),
+          child: const UnitSelectionScreen(),
+        ),
+      ),
+      GoRoute(
         path: RoutePaths.home,
         name: RouteNames.home,
         builder: (context, state) => const HomeScreen(),
@@ -158,6 +168,7 @@ class AppRouters {
     RoutePaths.ownerType,
     RoutePaths.individualInfo,
     RoutePaths.ownerAddress,
+    RoutePaths.unitSelection,
   };
 
   /// Login gating, in one place:

@@ -16,6 +16,31 @@ class AppTextStyles {
   );
 
 
+  // xxxs - 10
+  static const xxxsRegular = TextStyle(
+    fontFamily: AppFonts.inter,
+    fontSize: 10,
+    fontWeight: FontWeight.w400,
+  );
+
+  static const xxxsMedium = TextStyle(
+    fontFamily: AppFonts.inter,
+    fontSize: 10,
+    fontWeight: FontWeight.w500,
+  );
+
+  static const xxxsSemiBold = TextStyle(
+    fontFamily: AppFonts.inter,
+    fontSize: 10,
+    fontWeight: FontWeight.w600,
+  );
+
+  static const xxxsBold = TextStyle(
+    fontFamily: AppFonts.inter,
+    fontSize: 10,
+    fontWeight: FontWeight.w700,
+  );
+
   // xxs - 11
   static const xxsBold = TextStyle(
     fontFamily: AppFonts.inter,

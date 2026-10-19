@@ -54,6 +54,16 @@ class AppColors {
   static const darkSuccess = Color(0xff32D583);
   static const darkSuccessSurface = Color(0xff053321);
   static const darkSuccessBorder = Color(0xff085D3A);
+  static const info = Color(0xff0369A1);
+  static const infoSurface = Color(0xffF0F9FF);
+  static const infoBorder = Color(0xffBAE6FD);
+  static const darkInfo = Color(0xff7DD3FC);
+  static const darkInfoSurface = Color(0xff082F49);
+  static const darkInfoBorder = Color(0xff075985);
+  static const warning = Color(0xff92400E);
+  static const warningSurface = Color(0xffFEF3C7);
+  static const darkWarning = Color(0xffFBBF24);
+  static const darkWarningSurface = Color(0xff422006);
 
 
 

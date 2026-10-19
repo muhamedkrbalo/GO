@@ -1,7 +1,9 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../../core/locale/app_locale_key.dart';
+import '../../../../../core/routes/routes_name.dart';
 import '../widget/owner_address_form.dart';
 import '../widget/registration_step_layout.dart';
 
@@ -20,6 +22,7 @@ class OwnerAddressScreen extends StatelessWidget {
       eyebrow: AppLocaleKey.businessEntityAddress.tr(),
       title: AppLocaleKey.whereAreYouBased.tr(),
       subtitle: AppLocaleKey.addAddressDetails.tr(),
+      onContinue: () => context.pushNamed(RouteNames.unitSelection),
       child: const OwnerAddressForm(),
     );
   }
