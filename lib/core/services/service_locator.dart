@@ -2,9 +2,6 @@ import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:internet_connection_checker_plus/internet_connection_checker_plus.dart';
 
-import '../../features/auth/data/model/verify_code_args.dart';
-import '../../features/auth/data/repository/auth_repository.dart';
-import '../../features/auth/data/repository/mock_auth_repository.dart';
 import '../../features/auth/presentation/controller/business_role_cubit.dart';
 import '../../features/auth/presentation/controller/register_cubit.dart';
 import '../../features/auth/presentation/controller/verify_account_cubit.dart';
@@ -14,7 +11,6 @@ import '../../features/splash/data/repository/splash_repository.dart';
 import '../../features/splash/presentation/controller/splash_cubit.dart';
 import '../auth/auth_session.dart';
 import '../cache/secure_storage/secure_storage_service.dart';
-import '../config/app_config.dart';
 import '../network/api_consumer.dart';
 import '../network/app_interceptors.dart';
 import '../network/connection_checker.dart';
@@ -79,13 +75,8 @@ void _initOnboarding() {
 }
 
 void _initAuth() {
-  sl.registerLazySingleton<AuthRepository>(
-    () => AppConfig.baseUrl.isEmpty ? const MockAuthRepository() : AuthRepositoryImpl(sl()),
-  );
   sl.registerFactory<RegisterCubit>(RegisterCubit.new);
   sl.registerFactory<VerifyAccountCubit>(VerifyAccountCubit.new);
-  sl.registerFactoryParam<VerifyCodeCubit, VerifyCodeArgs, void>(
-    (args, _) => VerifyCodeCubit(sl(), args),
-  );
+  sl.registerFactory<VerifyCodeCubit>(VerifyCodeCubit.new);
   sl.registerFactory<BusinessRoleCubit>(BusinessRoleCubit.new);
 }

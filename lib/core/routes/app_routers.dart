@@ -86,9 +86,8 @@ class AppRouters {
         name: RouteNames.verifyCode,
         redirect: (context, state) => state.extra is VerifyCodeArgs ? null : RoutePaths.register,
         builder: (context, state) => BlocProvider(
-          create: (_) =>
-              sl<VerifyCodeCubit>(param1: state.extra! as VerifyCodeArgs)..sendCode(),
-          child: const VerifyCodeScreen(),
+          create: (_) => sl<VerifyCodeCubit>()..startResendCooldown(),
+          child: VerifyCodeScreen(args: state.extra! as VerifyCodeArgs),
         ),
       ),
       GoRoute(

@@ -22,20 +22,12 @@ class _VerificationCodeInputState extends State<VerificationCodeInput> {
 
   @override
   Widget build(BuildContext context) {
-    final cubit = context.read<VerifyCodeCubit>();
-
     return BlocListener<VerifyCodeCubit, VerifyCodeState>(
       listenWhen: (previous, current) => current.code.isEmpty && previous.code.isNotEmpty,
       listener: (_, _) => _controller.clear(),
-      child: BlocSelector<VerifyCodeCubit, VerifyCodeState, (bool, bool)>(
-        selector: (state) =>
-            (state.hasError, !state.isLocked && state.status != VerifyCodeStatus.verifying),
-        builder: (context, field) => CustomOtpField(
-          controller: _controller,
-          hasError: field.$1,
-          enabled: field.$2,
-          onChanged: cubit.codeChanged,
-        ),
+      child: CustomOtpField(
+        controller: _controller,
+        onChanged: context.read<VerifyCodeCubit>().codeChanged,
       ),
     );
   }
