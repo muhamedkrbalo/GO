@@ -8,11 +8,18 @@ import '../../../../../core/theme/app_text_styles.dart';
 import '../../../../../core/theme/extensions/theme_extensions.dart';
 import 'registration_bottom_bar.dart';
 
-class IndividualInfoBottomBar extends StatelessWidget {
-  const IndividualInfoBottomBar({super.key});
+class RegistrationNavigationBar extends StatelessWidget {
+  const RegistrationNavigationBar({super.key, this.onContinue});
+
+  final VoidCallback? onContinue;
 
   static const _buttonHeight = 51.2;
   static const _backMinSize = Size(64, 32);
+
+  void _continue(BuildContext context) {
+   // if (Form.of(context).validate()) 
+    onContinue?.call();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +31,7 @@ class IndividualInfoBottomBar extends StatelessWidget {
           text: AppLocaleKey.continue_.tr(),
           height: _buttonHeight,
           hasShadow: true,
-          onPressed: () => Form.of(context).validate(),
+          onPressed: () => _continue(context),
         ),
         TextButton(
           onPressed: context.pop,

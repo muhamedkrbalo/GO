@@ -731,4 +731,27 @@ class AppLocaleKey {
   static const businessContact = 'businessContact';
   static const businessContactDescription = 'businessContactDescription';
   static const back = 'back';
+  static const ownerDetailsComplete = 'ownerDetailsComplete';
+  static const businessEntityAddress = 'businessEntityAddress';
+  static const whereAreYouBased = 'whereAreYouBased';
+  static const addAddressDetails = 'addAddressDetails';
+  static const addressNumber = 'addressNumber';
+  static const primaryRegistrationAddress = 'primaryRegistrationAddress';
+  static const additionalAddress = 'additionalAddress';
+  static const removeAddress = 'removeAddress';
+  static const addressType = 'addressType';
+  static const selectAddressType = 'selectAddressType';
+  static const homeAddress = 'homeAddress';
+  static const businessAddress = 'businessAddress';
+  static const mailingAddress = 'mailingAddress';
+  static const searchCountry = 'searchCountry';
+  static const enterCity = 'enterCity';
+  static const areaDistrict = 'areaDistrict';
+  static const streetAddress = 'streetAddress';
+  static const streetAddressHint = 'streetAddressHint';
+  static const buildingNumber = 'buildingNumber';
+  static const floorApartment = 'floorApartment';
+  static const postalCode = 'postalCode';
+  static const enterPostalCode = 'enterPostalCode';
+  static const addAnotherAddress = 'addAnotherAddress';
 }

@@ -10,7 +10,6 @@ import '../../../../../core/custom_widgets/validation/validation_mixin.dart';
 import '../../../../../core/extension/context_ui_extension.dart';
 import '../../../../../core/images/app_images.dart';
 import '../../../../../core/locale/app_locale_key.dart';
-import '../../../../../core/theme/app_shadows.dart';
 import '../../../../../core/theme/app_sizes.dart';
 import '../../../../../core/theme/extensions/theme_extensions.dart';
 import '../../../../../core/utils/country_code_methods.dart';
@@ -19,6 +18,7 @@ import '../../../data/model/gender.dart';
 import '../../../data/model/id_type.dart';
 import '../../controller/individual_info_cubit.dart';
 import 'form_section_header.dart';
+import 'registration_form_card.dart';
 
 class IndividualInfoForm extends StatefulWidget {
   const IndividualInfoForm({super.key});
@@ -35,7 +35,6 @@ class _IndividualInfoFormState extends State<IndividualInfoForm> with Validation
 
   static const _padding = EdgeInsets.all(19.2);
   static const _sectionPadding = EdgeInsets.fromLTRB(19.2, 16, 19.2, 19.2);
-  static const _radius = BorderRadius.all(Radius.circular(14.4));
   static const _borderWidth = 1.6;
 
   @override
@@ -98,132 +97,123 @@ class _IndividualInfoFormState extends State<IndividualInfoForm> with Validation
     final colors = context.customColors;
     final languageCode = context.locale.languageCode;
 
-    return DecoratedBox(
-      decoration: BoxDecoration(
-        color: colors.surface,
-        borderRadius: _radius,
-        border: Border.all(color: colors.subtleBorder, width: _borderWidth),
-        boxShadow: AppShadows.softCard,
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          Padding(
-            padding: _padding,
-            child: Column(
-              children: [
-                CustomFormField(
-                  controller: _nameController,
-                  title: AppLocaleKey.fullLegalName.tr(),
-                  hintText: AppLocaleKey.enterFullLegalName.tr(),
+    return RegistrationFormCard(
+      children: [
+        Padding(
+          padding: _padding,
+          child: Column(
+            children: [
+              CustomFormField(
+                controller: _nameController,
+                title: AppLocaleKey.fullLegalName.tr(),
+                hintText: AppLocaleKey.enterFullLegalName.tr(),
+                isRequired: true,
+                keyboardType: TextInputType.name,
+                validator: validateName,
+              ),
+              AppSpacing.gapV16,
+              BlocSelector<IndividualInfoCubit, IndividualInfoState, IdType?>(
+                selector: (state) => state.idType,
+                builder: (context, idType) => CustomPickerField(
+                  title: AppLocaleKey.idType.tr(),
+                  hintText: AppLocaleKey.selectIdType.tr(),
+                  value: idType?.labelKey.tr(),
+                  icon: AppImages.assetsSvgSelectArrow,
                   isRequired: true,
-                  keyboardType: TextInputType.name,
-                  validator: validateName,
-                ),
-                AppSpacing.gapV16,
-                BlocSelector<IndividualInfoCubit, IndividualInfoState, IdType?>(
-                  selector: (state) => state.idType,
-                  builder: (context, idType) => CustomPickerField(
-                    title: AppLocaleKey.idType.tr(),
-                    hintText: AppLocaleKey.selectIdType.tr(),
-                    value: idType?.labelKey.tr(),
-                    icon: AppImages.assetsSvgSelectArrow,
-                    isRequired: true,
-                    onTap: _pickIdType,
-                    validator: validateEmptyField,
-                  ),
-                ),
-                AppSpacing.gapV16,
-                CustomFormField(
-                  controller: _idNumberController,
-                  title: AppLocaleKey.idNumber.tr(),
-                  hintText: AppLocaleKey.enterIdNumber.tr(),
-                  isRequired: true,
-                  keyboardType: TextInputType.number,
-                  inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+                  onTap: _pickIdType,
                   validator: validateEmptyField,
                 ),
-                AppSpacing.gapV16,
-                BlocSelector<IndividualInfoCubit, IndividualInfoState, String?>(
-                  selector: (state) => state.nationality?.countryCode,
-                  builder: (context, _) {
-                    final nationality = context.read<IndividualInfoCubit>().state.nationality;
-                    return CustomPickerField(
-                      title: AppLocaleKey.nationality.tr(),
-                      hintText: AppLocaleKey.selectNationality.tr(),
-                      value: nationality?.getTranslatedName(context) ?? nationality?.name,
-                      icon: AppImages.assetsSvgSearch,
-                      isRequired: true,
-                      onTap: _pickNationality,
-                      validator: validateEmptyField,
-                    );
-                  },
-                ),
-                AppSpacing.gapV16,
-                BlocSelector<IndividualInfoCubit, IndividualInfoState, DateTime?>(
-                  selector: (state) => state.dateOfBirth,
-                  builder: (context, dateOfBirth) => CustomPickerField(
-                    title: AppLocaleKey.dateOfBirth.tr(),
-                    hintText: AppLocaleKey.selectDateOfBirth.tr(),
-                    value: dateOfBirth == null
-                        ? null
-                        : DateFormat('dd MMM yyyy', languageCode).format(dateOfBirth),
-                    icon: AppImages.assetsSvgSelectArrow,
+              ),
+              AppSpacing.gapV16,
+              CustomFormField(
+                controller: _idNumberController,
+                title: AppLocaleKey.idNumber.tr(),
+                hintText: AppLocaleKey.enterIdNumber.tr(),
+                isRequired: true,
+                keyboardType: TextInputType.number,
+                inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+                validator: validateEmptyField,
+              ),
+              AppSpacing.gapV16,
+              BlocSelector<IndividualInfoCubit, IndividualInfoState, String?>(
+                selector: (state) => state.nationality?.countryCode,
+                builder: (context, _) {
+                  final nationality = context.read<IndividualInfoCubit>().state.nationality;
+                  return CustomPickerField(
+                    title: AppLocaleKey.nationality.tr(),
+                    hintText: AppLocaleKey.selectNationality.tr(),
+                    value: nationality?.getTranslatedName(context) ?? nationality?.name,
+                    icon: AppImages.assetsSvgSearch,
                     isRequired: true,
-                    onTap: _pickDateOfBirth,
+                    onTap: _pickNationality,
                     validator: validateEmptyField,
-                  ),
-                ),
-                AppSpacing.gapV16,
-                BlocSelector<IndividualInfoCubit, IndividualInfoState, Gender?>(
-                  selector: (state) => state.gender,
-                  builder: (context, gender) => CustomPickerField(
-                    title: AppLocaleKey.gender.tr(),
-                    hintText: AppLocaleKey.selectGender.tr(),
-                    value: gender?.labelKey.tr(),
-                    icon: AppImages.assetsSvgSelectArrow,
-                    isRequired: true,
-                    onTap: _pickGender,
-                    validator: validateEmptyField,
-                  ),
-                ),
-              ],
-            ),
-          ),
-          Divider(height: _borderWidth, thickness: _borderWidth, color: colors.subtleBorder),
-          Padding(
-            padding: _sectionPadding,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                FormSectionHeader(
-                  title: AppLocaleKey.businessContact.tr(),
-                  subtitle: AppLocaleKey.businessContactDescription.tr(),
-                ),
-                AppSpacing.gapV16,
-                CustomFormField(
-                  controller: _mobileController,
-                  title: AppLocaleKey.mobileNumber.tr(),
-                  hintText: AppLocaleKey.enterMobileNumber.tr(),
+                  );
+                },
+              ),
+              AppSpacing.gapV16,
+              BlocSelector<IndividualInfoCubit, IndividualInfoState, DateTime?>(
+                selector: (state) => state.dateOfBirth,
+                builder: (context, dateOfBirth) => CustomPickerField(
+                  title: AppLocaleKey.dateOfBirth.tr(),
+                  hintText: AppLocaleKey.selectDateOfBirth.tr(),
+                  value: dateOfBirth == null
+                      ? null
+                      : DateFormat('dd MMM yyyy', languageCode).format(dateOfBirth),
+                  icon: AppImages.assetsSvgSelectArrow,
                   isRequired: true,
-                  keyboardType: TextInputType.phone,
-                  inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-                  validator: validatePhone,
+                  onTap: _pickDateOfBirth,
+                  validator: validateEmptyField,
                 ),
-                AppSpacing.gapV16,
-                CustomFormField(
-                  controller: _emailController,
-                  title: AppLocaleKey.emailAddress.tr(),
-                  hintText: AppLocaleKey.enterEmailAddress.tr(),
+              ),
+              AppSpacing.gapV16,
+              BlocSelector<IndividualInfoCubit, IndividualInfoState, Gender?>(
+                selector: (state) => state.gender,
+                builder: (context, gender) => CustomPickerField(
+                  title: AppLocaleKey.gender.tr(),
+                  hintText: AppLocaleKey.selectGender.tr(),
+                  value: gender?.labelKey.tr(),
+                  icon: AppImages.assetsSvgSelectArrow,
                   isRequired: true,
-                  keyboardType: TextInputType.emailAddress,
-                  validator: validateEmail,
+                  onTap: _pickGender,
+                  validator: validateEmptyField,
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
-        ],
-      ),
+        ),
+        Divider(height: _borderWidth, thickness: _borderWidth, color: colors.subtleBorder),
+        Padding(
+          padding: _sectionPadding,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              FormSectionHeader(
+                title: AppLocaleKey.businessContact.tr(),
+                subtitle: AppLocaleKey.businessContactDescription.tr(),
+              ),
+              AppSpacing.gapV16,
+              CustomFormField(
+                controller: _mobileController,
+                title: AppLocaleKey.mobileNumber.tr(),
+                hintText: AppLocaleKey.enterMobileNumber.tr(),
+                isRequired: true,
+                keyboardType: TextInputType.phone,
+                inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+                validator: validatePhone,
+              ),
+              AppSpacing.gapV16,
+              CustomFormField(
+                controller: _emailController,
+                title: AppLocaleKey.emailAddress.tr(),
+                hintText: AppLocaleKey.enterEmailAddress.tr(),
+                isRequired: true,
+                keyboardType: TextInputType.emailAddress,
+                validator: validateEmail,
+              ),
+            ],
+          ),
+        ),
+      ],
     );
   }
 }

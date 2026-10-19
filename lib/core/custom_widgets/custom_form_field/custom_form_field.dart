@@ -22,6 +22,7 @@ class CustomFormField extends StatefulWidget {
   final bool isPassword;
   final String? hintText;
   final int? maxLines;
+  final int? minLines;
   final void Function()? onTap;
   final bool readOnly;
   final Widget? prefixIcon;
@@ -57,6 +58,7 @@ class CustomFormField extends StatefulWidget {
     this.isPassword = false,
     this.hintText,
     this.maxLines = 1,
+    this.minLines,
     this.onTap,
     this.readOnly = false,
     this.prefixIcon,
@@ -147,6 +149,7 @@ class _CustomFormFieldState extends State<CustomFormField> {
               style: widget.textStyle ?? AppTextStyles.sRegular.copyWith(color: Theme.of(context).customColors.textSecondary),
               autovalidateMode: widget.autovalidateMode ?? AutovalidateMode.onUserInteraction,
               maxLines: widget.maxLines,
+              minLines: widget.minLines,
               cursorColor: widget.focusColor ?? AppColors.primary,
               inputFormatters: widget.inputFormatters,
               maxLength: widget.maxLength,

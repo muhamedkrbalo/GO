@@ -8,6 +8,7 @@ import '../../features/auth/presentation/controller/verify_account_cubit.dart';
 import '../../features/auth/presentation/controller/verify_code_cubit.dart';
 import '../../features/onboarding/presentation/controller/onboarding_cubit.dart';
 import '../../features/owner_registration/presentation/controller/individual_info_cubit.dart';
+import '../../features/owner_registration/presentation/controller/owner_address_cubit.dart';
 import '../../features/owner_registration/presentation/controller/owner_type_cubit.dart';
 import '../../features/splash/data/repository/splash_repository.dart';
 import '../../features/splash/presentation/controller/splash_cubit.dart';
@@ -87,4 +88,5 @@ void _initAuth() {
 void _initOwnerRegistration() {
   sl.registerFactory<OwnerTypeCubit>(OwnerTypeCubit.new);
   sl.registerFactory<IndividualInfoCubit>(IndividualInfoCubit.new);
+  sl.registerFactory<OwnerAddressCubit>(OwnerAddressCubit.new);
 }
