@@ -25,8 +25,10 @@ class OptionPickerSheet<T> extends StatelessWidget {
   Widget build(BuildContext context) {
     final colors = context.customColors;
 
-    return DecoratedBox(
-      decoration: BoxDecoration(color: colors.surface, borderRadius: _radius),
+    return Material(
+      color: colors.surface,
+      borderRadius: _radius,
+      clipBehavior: Clip.antiAlias,
       child: SafeArea(
         top: false,
         child: Column(
