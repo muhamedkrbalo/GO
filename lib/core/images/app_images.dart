@@ -190,6 +190,10 @@ class AppImages {
   /// assets/svg/serviceProvider.svg
   static const String assetsSvgServiceProvider = "assets/svg/serviceProvider.svg";
 
+  /// Assets for assetsSvgShieldAlert
+  /// assets/svg/shieldAlert.svg
+  static const String assetsSvgShieldAlert = "assets/svg/shieldAlert.svg";
+
   /// Assets for assetsSvgShieldCheck
   /// assets/svg/shieldCheck.svg
   static const String assetsSvgShieldCheck = "assets/svg/shieldCheck.svg";
@@ -197,5 +201,9 @@ class AppImages {
   /// Assets for assetsSvgSms
   /// assets/svg/sms.svg
   static const String assetsSvgSms = "assets/svg/sms.svg";
+
+  /// Assets for assetsSvgUpload
+  /// assets/svg/upload.svg
+  static const String assetsSvgUpload = "assets/svg/upload.svg";
 }
 

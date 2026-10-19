@@ -2,6 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../../core/images/app_images.dart';
 import '../../../../../core/locale/app_locale_key.dart';
 import '../../../../../core/theme/app_sizes.dart';
 import '../../../../../core/theme/extensions/theme_extensions.dart';
@@ -9,9 +10,9 @@ import '../../controller/ownership_details_cubit.dart';
 import '../widget/ownership_details_bottom_bar.dart';
 import '../widget/ownership_details_header.dart';
 import '../widget/ownership_details_intro.dart';
-import '../widget/ownership_review_notice.dart';
 import '../widget/ownership_unit_card.dart';
 import '../widget/registration_progress_header.dart';
+import '../widget/review_notice.dart';
 import '../widget/selected_units_summary.dart';
 
 class OwnershipDetailsScreen extends StatelessWidget {
@@ -67,9 +68,14 @@ class OwnershipDetailsScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  const SliverPadding(
+                  SliverPadding(
                     padding: _noticePadding,
-                    sliver: SliverToBoxAdapter(child: OwnershipReviewNotice()),
+                    sliver: SliverToBoxAdapter(
+                      child: ReviewNotice(
+                        icon: AppImages.assetsSvgShieldCheck,
+                        message: AppLocaleKey.ownershipReviewNotice.tr(),
+                      ),
+                    ),
                   ),
                 ],
               ),

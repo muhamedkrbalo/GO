@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 
 import '../../../../../core/custom_widgets/buttons/custom_button.dart';
 import '../../../../../core/locale/app_locale_key.dart';
+import '../../../../../core/routes/routes_name.dart';
 import '../../../../../core/theme/app_text_styles.dart';
 import '../../../../../core/theme/extensions/theme_extensions.dart';
 import '../../controller/ownership_details_cubit.dart';
@@ -29,6 +30,10 @@ class OwnershipDetailsBottomBar extends StatelessWidget {
             height: _buttonHeight,
             isEnabled: isComplete,
             hasShadow: true,
+            onPressed: () => context.pushNamed(
+              RouteNames.ownerDocuments,
+              extra: context.read<OwnershipDetailsCubit>().state.units,
+            ),
           ),
         ),
         TextButton(

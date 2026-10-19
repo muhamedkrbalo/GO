@@ -799,4 +799,24 @@ class AppLocaleKey {
   static const inheritedOwnership = 'inheritedOwnership';
   static const ownershipReviewNotice = 'ownershipReviewNotice';
   static const continueToDocuments = 'continueToDocuments';
+  static const ownershipDetailsComplete = 'ownershipDetailsComplete';
+  static const documentVerification = 'documentVerification';
+  static const uploadYourDocuments = 'uploadYourDocuments';
+  static const uploadDocumentsDescription = 'uploadDocumentsDescription';
+  static const ownerDocuments = 'ownerDocuments';
+  static const ownerDocumentsDescription = 'ownerDocumentsDescription';
+  static const unitOwnershipDocuments = 'unitOwnershipDocuments';
+  static const unitOwnershipDocumentsDescription = 'unitOwnershipDocumentsDescription';
+  static const nationalIdOrPassport = 'nationalIdOrPassport';
+  static const additionalSupportingDocument = 'additionalSupportingDocument';
+  static const ownershipContract = 'ownershipContract';
+  static const requiredBadge = 'requiredBadge';
+  static const uploadDocument = 'uploadDocument';
+  static const documentFormatsHint = 'documentFormatsHint';
+  static const documentsRequired = 'documentsRequired';
+  static const readyForReview = 'readyForReview';
+  static const documentsReviewNotice = 'documentsReviewNotice';
+  static const continueToReview = 'continueToReview';
+  static const documentTooLarge = 'documentTooLarge';
+  static const removeDocument = 'removeDocument';
 }
