@@ -9,17 +9,20 @@ class AppSpacing {
   static const double s8= 8;
   static const double m10= 10;
   static const double l15 = 15;
+  static const double l16 = 16;
   static const double xl20 = 20;
   static const double sm12 = 12;
   static const double xxl24 = 24;
   static const double xxxl32 = 32;
   static const double xxxxl40 = 40;
+  static const double xxxxxl52 = 52;
 
   // Gaps (use inside Row / Column)
   static const gapH5 = SizedBox(width: xs5);
   static const gapH8 = SizedBox(width: s8);
   static const gapH10 = SizedBox(width: m10);
   static const gapH15 = SizedBox(width: l15);
+  static const gapH16 = SizedBox(width: l16);
   static const gapH20 = SizedBox(width: xl20);
 
   static const gapV5 = SizedBox(height: xs5);
@@ -30,6 +33,8 @@ class AppSpacing {
   static const gapV20 = SizedBox(height: xl20);
   static const gapV24 = SizedBox(height: xxl24);
   static const gapV32 = SizedBox(height: xxxl32);
+  static const gapV40 = SizedBox(height: xxxxl40);
+  static const gapV52 = SizedBox(height: xxxxxl52);
 }
 
 /// Ready-made [EdgeInsets] for `padding:` (and `margin:` via [AppMargin]).
@@ -47,6 +52,7 @@ class AppPadding {
   static const h10 = EdgeInsets.symmetric(horizontal: AppSpacing.m10);
   static const h15 = EdgeInsets.symmetric(horizontal: AppSpacing.l15);
   static const h20 = EdgeInsets.symmetric(horizontal: AppSpacing.xl20);
+  static const h16 = EdgeInsets.symmetric(horizontal: AppSpacing.l16);
   static const h24 = EdgeInsets.symmetric(horizontal: AppSpacing.xxl24);
 
   // Vertical only
@@ -60,9 +66,16 @@ class AppPadding {
   static const v10h15 = EdgeInsets.symmetric(vertical: AppSpacing.m10, horizontal: AppSpacing.l15);
   static const v10h20 = EdgeInsets.symmetric(vertical: AppSpacing.m10, horizontal: AppSpacing.xl20);
   static const v20h10 = EdgeInsets.symmetric(vertical: AppSpacing.xl20, horizontal: AppSpacing.m10);
+  static const v16h16 = EdgeInsets.symmetric(vertical: AppSpacing.l16, horizontal: AppSpacing.l16);
 
   // Per side (t = top, h = horizontal, b = bottom)
   static const h24b24 = EdgeInsets.fromLTRB(AppSpacing.xxl24, 0, AppSpacing.xxl24, AppSpacing.xxl24);
+  static const t15h24b24 = EdgeInsets.fromLTRB(
+    AppSpacing.xxl24,
+    AppSpacing.l15,
+    AppSpacing.xxl24,
+    AppSpacing.xxl24,
+  );
   static const t40h24b20 = EdgeInsets.fromLTRB(
     AppSpacing.xxl24,
     AppSpacing.xxxxl40,
@@ -86,11 +99,15 @@ class AppRadius {
 
   static const double s8 = 8;
   static const double m10 = 10;
+  static const double sm12 = 12;
+  static const double card = 16;
   static const double l25 = 25;
   static const double circle = 50;
 
   static const brS = BorderRadius.all(Radius.circular(s8));
   static const brM = BorderRadius.all(Radius.circular(m10));
   static const brL = BorderRadius.all(Radius.circular(l25));
+  static const brCard = BorderRadius.all(Radius.circular(card));
+  static const brSm = BorderRadius.all(Radius.circular(sm12));
   static const brCircle = BorderRadius.all(Radius.circular(circle));
 }

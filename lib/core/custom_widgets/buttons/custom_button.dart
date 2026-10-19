@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_hr_erb/core/images/app_images.dart';
-import 'package:flutter_hr_erb/core/theme/app_sizes.dart';
-import 'package:lottie/lottie.dart';
+
 import '../../enum/cubit_state/cubit_status.dart';
-import 'package:flutter_hr_erb/core/theme/app_text_styles.dart';
-import 'package:flutter_hr_erb/core/theme/app_colors.dart';
+import '../../theme/app_colors.dart';
+import '../../theme/app_shadows.dart';
+import '../../theme/app_sizes.dart';
+import '../../theme/app_text_styles.dart';
+import '../../theme/extensions/theme_extensions.dart';
 
 class CustomButton extends StatefulWidget {
   final double radius;
@@ -28,6 +29,9 @@ class CustomButton extends StatefulWidget {
   final Color? textColor;
   final Color? loaderColor;
   final bool isEnabled;
+  final Color? disabledColor;
+  final Color? disabledBorderColor;
+  final Color? disabledTextColor;
 
   const CustomButton({
     super.key,
@@ -52,6 +56,9 @@ class CustomButton extends StatefulWidget {
     this.textColor,
     this.loaderColor,
     this.isEnabled = true,
+    this.disabledColor,
+    this.disabledBorderColor,
+    this.disabledTextColor,
   });
 
   @override
@@ -73,6 +80,14 @@ class _CustomButtonState extends State<CustomButton> with SingleTickerProviderSt
     ).chain(CurveTween(curve: Curves.easeOut)).animate(_controller);
   }
 
+  Color? get _borderColor => widget.isEnabled
+      ? widget.borderColor
+      : widget.disabledBorderColor ?? context.customColors.border;
+
+  Color get _textColor => widget.isEnabled
+      ? widget.textColor ?? AppColors.white
+      : widget.disabledTextColor ?? context.customColors.textMuted;
+
   @override
   void dispose() {
     _controller.dispose();
@@ -82,9 +97,12 @@ class _CustomButtonState extends State<CustomButton> with SingleTickerProviderSt
   @override
   Widget build(BuildContext context) {
     return widget.isLoading || widget.cubitState == CubitStatus.loading
-        ? Center(
-            child: CircularProgressIndicator(
-              color: widget.loaderColor ?? AppColors.white,
+        ? SizedBox(
+            height: widget.height,
+            child: Center(
+              child: CircularProgressIndicator(
+                color: widget.loaderColor ?? AppColors.white,
+              ),
             ),
           )
         : ScaleTransition(
@@ -98,25 +116,14 @@ class _CustomButtonState extends State<CustomButton> with SingleTickerProviderSt
                             (widget.isMainColor
                                 ? AppColors.primary
                                 : AppColors.secondary)
-                      : AppColors.primary.withValues(alpha: 0.4),
+                      : widget.disabledColor ?? context.customColors.subtleBorder,
                   gradient: widget.isEnabled ? widget.gradient : null,
                   borderRadius: widget.borderRadius ?? BorderRadius.circular(widget.radius),
-                  border: widget.borderColor != null
-                      ? Border.all(color: widget.borderColor!)
-                      : null,
-                  boxShadow: widget.hasShadow
-                      ? widget.boxShadow ??
-                            [
-                              BoxShadow(
-                                color: Colors.black.withValues(alpha: 0.08),
-                                offset: const Offset(0, 0),
-                                blurRadius: 6,
-                              ),
-                            ]
+                  border: _borderColor != null ? Border.all(color: _borderColor!) : null,
+                  boxShadow: widget.hasShadow && widget.isEnabled
+                      ? widget.boxShadow ?? AppShadows.primaryButton
                       : null,
                 ),
-                // Clip inside the decoration so the ripple is rounded but the
-                // shadow is not cut off.
                 child: ClipRRect(
                   borderRadius: widget.borderRadius ?? BorderRadius.circular(widget.radius),
                   child: Material(
@@ -145,13 +152,12 @@ class _CustomButtonState extends State<CustomButton> with SingleTickerProviderSt
                               child:
                                   widget.child ??
                                   Text(
-                                    widget.text ?? "",
+                                    widget.text ?? '',
                                     textAlign: TextAlign.center,
                                     style:
                                         widget.style ??
                                         AppTextStyles.buttonStyle.copyWith(
-                                          color:
-                                              widget.textColor ?? AppColors.white,
+                                          color: _textColor,
                                         ),
                                   ),
                             ),

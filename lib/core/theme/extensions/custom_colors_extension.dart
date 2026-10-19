@@ -27,6 +27,15 @@ class CustomColors extends ThemeExtension<CustomColors> {
     required this.border,
     required this.imagePlaceholder,
     required this.accentText,
+    required this.subtleBorder,
+    required this.surfaceWarm,
+    required this.selectedSurface,
+    required this.error,
+    required this.errorSurface,
+    required this.filledBorder,
+    required this.success,
+    required this.successSurface,
+    required this.successBorder,
   });
 
   static const light = CustomColors(
@@ -48,6 +57,15 @@ class CustomColors extends ThemeExtension<CustomColors> {
     border: AppColors.border,
     imagePlaceholder: AppColors.mist,
     accentText: AppColors.primaryDark,
+    subtleBorder: AppColors.lightBorder,
+    surfaceWarm: AppColors.ivory,
+    selectedSurface: AppColors.primarySurface,
+    error: AppColors.error,
+    errorSurface: AppColors.errorSurface,
+    filledBorder: AppColors.primaryMuted,
+    success: AppColors.success,
+    successSurface: AppColors.successSurface,
+    successBorder: AppColors.successBorder,
   );
 
   static const dark = CustomColors(
@@ -69,6 +87,15 @@ class CustomColors extends ThemeExtension<CustomColors> {
     border: AppColors.darkBorder,
     imagePlaceholder: AppColors.darkSurfaceVariant,
     accentText: AppColors.primaryLight,
+    subtleBorder: AppColors.darkBorder,
+    surfaceWarm: AppColors.darkSurfaceVariant,
+    selectedSurface: AppColors.darkSurfaceVariant,
+    error: AppColors.darkError,
+    errorSurface: AppColors.darkErrorSurface,
+    filledBorder: AppColors.primary,
+    success: AppColors.darkSuccess,
+    successSurface: AppColors.darkSuccessSurface,
+    successBorder: AppColors.darkSuccessBorder,
   );
 
   /// Strong text: titles, form labels, input text.
@@ -105,6 +132,17 @@ class CustomColors extends ThemeExtension<CustomColors> {
   /// Brand-colored text on a light surface (e.g. outlined button labels).
   final Color accentText;
 
+  final Color subtleBorder;
+
+  final Color surfaceWarm;
+  final Color selectedSurface;
+  final Color error;
+  final Color errorSurface;
+  final Color filledBorder;
+  final Color success;
+  final Color successSurface;
+  final Color successBorder;
+
   @override
   CustomColors copyWith({
     Color? textPrimary,
@@ -125,6 +163,15 @@ class CustomColors extends ThemeExtension<CustomColors> {
     Color? border,
     Color? imagePlaceholder,
     Color? accentText,
+    Color? subtleBorder,
+    Color? surfaceWarm,
+    Color? selectedSurface,
+    Color? error,
+    Color? errorSurface,
+    Color? filledBorder,
+    Color? success,
+    Color? successSurface,
+    Color? successBorder,
   }) {
     return CustomColors(
       textPrimary: textPrimary ?? this.textPrimary,
@@ -145,6 +192,15 @@ class CustomColors extends ThemeExtension<CustomColors> {
       border: border ?? this.border,
       imagePlaceholder: imagePlaceholder ?? this.imagePlaceholder,
       accentText: accentText ?? this.accentText,
+      subtleBorder: subtleBorder ?? this.subtleBorder,
+      surfaceWarm: surfaceWarm ?? this.surfaceWarm,
+      selectedSurface: selectedSurface ?? this.selectedSurface,
+      error: error ?? this.error,
+      errorSurface: errorSurface ?? this.errorSurface,
+      filledBorder: filledBorder ?? this.filledBorder,
+      success: success ?? this.success,
+      successSurface: successSurface ?? this.successSurface,
+      successBorder: successBorder ?? this.successBorder,
     );
   }
 
@@ -170,6 +226,15 @@ class CustomColors extends ThemeExtension<CustomColors> {
       border: Color.lerp(border, other.border, t)!,
       imagePlaceholder: Color.lerp(imagePlaceholder, other.imagePlaceholder, t)!,
       accentText: Color.lerp(accentText, other.accentText, t)!,
+      subtleBorder: Color.lerp(subtleBorder, other.subtleBorder, t)!,
+      surfaceWarm: Color.lerp(surfaceWarm, other.surfaceWarm, t)!,
+      selectedSurface: Color.lerp(selectedSurface, other.selectedSurface, t)!,
+      error: Color.lerp(error, other.error, t)!,
+      errorSurface: Color.lerp(errorSurface, other.errorSurface, t)!,
+      filledBorder: Color.lerp(filledBorder, other.filledBorder, t)!,
+      success: Color.lerp(success, other.success, t)!,
+      successSurface: Color.lerp(successSurface, other.successSurface, t)!,
+      successBorder: Color.lerp(successBorder, other.successBorder, t)!,
     );
   }
 }

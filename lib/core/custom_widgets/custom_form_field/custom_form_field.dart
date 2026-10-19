@@ -43,6 +43,8 @@ class CustomFormField extends StatefulWidget {
   final int? maxLength;
   final double? width;
   final AutovalidateMode? autovalidateMode;
+  final EdgeInsetsGeometry? contentPadding;
+  final Widget Function(bool isObscured)? passwordToggleBuilder;
   const CustomFormField({
     super.key,
     this.controller,
@@ -75,6 +77,8 @@ class CustomFormField extends StatefulWidget {
     this.maxLength,
     this.autovalidateMode,
     this.width,
+    this.contentPadding,
+    this.passwordToggleBuilder,
   });
 
   @override
@@ -157,7 +161,7 @@ class _CustomFormFieldState extends State<CustomFormField> {
                 enabledBorder: _border(
                   color: widget.unFocusColor ?? context.customColors.textFormBorder,
                 ),
-                contentPadding: AppPadding.all10,
+                contentPadding: widget.contentPadding ?? AppPadding.all10,
                 prefixIcon: widget.country != null && context.locale == const Locale('en')
                     ? Row(
                         mainAxisSize: MainAxisSize.min,
@@ -200,11 +204,13 @@ class _CustomFormFieldState extends State<CustomFormField> {
                             _obscureText = !_obscureText;
                           });
                         },
-                        child: Icon(
-                          _obscureText ? Icons.visibility_off_rounded : Icons.visibility_rounded,
-                          size: 20,
-                          color: widget.passwordColor ?? context.customColors.hint,
-                        ),
+                        child:
+                            widget.passwordToggleBuilder?.call(_obscureText) ??
+                            Icon(
+                              _obscureText ? Icons.visibility_off_rounded : Icons.visibility_rounded,
+                              size: 20,
+                              color: widget.passwordColor ?? context.customColors.hint,
+                            ),
                       )
                     : widget.suffixIcon,
               ),

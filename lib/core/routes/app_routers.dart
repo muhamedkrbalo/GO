@@ -3,12 +3,21 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../features/auth/data/model/verify_account_args.dart';
+import '../../features/auth/data/model/verify_code_args.dart';
+import '../../features/auth/presentation/controller/business_role_cubit.dart';
+import '../../features/auth/presentation/controller/register_cubit.dart';
+import '../../features/auth/presentation/controller/verify_account_cubit.dart';
+import '../../features/auth/presentation/controller/verify_code_cubit.dart';
+import '../../features/auth/presentation/view/screen/business_role_screen.dart';
 import '../../features/auth/presentation/view/screen/login_screen.dart';
+import '../../features/auth/presentation/view/screen/register_screen.dart';
+import '../../features/auth/presentation/view/screen/verify_account_screen.dart';
+import '../../features/auth/presentation/view/screen/verify_code_screen.dart';
 import '../../features/home/presentation/view/screen/home_screen.dart';
 import '../../features/onboarding/presentation/controller/onboarding_cubit.dart';
 import '../../features/onboarding/presentation/view/screen/onboarding_screen.dart';
 import '../../features/onboarding/presentation/view/screen/welcome_screen.dart';
-import '../../features/splash/presentation/controller/splash_cubit.dart';
 import '../../features/splash/presentation/view/screen/splash_screen.dart';
 import '../auth/auth_session.dart';
 import '../cache/hive/hive_methods.dart';
@@ -55,6 +64,41 @@ class AppRouters {
         builder: (context, state) => const LoginScreen(),
       ),
       GoRoute(
+        path: RoutePaths.register,
+        name: RouteNames.register,
+        builder: (context, state) => BlocProvider(
+          create: (_) => sl<RegisterCubit>(),
+          child: const RegisterScreen(),
+        ),
+      ),
+      GoRoute(
+        path: RoutePaths.verifyAccount,
+        name: RouteNames.verifyAccount,
+        redirect: (context, state) =>
+            state.extra is VerifyAccountArgs ? null : RoutePaths.register,
+        builder: (context, state) => BlocProvider(
+          create: (_) => sl<VerifyAccountCubit>(),
+          child: VerifyAccountScreen(args: state.extra! as VerifyAccountArgs),
+        ),
+      ),
+      GoRoute(
+        path: RoutePaths.verifyCode,
+        name: RouteNames.verifyCode,
+        redirect: (context, state) => state.extra is VerifyCodeArgs ? null : RoutePaths.register,
+        builder: (context, state) => BlocProvider(
+          create: (_) => sl<VerifyCodeCubit>()..startResendCooldown(),
+          child: VerifyCodeScreen(args: state.extra! as VerifyCodeArgs),
+        ),
+      ),
+      GoRoute(
+        path: RoutePaths.businessRole,
+        name: RouteNames.businessRole,
+        builder: (context, state) => BlocProvider(
+          create: (_) => sl<BusinessRoleCubit>(),
+          child: const BusinessRoleScreen(),
+        ),
+      ),
+      GoRoute(
         path: RoutePaths.home,
         name: RouteNames.home,
         builder: (context, state) => const HomeScreen(),
@@ -77,6 +121,10 @@ class AppRouters {
     RoutePaths.onboarding,
     RoutePaths.welcome,
     RoutePaths.login,
+    RoutePaths.register,
+    RoutePaths.verifyAccount,
+    RoutePaths.verifyCode,
+    RoutePaths.businessRole,
   };
 
   /// Login gating, in one place:

@@ -657,4 +657,46 @@ class AppLocaleKey {
   static const welcomeSubtitle = 'welcomeSubtitle';
   static const createAnAccount = 'createAnAccount';
   static const logIn = 'logIn';
+
+  // register
+  static const mobileNumber = 'mobileNumber';
+  static const accountCreation = 'accountCreation';
+  static const stepOf = 'stepOf';
+  static const enterYourDetailsToGetStarted = 'enterYourDetailsToGetStarted';
+  static const enterMobileNumber = 'enterMobileNumber';
+  static const emailAddress = 'emailAddress';
+  static const enterEmailAddress = 'enterEmailAddress';
+  static const createAPassword = 'createAPassword';
+  static const reEnterYourPassword = 'reEnterYourPassword';
+
+  // verify account
+  static const accountSecurity = 'accountSecurity';
+  static const verifyYourAccount = 'verifyYourAccount';
+  static const chooseHowToReceiveVerificationCode = 'chooseHowToReceiveVerificationCode';
+  static const textMessageSms = 'textMessageSms';
+  static const receiveCodeOnMobile = 'receiveCodeOnMobile';
+  static const receiveCodeInInbox = 'receiveCodeInInbox';
+  static const sendVerificationCode = 'sendVerificationCode';
+  static const contactDetailPrivacyNote = 'contactDetailPrivacyNote';
+
+  // verify code
+  static const secureVerification = 'secureVerification';
+  static const enterVerificationCode = 'enterVerificationCode';
+  static const weSentAVerificationCode = 'weSentAVerificationCode';
+  static const resendCodeIn = 'resendCodeIn';
+  static const changeVerificationMethod = 'changeVerificationMethod';
+  static const verifyCode = 'verifyCode';
+  static const incorrectCodeAttempts = 'incorrectCodeAttempts';
+
+  static const accountVerifiedBadge = 'accountVerifiedBadge';
+  static const businessRegistration = 'businessRegistration';
+  static const howWillYouUseGo = 'howWillYouUseGo';
+  static const chooseBusinessRelationship = 'chooseBusinessRelationship';
+  static const owner = 'owner';
+  static const ownerDescription = 'ownerDescription';
+  static const broker = 'broker';
+  static const brokerDescription = 'brokerDescription';
+  static const serviceProvider = 'serviceProvider';
+  static const serviceProviderDescription = 'serviceProviderDescription';
+  static const businessSelectionNote = 'businessSelectionNote';
 }

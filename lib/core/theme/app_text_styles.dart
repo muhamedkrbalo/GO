@@ -23,7 +23,19 @@ class AppTextStyles {
     fontWeight: FontWeight.w700,
   );
 
+  static const xxsRegular = TextStyle(
+    fontFamily: AppFonts.inter,
+    fontSize: 11,
+    fontWeight: FontWeight.w400,
+  );
+
   // xs - 12
+  static const xsBold = TextStyle(
+    fontFamily: AppFonts.inter,
+    fontSize: 12,
+    fontWeight: FontWeight.w700,
+  );
+
   static const xsMedium = TextStyle(
     fontFamily: AppFonts.inter,
     fontSize: 12,
@@ -59,6 +71,12 @@ class AppTextStyles {
     fontFamily: AppFonts.inter,
     fontSize: 14,
     fontWeight: FontWeight.w600,
+  );
+
+  static const sBold = TextStyle(
+    fontFamily: AppFonts.inter,
+    fontSize: 14,
+    fontWeight: FontWeight.w700,
   );
 
 

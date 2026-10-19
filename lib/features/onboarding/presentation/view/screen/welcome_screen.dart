@@ -5,7 +5,6 @@ import 'package:go_router/go_router.dart';
 import '../../../../../core/custom_widgets/buttons/custom_button.dart';
 import '../../../../../core/locale/app_locale_key.dart';
 import '../../../../../core/routes/routes_name.dart';
-import '../../../../../core/theme/app_shadows.dart';
 import '../../../../../core/theme/app_sizes.dart';
 import '../../../../../core/theme/app_text_styles.dart';
 import '../../../../../core/theme/extensions/theme_extensions.dart';
@@ -63,9 +62,7 @@ class WelcomeScreen extends StatelessWidget {
               CustomButton(
                 text: AppLocaleKey.createAnAccount.tr(),
                 hasShadow: true,
-                boxShadow: AppShadows.primaryButton,
-                // TODO: go to the register screen once it exists.
-                onPressed: () => context.pushNamed(RouteNames.login),
+                onPressed: () => context.pushNamed(RouteNames.register),
               ),
               AppSpacing.gapV12,
               CustomButton(
