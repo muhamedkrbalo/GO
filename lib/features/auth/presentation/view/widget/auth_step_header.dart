@@ -9,10 +9,16 @@ import '../../../../../core/theme/app_text_styles.dart';
 import '../../../../../core/theme/extensions/theme_extensions.dart';
 
 class AuthStepHeader extends StatelessWidget {
-  const AuthStepHeader({super.key, required this.step, required this.stepCount});
+  const AuthStepHeader({
+    super.key,
+    required this.step,
+    required this.stepCount,
+    this.backgroundColor,
+  });
 
   final int step;
   final int stepCount;
+  final Color? backgroundColor;
 
   static const _minHeight = 72.0;
   static const _padding = EdgeInsetsDirectional.fromSTEB(24, 14, 24, 8);
@@ -31,7 +37,7 @@ class AuthStepHeader extends StatelessWidget {
     return Container(
       constraints: const BoxConstraints(minHeight: _minHeight),
       padding: _padding,
-      color: colors.canvas.withValues(alpha: _backgroundOpacity),
+      color: backgroundColor ?? colors.canvas.withValues(alpha: _backgroundOpacity),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [

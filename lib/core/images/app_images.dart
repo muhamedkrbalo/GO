@@ -206,6 +206,10 @@ class AppImages {
   /// assets/svg/owner.svg
   static const String assetsSvgOwner = "assets/svg/owner.svg";
 
+  /// Assets for assetsSvgPhone
+  /// assets/svg/phone.svg
+  static const String assetsSvgPhone = "assets/svg/phone.svg";
+
   /// Assets for assetsSvgSearch
   /// assets/svg/search.svg
   static const String assetsSvgSearch = "assets/svg/search.svg";

@@ -3,7 +3,7 @@ import '../../../../core/locale/app_locale_key.dart';
 
 enum VerificationMethod {
   sms(
-    icon: AppImages.assetsSvgSms,
+    icon: AppImages.assetsSvgPhone,
     titleKey: AppLocaleKey.textMessageSms,
     descriptionKey: AppLocaleKey.receiveCodeOnMobile,
   ),

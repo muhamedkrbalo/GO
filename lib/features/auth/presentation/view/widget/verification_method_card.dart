@@ -4,7 +4,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-import '../../../../../core/custom_widgets/selectable_option_card/selection_indicator.dart';
+import '../../../../../core/theme/app_shadows.dart';
 import '../../../../../core/theme/app_sizes.dart';
 import '../../../../../core/theme/app_text_styles.dart';
 import '../../../../../core/theme/extensions/theme_extensions.dart';
@@ -25,12 +25,17 @@ class VerificationMethodCard extends StatelessWidget {
   final VoidCallback onTap;
 
   static const _duration = Duration(milliseconds: 180);
-  static const _padding = EdgeInsets.all(18.4);
-  static const _iconTileSize = 44.8;
-  static const _iconSize = 21.6;
-  static const _iconTileRadius = BorderRadius.all(Radius.circular(13.6));
+  static const _minHeight = 88.0;
+  static const _padding = EdgeInsets.all(16);
+  static const _radius = BorderRadius.all(Radius.circular(14));
   static const _borderWidth = 1.6;
-  static const _selectedBorderWidth = 2.6;
+  static const _iconTileSize = 48.0;
+  static const _iconSize = 23.0;
+  static const _iconTileRadius = BorderRadius.all(Radius.circular(12));
+  static const _gap = 14.0;
+  static const _titleHeight = 1.5;
+  static const _destinationLetterSpacing = 0.24;
+  static const _destinationHeight = 1.5;
 
   @override
   Widget build(BuildContext context) {
@@ -42,42 +47,45 @@ class VerificationMethodCard extends StatelessWidget {
       inMutuallyExclusiveGroup: true,
       child: AnimatedContainer(
         duration: _duration,
+        constraints: const BoxConstraints(minHeight: _minHeight),
         decoration: BoxDecoration(
-          color: isSelected ? colors.selectedSurface : colors.surface,
-          borderRadius: AppRadius.brCard,
+          color: colors.surface,
+          borderRadius: _radius,
           border: Border.all(
-            color: isSelected ? colors.primary : colors.border,
-            width: isSelected ? _selectedBorderWidth : _borderWidth,
+            color: isSelected ? colors.accentBar : colors.border,
+            width: _borderWidth,
           ),
+          boxShadow: isSelected ? AppShadows.optionCardSelected : AppShadows.optionCard,
         ),
         child: Material(
           type: MaterialType.transparency,
           child: InkWell(
             onTap: onTap,
-            borderRadius: AppRadius.brCard,
+            borderRadius: _radius,
             child: Padding(
               padding: _padding,
               child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  DecoratedBox(
+                  AnimatedContainer(
+                    duration: _duration,
+                    width: _iconTileSize,
+                    height: _iconTileSize,
+                    alignment: Alignment.center,
                     decoration: BoxDecoration(
-                      color: colors.primaryLight,
+                      color: isSelected ? colors.primary : colors.surfaceVariant,
                       borderRadius: _iconTileRadius,
                     ),
-                    child: SizedBox.square(
-                      dimension: _iconTileSize,
-                      child: Center(
-                        child: SvgPicture.asset(
-                          method.icon,
-                          width: _iconSize,
-                          height: _iconSize,
-                          colorFilter: ColorFilter.mode(colors.accentText, BlendMode.srcIn),
-                        ),
+                    child: SvgPicture.asset(
+                      method.icon,
+                      width: _iconSize,
+                      height: _iconSize,
+                      colorFilter: ColorFilter.mode(
+                        isSelected ? colors.onPrimary : colors.accentText,
+                        BlendMode.srcIn,
                       ),
                     ),
                   ),
-                  AppSpacing.gapH15,
+                  const SizedBox(width: _gap),
                   Expanded(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -86,36 +94,67 @@ class VerificationMethodCard extends StatelessWidget {
                           method.titleKey.tr(),
                           style: AppTextStyles.sBold.copyWith(
                             color: colors.textSecondary,
-                            height: 1.5,
+                            height: _titleHeight,
                           ),
                         ),
                         AppSpacing.gapV5,
                         Text(
-                          method.descriptionKey.tr(),
-                          style: AppTextStyles.xsRegular.copyWith(
-                            color: colors.textMuted,
-                            height: 1.45,
-                          ),
-                        ),
-                        AppSpacing.gapV10,
-                        Text(
                           destination,
                           textDirection: ui.TextDirection.ltr,
                           style: AppTextStyles.xsMedium.copyWith(
-                            color: colors.accentText,
-                            letterSpacing: 0.24,
-                            height: 1.5,
+                            color: colors.textMuted,
+                            letterSpacing: _destinationLetterSpacing,
+                            height: _destinationHeight,
                           ),
                         ),
                       ],
                     ),
                   ),
-                  AppSpacing.gapH15,
-                  SelectionIndicator(isSelected: isSelected, duration: _duration),
+                  const SizedBox(width: _gap),
+                  _RadioDot(isSelected: isSelected, duration: _duration),
                 ],
               ),
             ),
           ),
+        ),
+      ),
+    );
+  }
+}
+
+class _RadioDot extends StatelessWidget {
+  const _RadioDot({required this.isSelected, required this.duration});
+
+  final bool isSelected;
+  final Duration duration;
+
+  static const _size = 20.0;
+  static const _dotSize = 10.0;
+  static const _borderWidth = 1.6;
+
+  @override
+  Widget build(BuildContext context) {
+    final colors = context.customColors;
+
+    return AnimatedContainer(
+      duration: duration,
+      width: _size,
+      height: _size,
+      alignment: Alignment.center,
+      decoration: BoxDecoration(
+        shape: BoxShape.circle,
+        border: Border.all(
+          color: isSelected ? colors.accentBar : colors.primaryBorder,
+          width: _borderWidth,
+        ),
+      ),
+      child: AnimatedScale(
+        duration: duration,
+        scale: isSelected ? 1 : 0,
+        child: Container(
+          width: _dotSize,
+          height: _dotSize,
+          decoration: BoxDecoration(color: colors.accentBar, shape: BoxShape.circle),
         ),
       ),
     );

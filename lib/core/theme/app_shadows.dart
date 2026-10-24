@@ -30,6 +30,15 @@ class AppShadows {
     BoxShadow(color: Color(0x2E000000), offset: Offset(0, -20), blurRadius: 30),
   ];
 
+  static const optionCard = [
+    BoxShadow(color: Color(0x0A082E50), offset: Offset(0, 5), blurRadius: 8),
+  ];
+
+  static const optionCardSelected = [
+    BoxShadow(color: Color(0x1CC5A36A), spreadRadius: 3),
+    BoxShadow(color: Color(0x0F082E50), offset: Offset(0, 8), blurRadius: 22),
+  ];
+
   static const softCard = [
     BoxShadow(color: Color(0x0A0F172A), offset: Offset(0, 8), blurRadius: 12),
   ];

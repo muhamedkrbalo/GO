@@ -692,6 +692,7 @@ class AppLocaleKey {
   static const receiveCodeInInbox = 'receiveCodeInInbox';
   static const sendVerificationCode = 'sendVerificationCode';
   static const contactDetailPrivacyNote = 'contactDetailPrivacyNote';
+  static const codeSentContinuing = 'codeSentContinuing';
 
   // verify code
   static const secureVerification = 'secureVerification';
