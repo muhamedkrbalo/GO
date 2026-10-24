@@ -29,6 +29,10 @@ class AppColors {
   static const tealLight = Color(0xff099BAD);
   static const slate = Color(0xff31516D);
   static const scrim = Color(0xff011C30);
+  static const heroNavy = Color(0xff074268);
+  static const heroNavyDeep = Color(0xff031D3D);
+  static const goldSoft = Color(0xffD9BB78);
+  static const mistBlue = Color(0xffAEC0CD);
 
   // neutrals
   static const white = Color(0xffffffff);

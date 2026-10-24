@@ -9,11 +9,20 @@ import '../../theme/extensions/theme_extensions.dart';
 import 'custom_button.dart';
 
 class ArrowPillButton extends StatelessWidget {
-  const ArrowPillButton({super.key, required this.text, required this.onPressed, this.width});
+  const ArrowPillButton({
+    super.key,
+    required this.text,
+    required this.onPressed,
+    this.width,
+    this.color,
+    this.textColor,
+  });
 
   final String text;
   final VoidCallback onPressed;
   final double? width;
+  final Color? color;
+  final Color? textColor;
 
   static const _startPadding = 22.0;
   static const _endPadding = 6.0;
@@ -26,7 +35,7 @@ class ArrowPillButton extends StatelessWidget {
     final colors = context.customColors;
     return CustomButton(
       width: width,
-      color: colors.primary,
+      color: color ?? colors.primary,
       borderRadius: AppRadius.brCircle,
       hasShadow: true,
       boxShadow: AppShadows.pillButton,
@@ -44,7 +53,7 @@ class ArrowPillButton extends StatelessWidget {
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
                 style: AppTextStyles.xsSemiBold.copyWith(
-                  color: colors.onPrimary,
+                  color: textColor ?? colors.onPrimary,
                   fontWeight: FontWeight.w700,
                   letterSpacing: _letterSpacing,
                 ),

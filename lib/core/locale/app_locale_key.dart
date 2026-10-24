@@ -661,6 +661,9 @@ class AppLocaleKey {
   static const welcomeSubtitle = 'welcomeSubtitle';
   static const createAnAccount = 'createAnAccount';
   static const logIn = 'logIn';
+  static const byContinuingYouAgree = 'byContinuingYouAgree';
+  static const termsLink = 'termsLink';
+  static const andConjunction = 'andConjunction';
 
   // register
   static const mobileNumber = 'mobileNumber';

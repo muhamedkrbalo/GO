@@ -22,6 +22,10 @@ class AppShadows {
     BoxShadow(color: Color(0x2E022C4B), offset: Offset(0, 22), blurRadius: 55),
   ];
 
+  static const welcomeLogoCard = [
+    BoxShadow(color: Color(0x33000000), offset: Offset(0, 25), blurRadius: 60),
+  ];
+
   static const softCard = [
     BoxShadow(color: Color(0x0A0F172A), offset: Offset(0, 8), blurRadius: 12),
   ];

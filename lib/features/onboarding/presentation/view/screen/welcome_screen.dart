@@ -1,82 +1,71 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../../../core/custom_widgets/buttons/arrow_pill_button.dart';
 import '../../../../../core/custom_widgets/buttons/custom_button.dart';
 import '../../../../../core/locale/app_locale_key.dart';
 import '../../../../../core/routes/routes_name.dart';
 import '../../../../../core/theme/app_sizes.dart';
 import '../../../../../core/theme/app_text_styles.dart';
 import '../../../../../core/theme/extensions/theme_extensions.dart';
-import '../widget/welcome_hero_image.dart';
+import '../widget/welcome_hero.dart';
+import '../widget/welcome_intro.dart';
+import '../widget/welcome_legal_note.dart';
 
 /// Entry point for signed-out users who have already seen onboarding.
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});
 
+  static const _sectionPadding = EdgeInsetsDirectional.fromSTEB(24, 14, 24, 28);
+  static const _loginHeight = 50.0;
+  static const _loginBorderOpacity = 0.25;
+
   @override
   Widget build(BuildContext context) {
     final colors = context.customColors;
 
-    return Scaffold(
-      backgroundColor: colors.surface,
-      body: SafeArea(
-        child: Padding(
-          padding: AppPadding.t40h24b20,
+    return AnnotatedRegion<SystemUiOverlayStyle>(
+      value: SystemUiOverlayStyle.light,
+      child: Scaffold(
+        backgroundColor: colors.primary,
+        body: SingleChildScrollView(
           child: Column(
             children: [
-            
-              Expanded(
-                child: Column(
-                  children: [
-                    const Flexible(child: WelcomeHeroImage()),
-                    AppSpacing.gapV32,
-                    Text(
-                      AppLocaleKey.welcomeTag.tr(),
-                      textAlign: TextAlign.center,
-                      style: AppTextStyles.xxsBold.copyWith(
-                        color: colors.textPrimary,
-                        letterSpacing: 1.6,
-                        height: 1.4,
+              const WelcomeHero(),
+              SafeArea(
+                top: false,
+                child: Padding(
+                  padding: _sectionPadding,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const WelcomeIntro(),
+                      AppSpacing.gapV24,
+                      ArrowPillButton(
+                        text: AppLocaleKey.createAnAccount.tr(),
+                        color: colors.onPrimary,
+                        textColor: colors.primary,
+                        onPressed: () => context.pushNamed(RouteNames.register),
                       ),
-                    ),
-                    AppSpacing.gapV10,
-                    Text(
-                      AppLocaleKey.welcomeTitle.tr(),
-                      textAlign: TextAlign.center,
-                      style: AppTextStyles.xxxlBold.copyWith(
-                        color: colors.textSecondary,
-                        letterSpacing: -1.4,
-                        height: 1.15,
+                      AppSpacing.gapV10,
+                      CustomButton(
+                        text: AppLocaleKey.logIn.tr(),
+                        height: _loginHeight,
+                        color: colors.primary,
+                        borderColor: colors.onPrimary.withValues(alpha: _loginBorderOpacity),
+                        borderRadius: AppRadius.brCircle,
+                        prefixIcon: null,
+                        suffixIcon: null,
+                        style: AppTextStyles.xs13Bold.copyWith(color: colors.onPrimary),
+                        onPressed: () => context.pushNamed(RouteNames.login),
                       ),
-                    ),
-                    AppSpacing.gapV10,
-                    Text(
-                      AppLocaleKey.welcomeSubtitle.tr(),
-                      textAlign: TextAlign.center,
-                      style: AppTextStyles.mRegular.copyWith(color: colors.textMuted, height: 1.6),
-                    ),
-                  ],
+                      AppSpacing.gapV15,
+                      const Center(child: WelcomeLegalNote()),
+                    ],
+                  ),
                 ),
-              ),
-              CustomButton(
-                text: AppLocaleKey.createAnAccount.tr(),
-                hasShadow: true,
-                onPressed: () => context.pushNamed(RouteNames.register),
-              ),
-              AppSpacing.gapV12,
-              CustomButton(
-                text: AppLocaleKey.logIn.tr(),
-                color: colors.surface,
-                borderColor: colors.border,
-                textColor: colors.accentText,
-                onPressed: () => context.pushNamed(RouteNames.login),
-              ),
-              AppSpacing.gapV20,
-              Text(
-                AppLocaleKey.splashTagline.tr(),
-                textAlign: TextAlign.center,
-                style: AppTextStyles.xsMedium.copyWith(color: colors.textMuted, letterSpacing: 0.4),
               ),
             ],
           ),

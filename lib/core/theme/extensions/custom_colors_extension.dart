@@ -56,6 +56,12 @@ class CustomColors extends ThemeExtension<CustomColors> {
     required this.imageScrim,
     required this.goldGradientStart,
     required this.goldGradientEnd,
+    required this.heroGradientStart,
+    required this.heroGradientEnd,
+    required this.onDarkEyebrow,
+    required this.onDarkMuted,
+    required this.onDarkSubtle,
+    required this.onDarkLink,
   });
 
   static const light = CustomColors(
@@ -106,6 +112,12 @@ class CustomColors extends ThemeExtension<CustomColors> {
     imageScrim: AppColors.scrim,
     goldGradientStart: AppColors.goldLight,
     goldGradientEnd: AppColors.goldDark,
+    heroGradientStart: AppColors.heroNavy,
+    heroGradientEnd: AppColors.heroNavyDeep,
+    onDarkEyebrow: AppColors.goldSoft,
+    onDarkMuted: AppColors.mistBlue,
+    onDarkSubtle: AppColors.primaryMuted,
+    onDarkLink: AppColors.lightText,
   );
 
   static const dark = CustomColors(
@@ -156,6 +168,12 @@ class CustomColors extends ThemeExtension<CustomColors> {
     imageScrim: AppColors.scrim,
     goldGradientStart: AppColors.goldLight,
     goldGradientEnd: AppColors.goldDark,
+    heroGradientStart: AppColors.heroNavy,
+    heroGradientEnd: AppColors.heroNavyDeep,
+    onDarkEyebrow: AppColors.goldSoft,
+    onDarkMuted: AppColors.mistBlue,
+    onDarkSubtle: AppColors.primaryMuted,
+    onDarkLink: AppColors.lightText,
   );
 
   /// Strong text: titles, form labels, input text.
@@ -222,6 +240,12 @@ class CustomColors extends ThemeExtension<CustomColors> {
   final Color imageScrim;
   final Color goldGradientStart;
   final Color goldGradientEnd;
+  final Color heroGradientStart;
+  final Color heroGradientEnd;
+  final Color onDarkEyebrow;
+  final Color onDarkMuted;
+  final Color onDarkSubtle;
+  final Color onDarkLink;
 
   @override
   CustomColors copyWith({
@@ -272,6 +296,12 @@ class CustomColors extends ThemeExtension<CustomColors> {
     Color? imageScrim,
     Color? goldGradientStart,
     Color? goldGradientEnd,
+    Color? heroGradientStart,
+    Color? heroGradientEnd,
+    Color? onDarkEyebrow,
+    Color? onDarkMuted,
+    Color? onDarkSubtle,
+    Color? onDarkLink,
   }) {
     return CustomColors(
       textPrimary: textPrimary ?? this.textPrimary,
@@ -321,6 +351,12 @@ class CustomColors extends ThemeExtension<CustomColors> {
       imageScrim: imageScrim ?? this.imageScrim,
       goldGradientStart: goldGradientStart ?? this.goldGradientStart,
       goldGradientEnd: goldGradientEnd ?? this.goldGradientEnd,
+      heroGradientStart: heroGradientStart ?? this.heroGradientStart,
+      heroGradientEnd: heroGradientEnd ?? this.heroGradientEnd,
+      onDarkEyebrow: onDarkEyebrow ?? this.onDarkEyebrow,
+      onDarkMuted: onDarkMuted ?? this.onDarkMuted,
+      onDarkSubtle: onDarkSubtle ?? this.onDarkSubtle,
+      onDarkLink: onDarkLink ?? this.onDarkLink,
     );
   }
 
@@ -375,6 +411,12 @@ class CustomColors extends ThemeExtension<CustomColors> {
       imageScrim: Color.lerp(imageScrim, other.imageScrim, t)!,
       goldGradientStart: Color.lerp(goldGradientStart, other.goldGradientStart, t)!,
       goldGradientEnd: Color.lerp(goldGradientEnd, other.goldGradientEnd, t)!,
+      heroGradientStart: Color.lerp(heroGradientStart, other.heroGradientStart, t)!,
+      heroGradientEnd: Color.lerp(heroGradientEnd, other.heroGradientEnd, t)!,
+      onDarkEyebrow: Color.lerp(onDarkEyebrow, other.onDarkEyebrow, t)!,
+      onDarkMuted: Color.lerp(onDarkMuted, other.onDarkMuted, t)!,
+      onDarkSubtle: Color.lerp(onDarkSubtle, other.onDarkSubtle, t)!,
+      onDarkLink: Color.lerp(onDarkLink, other.onDarkLink, t)!,
     );
   }
 }

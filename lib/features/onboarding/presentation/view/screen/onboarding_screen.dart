@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../../../core/images/app_images.dart';
 import '../../../../../core/routes/routes_name.dart';
 import '../../../../../core/theme/app_sizes.dart';
 import '../../../../../core/theme/extensions/theme_extensions.dart';
@@ -33,7 +32,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     for (final item in OnboardingItem.items) {
       precacheImage(AssetImage(item.image), context);
     }
-    precacheImage(const AssetImage(AppImages.assetsImagesWelcome), context);
   }
 
   @override
