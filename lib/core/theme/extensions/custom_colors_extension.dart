@@ -62,6 +62,7 @@ class CustomColors extends ThemeExtension<CustomColors> {
     required this.onDarkMuted,
     required this.onDarkSubtle,
     required this.onDarkLink,
+    required this.formLabel,
   });
 
   static const light = CustomColors(
@@ -118,6 +119,7 @@ class CustomColors extends ThemeExtension<CustomColors> {
     onDarkMuted: AppColors.mistBlue,
     onDarkSubtle: AppColors.primaryMuted,
     onDarkLink: AppColors.lightText,
+    formLabel: AppColors.slateDeep,
   );
 
   static const dark = CustomColors(
@@ -174,6 +176,7 @@ class CustomColors extends ThemeExtension<CustomColors> {
     onDarkMuted: AppColors.mistBlue,
     onDarkSubtle: AppColors.primaryMuted,
     onDarkLink: AppColors.lightText,
+    formLabel: AppColors.darkSecondaryText,
   );
 
   /// Strong text: titles, form labels, input text.
@@ -246,6 +249,7 @@ class CustomColors extends ThemeExtension<CustomColors> {
   final Color onDarkMuted;
   final Color onDarkSubtle;
   final Color onDarkLink;
+  final Color formLabel;
 
   @override
   CustomColors copyWith({
@@ -302,6 +306,7 @@ class CustomColors extends ThemeExtension<CustomColors> {
     Color? onDarkMuted,
     Color? onDarkSubtle,
     Color? onDarkLink,
+    Color? formLabel,
   }) {
     return CustomColors(
       textPrimary: textPrimary ?? this.textPrimary,
@@ -357,6 +362,7 @@ class CustomColors extends ThemeExtension<CustomColors> {
       onDarkMuted: onDarkMuted ?? this.onDarkMuted,
       onDarkSubtle: onDarkSubtle ?? this.onDarkSubtle,
       onDarkLink: onDarkLink ?? this.onDarkLink,
+      formLabel: formLabel ?? this.formLabel,
     );
   }
 
@@ -417,6 +423,7 @@ class CustomColors extends ThemeExtension<CustomColors> {
       onDarkMuted: Color.lerp(onDarkMuted, other.onDarkMuted, t)!,
       onDarkSubtle: Color.lerp(onDarkSubtle, other.onDarkSubtle, t)!,
       onDarkLink: Color.lerp(onDarkLink, other.onDarkLink, t)!,
+      formLabel: Color.lerp(formLabel, other.formLabel, t)!,
     );
   }
 }

@@ -26,6 +26,10 @@ class AppShadows {
     BoxShadow(color: Color(0x33000000), offset: Offset(0, 25), blurRadius: 60),
   ];
 
+  static const sheet = [
+    BoxShadow(color: Color(0x2E000000), offset: Offset(0, -20), blurRadius: 30),
+  ];
+
   static const softCard = [
     BoxShadow(color: Color(0x0A0F172A), offset: Offset(0, 8), blurRadius: 12),
   ];

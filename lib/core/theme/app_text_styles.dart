@@ -176,6 +176,12 @@ class AppTextStyles {
     fontWeight: FontWeight.w700,
   );
 
+  static const displaySmBold = TextStyle(
+    fontFamily: AppFonts.gelasio,
+    fontSize: 30,
+    fontWeight: FontWeight.w700,
+  );
+
   static const displayBold = TextStyle(
     fontFamily: AppFonts.gelasio,
     fontSize: 34,

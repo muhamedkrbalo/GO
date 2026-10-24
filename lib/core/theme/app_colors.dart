@@ -33,6 +33,7 @@ class AppColors {
   static const heroNavyDeep = Color(0xff031D3D);
   static const goldSoft = Color(0xffD9BB78);
   static const mistBlue = Color(0xffAEC0CD);
+  static const slateDeep = Color(0xff23445F);
 
   // neutrals
   static const white = Color(0xffffffff);

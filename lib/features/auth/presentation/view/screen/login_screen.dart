@@ -1,31 +1,38 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_hr_erb/core/custom_widgets/buttons/custom_button.dart';
-import 'package:flutter_hr_erb/core/custom_widgets/custom_form_field/custom_form_field.dart';
-import 'package:flutter_hr_erb/core/theme/app_sizes.dart';
+import 'dart:ui';
 
-// TODO: build the login UI. On success call `sl<AuthSession>().signIn(...)`;
-// the router redirects to home on its own.
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+
+import '../../../../../core/theme/extensions/theme_extensions.dart';
+import '../../../../onboarding/presentation/view/widget/welcome_hero.dart';
+import '../widget/login_sheet.dart';
+
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
 
+  static const _blurSigma = 5.0;
+  static const _scrimOpacity = 0.62;
+
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Padding(
-        padding: AppPadding.all20,
-        child: Column(
+    final colors = context.customColors;
+
+    return AnnotatedRegion<SystemUiOverlayStyle>(
+      value: SystemUiOverlayStyle.light,
+      child: Scaffold(
+        backgroundColor: colors.primary,
+        body: Stack(
+          fit: StackFit.expand,
           children: [
-            SizedBox(height: 300),
-            CustomButton(
-              text: 'Sign in with Google',
+            ImageFiltered(
+              imageFilter: ImageFilter.blur(sigmaX: _blurSigma, sigmaY: _blurSigma),
+              child: const Align(alignment: Alignment.topCenter, child: WelcomeHero()),
             ),
-            SizedBox(height: 100),
-          CustomFormField(
-            title: 'Email',
-           hintText: 'Enter your email',
-          ),
-        
-            Center(child: Text('Login Screen')),
+            ColoredBox(color: colors.imageScrim.withValues(alpha: _scrimOpacity)),
+            const Align(
+              alignment: Alignment.bottomCenter,
+              child: SingleChildScrollView(child: LoginSheet()),
+            ),
           ],
         ),
       ),
