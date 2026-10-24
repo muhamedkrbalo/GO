@@ -87,7 +87,7 @@ class CustomColors extends ThemeExtension<CustomColors> {
   );
 
   static const dark = CustomColors(
-    textPrimary: AppColors.primary,
+    textPrimary: AppColors.primaryLight,
     textSecondary: AppColors.darkSecondaryText,
     hint: AppColors.darkHint,
     onBackground: AppColors.white,

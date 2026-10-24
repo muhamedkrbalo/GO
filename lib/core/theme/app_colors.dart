@@ -8,31 +8,37 @@ class AppColors {
   const AppColors._();
 
   // primary
-  static const primary = Color(0xff0F766E);
-  static const primaryLight = Color(0xffCCFBF1);
-  static const primaryDark = Color(0xff115E59);
-  static const primarySurface = Color(0xffF0FDFA);
-  static const primaryMuted = Color(0xff79AAA6);
-  static const primaryBorder = Color(0xff99D5CF);
-  static const secondary = Color(0xff0F172A);
+  static const primary = Color(0xff082E50);
+  static const primaryLight = Color(0xffE8EEF0);
+  static const primaryDark = Color(0xff062B51);
+  static const primarySurface = Color(0xffF1F5F7);
+  static const primaryMuted = Color(0xff829BAD);
+  static const primaryBorder = Color(0xffB9C5CF);
+  static const secondary = Color(0xff172B3E);
+
+  // accent
+  static const gold = Color(0xffC5A36A);
+  static const goldLight = Color(0xffEFD99D);
+  static const goldDark = Color(0xffC49B48);
+  static const goldText = Color(0xff8B7654);
 
   // neutrals
   static const white = Color(0xffffffff);
-  static const offWhite = Color(0xFFF5F5F5);
-  static const ivory = Color(0xffFAF8F3);
+  static const offWhite = Color(0xffF1F5F7);
+  static const ivory = Color(0xffF8F7F2);
   static const black = Color(0xff000000);
-  static const text = Color(0xFF0A0A0A);
-  static const hint = Color(0xff94A3B8);
-  static const lightText = Color(0xffD1D5DC);
-  static const grey = Color(0xFF888888);
-  static const darkGrey = Color(0xff666666);
-  static const lightGrey = Color(0xffA6A6A6);
-  static const border = Color(0xffCBD5E1);
-  static const lightBorder = Color(0xffE2E8F0);
+  static const text = Color(0xff172B3E);
+  static const hint = Color(0xff94A1AF);
+  static const lightText = Color(0xffC6D3DC);
+  static const grey = Color(0xff8593A0);
+  static const darkGrey = Color(0xff617689);
+  static const lightGrey = Color(0xffB8C5C9);
+  static const border = Color(0xffD8E0E8);
+  static const lightBorder = Color(0xffE1E7EC);
   static const canvas = Color(0xffF8FAFC);
-  static const muted = Color(0xff64748B);
-  static const mist = Color(0xffD8E8E8);
-  static const divider = Color(0xFFDADADA);
+  static const muted = Color(0xff617184);
+  static const mist = Color(0xffE8EEF0);
+  static const divider = Color(0xffD8E0E8);
   static const textFormFill = Color(0xffffffff);
 
   // dark mode neutrals
@@ -49,9 +55,9 @@ class AppColors {
   static const errorSurface = Color(0xffFEF3F2);
   static const darkError = Color(0xffF97066);
   static const darkErrorSurface = Color(0xff3B1D1D);
-  static const success = Color(0xff067647);
-  static const successSurface = Color(0xffECFDF3);
-  static const successBorder = Color(0xffA6F4C5);
+  static const success = Color(0xff205F57);
+  static const successSurface = Color(0xffEDF8F6);
+  static const successBorder = Color(0xff26766C);
   static const darkSuccess = Color(0xff32D583);
   static const darkSuccessSurface = Color(0xff053321);
   static const darkSuccessBorder = Color(0xff085D3A);
@@ -65,8 +71,4 @@ class AppColors {
   static const warningSurface = Color(0xffFEF3C7);
   static const darkWarning = Color(0xffFBBF24);
   static const darkWarningSurface = Color(0xff422006);
-
-
-
- 
 }
