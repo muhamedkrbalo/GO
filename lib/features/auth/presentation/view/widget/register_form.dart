@@ -129,7 +129,7 @@ class _RegisterFormState extends State<RegisterForm> with ValidationMixin {
                 height: _buttonHeight,
                 radius: _buttonRadius,
                 hasShadow: true,
-                isEnabled: _isFilled,
+                // isEnabled: _isFilled,
                 disabledColor: colors.subtleBorder,
                 disabledBorderColor: colors.subtleBorder,
                 disabledTextColor: colors.grey,
