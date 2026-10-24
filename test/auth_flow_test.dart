@@ -78,7 +78,7 @@ void main() {
   testWidgets('router redirects on auth status changes', (tester) async {
     session.value = AuthStatus.unknown;
     await tester.pumpWidget(MaterialApp.router(routerConfig: AppRouters.router));
-    await tester.pumpAndSettle();
+    await tester.pump();
     expect(find.byType(SplashScreen), findsOneWidget);
 
     // First launch → onboarding.

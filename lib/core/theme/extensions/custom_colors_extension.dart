@@ -45,6 +45,11 @@ class CustomColors extends ThemeExtension<CustomColors> {
     required this.warning,
     required this.warningSurface,
     required this.primaryBorder,
+    required this.brandGradientStart,
+    required this.brandGradientEnd,
+    required this.highlight,
+    required this.goldAccent,
+    required this.logoBackground,
   });
 
   static const light = CustomColors(
@@ -84,6 +89,11 @@ class CustomColors extends ThemeExtension<CustomColors> {
     warning: AppColors.warning,
     warningSurface: AppColors.warningSurface,
     primaryBorder: AppColors.primaryBorder,
+    brandGradientStart: AppColors.deepNavy,
+    brandGradientEnd: AppColors.ocean,
+    highlight: AppColors.aqua,
+    goldAccent: AppColors.goldAccent,
+    logoBackground: AppColors.white,
   );
 
   static const dark = CustomColors(
@@ -123,6 +133,11 @@ class CustomColors extends ThemeExtension<CustomColors> {
     warning: AppColors.darkWarning,
     warningSurface: AppColors.darkWarningSurface,
     primaryBorder: AppColors.primaryDark,
+    brandGradientStart: AppColors.deepNavy,
+    brandGradientEnd: AppColors.ocean,
+    highlight: AppColors.aqua,
+    goldAccent: AppColors.goldAccent,
+    logoBackground: AppColors.white,
   );
 
   /// Strong text: titles, form labels, input text.
@@ -178,6 +193,11 @@ class CustomColors extends ThemeExtension<CustomColors> {
   final Color warning;
   final Color warningSurface;
   final Color primaryBorder;
+  final Color brandGradientStart;
+  final Color brandGradientEnd;
+  final Color highlight;
+  final Color goldAccent;
+  final Color logoBackground;
 
   @override
   CustomColors copyWith({
@@ -217,6 +237,11 @@ class CustomColors extends ThemeExtension<CustomColors> {
     Color? warning,
     Color? warningSurface,
     Color? primaryBorder,
+    Color? brandGradientStart,
+    Color? brandGradientEnd,
+    Color? highlight,
+    Color? goldAccent,
+    Color? logoBackground,
   }) {
     return CustomColors(
       textPrimary: textPrimary ?? this.textPrimary,
@@ -255,6 +280,11 @@ class CustomColors extends ThemeExtension<CustomColors> {
       warning: warning ?? this.warning,
       warningSurface: warningSurface ?? this.warningSurface,
       primaryBorder: primaryBorder ?? this.primaryBorder,
+      brandGradientStart: brandGradientStart ?? this.brandGradientStart,
+      brandGradientEnd: brandGradientEnd ?? this.brandGradientEnd,
+      highlight: highlight ?? this.highlight,
+      goldAccent: goldAccent ?? this.goldAccent,
+      logoBackground: logoBackground ?? this.logoBackground,
     );
   }
 
@@ -298,6 +328,11 @@ class CustomColors extends ThemeExtension<CustomColors> {
       warning: Color.lerp(warning, other.warning, t)!,
       warningSurface: Color.lerp(warningSurface, other.warningSurface, t)!,
       primaryBorder: Color.lerp(primaryBorder, other.primaryBorder, t)!,
+      brandGradientStart: Color.lerp(brandGradientStart, other.brandGradientStart, t)!,
+      brandGradientEnd: Color.lerp(brandGradientEnd, other.brandGradientEnd, t)!,
+      highlight: Color.lerp(highlight, other.highlight, t)!,
+      goldAccent: Color.lerp(goldAccent, other.goldAccent, t)!,
+      logoBackground: Color.lerp(logoBackground, other.logoBackground, t)!,
     );
   }
 }

@@ -14,6 +14,10 @@ class AppShadows {
     BoxShadow(color: Color(0x2E012D51), offset: Offset(0, 10), blurRadius: 13),
   ];
 
+  static const logoBadge = [
+    BoxShadow(color: Color(0x1A03375B), offset: Offset(0, 28), blurRadius: 35),
+  ];
+
   static const softCard = [
     BoxShadow(color: Color(0x0A0F172A), offset: Offset(0, 8), blurRadius: 12),
   ];

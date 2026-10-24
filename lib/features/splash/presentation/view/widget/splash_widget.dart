@@ -1,51 +1,38 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_hr_erb/core/theme/app_text_styles.dart';
-import 'package:flutter_hr_erb/core/theme/extensions/custom_colors_extension.dart';
 
-import '../../../../../core/images/app_images.dart';
-import '../../../../../core/locale/app_locale_key.dart';
+import '../../../../../core/theme/extensions/theme_extensions.dart';
+import 'splash_corner_shape.dart';
+import 'splash_loading_bar.dart';
+import 'splash_logo_badge.dart';
+import 'splash_ring.dart';
 
-/// Full-bleed villa photo with the GO logo at the top and the tagline at the
-/// bottom.
 class SplashWidget extends StatelessWidget {
   const SplashWidget({super.key});
 
-  
+  static const _logoToLoaderGap = 36.0;
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      fit: StackFit.expand,
-      children: [
-        Image.asset(AppImages.assetsImagesSplashImage, fit: BoxFit.cover),
-        Positioned(
-          top: 46,
-          left: 0,
-          right: 0,
-          child: Center(
-            child: Image.asset(
-              AppImages.assetsImagesGoSplashLogo,
-              width: 135,
-              height: 135,
-              fit: BoxFit.cover,
+    return ColoredBox(
+      color: context.customColors.surfaceWarm,
+      child: const Stack(
+        fit: StackFit.expand,
+        children: [
+          PositionedDirectional(top: 0, end: 0, child: SplashCornerShape()),
+          PositionedDirectional(start: -236, bottom: -90, child: SplashRing(size: 390)),
+          PositionedDirectional(end: -126, bottom: 112, child: SplashRing(size: 190)),
+          Center(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                SplashLogoBadge(),
+                SizedBox(height: _logoToLoaderGap),
+                SplashLoadingBar(),
+              ],
             ),
           ),
-        ),
-         Positioned(
-          left: 0,
-          right: 0,
-          bottom: 56,
-          child: Text(
-            AppLocaleKey.splashTagline.tr(),
-            textAlign: TextAlign.center,
-            style: AppTextStyles.sSemiBold.copyWith(
-           color: Theme.of(context).customColors.surface,
-            
-            ),
-          ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

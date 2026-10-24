@@ -90,6 +90,10 @@ class AppImages {
   /// assets/global_icon/warning.svg
   static const String assetsGlobalIconWarning = "assets/global_icon/warning.svg";
 
+  /// Assets for assetsImagesGoBrandLogo
+  /// assets/images/goBrandLogo.png
+  static const String assetsImagesGoBrandLogo = "assets/images/goBrandLogo.png";
+
   /// Assets for assetsImagesGoLogo
   /// assets/images/goLogo.png
   static const String assetsImagesGoLogo = "assets/images/goLogo.png";
