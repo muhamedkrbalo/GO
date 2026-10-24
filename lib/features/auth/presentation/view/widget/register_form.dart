@@ -10,6 +10,7 @@ import '../../../../../core/custom_widgets/validation/validation_mixin.dart';
 import '../../../../../core/locale/app_locale_key.dart';
 import '../../../../../core/routes/routes_name.dart';
 import '../../../../../core/theme/app_sizes.dart';
+import '../../../../../core/theme/extensions/theme_extensions.dart';
 import '../../../data/model/verify_account_args.dart';
 import '../../controller/register_cubit.dart';
 import 'country_code_picker.dart';
@@ -30,6 +31,19 @@ class _RegisterFormState extends State<RegisterForm> with ValidationMixin {
   final _passwordController = TextEditingController();
   final _confirmPasswordController = TextEditingController();
 
+  static const _fieldGap = SizedBox(height: 17);
+  static const _buttonHeight = 52.0;
+  static const _buttonRadius = 12.0;
+
+  late final _fields = [
+    _nameController,
+    _phoneController,
+    _emailController,
+    _passwordController,
+    _confirmPasswordController,
+  ];
+
+  bool get _isFilled => _fields.every((controller) => controller.text.trim().isNotEmpty);
 
   @override
   void dispose() {
@@ -53,10 +67,9 @@ class _RegisterFormState extends State<RegisterForm> with ValidationMixin {
     );
   }
 
-
   @override
   Widget build(BuildContext context) {
-
+    final colors = context.customColors;
     Widget passwordToggle(bool isObscured) => PasswordVisibilityIcon(isObscured: isObscured);
 
     return Form(
@@ -68,59 +81,60 @@ class _RegisterFormState extends State<RegisterForm> with ValidationMixin {
               controller: _nameController,
               title: AppLocaleKey.fullName.tr(),
               hintText: AppLocaleKey.enterYourFullName.tr(),
-              contentPadding: AppPadding.v16h16,
+             
               keyboardType: TextInputType.name,
               validator: validateName,
             ),
-            AppSpacing.gapV20,
+            _fieldGap,
             CustomFormField(
               controller: _phoneController,
               title: AppLocaleKey.mobileNumber.tr(),
               hintText: AppLocaleKey.enterMobileNumber.tr(),
-          
-              contentPadding: AppPadding.v16h16,
               keyboardType: TextInputType.phone,
               inputFormatters: [FilteringTextInputFormatter.digitsOnly],
               prefixIcon: const CountryCodePicker(),
               validator: validatePhone,
             ),
-            AppSpacing.gapV20,
+            _fieldGap,
             CustomFormField(
               controller: _emailController,
               title: AppLocaleKey.emailAddress.tr(),
               hintText: AppLocaleKey.enterEmailAddress.tr(),
-          
-              contentPadding: AppPadding.v16h16,
               keyboardType: TextInputType.emailAddress,
               validator: validateEmail,
             ),
-            AppSpacing.gapV20,
+            _fieldGap,
             CustomFormField(
               controller: _passwordController,
               title: AppLocaleKey.password.tr(),
               hintText: AppLocaleKey.createAPassword.tr(),
-             
-              contentPadding: AppPadding.v16h16,
               isPassword: true,
               passwordToggleBuilder: passwordToggle,
               validator: validateNewPassword,
             ),
-            AppSpacing.gapV20,
+            _fieldGap,
             CustomFormField(
               controller: _confirmPasswordController,
               title: AppLocaleKey.confirmPassword.tr(),
               hintText: AppLocaleKey.reEnterYourPassword.tr(),
-            
-              contentPadding: AppPadding.v16h16,
               isPassword: true,
               passwordToggleBuilder: passwordToggle,
               validator: validateConfirmPassword,
             ),
             AppSpacing.gapV24,
-            CustomButton(
-              text: AppLocaleKey.continue_.tr(),
-              hasShadow: true,
-              onPressed: _submit,
+            ListenableBuilder(
+              listenable: Listenable.merge(_fields),
+              builder: (context, _) => CustomButton(
+                text: AppLocaleKey.createAnAccount.tr(),
+                height: _buttonHeight,
+                radius: _buttonRadius,
+                hasShadow: true,
+                isEnabled: _isFilled,
+                disabledColor: colors.subtleBorder,
+                disabledBorderColor: colors.subtleBorder,
+                disabledTextColor: colors.grey,
+                onPressed: _submit,
+              ),
             ),
           ],
         ),

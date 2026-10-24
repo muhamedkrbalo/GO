@@ -103,6 +103,8 @@
     "accountCreation": "إنشاء الحساب",
     "stepOf": "{} من {}",
     "enterYourDetailsToGetStarted": "أدخل بياناتك للبدء.",
+    "stepXOfY": "الخطوة {} من {}",
+    "createAccountSubtitle": "أنشئ حسابك للبدء مع GO.",
     "enterYourFullName": "أدخل اسمك الكامل",
     "enterMobileNumber": "أدخل رقم الجوال",
     "emailAddress": "البريد الإلكتروني",

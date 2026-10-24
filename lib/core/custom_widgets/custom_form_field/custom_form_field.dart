@@ -63,7 +63,7 @@ class CustomFormField extends StatefulWidget {
     this.readOnly = false,
     this.prefixIcon,
     this.suffixIcon,
-    this.radius = 12.0,
+    this.radius = 10.0,
     this.fillColor,
     this.focusColor,
     this.unFocusColor,
@@ -176,7 +176,7 @@ class _CustomFormFieldState extends State<CustomFormField> {
                 enabledBorder: _border(
                   color: widget.unFocusColor ?? context.customColors.textFormBorder,
                 ),
-                contentPadding: widget.contentPadding ?? AppPadding.v16h16,
+                contentPadding: widget.contentPadding ??EdgeInsets.symmetric(horizontal: 15, vertical: 16),
                 prefixIcon: widget.country != null && context.locale == const Locale('en')
                     ? Row(
                         mainAxisSize: MainAxisSize.min,

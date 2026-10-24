@@ -675,6 +675,8 @@ class AppLocaleKey {
   static const accountCreation = 'accountCreation';
   static const stepOf = 'stepOf';
   static const enterYourDetailsToGetStarted = 'enterYourDetailsToGetStarted';
+  static const stepXOfY = 'stepXOfY';
+  static const createAccountSubtitle = 'createAccountSubtitle';
   static const enterMobileNumber = 'enterMobileNumber';
   static const emailAddress = 'emailAddress';
   static const enterEmailAddress = 'enterEmailAddress';

@@ -63,6 +63,8 @@ class CustomColors extends ThemeExtension<CustomColors> {
     required this.onDarkSubtle,
     required this.onDarkLink,
     required this.formLabel,
+    required this.stepLabel,
+    required this.accentBar,
   });
 
   static const light = CustomColors(
@@ -120,6 +122,8 @@ class CustomColors extends ThemeExtension<CustomColors> {
     onDarkSubtle: AppColors.primaryMuted,
     onDarkLink: AppColors.lightText,
     formLabel: AppColors.slateDeep,
+    stepLabel: AppColors.goldText,
+    accentBar: AppColors.gold,
   );
 
   static const dark = CustomColors(
@@ -177,6 +181,8 @@ class CustomColors extends ThemeExtension<CustomColors> {
     onDarkSubtle: AppColors.primaryMuted,
     onDarkLink: AppColors.lightText,
     formLabel: AppColors.darkSecondaryText,
+    stepLabel: AppColors.goldSoft,
+    accentBar: AppColors.gold,
   );
 
   /// Strong text: titles, form labels, input text.
@@ -250,6 +256,8 @@ class CustomColors extends ThemeExtension<CustomColors> {
   final Color onDarkSubtle;
   final Color onDarkLink;
   final Color formLabel;
+  final Color stepLabel;
+  final Color accentBar;
 
   @override
   CustomColors copyWith({
@@ -307,6 +315,8 @@ class CustomColors extends ThemeExtension<CustomColors> {
     Color? onDarkSubtle,
     Color? onDarkLink,
     Color? formLabel,
+    Color? stepLabel,
+    Color? accentBar,
   }) {
     return CustomColors(
       textPrimary: textPrimary ?? this.textPrimary,
@@ -363,6 +373,8 @@ class CustomColors extends ThemeExtension<CustomColors> {
       onDarkSubtle: onDarkSubtle ?? this.onDarkSubtle,
       onDarkLink: onDarkLink ?? this.onDarkLink,
       formLabel: formLabel ?? this.formLabel,
+      stepLabel: stepLabel ?? this.stepLabel,
+      accentBar: accentBar ?? this.accentBar,
     );
   }
 
@@ -424,6 +436,8 @@ class CustomColors extends ThemeExtension<CustomColors> {
       onDarkSubtle: Color.lerp(onDarkSubtle, other.onDarkSubtle, t)!,
       onDarkLink: Color.lerp(onDarkLink, other.onDarkLink, t)!,
       formLabel: Color.lerp(formLabel, other.formLabel, t)!,
+      stepLabel: Color.lerp(stepLabel, other.stepLabel, t)!,
+      accentBar: Color.lerp(accentBar, other.accentBar, t)!,
     );
   }
 }

@@ -103,6 +103,8 @@
   "accountCreation": "ACCOUNT CREATION",
   "stepOf": "{} OF {}",
   "enterYourDetailsToGetStarted": "Enter your details to get started.",
+  "stepXOfY": "Step {} of {}",
+  "createAccountSubtitle": "Create your account to get started with GO.",
   "enterYourFullName": "Enter your full name",
   "enterMobileNumber": "Enter mobile number",
   "emailAddress": "Email Address",
