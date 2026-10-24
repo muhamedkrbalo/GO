@@ -135,28 +135,36 @@ flutter:
     - assets/global_icon/
     - assets/images/
     - assets/svg/
+    - assets/fonts/Manrope-OFL.txt
+    - assets/fonts/Gelasio-OFL.txt
 
   fonts:
-    - family: Inter
+    - family: Manrope
       fonts:
-        - asset: assets/fonts/Inter-Thin.ttf
-          weight: 100
-        - asset: assets/fonts/Inter-ExtraLight.ttf
+        - asset: assets/fonts/Manrope-ExtraLight.ttf
           weight: 200
-        - asset: assets/fonts/Inter-Light.ttf
+        - asset: assets/fonts/Manrope-Light.ttf
           weight: 300
-        - asset: assets/fonts/Inter-Regular.ttf
+        - asset: assets/fonts/Manrope-Regular.ttf
           weight: 400
-        - asset: assets/fonts/Inter-Medium.ttf
+        - asset: assets/fonts/Manrope-Medium.ttf
           weight: 500
-        - asset: assets/fonts/Inter-SemiBold.ttf
+        - asset: assets/fonts/Manrope-SemiBold.ttf
           weight: 600
-        - asset: assets/fonts/Inter-Bold.ttf
+        - asset: assets/fonts/Manrope-Bold.ttf
           weight: 700
-        - asset: assets/fonts/Inter-ExtraBold.ttf
+        - asset: assets/fonts/Manrope-ExtraBold.ttf
           weight: 800
-        - asset: assets/fonts/Inter-Black.ttf
-          weight: 900
+    - family: Gelasio
+      fonts:
+        - asset: assets/fonts/Gelasio-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/Gelasio-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/Gelasio-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/Gelasio-Bold.ttf
+          weight: 700
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 

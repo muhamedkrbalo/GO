@@ -2,45 +2,57 @@
 class AppImages {
   AppImages._();
   
-  /// Assets for assetsFontsInterBlack
-  /// assets/fonts/Inter-Black.ttf
-  static const String assetsFontsInterBlack = "assets/fonts/Inter-Black.ttf";
+  /// Assets for assetsFontsGelasioBold
+  /// assets/fonts/Gelasio-Bold.ttf
+  static const String assetsFontsGelasioBold = "assets/fonts/Gelasio-Bold.ttf";
 
-  /// Assets for assetsFontsInterBold
-  /// assets/fonts/Inter-Bold.ttf
-  static const String assetsFontsInterBold = "assets/fonts/Inter-Bold.ttf";
+  /// Assets for assetsFontsGelasioMedium
+  /// assets/fonts/Gelasio-Medium.ttf
+  static const String assetsFontsGelasioMedium = "assets/fonts/Gelasio-Medium.ttf";
 
-  /// Assets for assetsFontsInterExtraBold
-  /// assets/fonts/Inter-ExtraBold.ttf
-  static const String assetsFontsInterExtraBold = "assets/fonts/Inter-ExtraBold.ttf";
+  /// Assets for assetsFontsGelasioOFL
+  /// assets/fonts/Gelasio-OFL.txt
+  static const String assetsFontsGelasioOFL = "assets/fonts/Gelasio-OFL.txt";
 
-  /// Assets for assetsFontsInterExtraLight
-  /// assets/fonts/Inter-ExtraLight.ttf
-  static const String assetsFontsInterExtraLight = "assets/fonts/Inter-ExtraLight.ttf";
+  /// Assets for assetsFontsGelasioRegular
+  /// assets/fonts/Gelasio-Regular.ttf
+  static const String assetsFontsGelasioRegular = "assets/fonts/Gelasio-Regular.ttf";
 
-  /// Assets for assetsFontsInterLICENSE
-  /// assets/fonts/Inter-LICENSE.txt
-  static const String assetsFontsInterLICENSE = "assets/fonts/Inter-LICENSE.txt";
+  /// Assets for assetsFontsGelasioSemiBold
+  /// assets/fonts/Gelasio-SemiBold.ttf
+  static const String assetsFontsGelasioSemiBold = "assets/fonts/Gelasio-SemiBold.ttf";
 
-  /// Assets for assetsFontsInterLight
-  /// assets/fonts/Inter-Light.ttf
-  static const String assetsFontsInterLight = "assets/fonts/Inter-Light.ttf";
+  /// Assets for assetsFontsManropeBold
+  /// assets/fonts/Manrope-Bold.ttf
+  static const String assetsFontsManropeBold = "assets/fonts/Manrope-Bold.ttf";
 
-  /// Assets for assetsFontsInterMedium
-  /// assets/fonts/Inter-Medium.ttf
-  static const String assetsFontsInterMedium = "assets/fonts/Inter-Medium.ttf";
+  /// Assets for assetsFontsManropeExtraBold
+  /// assets/fonts/Manrope-ExtraBold.ttf
+  static const String assetsFontsManropeExtraBold = "assets/fonts/Manrope-ExtraBold.ttf";
 
-  /// Assets for assetsFontsInterRegular
-  /// assets/fonts/Inter-Regular.ttf
-  static const String assetsFontsInterRegular = "assets/fonts/Inter-Regular.ttf";
+  /// Assets for assetsFontsManropeExtraLight
+  /// assets/fonts/Manrope-ExtraLight.ttf
+  static const String assetsFontsManropeExtraLight = "assets/fonts/Manrope-ExtraLight.ttf";
 
-  /// Assets for assetsFontsInterSemiBold
-  /// assets/fonts/Inter-SemiBold.ttf
-  static const String assetsFontsInterSemiBold = "assets/fonts/Inter-SemiBold.ttf";
+  /// Assets for assetsFontsManropeLight
+  /// assets/fonts/Manrope-Light.ttf
+  static const String assetsFontsManropeLight = "assets/fonts/Manrope-Light.ttf";
 
-  /// Assets for assetsFontsInterThin
-  /// assets/fonts/Inter-Thin.ttf
-  static const String assetsFontsInterThin = "assets/fonts/Inter-Thin.ttf";
+  /// Assets for assetsFontsManropeMedium
+  /// assets/fonts/Manrope-Medium.ttf
+  static const String assetsFontsManropeMedium = "assets/fonts/Manrope-Medium.ttf";
+
+  /// Assets for assetsFontsManropeOFL
+  /// assets/fonts/Manrope-OFL.txt
+  static const String assetsFontsManropeOFL = "assets/fonts/Manrope-OFL.txt";
+
+  /// Assets for assetsFontsManropeRegular
+  /// assets/fonts/Manrope-Regular.ttf
+  static const String assetsFontsManropeRegular = "assets/fonts/Manrope-Regular.ttf";
+
+  /// Assets for assetsFontsManropeSemiBold
+  /// assets/fonts/Manrope-SemiBold.ttf
+  static const String assetsFontsManropeSemiBold = "assets/fonts/Manrope-SemiBold.ttf";
 
   /// Assets for assetsGlobalIconCamera
   /// assets/global_icon/camera.svg

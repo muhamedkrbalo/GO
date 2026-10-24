@@ -15,16 +15,16 @@ ThemeData buildAppTheme({
   required CustomColors colors,
 }) {
   OutlineInputBorder border(Color color) => OutlineInputBorder(
-        borderRadius: AppRadius.brM,
-        borderSide: BorderSide(color: color),
-      );
+    borderRadius: AppRadius.brM,
+    borderSide: BorderSide(color: color),
+  );
 
   return ThemeData(
     useMaterial3: false,
     brightness: brightness,
     platform: TargetPlatform.iOS,
     visualDensity: VisualDensity.adaptivePlatformDensity,
-    fontFamily: AppFonts.inter,
+    fontFamily: AppFonts.manrope,
     primaryColor: AppColors.primary,
     hintColor: colors.hint,
     scaffoldBackgroundColor: scaffold,
@@ -38,14 +38,11 @@ ThemeData buildAppTheme({
       error: AppColors.red,
     ),
     textTheme: ThemeData(brightness: brightness).textTheme.apply(
-          fontFamily: AppFonts.inter,
-          bodyColor: colors.textSecondary,
-          displayColor: colors.textPrimary,
-        ),
-    buttonTheme: const ButtonThemeData(
-      buttonColor: AppColors.primary,
-      alignedDropdown: true,
+      fontFamily: AppFonts.manrope,
+      bodyColor: colors.textSecondary,
+      displayColor: colors.textPrimary,
     ),
+    buttonTheme: const ButtonThemeData(buttonColor: AppColors.primary, alignedDropdown: true),
     appBarTheme: AppBarTheme(
       backgroundColor: colors.appBar,
       foregroundColor: colors.textSecondary,
@@ -59,7 +56,8 @@ ThemeData buildAppTheme({
     inputDecorationTheme: InputDecorationTheme(
       filled: true,
       fillColor: colors.textFormFill,
-      hintStyle: AppTextStyles.sRegular.copyWith(color: colors.hint),
+      hintStyle: AppTextStyles.sSemiBold.copyWith(color: colors.hint),
+      errorStyle: AppTextStyles.xxsMedium.copyWith(height: 1.35),
       border: border(colors.textFormBorder),
       enabledBorder: border(colors.textFormBorder),
       disabledBorder: border(colors.textFormBorder),

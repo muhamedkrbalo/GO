@@ -46,7 +46,7 @@ flutter test --plain-name "name"         # single test by name
 - Use the theme tokens in `core/theme/` instead of hardcoded values:
   - `AppColors`: raw palette.
   - `context.customColors`: light/dark-aware colors (`theme/extensions/`).
-  - `AppTextStyles`: colorless and Inter-based. Add color via the theme or `.copyWith`.
+  - `AppTextStyles`: colorless, Manrope-based (`xxxlBold` display titles use Gelasio). Add color via the theme or `.copyWith`.
   - `AppSpacing` / `AppPadding` / `AppRadius`: `app_sizes.dart`.
 - Dialogs, sheets, toasts and loading go through the `UiContextExtension` on `BuildContext` (`core/extension/context_ui_extension.dart`). They are presentation-only; repositories never show UI.
 - Reuse the shared widgets in `core/custom_widgets/` (buttons, form fields, images, loading, app bar, …).

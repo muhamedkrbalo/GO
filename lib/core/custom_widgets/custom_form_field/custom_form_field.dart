@@ -146,7 +146,7 @@ class _CustomFormFieldState extends State<CustomFormField> {
               readOnly: widget.readOnly,
               keyboardType: widget.keyboardType,
               obscureText: widget.isPassword ? _obscureText : false,
-              style: widget.textStyle ?? AppTextStyles.sRegular.copyWith(color: Theme.of(context).customColors.textSecondary),
+              style: widget.textStyle ?? AppTextStyles.sSemiBold.copyWith(color: Theme.of(context).customColors.textSecondary),
               autovalidateMode: widget.autovalidateMode ?? AutovalidateMode.onUserInteraction,
               maxLines: widget.maxLines,
               minLines: widget.minLines,
@@ -157,7 +157,7 @@ class _CustomFormFieldState extends State<CustomFormField> {
                 hintMaxLines: 2,
                 errorMaxLines: 2,
                 hintText: widget.hintText,
-                hintStyle: widget.hintStyle ?? AppTextStyles.sRegular.copyWith(color: context.customColors.hint),
+                hintStyle: widget.hintStyle ?? AppTextStyles.sSemiBold.copyWith(color: context.customColors.hint),
                 fillColor:
                     widget.fillColor ??context.customColors.textFormFill,
                     // (widget.formFieldBorder == FormFieldBorder.underLine

@@ -40,25 +40,25 @@ class VerifyAccountScreen extends StatelessWidget {
                     AppSpacing.gapV52,
                     Text(
                       AppLocaleKey.accountSecurity.tr(),
-                      style: AppTextStyles.xxsBold.copyWith(
+                      style: AppTextStyles.xxxsBold.copyWith(
                         color: colors.textPrimary,
-                        letterSpacing: 1.6,
-                        height: 1.4,
+                        letterSpacing: 1.4,
+                        height: 1.5,
                       ),
                     ),
                     AppSpacing.gapV12,
                     Text(
                       AppLocaleKey.verifyYourAccount.tr(),
-                      style: AppTextStyles.xxxlBold.copyWith(
+                      style: AppTextStyles.xxlSemiBold.copyWith(
                         color: colors.textSecondary,
-                        letterSpacing: -1.4,
-                        height: 1.18,
+                        letterSpacing: -0.7,
+                        height: 1.2,
                       ),
                     ),
                     AppSpacing.gapV12,
                     Text(
                       AppLocaleKey.chooseHowToReceiveVerificationCode.tr(),
-                      style: AppTextStyles.mRegular.copyWith(color: colors.textMuted, height: 1.6),
+                      style: AppTextStyles.sRegular.copyWith(color: colors.textMuted, height: 1.6),
                     ),
                     AppSpacing.gapV32,
                     for (final method in VerificationMethod.values) ...[
@@ -91,9 +91,9 @@ class VerifyAccountScreen extends StatelessWidget {
                       child: Text(
                         AppLocaleKey.contactDetailPrivacyNote.tr(),
                         textAlign: TextAlign.center,
-                        style: AppTextStyles.xxsRegular.copyWith(
+                        style: AppTextStyles.xxxsRegular.copyWith(
                           color: colors.textMuted,
-                          height: 1.45,
+                          height: 1.5,
                         ),
                       ),
                     ),

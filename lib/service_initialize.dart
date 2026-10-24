@@ -1,16 +1,18 @@
 import 'dart:async';
 
-import 'core/auth/auth_session.dart';
-import 'core/services/service_locator.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'package:flutter/material.dart';
-import 'core/app_bloc_observer.dart/app_bloc_observer.dart';
-
-import 'package:hive_flutter/hive_flutter.dart';
-import 'package:timeago/timeago.dart' as timeago;
 import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:timeago/timeago.dart' as timeago;
+
+import 'core/app_bloc_observer.dart/app_bloc_observer.dart';
+import 'core/auth/auth_session.dart';
+import 'core/images/app_images.dart';
+import 'core/services/service_locator.dart';
 
 // TODO: enable together with Firebase.initializeApp below. The pragma keeps the
 // handler from being tree-shaken in release builds.
@@ -44,5 +46,15 @@ class ServiceInitialize {
     timeago.setLocaleMessages('en_short', timeago.EnShortMessages());
     timeago.setLocaleMessages('ar', timeago.ArMessages());
     timeago.setLocaleMessages('ar_short', timeago.ArShortMessages());
+    LicenseRegistry.addLicense(_fontLicenses);
+  }
+
+  static Stream<LicenseEntry> _fontLicenses() async* {
+    for (final (family, asset) in [
+      ('Manrope', AppImages.assetsFontsManropeOFL),
+      ('Gelasio', AppImages.assetsFontsGelasioOFL),
+    ]) {
+      yield LicenseEntryWithLineBreaks([family], await rootBundle.loadString(asset));
+    }
   }
 }

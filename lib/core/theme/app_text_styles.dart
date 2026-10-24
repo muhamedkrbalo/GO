@@ -7,150 +7,176 @@ import 'app_fonts.dart';
 class AppTextStyles {
   const AppTextStyles._();
 
-
-
   static const buttonStyle = TextStyle(
-    fontFamily: AppFonts.inter,
-    fontSize: 15,
+    fontFamily: AppFonts.manrope,
+    fontSize: 14,
     fontWeight: FontWeight.w700,
   );
 
-
   // xxxs - 10
   static const xxxsRegular = TextStyle(
-    fontFamily: AppFonts.inter,
+    fontFamily: AppFonts.manrope,
     fontSize: 10,
     fontWeight: FontWeight.w400,
   );
 
   static const xxxsMedium = TextStyle(
-    fontFamily: AppFonts.inter,
+    fontFamily: AppFonts.manrope,
     fontSize: 10,
     fontWeight: FontWeight.w500,
   );
 
   static const xxxsSemiBold = TextStyle(
-    fontFamily: AppFonts.inter,
+    fontFamily: AppFonts.manrope,
     fontSize: 10,
     fontWeight: FontWeight.w600,
   );
 
   static const xxxsBold = TextStyle(
-    fontFamily: AppFonts.inter,
+    fontFamily: AppFonts.manrope,
     fontSize: 10,
     fontWeight: FontWeight.w700,
   );
 
   // xxs - 11
   static const xxsBold = TextStyle(
-    fontFamily: AppFonts.inter,
+    fontFamily: AppFonts.manrope,
     fontSize: 11,
     fontWeight: FontWeight.w700,
   );
 
   static const xxsRegular = TextStyle(
-    fontFamily: AppFonts.inter,
+    fontFamily: AppFonts.manrope,
     fontSize: 11,
     fontWeight: FontWeight.w400,
   );
 
+  static const xxsMedium = TextStyle(
+    fontFamily: AppFonts.manrope,
+    fontSize: 11,
+    fontWeight: FontWeight.w500,
+  );
+
   // xs - 12
   static const xsBold = TextStyle(
-    fontFamily: AppFonts.inter,
+    fontFamily: AppFonts.manrope,
     fontSize: 12,
     fontWeight: FontWeight.w700,
   );
 
   static const xsMedium = TextStyle(
-    fontFamily: AppFonts.inter,
+    fontFamily: AppFonts.manrope,
     fontSize: 12,
     fontWeight: FontWeight.w500,
   );
 
   static const xsRegular = TextStyle(
-    fontFamily: AppFonts.inter,
+    fontFamily: AppFonts.manrope,
     fontSize: 12,
     fontWeight: FontWeight.w400,
   );
 
-   static const xsSemiBold = TextStyle(
-    fontFamily: AppFonts.inter,
+  static const xsSemiBold = TextStyle(
+    fontFamily: AppFonts.manrope,
     fontSize: 13,
     fontWeight: FontWeight.w600,
   );
 
-
   // s - 14
   static const sRegular = TextStyle(
-    fontFamily: AppFonts.inter,
+    fontFamily: AppFonts.manrope,
     fontSize: 14,
     fontWeight: FontWeight.w400,
   );
 
   static const sMedium = TextStyle(
-    fontFamily: AppFonts.inter,
+    fontFamily: AppFonts.manrope,
     fontSize: 14,
     fontWeight: FontWeight.w500,
   );
-   static const sSemiBold = TextStyle(
-    fontFamily: AppFonts.inter,
+  static const sSemiBold = TextStyle(
+    fontFamily: AppFonts.manrope,
     fontSize: 14,
     fontWeight: FontWeight.w600,
   );
 
   static const sBold = TextStyle(
-    fontFamily: AppFonts.inter,
+    fontFamily: AppFonts.manrope,
     fontSize: 14,
     fontWeight: FontWeight.w700,
   );
 
-
   // m - 16
   static const mRegular = TextStyle(
-    fontFamily: AppFonts.inter,
+    fontFamily: AppFonts.manrope,
     fontSize: 16,
     fontWeight: FontWeight.w400,
   );
 
   static const mMedium = TextStyle(
-    fontFamily: AppFonts.inter,
+    fontFamily: AppFonts.manrope,
     fontSize: 16,
     fontWeight: FontWeight.w500,
   );
 
   static const mBold = TextStyle(
-    fontFamily: AppFonts.inter,
+    fontFamily: AppFonts.manrope,
     fontSize: 16,
+    fontWeight: FontWeight.w700,
+  );
+
+  static const xs13Regular = TextStyle(
+    fontFamily: AppFonts.manrope,
+    fontSize: 13,
+    fontWeight: FontWeight.w400,
+  );
+
+  static const xs13Bold = TextStyle(
+    fontFamily: AppFonts.manrope,
+    fontSize: 13,
     fontWeight: FontWeight.w700,
   );
 
   // xl - 20
   static const xlSemiBold = TextStyle(
-    fontFamily: AppFonts.inter,
+    fontFamily: AppFonts.manrope,
     fontSize: 20,
     fontWeight: FontWeight.w600,
   );
 
   static const xlBold = TextStyle(
-    fontFamily: AppFonts.inter,
+    fontFamily: AppFonts.manrope,
     fontSize: 20,
     fontWeight: FontWeight.w700,
   );
 
   // xxl - 28
   static const xxlBold = TextStyle(
-    fontFamily: AppFonts.inter,
+    fontFamily: AppFonts.manrope,
     fontSize: 28,
     fontWeight: FontWeight.w700,
   );
 
+  static const xxlSemiBold = TextStyle(
+    fontFamily: AppFonts.manrope,
+    fontSize: 28,
+    fontWeight: FontWeight.w600,
+  );
+
   // xxxl - 32
   static const xxxlBold = TextStyle(
-    fontFamily: AppFonts.inter,
+    fontFamily: AppFonts.gelasio,
     fontSize: 32,
     fontWeight: FontWeight.w700,
   );
+
+  static const displayBold = TextStyle(
+    fontFamily: AppFonts.gelasio,
+    fontSize: 34,
+    fontWeight: FontWeight.w700,
+  );
 }
+
 /*
 
 9:51 PM

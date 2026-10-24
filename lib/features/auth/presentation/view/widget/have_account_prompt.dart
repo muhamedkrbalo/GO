@@ -20,9 +20,7 @@ class HaveAccountPrompt extends StatelessWidget {
       children: [
         Text(
           AppLocaleKey.haveAnAccount.tr(),
-          style: AppTextStyles.sRegular.copyWith(
-            color: colors.textMuted,
-          ),
+          style: AppTextStyles.xs13Regular.copyWith(color: colors.textMuted),
         ),
         AppSpacing.gapH5,
         TextButton(
@@ -32,7 +30,7 @@ class HaveAccountPrompt extends StatelessWidget {
             minimumSize: Size.zero,
             tapTargetSize: MaterialTapTargetSize.shrinkWrap,
             foregroundColor: colors.accentText,
-            textStyle: AppTextStyles.sBold,
+            textStyle: AppTextStyles.xs13Bold,
           ),
           child: Text(AppLocaleKey.logIn.tr()),
         ),

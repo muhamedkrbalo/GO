@@ -28,20 +28,20 @@ class RegisterScreen extends StatelessWidget {
             children: [
               const AuthHeader(),
               AppSpacing.gapV20,
-             const RegisterStepIndicator(step: 1, stepCount: 3),
+              const RegisterStepIndicator(step: 1, stepCount: 3),
               AppSpacing.gapV32,
               Text(
                 AppLocaleKey.createYourAccount.tr(),
-                style: AppTextStyles.xxlBold.copyWith(
+                style: AppTextStyles.xxlSemiBold.copyWith(
                   color: colors.textSecondary,
-                  letterSpacing: -1.1,
+                  letterSpacing: -0.7,
                   height: 1.2,
                 ),
               ),
               AppSpacing.gapV8,
               Text(
                 AppLocaleKey.enterYourDetailsToGetStarted.tr(),
-                style: AppTextStyles.sRegular.copyWith(color: colors.textMuted, height: 1.55),
+                style: AppTextStyles.sRegular.copyWith(color: colors.textMuted, height: 1.5),
               ),
               AppSpacing.gapV24,
               const RegisterForm(),

@@ -12,14 +12,13 @@ class RegisterStepIndicator extends StatelessWidget {
   final int step;
   final int stepCount;
 
-
   @override
   Widget build(BuildContext context) {
     final colors = context.customColors;
-    final labelStyle = AppTextStyles.xxsBold.copyWith(
+    final labelStyle = AppTextStyles.xxxsBold.copyWith(
       color: colors.textMuted,
-      letterSpacing: 1.2,
-      height: 1.4,
+      letterSpacing: 1.4,
+      height: 1.5,
     );
 
     return Column(

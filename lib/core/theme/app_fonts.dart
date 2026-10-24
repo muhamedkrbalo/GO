@@ -1,5 +1,6 @@
 class AppFonts {
   const AppFonts._();
 
-  static const inter = 'Inter';
+  static const manrope = 'Manrope';
+  static const gelasio = 'Gelasio';
 }

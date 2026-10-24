@@ -86,7 +86,7 @@ class VerificationMethodCard extends StatelessWidget {
                           method.titleKey.tr(),
                           style: AppTextStyles.sBold.copyWith(
                             color: colors.textSecondary,
-                            height: 1.35,
+                            height: 1.5,
                           ),
                         ),
                         AppSpacing.gapV5,
@@ -101,9 +101,10 @@ class VerificationMethodCard extends StatelessWidget {
                         Text(
                           destination,
                           textDirection: ui.TextDirection.ltr,
-                          style: AppTextStyles.xsBold.copyWith(
+                          style: AppTextStyles.xsMedium.copyWith(
                             color: colors.accentText,
-                            letterSpacing: 0.3,
+                            letterSpacing: 0.24,
+                            height: 1.5,
                           ),
                         ),
                       ],

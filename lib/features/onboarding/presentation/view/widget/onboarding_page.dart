@@ -27,7 +27,7 @@ class OnboardingPage extends StatelessWidget {
   static const _eyebrowLetterSpacing = 1.8;
   static const _titleLetterSpacing = -1.18;
   static const _titleHeight = 1.07;
-  static const _descriptionHeight = 1.53;
+  static const _descriptionHeight = 1.65;
 
   @override
   Widget build(BuildContext context) {
@@ -85,7 +85,7 @@ class OnboardingPage extends StatelessWidget {
                   AppSpacing.gapV8,
                   Text(
                     item.titleKey.tr(),
-                    style: AppTextStyles.xxxlBold.copyWith(
+                    style: AppTextStyles.displayBold.copyWith(
                       color: colors.accentText,
                       letterSpacing: _titleLetterSpacing,
                       height: _titleHeight,
@@ -94,7 +94,7 @@ class OnboardingPage extends StatelessWidget {
                   AppSpacing.gapV15,
                   Text(
                     item.descriptionKey.tr(),
-                    style: AppTextStyles.sRegular.copyWith(
+                    style: AppTextStyles.xs13Regular.copyWith(
                       color: colors.textMuted,
                       height: _descriptionHeight,
                     ),
