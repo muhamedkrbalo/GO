@@ -3,11 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-import '../../../../../core/custom_widgets/buttons/custom_button.dart';
+import '../../../../../core/custom_widgets/buttons/arrow_pill_button.dart';
 import '../../../../../core/locale/app_locale_key.dart';
-import '../../../../../core/theme/app_colors.dart';
-import '../../../../../core/theme/app_sizes.dart';
-import '../../../../../core/theme/app_text_styles.dart';
 import '../../../../../core/theme/extensions/theme_extensions.dart';
 import '../../controller/onboarding_cubit.dart';
 
@@ -23,9 +20,11 @@ class OnboardingBottomBar extends StatelessWidget {
   final VoidCallback onNext;
   final VoidCallback onFinish;
 
-  static const _dotSize = 7.0;
-  static const _activeDotWidth = 26.0;
-  static const _skipHeight = 44.0;
+  static const _padding = EdgeInsetsDirectional.fromSTEB(24, 0, 24, 30);
+  static const _dotSize = 6.0;
+  static const _activeDotWidth = 28.0;
+  static const _dotSpacing = 7.0;
+  static const _buttonWidth = 172.0;
 
   @override
   Widget build(BuildContext context) {
@@ -33,48 +32,29 @@ class OnboardingBottomBar extends StatelessWidget {
     final cubit = context.read<OnboardingCubit>();
 
     return Padding(
-      padding: AppPadding.h24b24,
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
+      padding: _padding,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           SmoothPageIndicator(
             controller: controller,
             count: cubit.pageCount,
+            textDirection: Directionality.of(context),
             effect: ExpandingDotsEffect(
               dotHeight: _dotSize,
               dotWidth: _dotSize,
+              spacing: _dotSpacing,
               expansionFactor: _activeDotWidth / _dotSize,
-              activeDotColor: AppColors.primary,
-              dotColor: colors.border,
+              activeDotColor: colors.indicatorActive,
+              dotColor: colors.lightGrey,
             ),
           ),
-          AppSpacing.gapV24,
           BlocSelector<OnboardingCubit, int, bool>(
             selector: (_) => cubit.isLastPage,
-            builder: (context, isLastPage) => Column(
-              children: [
-                CustomButton(
-                  text: (isLastPage ? AppLocaleKey.getStarted : AppLocaleKey.next).tr(),
-                  hasShadow: true,
-                  onPressed: isLastPage ? onFinish : onNext,
-                ),
-                AppSpacing.gapV8,
-                Visibility(
-                  visible: !isLastPage,
-                  maintainSize: true,
-                  maintainAnimation: true,
-                  maintainState: true,
-                  child: TextButton(
-                    onPressed: onFinish,
-                    style: TextButton.styleFrom(
-                      minimumSize: const Size(64, _skipHeight),
-                      foregroundColor: colors.textMuted,
-                      textStyle: AppTextStyles.sSemiBold,
-                    ),
-                    child: Text(AppLocaleKey.skip.tr()),
-                  ),
-                ),
-              ],
+            builder: (context, isLastPage) => ArrowPillButton(
+              width: _buttonWidth,
+              text: (isLastPage ? AppLocaleKey.getStarted : AppLocaleKey.continue_).tr(),
+              onPressed: isLastPage ? onFinish : onNext,
             ),
           ),
         ],

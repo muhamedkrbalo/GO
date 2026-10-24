@@ -106,6 +106,18 @@ class AppImages {
   /// assets/images/onBoarding3.png
   static const String assetsImagesOnBoarding3 = "assets/images/onBoarding3.png";
 
+  /// Assets for assetsImagesOnboardingConnect
+  /// assets/images/onboardingConnect.jpg
+  static const String assetsImagesOnboardingConnect = "assets/images/onboardingConnect.jpg";
+
+  /// Assets for assetsImagesOnboardingDiscover
+  /// assets/images/onboardingDiscover.jpg
+  static const String assetsImagesOnboardingDiscover = "assets/images/onboardingDiscover.jpg";
+
+  /// Assets for assetsImagesOnboardingJourney
+  /// assets/images/onboardingJourney.jpg
+  static const String assetsImagesOnboardingJourney = "assets/images/onboardingJourney.jpg";
+
   /// Assets for assetsImagesSplashImage
   /// assets/images/splashImage.png
   static const String assetsImagesSplashImage = "assets/images/splashImage.png";
@@ -117,6 +129,10 @@ class AppImages {
   /// Assets for assetsSvgArrowBack
   /// assets/svg/arrowBack.svg
   static const String assetsSvgArrowBack = "assets/svg/arrowBack.svg";
+
+  /// Assets for assetsSvgArrowForward
+  /// assets/svg/arrowForward.svg
+  static const String assetsSvgArrowForward = "assets/svg/arrowForward.svg";
 
   /// Assets for assetsSvgBroker
   /// assets/svg/broker.svg

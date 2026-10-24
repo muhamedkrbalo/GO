@@ -652,6 +652,10 @@ class AppLocaleKey {
   static const onboardingTitle3 = 'onboardingTitle3';
   static const onboardingDescription3 = 'onboardingDescription3';
   static const getStarted = 'getStarted';
+  static const onboardingEyebrow1 = 'onboardingEyebrow1';
+  static const onboardingEyebrow2 = 'onboardingEyebrow2';
+  static const onboardingEyebrow3 = 'onboardingEyebrow3';
+  static const goCollection = 'goCollection';
   static const welcomeTag = 'welcomeTag';
   static const welcomeTitle = 'welcomeTitle';
   static const welcomeSubtitle = 'welcomeSubtitle';

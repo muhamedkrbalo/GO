@@ -18,6 +18,10 @@ class AppShadows {
     BoxShadow(color: Color(0x1A03375B), offset: Offset(0, 28), blurRadius: 35),
   ];
 
+  static const onboardingImage = [
+    BoxShadow(color: Color(0x2E022C4B), offset: Offset(0, 22), blurRadius: 55),
+  ];
+
   static const softCard = [
     BoxShadow(color: Color(0x0A0F172A), offset: Offset(0, 8), blurRadius: 12),
   ];

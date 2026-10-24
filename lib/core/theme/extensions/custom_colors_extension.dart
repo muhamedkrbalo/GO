@@ -50,6 +50,12 @@ class CustomColors extends ThemeExtension<CustomColors> {
     required this.highlight,
     required this.goldAccent,
     required this.logoBackground,
+    required this.eyebrow,
+    required this.indicatorActive,
+    required this.linkMuted,
+    required this.imageScrim,
+    required this.goldGradientStart,
+    required this.goldGradientEnd,
   });
 
   static const light = CustomColors(
@@ -94,6 +100,12 @@ class CustomColors extends ThemeExtension<CustomColors> {
     highlight: AppColors.aqua,
     goldAccent: AppColors.goldAccent,
     logoBackground: AppColors.white,
+    eyebrow: AppColors.teal,
+    indicatorActive: AppColors.tealLight,
+    linkMuted: AppColors.slate,
+    imageScrim: AppColors.scrim,
+    goldGradientStart: AppColors.goldLight,
+    goldGradientEnd: AppColors.goldDark,
   );
 
   static const dark = CustomColors(
@@ -138,6 +150,12 @@ class CustomColors extends ThemeExtension<CustomColors> {
     highlight: AppColors.aqua,
     goldAccent: AppColors.goldAccent,
     logoBackground: AppColors.white,
+    eyebrow: AppColors.teal,
+    indicatorActive: AppColors.tealLight,
+    linkMuted: AppColors.darkHint,
+    imageScrim: AppColors.scrim,
+    goldGradientStart: AppColors.goldLight,
+    goldGradientEnd: AppColors.goldDark,
   );
 
   /// Strong text: titles, form labels, input text.
@@ -198,6 +216,12 @@ class CustomColors extends ThemeExtension<CustomColors> {
   final Color highlight;
   final Color goldAccent;
   final Color logoBackground;
+  final Color eyebrow;
+  final Color indicatorActive;
+  final Color linkMuted;
+  final Color imageScrim;
+  final Color goldGradientStart;
+  final Color goldGradientEnd;
 
   @override
   CustomColors copyWith({
@@ -242,6 +266,12 @@ class CustomColors extends ThemeExtension<CustomColors> {
     Color? highlight,
     Color? goldAccent,
     Color? logoBackground,
+    Color? eyebrow,
+    Color? indicatorActive,
+    Color? linkMuted,
+    Color? imageScrim,
+    Color? goldGradientStart,
+    Color? goldGradientEnd,
   }) {
     return CustomColors(
       textPrimary: textPrimary ?? this.textPrimary,
@@ -285,6 +315,12 @@ class CustomColors extends ThemeExtension<CustomColors> {
       highlight: highlight ?? this.highlight,
       goldAccent: goldAccent ?? this.goldAccent,
       logoBackground: logoBackground ?? this.logoBackground,
+      eyebrow: eyebrow ?? this.eyebrow,
+      indicatorActive: indicatorActive ?? this.indicatorActive,
+      linkMuted: linkMuted ?? this.linkMuted,
+      imageScrim: imageScrim ?? this.imageScrim,
+      goldGradientStart: goldGradientStart ?? this.goldGradientStart,
+      goldGradientEnd: goldGradientEnd ?? this.goldGradientEnd,
     );
   }
 
@@ -333,6 +369,12 @@ class CustomColors extends ThemeExtension<CustomColors> {
       highlight: Color.lerp(highlight, other.highlight, t)!,
       goldAccent: Color.lerp(goldAccent, other.goldAccent, t)!,
       logoBackground: Color.lerp(logoBackground, other.logoBackground, t)!,
+      eyebrow: Color.lerp(eyebrow, other.eyebrow, t)!,
+      indicatorActive: Color.lerp(indicatorActive, other.indicatorActive, t)!,
+      linkMuted: Color.lerp(linkMuted, other.linkMuted, t)!,
+      imageScrim: Color.lerp(imageScrim, other.imageScrim, t)!,
+      goldGradientStart: Color.lerp(goldGradientStart, other.goldGradientStart, t)!,
+      goldGradientEnd: Color.lerp(goldGradientEnd, other.goldGradientEnd, t)!,
     );
   }
 }

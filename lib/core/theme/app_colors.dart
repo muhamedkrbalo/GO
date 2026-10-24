@@ -25,6 +25,10 @@ class AppColors {
   static const deepNavy = Color(0xff052C55);
   static const ocean = Color(0xff007DA8);
   static const aqua = Color(0xff00C7D8);
+  static const teal = Color(0xff078FA4);
+  static const tealLight = Color(0xff099BAD);
+  static const slate = Color(0xff31516D);
+  static const scrim = Color(0xff011C30);
 
   // neutrals
   static const white = Color(0xffffffff);
