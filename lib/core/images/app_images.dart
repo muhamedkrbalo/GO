@@ -118,6 +118,10 @@ class AppImages {
   /// assets/svg/broker.svg
   static const String assetsSvgBroker = "assets/svg/broker.svg";
 
+  /// Assets for assetsSvgCalendar
+  /// assets/svg/calendar.svg
+  static const String assetsSvgCalendar = "assets/svg/calendar.svg";
+
   /// Assets for assetsSvgCheck
   /// assets/svg/check.svg
   static const String assetsSvgCheck = "assets/svg/check.svg";
@@ -125,6 +129,10 @@ class AppImages {
   /// Assets for assetsSvgChevronDown
   /// assets/svg/chevronDown.svg
   static const String assetsSvgChevronDown = "assets/svg/chevronDown.svg";
+
+  /// Assets for assetsSvgCompany
+  /// assets/svg/company.svg
+  static const String assetsSvgCompany = "assets/svg/company.svg";
 
   /// Assets for assetsSvgEye
   /// assets/svg/eye.svg
@@ -137,6 +145,14 @@ class AppImages {
   /// Assets for assetsSvgGoSplash
   /// assets/svg/goSplash.svg
   static const String assetsSvgGoSplash = "assets/svg/goSplash.svg";
+
+  /// Assets for assetsSvgIndividual
+  /// assets/svg/individual.svg
+  static const String assetsSvgIndividual = "assets/svg/individual.svg";
+
+  /// Assets for assetsSvgInfo
+  /// assets/svg/info.svg
+  static const String assetsSvgInfo = "assets/svg/info.svg";
 
   /// Assets for assetsSvgMail
   /// assets/svg/mail.svg
@@ -158,12 +174,36 @@ class AppImages {
   /// assets/svg/owner.svg
   static const String assetsSvgOwner = "assets/svg/owner.svg";
 
+  /// Assets for assetsSvgSearch
+  /// assets/svg/search.svg
+  static const String assetsSvgSearch = "assets/svg/search.svg";
+
+  /// Assets for assetsSvgSearchLarge
+  /// assets/svg/searchLarge.svg
+  static const String assetsSvgSearchLarge = "assets/svg/searchLarge.svg";
+
+  /// Assets for assetsSvgSelectArrow
+  /// assets/svg/selectArrow.svg
+  static const String assetsSvgSelectArrow = "assets/svg/selectArrow.svg";
+
   /// Assets for assetsSvgServiceProvider
   /// assets/svg/serviceProvider.svg
   static const String assetsSvgServiceProvider = "assets/svg/serviceProvider.svg";
 
+  /// Assets for assetsSvgShieldAlert
+  /// assets/svg/shieldAlert.svg
+  static const String assetsSvgShieldAlert = "assets/svg/shieldAlert.svg";
+
+  /// Assets for assetsSvgShieldCheck
+  /// assets/svg/shieldCheck.svg
+  static const String assetsSvgShieldCheck = "assets/svg/shieldCheck.svg";
+
   /// Assets for assetsSvgSms
   /// assets/svg/sms.svg
   static const String assetsSvgSms = "assets/svg/sms.svg";
+
+  /// Assets for assetsSvgUpload
+  /// assets/svg/upload.svg
+  static const String assetsSvgUpload = "assets/svg/upload.svg";
 }
 

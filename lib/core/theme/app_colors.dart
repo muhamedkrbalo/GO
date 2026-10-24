@@ -13,6 +13,7 @@ class AppColors {
   static const primaryDark = Color(0xff115E59);
   static const primarySurface = Color(0xffF0FDFA);
   static const primaryMuted = Color(0xff79AAA6);
+  static const primaryBorder = Color(0xff99D5CF);
   static const secondary = Color(0xff0F172A);
 
   // neutrals
@@ -28,6 +29,7 @@ class AppColors {
   static const lightGrey = Color(0xffA6A6A6);
   static const border = Color(0xffCBD5E1);
   static const lightBorder = Color(0xffE2E8F0);
+  static const canvas = Color(0xffF8FAFC);
   static const muted = Color(0xff64748B);
   static const mist = Color(0xffD8E8E8);
   static const divider = Color(0xFFDADADA);
@@ -53,6 +55,16 @@ class AppColors {
   static const darkSuccess = Color(0xff32D583);
   static const darkSuccessSurface = Color(0xff053321);
   static const darkSuccessBorder = Color(0xff085D3A);
+  static const info = Color(0xff0369A1);
+  static const infoSurface = Color(0xffF0F9FF);
+  static const infoBorder = Color(0xffBAE6FD);
+  static const darkInfo = Color(0xff7DD3FC);
+  static const darkInfoSurface = Color(0xff082F49);
+  static const darkInfoBorder = Color(0xff075985);
+  static const warning = Color(0xff92400E);
+  static const warningSurface = Color(0xffFEF3C7);
+  static const darkWarning = Color(0xffFBBF24);
+  static const darkWarningSurface = Color(0xff422006);
 
 
 

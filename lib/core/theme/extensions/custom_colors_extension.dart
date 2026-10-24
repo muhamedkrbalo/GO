@@ -36,6 +36,15 @@ class CustomColors extends ThemeExtension<CustomColors> {
     required this.success,
     required this.successSurface,
     required this.successBorder,
+    required this.canvas,
+    required this.primary,
+    required this.onPrimary,
+    required this.info,
+    required this.infoSurface,
+    required this.infoBorder,
+    required this.warning,
+    required this.warningSurface,
+    required this.primaryBorder,
   });
 
   static const light = CustomColors(
@@ -66,6 +75,15 @@ class CustomColors extends ThemeExtension<CustomColors> {
     success: AppColors.success,
     successSurface: AppColors.successSurface,
     successBorder: AppColors.successBorder,
+    canvas: AppColors.canvas,
+    primary: AppColors.primary,
+    onPrimary: AppColors.white,
+    info: AppColors.info,
+    infoSurface: AppColors.infoSurface,
+    infoBorder: AppColors.infoBorder,
+    warning: AppColors.warning,
+    warningSurface: AppColors.warningSurface,
+    primaryBorder: AppColors.primaryBorder,
   );
 
   static const dark = CustomColors(
@@ -96,6 +114,15 @@ class CustomColors extends ThemeExtension<CustomColors> {
     success: AppColors.darkSuccess,
     successSurface: AppColors.darkSuccessSurface,
     successBorder: AppColors.darkSuccessBorder,
+    canvas: AppColors.darkScaffold,
+    primary: AppColors.primary,
+    onPrimary: AppColors.white,
+    info: AppColors.darkInfo,
+    infoSurface: AppColors.darkInfoSurface,
+    infoBorder: AppColors.darkInfoBorder,
+    warning: AppColors.darkWarning,
+    warningSurface: AppColors.darkWarningSurface,
+    primaryBorder: AppColors.primaryDark,
   );
 
   /// Strong text: titles, form labels, input text.
@@ -142,6 +169,15 @@ class CustomColors extends ThemeExtension<CustomColors> {
   final Color success;
   final Color successSurface;
   final Color successBorder;
+  final Color canvas;
+  final Color primary;
+  final Color onPrimary;
+  final Color info;
+  final Color infoSurface;
+  final Color infoBorder;
+  final Color warning;
+  final Color warningSurface;
+  final Color primaryBorder;
 
   @override
   CustomColors copyWith({
@@ -172,6 +208,15 @@ class CustomColors extends ThemeExtension<CustomColors> {
     Color? success,
     Color? successSurface,
     Color? successBorder,
+    Color? canvas,
+    Color? primary,
+    Color? onPrimary,
+    Color? info,
+    Color? infoSurface,
+    Color? infoBorder,
+    Color? warning,
+    Color? warningSurface,
+    Color? primaryBorder,
   }) {
     return CustomColors(
       textPrimary: textPrimary ?? this.textPrimary,
@@ -201,6 +246,15 @@ class CustomColors extends ThemeExtension<CustomColors> {
       success: success ?? this.success,
       successSurface: successSurface ?? this.successSurface,
       successBorder: successBorder ?? this.successBorder,
+      canvas: canvas ?? this.canvas,
+      primary: primary ?? this.primary,
+      onPrimary: onPrimary ?? this.onPrimary,
+      info: info ?? this.info,
+      infoSurface: infoSurface ?? this.infoSurface,
+      infoBorder: infoBorder ?? this.infoBorder,
+      warning: warning ?? this.warning,
+      warningSurface: warningSurface ?? this.warningSurface,
+      primaryBorder: primaryBorder ?? this.primaryBorder,
     );
   }
 
@@ -235,6 +289,15 @@ class CustomColors extends ThemeExtension<CustomColors> {
       success: Color.lerp(success, other.success, t)!,
       successSurface: Color.lerp(successSurface, other.successSurface, t)!,
       successBorder: Color.lerp(successBorder, other.successBorder, t)!,
+      canvas: Color.lerp(canvas, other.canvas, t)!,
+      primary: Color.lerp(primary, other.primary, t)!,
+      onPrimary: Color.lerp(onPrimary, other.onPrimary, t)!,
+      info: Color.lerp(info, other.info, t)!,
+      infoSurface: Color.lerp(infoSurface, other.infoSurface, t)!,
+      infoBorder: Color.lerp(infoBorder, other.infoBorder, t)!,
+      warning: Color.lerp(warning, other.warning, t)!,
+      warningSurface: Color.lerp(warningSurface, other.warningSurface, t)!,
+      primaryBorder: Color.lerp(primaryBorder, other.primaryBorder, t)!,
     );
   }
 }

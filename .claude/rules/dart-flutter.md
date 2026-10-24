@@ -31,7 +31,10 @@ For a feature `foo`, create under `lib/features/foo/`:
 - Support RTL: use `EdgeInsetsDirectional`, `AlignmentDirectional` and `start`/`end`, never `left`/`right`. Force `TextDirection.ltr` only for phone numbers, codes and emails.
 
 ## Theme and styling (no hardcoded values)
-- Colors come from `context.customColors` (light/dark aware). Use `AppColors` only inside theme definitions.
+- Colors always come from `context.customColors` (light/dark aware), e.g. `colors.primary`, `colors.onPrimary`, `colors.textSecondary`, `colors.subtleBorder`.
+  - Never write `AppColors.x` in a widget, screen or shared component, not even for brand colors like `AppColors.primary` or `AppColors.white`.
+  - `AppColors` is used only inside `core/theme/`: `app_colors.dart`, `custom_colors_extension.dart` and `theme_data/`.
+  - If no token fits, add one to `CustomColors` (constructor, `light`, `dark`, field, `copyWith`, `lerp`), then use it. Never fall back to `AppColors` or a `Color(0x...)` literal.
 - Text styles come from `AppTextStyles.*`, with color added through `.copyWith`.
 - Spacing comes from `AppSpacing.gapV*`/`gapH*`, padding from `AppPadding.*`, radii from `AppRadius.*`. If a needed size is missing, add it to `app_sizes.dart` instead of writing a literal.
 - Images and icons come from `AppImages`. Never write an asset path string.

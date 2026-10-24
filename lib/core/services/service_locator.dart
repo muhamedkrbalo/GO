@@ -7,6 +7,14 @@ import '../../features/auth/presentation/controller/register_cubit.dart';
 import '../../features/auth/presentation/controller/verify_account_cubit.dart';
 import '../../features/auth/presentation/controller/verify_code_cubit.dart';
 import '../../features/onboarding/presentation/controller/onboarding_cubit.dart';
+import '../../features/owner_registration/data/model/owner_unit.dart';
+import '../../features/owner_registration/data/model/sample_units.dart';
+import '../../features/owner_registration/presentation/controller/individual_info_cubit.dart';
+import '../../features/owner_registration/presentation/controller/owner_address_cubit.dart';
+import '../../features/owner_registration/presentation/controller/owner_documents_cubit.dart';
+import '../../features/owner_registration/presentation/controller/owner_type_cubit.dart';
+import '../../features/owner_registration/presentation/controller/ownership_details_cubit.dart';
+import '../../features/owner_registration/presentation/controller/unit_selection_cubit.dart';
 import '../../features/splash/data/repository/splash_repository.dart';
 import '../../features/splash/presentation/controller/splash_cubit.dart';
 import '../auth/auth_session.dart';
@@ -29,6 +37,7 @@ Future<void> initDependencies() async {
   _initSplash();
   _initOnboarding();
   _initAuth();
+  _initOwnerRegistration();
 }
 
 /// Tears down user-scoped resources in dependency order.
@@ -79,4 +88,17 @@ void _initAuth() {
   sl.registerFactory<VerifyAccountCubit>(VerifyAccountCubit.new);
   sl.registerFactory<VerifyCodeCubit>(VerifyCodeCubit.new);
   sl.registerFactory<BusinessRoleCubit>(BusinessRoleCubit.new);
+}
+
+void _initOwnerRegistration() {
+  sl.registerFactory<OwnerTypeCubit>(OwnerTypeCubit.new);
+  sl.registerFactory<IndividualInfoCubit>(IndividualInfoCubit.new);
+  sl.registerFactory<OwnerAddressCubit>(OwnerAddressCubit.new);
+  sl.registerFactory<UnitSelectionCubit>(() => UnitSelectionCubit(sampleUnits));
+  sl.registerFactoryParam<OwnershipDetailsCubit, List<OwnerUnit>, void>(
+    (units, _) => OwnershipDetailsCubit(units),
+  );
+  sl.registerFactoryParam<OwnerDocumentsCubit, List<OwnerUnit>, void>(
+    (units, _) => OwnerDocumentsCubit(units),
+  );
 }
