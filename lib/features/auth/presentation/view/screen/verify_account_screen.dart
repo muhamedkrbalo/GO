@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../../core/custom_widgets/buttons/custom_button.dart';
+import '../../../../../core/custom_widgets/ring_badge/ring_badge.dart';
 import '../../../../../core/locale/app_locale_key.dart';
 import '../../../../../core/routes/routes_name.dart';
 import '../../../../../core/theme/app_sizes.dart';
@@ -16,7 +17,6 @@ import '../../controller/verify_account_cubit.dart';
 import '../widget/auth_step_header.dart';
 import '../widget/code_sent_banner.dart';
 import '../widget/verification_method_card.dart';
-import '../widget/verify_account_badge.dart';
 
 class VerifyAccountScreen extends StatelessWidget {
   const VerifyAccountScreen({super.key, required this.args});
@@ -99,7 +99,7 @@ class VerifyAccountScreen extends StatelessWidget {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                const VerifyAccountBadge(),
+                                const RingBadge(),
                                 const SizedBox(height: _badgeToTitleGap),
                                 ConstrainedBox(
                                   constraints: const BoxConstraints(maxWidth: _maxTextWidth),

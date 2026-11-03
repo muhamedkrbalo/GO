@@ -734,6 +734,13 @@ class AppLocaleKey {
   static const chooseOwnerType = 'chooseOwnerType';
   static const individualDescription = 'individualDescription';
   static const companyDescription = 'companyDescription';
+  static const ownerType = 'ownerType';
+  static const firstStep = 'firstStep';
+  static const whoOwnsTheProperty = 'whoOwnsTheProperty';
+  static const chooseIndividualOrCompany = 'chooseIndividualOrCompany';
+  static const individualOwnerOption = 'individualOwnerOption';
+  static const companyOwnerOption = 'companyOwnerOption';
+  static const selectionDefinesNextStepNote = 'selectionDefinesNextStepNote';
   static const reviewBeforeSubmitting = 'reviewBeforeSubmitting';
   static const stepOfOwnerRegistration = 'stepOfOwnerRegistration';
   static const ownerTypeSelected = 'ownerTypeSelected';

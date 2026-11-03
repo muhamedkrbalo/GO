@@ -3,13 +3,13 @@ import '../../../../core/locale/app_locale_key.dart';
 
 enum OwnerType {
   individual(
-    icon: AppImages.assetsSvgIndividual,
-    titleKey: AppLocaleKey.individual,
+    icon: AppImages.assetsSvgPerson,
+    titleKey: AppLocaleKey.individualOwnerOption,
     descriptionKey: AppLocaleKey.individualDescription,
   ),
   company(
-    icon: AppImages.assetsSvgCompany,
-    titleKey: AppLocaleKey.company,
+    icon: AppImages.assetsSvgBuilding,
+    titleKey: AppLocaleKey.companyOwnerOption,
     descriptionKey: AppLocaleKey.companyDescription,
   );
 

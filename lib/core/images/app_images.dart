@@ -154,6 +154,10 @@ class AppImages {
   /// assets/svg/broker.svg
   static const String assetsSvgBroker = "assets/svg/broker.svg";
 
+  /// Assets for assetsSvgBuilding
+  /// assets/svg/building.svg
+  static const String assetsSvgBuilding = "assets/svg/building.svg";
+
   /// Assets for assetsSvgCalendar
   /// assets/svg/calendar.svg
   static const String assetsSvgCalendar = "assets/svg/calendar.svg";
@@ -213,6 +217,10 @@ class AppImages {
   /// Assets for assetsSvgOwner
   /// assets/svg/owner.svg
   static const String assetsSvgOwner = "assets/svg/owner.svg";
+
+  /// Assets for assetsSvgPerson
+  /// assets/svg/person.svg
+  static const String assetsSvgPerson = "assets/svg/person.svg";
 
   /// Assets for assetsSvgPhone
   /// assets/svg/phone.svg
