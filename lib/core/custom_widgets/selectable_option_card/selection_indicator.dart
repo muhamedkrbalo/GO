@@ -3,14 +3,22 @@ import 'package:flutter/material.dart';
 import '../../theme/extensions/theme_extensions.dart';
 
 class SelectionIndicator extends StatelessWidget {
-  const SelectionIndicator({super.key, required this.isSelected, required this.duration});
+  const SelectionIndicator({
+    super.key,
+    required this.isSelected,
+    required this.duration,
+    this.size = 20.0,
+    this.borderWidth = 1.6,
+    this.idleBorderColor,
+  });
 
   final bool isSelected;
   final Duration duration;
+  final double size;
+  final double borderWidth;
+  final Color? idleBorderColor;
 
-  static const _size = 20.0;
   static const _dotSize = 9.3;
-  static const _borderWidth = 1.6;
 
   @override
   Widget build(BuildContext context) {
@@ -18,15 +26,15 @@ class SelectionIndicator extends StatelessWidget {
 
     return AnimatedContainer(
       duration: duration,
-      width: _size,
-      height: _size,
+      width: size,
+      height: size,
       alignment: Alignment.center,
       decoration: BoxDecoration(
         color: colors.surface,
         shape: BoxShape.circle,
         border: Border.all(
-          color: isSelected ? colors.primary : colors.hint,
-          width: _borderWidth,
+          color: isSelected ? colors.primary : idleBorderColor ?? colors.hint,
+          width: borderWidth,
         ),
       ),
       child: AnimatedScale(

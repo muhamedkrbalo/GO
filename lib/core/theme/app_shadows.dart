@@ -43,6 +43,10 @@ class AppShadows {
     BoxShadow(color: Color(0x14082E50), offset: Offset(0, 8), blurRadius: 12),
   ];
 
+  static const roleCard = [
+    BoxShadow(color: Color(0x0A073763), offset: Offset(0, 6), blurRadius: 10),
+  ];
+
   static const otpBox = [BoxShadow(color: Color(0x0A082E50), offset: Offset(0, 4), blurRadius: 14)];
 
   static const softCard = [

@@ -66,6 +66,10 @@ class CustomColors extends ThemeExtension<CustomColors> {
     required this.stepLabel,
     required this.accentBar,
     required this.goldLink,
+    required this.cyanAccent,
+    required this.oceanAccent,
+    required this.oceanText,
+    required this.iconTileSurface,
   });
 
   static const light = CustomColors(
@@ -126,6 +130,10 @@ class CustomColors extends ThemeExtension<CustomColors> {
     stepLabel: AppColors.goldText,
     accentBar: AppColors.gold,
     goldLink: AppColors.goldDeep,
+    cyanAccent: AppColors.cyan,
+    oceanAccent: AppColors.oceanBlue,
+    oceanText: AppColors.deepCyan,
+    iconTileSurface: AppColors.iceBlue,
   );
 
   static const dark = CustomColors(
@@ -186,6 +194,10 @@ class CustomColors extends ThemeExtension<CustomColors> {
     stepLabel: AppColors.goldSoft,
     accentBar: AppColors.gold,
     goldLink: AppColors.goldSoft,
+    cyanAccent: AppColors.cyan,
+    oceanAccent: AppColors.darkInfo,
+    oceanText: AppColors.darkInfo,
+    iconTileSurface: AppColors.darkSurfaceVariant,
   );
 
   /// Strong text: titles, form labels, input text.
@@ -262,6 +274,10 @@ class CustomColors extends ThemeExtension<CustomColors> {
   final Color stepLabel;
   final Color accentBar;
   final Color goldLink;
+  final Color cyanAccent;
+  final Color oceanAccent;
+  final Color oceanText;
+  final Color iconTileSurface;
 
   @override
   CustomColors copyWith({
@@ -322,6 +338,10 @@ class CustomColors extends ThemeExtension<CustomColors> {
     Color? stepLabel,
     Color? accentBar,
     Color? goldLink,
+    Color? cyanAccent,
+    Color? oceanAccent,
+    Color? oceanText,
+    Color? iconTileSurface,
   }) {
     return CustomColors(
       textPrimary: textPrimary ?? this.textPrimary,
@@ -381,6 +401,10 @@ class CustomColors extends ThemeExtension<CustomColors> {
       stepLabel: stepLabel ?? this.stepLabel,
       accentBar: accentBar ?? this.accentBar,
       goldLink: goldLink ?? this.goldLink,
+      cyanAccent: cyanAccent ?? this.cyanAccent,
+      oceanAccent: oceanAccent ?? this.oceanAccent,
+      oceanText: oceanText ?? this.oceanText,
+      iconTileSurface: iconTileSurface ?? this.iconTileSurface,
     );
   }
 
@@ -445,6 +469,10 @@ class CustomColors extends ThemeExtension<CustomColors> {
       stepLabel: Color.lerp(stepLabel, other.stepLabel, t)!,
       accentBar: Color.lerp(accentBar, other.accentBar, t)!,
       goldLink: Color.lerp(goldLink, other.goldLink, t)!,
+      cyanAccent: Color.lerp(cyanAccent, other.cyanAccent, t)!,
+      oceanAccent: Color.lerp(oceanAccent, other.oceanAccent, t)!,
+      oceanText: Color.lerp(oceanText, other.oceanText, t)!,
+      iconTileSurface: Color.lerp(iconTileSurface, other.iconTileSurface, t)!,
     );
   }
 }

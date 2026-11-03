@@ -146,6 +146,10 @@ class AppImages {
   /// assets/svg/arrowForward.svg
   static const String assetsSvgArrowForward = "assets/svg/arrowForward.svg";
 
+  /// Assets for assetsSvgBriefcase
+  /// assets/svg/briefcase.svg
+  static const String assetsSvgBriefcase = "assets/svg/briefcase.svg";
+
   /// Assets for assetsSvgBroker
   /// assets/svg/broker.svg
   static const String assetsSvgBroker = "assets/svg/broker.svg";
@@ -177,6 +181,10 @@ class AppImages {
   /// Assets for assetsSvgGoSplash
   /// assets/svg/goSplash.svg
   static const String assetsSvgGoSplash = "assets/svg/goSplash.svg";
+
+  /// Assets for assetsSvgHouse
+  /// assets/svg/house.svg
+  static const String assetsSvgHouse = "assets/svg/house.svg";
 
   /// Assets for assetsSvgIndividual
   /// assets/svg/individual.svg

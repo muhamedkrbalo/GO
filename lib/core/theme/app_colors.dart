@@ -35,6 +35,10 @@ class AppColors {
   static const goldSoft = Color(0xffD9BB78);
   static const mistBlue = Color(0xffAEC0CD);
   static const slateDeep = Color(0xff23445F);
+  static const cyan = Color(0xff12BDD0);
+  static const oceanBlue = Color(0xff087EAF);
+  static const deepCyan = Color(0xff155E75);
+  static const iceBlue = Color(0xffEEF8FB);
 
   // neutrals
   static const white = Color(0xffffffff);

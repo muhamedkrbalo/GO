@@ -721,6 +721,11 @@ class AppLocaleKey {
   static const serviceProvider = 'serviceProvider';
   static const serviceProviderDescription = 'serviceProviderDescription';
   static const businessSelectionNote = 'businessSelectionNote';
+  static const joinGo = 'joinGo';
+  static const accountVerifiedSuccessfully = 'accountVerifiedSuccessfully';
+  static const howWouldYouLikeToJoinGo = 'howWouldYouLikeToJoinGo';
+  static const propertyOwner = 'propertyOwner';
+  static const addRelationshipsLaterNote = 'addRelationshipsLaterNote';
   static const saveAndExit = 'saveAndExit';
   static const stepNumber = 'stepNumber';
   static const ownerRegistration = 'ownerRegistration';
