@@ -34,7 +34,7 @@ class OwnerTypeScreen extends StatelessWidget {
       body: Column(
         children: [
           OwnerRegistrationStepHeader(
-            step: _step,
+            stepLabel: AppLocaleKey.stepNumber.tr(args: ['$_step']),
             stepTitle: AppLocaleKey.ownerType.tr(),
             stepHint: AppLocaleKey.firstStep.tr(),
             progress: _progress,

@@ -2,19 +2,23 @@ import 'package:country_picker/country_picker.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../data/model/gender.dart';
 import '../../data/model/id_type.dart';
 
 part 'individual_info_state.dart';
 
 class IndividualInfoCubit extends Cubit<IndividualInfoState> {
-  IndividualInfoCubit() : super(const IndividualInfoState());
+  IndividualInfoCubit()
+    : super(IndividualInfoState(phoneCountry: Country.parse(_defaultPhoneCountryCode)));
+
+  static const _defaultPhoneCountryCode = 'EG';
+
+  void fullNameChanged(String fullName) => emit(state.copyWith(fullName: fullName));
 
   void selectIdType(IdType idType) => emit(state.copyWith(idType: idType));
 
+  void idNumberChanged(String idNumber) => emit(state.copyWith(idNumber: idNumber));
+
   void selectNationality(Country nationality) => emit(state.copyWith(nationality: nationality));
 
-  void selectDateOfBirth(DateTime dateOfBirth) => emit(state.copyWith(dateOfBirth: dateOfBirth));
-
-  void selectGender(Gender gender) => emit(state.copyWith(gender: gender));
+  void selectPhoneCountry(Country country) => emit(state.copyWith(phoneCountry: country));
 }

@@ -111,6 +111,16 @@ mixin ValidationMixin<T extends StatefulWidget> on State<T> {
     return null;
   }
 
+  String? validateOptionalPhone(String? value) {
+    if (value == null || value.trim().isEmpty) return null;
+    return validatePhone(value);
+  }
+
+  String? validateOptionalEmail(String? value) {
+    if (value == null || value.trim().isEmpty) return null;
+    return validateEmail(value);
+  }
+
   String? validateEmptyField(String? value) {
     if (value!.trim().isEmpty) {
       return tr(AppLocaleKey.validateEmpty);

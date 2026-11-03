@@ -3,7 +3,6 @@ import 'dart:ui' as ui;
 import 'package:country_picker/country_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_hr_erb/core/theme/app_sizes.dart';
 import 'package:flutter_hr_erb/core/theme/extensions/custom_colors_extension.dart';
 import '../../extension/context_extension.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -48,6 +47,9 @@ class CustomFormField extends StatefulWidget {
   final AutovalidateMode? autovalidateMode;
   final EdgeInsetsGeometry? contentPadding;
   final Widget Function(bool isObscured)? passwordToggleBuilder;
+  final Color? borderColor;
+  final double borderWidth;
+  final double titleGap;
   const CustomFormField({
     super.key,
     this.controller,
@@ -84,6 +86,9 @@ class CustomFormField extends StatefulWidget {
     this.width,
     this.contentPadding,
     this.passwordToggleBuilder,
+    this.borderColor,
+    this.borderWidth = 1.59,
+    this.titleGap = 8,
   });
 
   @override
@@ -127,7 +132,9 @@ class _CustomFormFieldState extends State<CustomFormField> {
               },
             ],
           ),
-          if (widget.title != null || widget.otherSideTitle != null) ...{AppSpacing.gapV8},
+          if (widget.title != null || widget.otherSideTitle != null) ...{
+            SizedBox(height: widget.titleGap),
+          },
           Directionality(
             textDirection: widget.textDirection != null
                 ? widget.textDirection!
@@ -165,16 +172,16 @@ class _CustomFormFieldState extends State<CustomFormField> {
                     //     : context.customColors.textFormFill),
                 filled: true,
                 border: _border(
-                  color: widget.unFocusColor ?? context.customColors.textFormBorder,
+                  color: widget.borderColor ?? widget.unFocusColor ?? context.customColors.textFormBorder,
                 ),
                 disabledBorder: _border(
-                  color: widget.unFocusColor ?? context.customColors.textFormBorder,
+                  color: widget.borderColor ?? widget.unFocusColor ?? context.customColors.textFormBorder,
                 ),
                 focusedBorder: _border(
                   color: widget.unFocusColor ?? AppColors.primary,
                 ),
                 enabledBorder: _border(
-                  color: widget.unFocusColor ?? context.customColors.textFormBorder,
+                  color: widget.borderColor ?? widget.unFocusColor ?? context.customColors.textFormBorder,
                 ),
                 contentPadding: widget.contentPadding ??EdgeInsets.symmetric(horizontal: 15, vertical: 16),
                 prefixIcon: widget.country != null && context.locale == const Locale('en')
@@ -241,12 +248,12 @@ class _CustomFormFieldState extends State<CustomFormField> {
       case FormFieldBorder.outLine:
         return OutlineInputBorder(
           borderRadius: BorderRadius.circular(widget.radius),
-          borderSide: BorderSide(color: color, width: 1.59),
+          borderSide: BorderSide(color: color, width: widget.borderWidth),
         );
       case FormFieldBorder.underLine:
         return UnderlineInputBorder(
           borderRadius: BorderRadius.circular(0),
-          borderSide: BorderSide(color: color, width: 1.59),
+          borderSide: BorderSide(color: color, width: widget.borderWidth),
         );
       case FormFieldBorder.none:
         return InputBorder.none;

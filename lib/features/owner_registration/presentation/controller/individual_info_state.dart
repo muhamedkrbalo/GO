@@ -1,27 +1,45 @@
 part of 'individual_info_cubit.dart';
 
 class IndividualInfoState extends Equatable {
-  const IndividualInfoState({this.idType, this.nationality, this.dateOfBirth, this.gender});
+  const IndividualInfoState({
+    required this.phoneCountry,
+    this.fullName = '',
+    this.idType,
+    this.idNumber = '',
+    this.nationality,
+  });
 
+  final String fullName;
   final IdType? idType;
+  final String idNumber;
   final Country? nationality;
-  final DateTime? dateOfBirth;
-  final Gender? gender;
+  final Country phoneCountry;
+
+  bool get canContinue =>
+      fullName.trim().isNotEmpty && idType != null && idNumber.trim().isNotEmpty;
 
   IndividualInfoState copyWith({
+    String? fullName,
     IdType? idType,
+    String? idNumber,
     Country? nationality,
-    DateTime? dateOfBirth,
-    Gender? gender,
+    Country? phoneCountry,
   }) {
     return IndividualInfoState(
+      fullName: fullName ?? this.fullName,
       idType: idType ?? this.idType,
+      idNumber: idNumber ?? this.idNumber,
       nationality: nationality ?? this.nationality,
-      dateOfBirth: dateOfBirth ?? this.dateOfBirth,
-      gender: gender ?? this.gender,
+      phoneCountry: phoneCountry ?? this.phoneCountry,
     );
   }
 
   @override
-  List<Object?> get props => [idType, nationality?.countryCode, dateOfBirth, gender];
+  List<Object?> get props => [
+    fullName,
+    idType,
+    idNumber,
+    nationality?.countryCode,
+    phoneCountry.countryCode,
+  ];
 }

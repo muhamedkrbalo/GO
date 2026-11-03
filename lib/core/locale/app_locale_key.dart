@@ -747,6 +747,10 @@ class AppLocaleKey {
   static const individualOwner = 'individualOwner';
   static const yourPersonalInformation = 'yourPersonalInformation';
   static const enterLegalDetails = 'enterLegalDetails';
+  static const individualOwnerInformation = 'individualOwnerInformation';
+  static const enterOwnerLegalInformation = 'enterOwnerLegalInformation';
+  static const ownerContactNumberNote = 'ownerContactNumberNote';
+  static const ownerContactEmailNote = 'ownerContactEmailNote';
   static const fullLegalName = 'fullLegalName';
   static const enterFullLegalName = 'enterFullLegalName';
   static const idType = 'idType';

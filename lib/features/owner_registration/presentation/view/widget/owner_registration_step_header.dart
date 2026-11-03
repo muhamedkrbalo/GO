@@ -10,16 +10,16 @@ import '../../../../../core/theme/extensions/theme_extensions.dart';
 class OwnerRegistrationStepHeader extends StatelessWidget {
   const OwnerRegistrationStepHeader({
     super.key,
-    required this.step,
-    required this.stepTitle,
-    required this.stepHint,
+    required this.stepLabel,
     required this.progress,
+    this.stepTitle,
+    this.stepHint,
   });
 
-  final int step;
-  final String stepTitle;
-  final String stepHint;
+  final String stepLabel;
   final double progress;
+  final String? stepTitle;
+  final String? stepHint;
 
   static const _padding = EdgeInsetsDirectional.fromSTEB(24, 12, 24, 16);
   static const _backgroundOpacity = 0.95;
@@ -71,7 +71,7 @@ class OwnerRegistrationStepHeader extends StatelessWidget {
                     Align(
                       alignment: AlignmentDirectional.centerEnd,
                       child: Text(
-                        AppLocaleKey.stepNumber.tr(args: ['$step']).toUpperCase(),
+                        stepLabel.toUpperCase(),
                         style: AppTextStyles.xxxxsBold.copyWith(
                           color: colors.stepLabel,
                           letterSpacing: _stepLetterSpacing,
@@ -82,27 +82,29 @@ class OwnerRegistrationStepHeader extends StatelessWidget {
                   ],
                 ),
               ),
-              AppSpacing.gapV8,
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    stepTitle,
-                    style: AppTextStyles.xxxsBold.copyWith(
-                      color: colors.oceanAccent,
-                      letterSpacing: _stepTitleLetterSpacing,
-                      height: _textHeight,
+              if (stepTitle != null && stepHint != null) ...[
+                AppSpacing.gapV8,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      stepTitle!,
+                      style: AppTextStyles.xxxsBold.copyWith(
+                        color: colors.oceanAccent,
+                        letterSpacing: _stepTitleLetterSpacing,
+                        height: _textHeight,
+                      ),
                     ),
-                  ),
-                  Text(
-                    stepHint,
-                    style: AppTextStyles.xxxxsMedium.copyWith(
-                      color: colors.hint,
-                      height: _textHeight,
+                    Text(
+                      stepHint!,
+                      style: AppTextStyles.xxxxsMedium.copyWith(
+                        color: colors.hint,
+                        height: _textHeight,
+                      ),
                     ),
-                  ),
-                ],
-              ),
+                  ],
+                ),
+              ],
               AppSpacing.gapV8,
               ClipRRect(
                 borderRadius: AppRadius.brCircle,
