@@ -39,6 +39,12 @@ class AppShadows {
     BoxShadow(color: Color(0x0F082E50), offset: Offset(0, 8), blurRadius: 22),
   ];
 
+  static const monogramBadge = [
+    BoxShadow(color: Color(0x14082E50), offset: Offset(0, 8), blurRadius: 12),
+  ];
+
+  static const otpBox = [BoxShadow(color: Color(0x0A082E50), offset: Offset(0, 4), blurRadius: 14)];
+
   static const softCard = [
     BoxShadow(color: Color(0x0A0F172A), offset: Offset(0, 8), blurRadius: 12),
   ];

@@ -26,14 +26,15 @@ void main() {
     expect(cubit.state.canVerify, isTrue);
   });
 
-  test('starting the cooldown blocks resend', () {
-    cubit.startResendCooldown();
+  test('starting the countdown blocks resend', () {
+    cubit.startCountdown();
     expect(cubit.state.resendIn, VerifyCodeCubit.resendCooldown);
     expect(cubit.state.canResend, isFalse);
+    expect(cubit.state.expiresIn, VerifyCodeCubit.codeLifetime);
   });
 
   testWidgets('resend is allowed after the cooldown and clears the code', (tester) async {
-    final cubit = VerifyCodeCubit()..startResendCooldown();
+    final cubit = VerifyCodeCubit()..startCountdown();
     cubit.codeChanged('123456');
 
     cubit.resendCode();
@@ -45,6 +46,28 @@ void main() {
     cubit.resendCode();
     expect(cubit.state.code, isEmpty);
     expect(cubit.state.resendIn, VerifyCodeCubit.resendCooldown);
+    await cubit.close();
+  });
+
+  testWidgets('an expired code cannot be verified', (tester) async {
+    final cubit = VerifyCodeCubit()..startCountdown();
+    cubit.codeChanged('123456');
+    expect(cubit.state.canVerify, isTrue);
+
+    await tester.pump(const Duration(seconds: VerifyCodeCubit.codeLifetime));
+    expect(cubit.state.isExpired, isTrue);
+    expect(cubit.state.canVerify, isFalse);
+    await cubit.close();
+  });
+
+  testWidgets('resending renews the code lifetime', (tester) async {
+    final cubit = VerifyCodeCubit()..startCountdown();
+
+    await tester.pump(const Duration(seconds: VerifyCodeCubit.resendCooldown));
+    expect(cubit.state.expiresIn, VerifyCodeCubit.codeLifetime - VerifyCodeCubit.resendCooldown);
+
+    cubit.resendCode();
+    expect(cubit.state.expiresIn, VerifyCodeCubit.codeLifetime);
     await cubit.close();
   });
 }

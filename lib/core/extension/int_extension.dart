@@ -19,3 +19,7 @@ extension IntExtension on int {
     return activeDays.contains(this);
   }
 }
+
+extension CountdownExtension on int {
+  String get asCountdown => '${this ~/ 60}:${(this % 60).toString().padLeft(2, '0')}';
+}

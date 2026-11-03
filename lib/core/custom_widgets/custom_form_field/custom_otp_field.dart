@@ -19,6 +19,11 @@ class CustomOtpField extends StatelessWidget {
     this.hasError = false,
     this.enabled = true,
     this.autofocus = true,
+    this.maxBoxWidth = 56.0,
+    this.borderRadius = const BorderRadius.all(Radius.circular(12.8)),
+    this.borderWidth = 1.6,
+    this.boxShadow,
+    this.mainAxisAlignment = MainAxisAlignment.spaceBetween,
   });
 
   final int length;
@@ -29,12 +34,14 @@ class CustomOtpField extends StatelessWidget {
   final bool hasError;
   final bool enabled;
   final bool autofocus;
+  final double maxBoxWidth;
+  final BorderRadius borderRadius;
+  final double borderWidth;
+  final List<BoxShadow>? boxShadow;
+  final MainAxisAlignment mainAxisAlignment;
 
   static const _gap = 8.8;
   static const _height = 56.0;
-  static const _maxBoxWidth = 56.0;
-  static const _borderWidth = 1.6;
-  static const _radius = BorderRadius.all(Radius.circular(12.8));
 
   @override
   Widget build(BuildContext context) {
@@ -46,7 +53,7 @@ class CustomOtpField extends StatelessWidget {
         builder: (context, constraints) {
           final boxWidth = ((constraints.maxWidth - _gap * (length - 1)) / length).clamp(
             0.0,
-            _maxBoxWidth,
+            maxBoxWidth,
           );
 
           PinTheme theme(Color fill, Color border) => PinTheme(
@@ -55,8 +62,9 @@ class CustomOtpField extends StatelessWidget {
             textStyle: AppTextStyles.xlBold.copyWith(color: colors.textSecondary),
             decoration: BoxDecoration(
               color: fill,
-              borderRadius: _radius,
-              border: Border.all(color: border, width: _borderWidth),
+              borderRadius: borderRadius,
+              border: Border.all(color: border, width: borderWidth),
+              boxShadow: boxShadow,
             ),
           );
 
@@ -70,7 +78,7 @@ class CustomOtpField extends StatelessWidget {
               autofocus: autofocus,
               forceErrorState: hasError,
               inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: mainAxisAlignment,
               separatorBuilder: (_) => const SizedBox(width: _gap),
               hapticFeedbackType: HapticFeedbackType.lightImpact,
               defaultPinTheme: theme(colors.surface, colors.border),

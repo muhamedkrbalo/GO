@@ -21,6 +21,7 @@ class AppColors {
   static const goldLight = Color(0xffEFD99D);
   static const goldDark = Color(0xffC49B48);
   static const goldText = Color(0xff8B7654);
+  static const goldDeep = Color(0xff7C6742);
   static const goldAccent = Color(0xffCFA95B);
   static const deepNavy = Color(0xff052C55);
   static const ocean = Color(0xff007DA8);

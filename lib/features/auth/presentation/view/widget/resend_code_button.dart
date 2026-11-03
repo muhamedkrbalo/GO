@@ -2,6 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../../core/extension/int_extension.dart';
 import '../../../../../core/locale/app_locale_key.dart';
 import '../../../../../core/theme/app_text_styles.dart';
 import '../../../../../core/theme/extensions/theme_extensions.dart';
@@ -18,7 +19,7 @@ class ResendCodeButton extends StatelessWidget {
         final (canResend, seconds) = resend;
         return AuthTextButton(
           label: seconds > 0
-              ? AppLocaleKey.resendCodeIn.tr(args: ['$seconds'])
+              ? AppLocaleKey.resendIn.tr(args: [seconds.asCountdown])
               : AppLocaleKey.resendCode.tr(),
           onPressed: canResend ? context.read<VerifyCodeCubit>().resendCode : null,
         );
@@ -34,6 +35,8 @@ class AuthTextButton extends StatelessWidget {
   final VoidCallback? onPressed;
 
   static const _minSize = Size(64, 44);
+  static const _padding = EdgeInsetsDirectional.symmetric(horizontal: 10);
+  static const _height = 1.5;
 
   @override
   Widget build(BuildContext context) {
@@ -43,11 +46,12 @@ class AuthTextButton extends StatelessWidget {
       onPressed: onPressed,
       style: TextButton.styleFrom(
         minimumSize: _minSize,
+        padding: _padding,
         foregroundColor: colors.accentText,
-        disabledForegroundColor: colors.textMuted,
-        textStyle: AppTextStyles.xsBold,
+        disabledForegroundColor: colors.grey,
+        textStyle: AppTextStyles.xsBold.copyWith(height: _height),
       ),
-      child: Text(label),
+      child: Text(label, textAlign: TextAlign.center),
     );
   }
 }

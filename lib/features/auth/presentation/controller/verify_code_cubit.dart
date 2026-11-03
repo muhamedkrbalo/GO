@@ -10,8 +10,9 @@ class VerifyCodeCubit extends Cubit<VerifyCodeState> {
 
   static const codeLength = 6;
   static const resendCooldown = 60;
+  static const codeLifetime = 300;
 
-  Timer? _resendTimer;
+  Timer? _countdownTimer;
 
   void codeChanged(String code) {
     if (code == state.code) return;
@@ -21,22 +22,23 @@ class VerifyCodeCubit extends Cubit<VerifyCodeState> {
   void resendCode() {
     if (!state.canResend) return;
     emit(state.copyWith(code: ''));
-    startResendCooldown();
+    startCountdown();
   }
 
-  void startResendCooldown() {
-    _resendTimer?.cancel();
-    emit(state.copyWith(resendIn: resendCooldown));
-    _resendTimer = Timer.periodic(const Duration(seconds: 1), (timer) {
-      final remaining = state.resendIn - 1;
-      if (remaining <= 0) timer.cancel();
-      emit(state.copyWith(resendIn: remaining));
+  void startCountdown() {
+    _countdownTimer?.cancel();
+    emit(state.copyWith(resendIn: resendCooldown, expiresIn: codeLifetime));
+    _countdownTimer = Timer.periodic(const Duration(seconds: 1), (timer) {
+      final resendIn = state.resendIn > 0 ? state.resendIn - 1 : 0;
+      final expiresIn = state.expiresIn > 0 ? state.expiresIn - 1 : 0;
+      if (resendIn == 0 && expiresIn == 0) timer.cancel();
+      emit(state.copyWith(resendIn: resendIn, expiresIn: expiresIn));
     });
   }
 
   @override
   Future<void> close() {
-    _resendTimer?.cancel();
+    _countdownTimer?.cancel();
     return super.close();
   }
 }

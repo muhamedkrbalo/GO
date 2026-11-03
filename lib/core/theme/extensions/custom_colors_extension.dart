@@ -65,6 +65,7 @@ class CustomColors extends ThemeExtension<CustomColors> {
     required this.formLabel,
     required this.stepLabel,
     required this.accentBar,
+    required this.goldLink,
   });
 
   static const light = CustomColors(
@@ -124,6 +125,7 @@ class CustomColors extends ThemeExtension<CustomColors> {
     formLabel: AppColors.slateDeep,
     stepLabel: AppColors.goldText,
     accentBar: AppColors.gold,
+    goldLink: AppColors.goldDeep,
   );
 
   static const dark = CustomColors(
@@ -183,6 +185,7 @@ class CustomColors extends ThemeExtension<CustomColors> {
     formLabel: AppColors.darkSecondaryText,
     stepLabel: AppColors.goldSoft,
     accentBar: AppColors.gold,
+    goldLink: AppColors.goldSoft,
   );
 
   /// Strong text: titles, form labels, input text.
@@ -258,6 +261,7 @@ class CustomColors extends ThemeExtension<CustomColors> {
   final Color formLabel;
   final Color stepLabel;
   final Color accentBar;
+  final Color goldLink;
 
   @override
   CustomColors copyWith({
@@ -317,6 +321,7 @@ class CustomColors extends ThemeExtension<CustomColors> {
     Color? formLabel,
     Color? stepLabel,
     Color? accentBar,
+    Color? goldLink,
   }) {
     return CustomColors(
       textPrimary: textPrimary ?? this.textPrimary,
@@ -375,6 +380,7 @@ class CustomColors extends ThemeExtension<CustomColors> {
       formLabel: formLabel ?? this.formLabel,
       stepLabel: stepLabel ?? this.stepLabel,
       accentBar: accentBar ?? this.accentBar,
+      goldLink: goldLink ?? this.goldLink,
     );
   }
 
@@ -438,6 +444,7 @@ class CustomColors extends ThemeExtension<CustomColors> {
       formLabel: Color.lerp(formLabel, other.formLabel, t)!,
       stepLabel: Color.lerp(stepLabel, other.stepLabel, t)!,
       accentBar: Color.lerp(accentBar, other.accentBar, t)!,
+      goldLink: Color.lerp(goldLink, other.goldLink, t)!,
     );
   }
 }

@@ -701,6 +701,13 @@ class AppLocaleKey {
   static const resendCodeIn = 'resendCodeIn';
   static const changeVerificationMethod = 'changeVerificationMethod';
   static const verifyCode = 'verifyCode';
+  static const verifyAccount = 'verifyAccount';
+  static const enterCodeSentToContact = 'enterCodeSentToContact';
+  static const codeExpiresIn = 'codeExpiresIn';
+  static const codeExpired = 'codeExpired';
+  static const resendIn = 'resendIn';
+  static const skipVerificationPrototype = 'skipVerificationPrototype';
+  static const goMonogram = 'goMonogram';
   static const incorrectCodeAttempts = 'incorrectCodeAttempts';
 
   static const accountVerifiedBadge = 'accountVerifiedBadge';

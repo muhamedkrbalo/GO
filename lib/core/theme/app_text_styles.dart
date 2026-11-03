@@ -57,6 +57,12 @@ class AppTextStyles {
     fontWeight: FontWeight.w400,
   );
 
+  static const xxsSemiBold = TextStyle(
+    fontFamily: AppFonts.manrope,
+    fontSize: 11,
+    fontWeight: FontWeight.w600,
+  );
+
   static const xxsMedium = TextStyle(
     fontFamily: AppFonts.manrope,
     fontSize: 11,
@@ -139,6 +145,12 @@ class AppTextStyles {
 
   static const xs13Bold = TextStyle(
     fontFamily: AppFonts.manrope,
+    fontSize: 13,
+    fontWeight: FontWeight.w700,
+  );
+
+  static const xs13SerifBold = TextStyle(
+    fontFamily: AppFonts.gelasio,
     fontSize: 13,
     fontWeight: FontWeight.w700,
   );
