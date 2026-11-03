@@ -18,9 +18,11 @@ class OwnerTypeContinueButton extends StatelessWidget {
       builder: (context, selected) => PrimaryArrowButton(
         text: AppLocaleKey.continue_.tr(),
         isEnabled: selected != null,
-        onPressed: selected == OwnerType.individual
-            ? () => context.pushNamed(RouteNames.individualInfo)
-            : null,
+        onPressed: switch (selected) {
+          OwnerType.individual => () => context.pushNamed(RouteNames.individualInfo),
+          OwnerType.company => () => context.pushNamed(RouteNames.companyInfo),
+          null => null,
+        },
       ),
     );
   }

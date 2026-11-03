@@ -18,6 +18,11 @@ class RegistrationFormActions extends StatelessWidget {
   static const _minTapSize = Size(64, 44);
   static const _textHeight = 1.5;
 
+  void _continue(BuildContext context) {
+    // if (!Form.of(context).validate()) return;
+    onContinue();
+  }
+
   @override
   Widget build(BuildContext context) {
     final colors = context.customColors;
@@ -27,8 +32,8 @@ class RegistrationFormActions extends StatelessWidget {
       children: [
         PrimaryArrowButton(
           text: AppLocaleKey.continue_.tr(),
-          isEnabled: canContinue,
-          onPressed: onContinue,
+          isEnabled: true,
+          onPressed: () => _continue(context),
         ),
         const SizedBox(height: _gap),
         TextButton(

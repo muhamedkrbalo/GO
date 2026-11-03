@@ -9,17 +9,14 @@ import 'registration_form_actions.dart';
 class IndividualInfoActions extends StatelessWidget {
   const IndividualInfoActions({super.key});
 
-  void _continue(BuildContext context) {
-    if (!Form.of(context).validate()) return;
-    context.pushNamed(RouteNames.ownerAddress);
-  }
-
   @override
   Widget build(BuildContext context) {
     return BlocSelector<IndividualInfoCubit, IndividualInfoState, bool>(
       selector: (state) => state.canContinue,
-      builder: (context, canContinue) =>
-          RegistrationFormActions(canContinue: canContinue, onContinue: () => _continue(context)),
+      builder: (context, canContinue) => RegistrationFormActions(
+        canContinue: canContinue,
+        onContinue: () => context.pushNamed(RouteNames.ownerAddress),
+      ),
     );
   }
 }

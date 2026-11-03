@@ -9,6 +9,7 @@ import '../../features/auth/presentation/controller/verify_code_cubit.dart';
 import '../../features/onboarding/presentation/controller/onboarding_cubit.dart';
 import '../../features/owner_registration/data/model/owner_unit.dart';
 import '../../features/owner_registration/data/model/sample_units.dart';
+import '../../features/owner_registration/presentation/controller/company_info_cubit.dart';
 import '../../features/owner_registration/presentation/controller/individual_info_cubit.dart';
 import '../../features/owner_registration/presentation/controller/owner_address_cubit.dart';
 import '../../features/owner_registration/presentation/controller/owner_documents_cubit.dart';
@@ -93,6 +94,7 @@ void _initAuth() {
 void _initOwnerRegistration() {
   sl.registerFactory<OwnerTypeCubit>(OwnerTypeCubit.new);
   sl.registerFactory<IndividualInfoCubit>(IndividualInfoCubit.new);
+  sl.registerFactory<CompanyInfoCubit>(CompanyInfoCubit.new);
   sl.registerFactory<OwnerAddressCubit>(OwnerAddressCubit.new);
   sl.registerFactory<UnitSelectionCubit>(() => UnitSelectionCubit(sampleUnits));
   sl.registerFactoryParam<OwnershipDetailsCubit, List<OwnerUnit>, void>(

@@ -5,14 +5,13 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../core/custom_widgets/bottom_sheet/option_picker_sheet.dart';
-import '../../../../../core/custom_widgets/custom_form_field/country_code_prefix.dart';
 import '../../../../../core/custom_widgets/validation/validation_mixin.dart';
 import '../../../../../core/extension/context_ui_extension.dart';
 import '../../../../../core/locale/app_locale_key.dart';
-import '../../../../../core/theme/extensions/theme_extensions.dart';
 import '../../../../../core/utils/country_code_methods.dart';
 import '../../../data/model/id_type.dart';
 import '../../controller/individual_info_cubit.dart';
+import 'registration_phone_field.dart';
 import 'registration_picker_field.dart';
 import 'registration_text_field.dart';
 
@@ -30,8 +29,6 @@ class _IndividualInfoFormState extends State<IndividualInfoForm> with Validation
   final _emailController = TextEditingController();
 
   static const _fieldGap = SizedBox(height: 18);
-  static const _phonePrefixHeight = 50.0;
-  static const _phonePrefixBorderWidth = 1.0;
 
   @override
   void dispose() {
@@ -65,7 +62,6 @@ class _IndividualInfoFormState extends State<IndividualInfoForm> with Validation
 
   @override
   Widget build(BuildContext context) {
-    final colors = context.customColors;
     final cubit = context.read<IndividualInfoCubit>();
 
     return Column(
@@ -115,23 +111,16 @@ class _IndividualInfoFormState extends State<IndividualInfoForm> with Validation
           ),
         ),
         _fieldGap,
-        RegistrationTextField(
-          controller: _mobileController,
-          title: AppLocaleKey.mobileNumber.tr(),
-          hintText: AppLocaleKey.enterMobileNumber.tr(),
-          helperText: AppLocaleKey.ownerContactNumberNote.tr(),
-          keyboardType: TextInputType.phone,
-          inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-          validator: validateOptionalPhone,
-          prefixIcon: BlocSelector<IndividualInfoCubit, IndividualInfoState, Country>(
-            selector: (state) => state.phoneCountry,
-            builder: (context, country) => CountryCodePrefix(
-              country: country,
-              onSelect: cubit.selectPhoneCountry,
-              height: _phonePrefixHeight,
-              borderWidth: _phonePrefixBorderWidth,
-              dividerColor: colors.subtleBorder,
-            ),
+        BlocSelector<IndividualInfoCubit, IndividualInfoState, Country>(
+          selector: (state) => state.phoneCountry,
+          builder: (context, country) => RegistrationPhoneField(
+            controller: _mobileController,
+            title: AppLocaleKey.mobileNumber.tr(),
+            hintText: AppLocaleKey.enterMobileNumber.tr(),
+            helperText: AppLocaleKey.ownerContactNumberNote.tr(),
+            country: country,
+            onCountrySelect: cubit.selectPhoneCountry,
+            validator: validateOptionalPhone,
           ),
         ),
         _fieldGap,
