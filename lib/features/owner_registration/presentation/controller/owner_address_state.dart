@@ -1,39 +1,53 @@
 part of 'owner_address_cubit.dart';
 
-class AddressEntry extends Equatable {
-  const AddressEntry({required this.id, this.type, this.country});
-
-  final int id;
-  final AddressType? type;
-  final Country? country;
-
-  AddressEntry copyWith({AddressType? type, Country? country}) {
-    return AddressEntry(id: id, type: type ?? this.type, country: country ?? this.country);
-  }
-
-  @override
-  List<Object?> get props => [id, type, country?.countryCode];
-}
-
 class OwnerAddressState extends Equatable {
-  const OwnerAddressState({this.addresses = const [AddressEntry(id: 0)], this.nextId = 1});
+  const OwnerAddressState({
+    this.country,
+    this.governorate = '',
+    this.city = '',
+    this.addressLine1 = '',
+    this.type = AddressType.residential,
+    this.isPrimary = true,
+  });
 
-  final List<AddressEntry> addresses;
-  final int nextId;
+  final Country? country;
+  final String governorate;
+  final String city;
+  final String addressLine1;
+  final AddressType type;
+  final bool isPrimary;
 
-  List<int> get ids => [for (final address in addresses) address.id];
+  bool get canEnterGovernorate => country != null;
 
-  AddressEntry? addressById(int id) {
-    for (final address in addresses) {
-      if (address.id == id) return address;
-    }
-    return null;
-  }
+  bool get canEnterCity => canEnterGovernorate && governorate.trim().isNotEmpty;
 
-  OwnerAddressState copyWith({List<AddressEntry>? addresses, int? nextId}) {
-    return OwnerAddressState(addresses: addresses ?? this.addresses, nextId: nextId ?? this.nextId);
+  bool get canContinue => country != null && addressLine1.trim().isNotEmpty;
+
+  OwnerAddressState copyWith({
+    Country? country,
+    String? governorate,
+    String? city,
+    String? addressLine1,
+    AddressType? type,
+    bool? isPrimary,
+  }) {
+    return OwnerAddressState(
+      country: country ?? this.country,
+      governorate: governorate ?? this.governorate,
+      city: city ?? this.city,
+      addressLine1: addressLine1 ?? this.addressLine1,
+      type: type ?? this.type,
+      isPrimary: isPrimary ?? this.isPrimary,
+    );
   }
 
   @override
-  List<Object?> get props => [addresses, nextId];
+  List<Object?> get props => [
+    country?.countryCode,
+    governorate,
+    city,
+    addressLine1,
+    type,
+    isPrimary,
+  ];
 }

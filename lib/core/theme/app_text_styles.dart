@@ -13,6 +13,12 @@ class AppTextStyles {
     fontWeight: FontWeight.w700,
   );
 
+  static const xxxxxsMedium = TextStyle(
+    fontFamily: AppFonts.manrope,
+    fontSize: 8,
+    fontWeight: FontWeight.w500,
+  );
+
   static const xxxxsRegular = TextStyle(
     fontFamily: AppFonts.manrope,
     fontSize: 9,

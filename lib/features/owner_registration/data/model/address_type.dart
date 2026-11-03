@@ -1,9 +1,9 @@
 import '../../../../core/locale/app_locale_key.dart';
 
 enum AddressType {
-  home(AppLocaleKey.homeAddress),
+  residential(AppLocaleKey.residentialAddress),
   business(AppLocaleKey.businessAddress),
-  mailing(AppLocaleKey.mailingAddress);
+  other(AppLocaleKey.otherAddress);
 
   const AddressType(this.labelKey);
 

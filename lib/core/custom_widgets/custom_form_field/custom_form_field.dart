@@ -50,6 +50,7 @@ class CustomFormField extends StatefulWidget {
   final Color? borderColor;
   final double borderWidth;
   final double titleGap;
+  final bool enabled;
   const CustomFormField({
     super.key,
     this.controller,
@@ -89,6 +90,7 @@ class CustomFormField extends StatefulWidget {
     this.borderColor,
     this.borderWidth = 1.59,
     this.titleGap = 8,
+    this.enabled = true,
   });
 
   @override
@@ -146,6 +148,7 @@ class _CustomFormFieldState extends State<CustomFormField> {
                 FocusManager.instance.primaryFocus?.unfocus();
               },
               controller: widget.controller,
+              enabled: widget.enabled,
               focusNode: widget.focusNode,
               onChanged: widget.onChanged,
               validator: widget.validator,

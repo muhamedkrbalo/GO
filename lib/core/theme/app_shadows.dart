@@ -47,6 +47,14 @@ class AppShadows {
     BoxShadow(color: Color(0x0A073763), offset: Offset(0, 6), blurRadius: 10),
   ];
 
+  static const sectionCard = [
+    BoxShadow(color: Color(0x05073763), offset: Offset(0, 5), blurRadius: 9),
+  ];
+
+  static const switchKnob = [
+    BoxShadow(color: Color(0x330F172A), offset: Offset(0, 1), blurRadius: 4),
+  ];
+
   static const otpBox = [BoxShadow(color: Color(0x0A082E50), offset: Offset(0, 4), blurRadius: 14)];
 
   static const softCard = [

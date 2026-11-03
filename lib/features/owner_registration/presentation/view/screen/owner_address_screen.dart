@@ -1,29 +1,30 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
 import '../../../../../core/locale/app_locale_key.dart';
-import '../../../../../core/routes/routes_name.dart';
+import '../widget/owner_address_actions.dart';
 import '../widget/owner_address_form.dart';
-import '../widget/registration_step_layout.dart';
+import '../widget/registration_form_layout.dart';
 
 class OwnerAddressScreen extends StatelessWidget {
   const OwnerAddressScreen({super.key});
 
   static const _step = 3;
-  static const _progress = 0.5;
+  static const _stepCount = 8;
+  static const _progress = 0.375;
+  static const _introGap = 24.0;
 
   @override
   Widget build(BuildContext context) {
-    return RegistrationStepLayout(
-      step: _step,
+    return RegistrationFormLayout(
+      stepLabel: AppLocaleKey.stepXOfY.tr(args: ['$_step', '$_stepCount']),
       progress: _progress,
-      completedLabel: AppLocaleKey.ownerDetailsComplete.tr(),
-      eyebrow: AppLocaleKey.businessEntityAddress.tr(),
-      title: AppLocaleKey.whereAreYouBased.tr(),
-      subtitle: AppLocaleKey.addAddressDetails.tr(),
-      onContinue: () => context.pushNamed(RouteNames.unitSelection),
-      child: const OwnerAddressForm(),
+      eyebrow: AppLocaleKey.officialAddress.tr(),
+      title: AppLocaleKey.ownerAddressTitle.tr(),
+      subtitle: AppLocaleKey.addOfficialAddressDescription.tr(),
+      form: const OwnerAddressForm(),
+      actions: const OwnerAddressActions(),
+      introGap: _introGap,
     );
   }
 }

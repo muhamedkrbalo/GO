@@ -14,6 +14,7 @@ class RegistrationFormLayout extends StatelessWidget {
     required this.subtitle,
     required this.form,
     required this.actions,
+    this.introGap = 30,
   });
 
   final String stepLabel;
@@ -23,6 +24,7 @@ class RegistrationFormLayout extends StatelessWidget {
   final String subtitle;
   final Widget form;
   final Widget actions;
+  final double introGap;
 
   static const _contentPadding = EdgeInsetsDirectional.fromSTEB(24, 30, 24, 40);
   static const _sectionGap = SizedBox(height: 30);
@@ -43,7 +45,7 @@ class RegistrationFormLayout extends StatelessWidget {
                   keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
                   children: [
                     RegistrationIntro(eyebrow: eyebrow, title: title, subtitle: subtitle),
-                    _sectionGap,
+                    SizedBox(height: introGap),
                     form,
                     _sectionGap,
                     actions,

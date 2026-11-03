@@ -1,45 +1,144 @@
-import 'package:flutter/foundation.dart';
+import 'package:country_picker/country_picker.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../../core/theme/extensions/theme_extensions.dart';
+import '../../../../../core/custom_widgets/validation/validation_mixin.dart';
+import '../../../../../core/locale/app_locale_key.dart';
+import '../../../../../core/utils/country_code_methods.dart';
 import '../../controller/owner_address_cubit.dart';
-import 'add_address_button.dart';
-import 'address_form_section.dart';
-import 'registration_form_card.dart';
+import 'address_type_card.dart';
+import 'registration_picker_field.dart';
+import 'registration_section_card.dart';
+import 'registration_text_field.dart';
 
-class OwnerAddressForm extends StatelessWidget {
+class OwnerAddressForm extends StatefulWidget {
   const OwnerAddressForm({super.key});
 
-  static const _buttonPadding = EdgeInsets.fromLTRB(19.2, 0, 19.2, 19.2);
-  static const _dividerThickness = 1.6;
+  @override
+  State<OwnerAddressForm> createState() => _OwnerAddressFormState();
+}
+
+class _OwnerAddressFormState extends State<OwnerAddressForm> with ValidationMixin {
+  final _governorateController = TextEditingController();
+  final _cityController = TextEditingController();
+  final _districtController = TextEditingController();
+  final _addressLine1Controller = TextEditingController();
+  final _addressLine2Controller = TextEditingController();
+  final _postalCodeController = TextEditingController();
+
+  static const _cardGap = SizedBox(height: 24);
+
+  @override
+  void dispose() {
+    _governorateController.dispose();
+    _cityController.dispose();
+    _districtController.dispose();
+    _addressLine1Controller.dispose();
+    _addressLine2Controller.dispose();
+    _postalCodeController.dispose();
+    super.dispose();
+  }
+
+  void _pickCountry() {
+    CountryCodeMethods.pickCountry(
+      context: context,
+      showPhoneCode: false,
+      onSelect: context.read<OwnerAddressCubit>().selectCountry,
+    );
+  }
+
+  void _clearDependentFields() {
+    _governorateController.clear();
+    _cityController.clear();
+  }
 
   @override
   Widget build(BuildContext context) {
-    final colors = context.customColors;
+    final cubit = context.read<OwnerAddressCubit>();
 
-    return BlocBuilder<OwnerAddressCubit, OwnerAddressState>(
-      buildWhen: (previous, current) => !listEquals(previous.ids, current.ids),
-      builder: (context, state) {
-        final ids = state.ids;
-        return RegistrationFormCard(
-          children: [
-            for (var i = 0; i < ids.length; i++) ...[
-              if (i > 0)
-                Divider(
-                  height: _dividerThickness,
-                  thickness: _dividerThickness,
-                  color: colors.subtleBorder,
+    return BlocListener<OwnerAddressCubit, OwnerAddressState>(
+      listenWhen: (previous, current) =>
+          previous.country?.countryCode != current.country?.countryCode,
+      listener: (_, _) => _clearDependentFields(),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          RegistrationSectionCard(
+            title: AppLocaleKey.locationSection.tr(),
+            hint: AppLocaleKey.ownerBusinessEntity.tr(),
+            children: [
+              BlocSelector<OwnerAddressCubit, OwnerAddressState, Country?>(
+                selector: (state) => state.country,
+                builder: (context, country) => RegistrationPickerField(
+                  title: AppLocaleKey.country.tr(),
+                  hintText: AppLocaleKey.selectCountry.tr(),
+                  value: country?.getTranslatedName(context) ?? country?.name,
+                  isRequired: true,
+                  showChevron: false,
+                  onTap: _pickCountry,
+                  validator: validateEmptyField,
                 ),
-              AddressFormSection(key: ValueKey(ids[i]), id: ids[i], number: i + 1),
+              ),
+              BlocSelector<OwnerAddressCubit, OwnerAddressState, bool>(
+                selector: (state) => state.canEnterGovernorate,
+                builder: (context, enabled) => RegistrationTextField(
+                  controller: _governorateController,
+                  title: AppLocaleKey.governorateState.tr(),
+                  hintText: AppLocaleKey.enterGovernorate.tr(),
+                  enabled: enabled,
+                  onChanged: cubit.governorateChanged,
+                ),
+              ),
+              BlocSelector<OwnerAddressCubit, OwnerAddressState, bool>(
+                selector: (state) => state.canEnterCity,
+                builder: (context, enabled) => RegistrationTextField(
+                  controller: _cityController,
+                  title: AppLocaleKey.city.tr(),
+                  hintText: AppLocaleKey.enterCity.tr(),
+                  enabled: enabled,
+                  onChanged: cubit.cityChanged,
+                ),
+              ),
+              RegistrationTextField(
+                controller: _districtController,
+                title: AppLocaleKey.areaDistrict.tr(),
+                hintText: AppLocaleKey.enterDistrictOrArea.tr(),
+              ),
             ],
-            Padding(
-              padding: _buttonPadding,
-              child: AddAddressButton(onPressed: context.read<OwnerAddressCubit>().addAddress),
-            ),
-          ],
-        );
-      },
+          ),
+          _cardGap,
+          RegistrationSectionCard(
+            title: AppLocaleKey.addressDetailsSection.tr(),
+            hint: AppLocaleKey.doNotEnterUnitAddress.tr(),
+            children: [
+              RegistrationTextField(
+                controller: _addressLine1Controller,
+                title: AppLocaleKey.addressLine1.tr(),
+                hintText: AppLocaleKey.addressLine1Hint.tr(),
+                isRequired: true,
+                keyboardType: TextInputType.streetAddress,
+                onChanged: cubit.addressLine1Changed,
+                validator: validateEmptyField,
+              ),
+              RegistrationTextField(
+                controller: _addressLine2Controller,
+                title: AppLocaleKey.addressLine2.tr(),
+                hintText: AppLocaleKey.addressLine2Hint.tr(),
+                keyboardType: TextInputType.streetAddress,
+              ),
+              RegistrationTextField(
+                controller: _postalCodeController,
+                title: AppLocaleKey.postalCode.tr(),
+                hintText: AppLocaleKey.enterPostalCode.tr(),
+                keyboardType: TextInputType.number,
+              ),
+            ],
+          ),
+          _cardGap,
+          const AddressTypeCard(),
+        ],
+      ),
     );
   }
 }

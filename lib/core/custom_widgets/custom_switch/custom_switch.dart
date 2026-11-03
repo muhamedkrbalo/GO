@@ -1,70 +1,51 @@
 import 'package:flutter/material.dart';
 
-class CustomSwitch extends StatefulWidget {
+import '../../theme/app_shadows.dart';
+import '../../theme/app_sizes.dart';
+import '../../theme/extensions/theme_extensions.dart';
+
+class CustomSwitch extends StatelessWidget {
+  const CustomSwitch({super.key, required this.value, required this.onChanged});
+
   final bool value;
-  final void Function()? onTap;
-  const CustomSwitch({
-    super.key,
-    required this.value,
-    required this.onTap,
-  });
+  final ValueChanged<bool>? onChanged;
 
-  @override
-  State<CustomSwitch> createState() => _CustomSwitchState();
-}
+  static const _width = 42.0;
+  static const _height = 24.0;
+  static const _padding = EdgeInsets.all(3);
+  static const _knobSize = 18.0;
+  static const _duration = Duration(milliseconds: 180);
 
-class _CustomSwitchState extends State<CustomSwitch> {
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: widget.onTap,
-      child: Container(
-        height: 30,
-        width: 60,
-        padding: const EdgeInsets.symmetric(horizontal: 2),
-        decoration: BoxDecoration(
-          color: widget.value ? const Color(0xff00FF22) : Colors.redAccent,
-          borderRadius: BorderRadius.circular(15),
-        ),
-        child: Row(
-          mainAxisAlignment:
-              widget.value ? MainAxisAlignment.end : MainAxisAlignment.start,
-          children: [
-            if (widget.value == true) ...{
-              const SizedBox(
-                width: 4,
+    final colors = context.customColors;
+
+    return Semantics(
+      toggled: value,
+      enabled: onChanged != null,
+      child: GestureDetector(
+        onTap: onChanged == null ? null : () => onChanged!(!value),
+        child: AnimatedContainer(
+          duration: _duration,
+          width: _width,
+          height: _height,
+          padding: _padding,
+          decoration: BoxDecoration(
+            color: value ? colors.oceanAccent : colors.subtleBorder,
+            borderRadius: AppRadius.brCircle,
+          ),
+          child: AnimatedAlign(
+            duration: _duration,
+            alignment: value ? AlignmentDirectional.centerEnd : AlignmentDirectional.centerStart,
+            child: DecoratedBox(
+              decoration: BoxDecoration(
+                color: colors.onPrimary,
+                shape: BoxShape.circle,
+                boxShadow: AppShadows.switchKnob,
               ),
-              const Text(
-                "ON",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 13,
-                  fontFamily: "",
-                  fontWeight: FontWeight.w400,
-                ),
-              ),
-              const Spacer(),
-            },
-            const CircleAvatar(
-              backgroundColor: Colors.white,
-              radius: 13,
+              child: const SizedBox.square(dimension: _knobSize),
             ),
-            if (widget.value == false) ...{
-              const Spacer(),
-              const Text(
-                "OFF",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 13,
-                  fontWeight: FontWeight.w400,
-                  fontFamily: "",
-                ),
-              ),
-              const SizedBox(
-                width: 4,
-              ),
-            },
-          ],
+          ),
         ),
       ),
     );

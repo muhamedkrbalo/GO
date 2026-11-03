@@ -9,37 +9,18 @@ part 'owner_address_state.dart';
 class OwnerAddressCubit extends Cubit<OwnerAddressState> {
   OwnerAddressCubit() : super(const OwnerAddressState());
 
-  void addAddress() {
-    emit(
-      state.copyWith(
-        addresses: [
-          ...state.addresses,
-          AddressEntry(id: state.nextId),
-        ],
-        nextId: state.nextId + 1,
-      ),
-    );
+  void selectCountry(Country country) {
+    if (country.countryCode == state.country?.countryCode) return;
+    emit(state.copyWith(country: country, governorate: '', city: ''));
   }
 
-  void removeAddress(int id) {
-    if (state.addresses.length == 1) return;
-    emit(state.copyWith(addresses: [...state.addresses.where((address) => address.id != id)]));
-  }
+  void governorateChanged(String governorate) => emit(state.copyWith(governorate: governorate));
 
-  void selectType(int id, AddressType type) =>
-      _update(id, (address) => address.copyWith(type: type));
+  void cityChanged(String city) => emit(state.copyWith(city: city));
 
-  void selectCountry(int id, Country country) {
-    _update(id, (address) => address.copyWith(country: country));
-  }
+  void addressLine1Changed(String addressLine1) => emit(state.copyWith(addressLine1: addressLine1));
 
-  void _update(int id, AddressEntry Function(AddressEntry address) change) {
-    emit(
-      state.copyWith(
-        addresses: [
-          for (final address in state.addresses) address.id == id ? change(address) : address,
-        ],
-      ),
-    );
-  }
+  void selectType(AddressType type) => emit(state.copyWith(type: type));
+
+  void togglePrimary(bool isPrimary) => emit(state.copyWith(isPrimary: isPrimary));
 }
