@@ -17,6 +17,7 @@ abstract final class RoutePaths {
   static const String ownershipDetails = '/ownership-details';
   static const String ownerDocuments = '/owner-documents';
   static const String registrationReview = '/registration-review';
+  static const String registrationSubmitted = '/registration-submitted';
   static const String home = '/home';
   static const String zoomImage = '/zoom-image';
 }
@@ -40,6 +41,7 @@ abstract final class RouteNames {
   static const String ownershipDetails = 'ownershipDetails';
   static const String ownerDocuments = 'ownerDocuments';
   static const String registrationReview = 'registrationReview';
+  static const String registrationSubmitted = 'registrationSubmitted';
   static const String home = 'home';
   static const String zoomImage = 'zoomImage';
 }

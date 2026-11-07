@@ -121,6 +121,36 @@ void main() {
     });
   });
 
+  group('submit', () {
+    test('issues one receipt with the reference, time and unit count', () {
+      fillCompleteDraft();
+      final submittedAt = DateTime(2026, 11, 1, 10);
+      final review = RegistrationReviewCubit(cubit.state, clock: () => submittedAt);
+      addTearDown(review.close);
+
+      review.submit();
+      final receipt = review.state.receipt;
+      expect(receipt?.referenceNumber, 'GO-OWNER-${submittedAt.millisecondsSinceEpoch}');
+      expect(receipt?.submittedAt, submittedAt);
+      expect(receipt?.unitCount, units.length);
+    });
+
+    test('submitting twice keeps the first receipt', () {
+      var calls = 0;
+      final review = RegistrationReviewCubit(
+        cubit.state,
+        clock: () => DateTime(2026).add(Duration(days: calls++)),
+      );
+      addTearDown(review.close);
+
+      review
+        ..submit()
+        ..submit();
+      expect(review.state.receipt?.submittedAt, DateTime(2026));
+      expect(calls, 1);
+    });
+  });
+
   group('seeding steps from the draft', () {
     test('unit selection keeps only selectable seeded units', () {
       final seeded = UnitSelectionCubit(sampleUnits, selectedIds: {'unit-204', 'villa-08'});

@@ -1,10 +1,11 @@
 part of 'registration_review_cubit.dart';
 
 class RegistrationReviewState extends Equatable {
-  const RegistrationReviewState({required this.draft, this.isConfirmed = false});
+  const RegistrationReviewState({required this.draft, this.isConfirmed = false, this.receipt});
 
   final OwnerRegistrationDraft draft;
   final bool isConfirmed;
+  final RegistrationReceipt? receipt;
 
   bool get isOwnerInfoComplete {
     final ownerComplete = switch (draft.ownerType) {
@@ -37,10 +38,14 @@ class RegistrationReviewState extends Equatable {
 
   bool get canSubmit => isReadyToSubmit && isConfirmed;
 
-  RegistrationReviewState copyWith({bool? isConfirmed}) {
-    return RegistrationReviewState(draft: draft, isConfirmed: isConfirmed ?? this.isConfirmed);
+  RegistrationReviewState copyWith({bool? isConfirmed, RegistrationReceipt? receipt}) {
+    return RegistrationReviewState(
+      draft: draft,
+      isConfirmed: isConfirmed ?? this.isConfirmed,
+      receipt: receipt ?? this.receipt,
+    );
   }
 
   @override
-  List<Object?> get props => [draft, isConfirmed];
+  List<Object?> get props => [draft, isConfirmed, receipt];
 }

@@ -9,11 +9,11 @@ import '../../../data/model/owner_document.dart';
 import '../../controller/owner_documents_cubit.dart';
 import '../widget/document_section_header.dart';
 import '../widget/document_upload_card.dart';
-import '../widget/documents_notice.dart';
 import '../widget/documents_summary_strip.dart';
 import '../widget/owner_documents_bottom_bar.dart';
 import '../widget/owner_registration_step_header.dart';
 import '../widget/registration_intro.dart';
+import '../widget/registration_notice.dart';
 import '../widget/unit_documents_card.dart';
 
 class OwnerDocumentsScreen extends StatelessWidget {
@@ -85,10 +85,12 @@ class OwnerDocumentsScreen extends StatelessWidget {
                           initiallyExpanded: index == 0,
                         ),
                       ),
-                      const SliverToBoxAdapter(
+                      SliverToBoxAdapter(
                         child: Padding(
-                          padding: EdgeInsetsDirectional.only(top: AppSpacing.xl20),
-                          child: DocumentsNotice(),
+                          padding: const EdgeInsetsDirectional.only(top: AppSpacing.xl20),
+                          child: RegistrationNotice(
+                            message: AppLocaleKey.documentsReviewNotice.tr(),
+                          ),
                         ),
                       ),
                     ],

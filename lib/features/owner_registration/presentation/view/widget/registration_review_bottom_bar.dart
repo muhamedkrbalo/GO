@@ -28,6 +28,7 @@ class RegistrationReviewBottomBar extends StatelessWidget {
           height: _buttonHeight,
           radius: _buttonRadius,
           hasShadow: true,
+          onPressed: context.read<RegistrationReviewCubit>().submit,
           //isEnabled: canSubmit,
           isEnabled: true,
           disabledColor: colors.subtleBorder,

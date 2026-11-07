@@ -1,12 +1,12 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../../core/locale/app_locale_key.dart';
 import '../../../../../core/theme/app_text_styles.dart';
 import '../../../../../core/theme/extensions/theme_extensions.dart';
 
-class DocumentsNotice extends StatelessWidget {
-  const DocumentsNotice({super.key});
+class RegistrationNotice extends StatelessWidget {
+  const RegistrationNotice({super.key, required this.message});
+
+  final String message;
 
   static const _padding = EdgeInsetsDirectional.symmetric(horizontal: 12, vertical: 10);
   static const _accentWidth = 2.0;
@@ -26,7 +26,7 @@ class DocumentsNotice extends StatelessWidget {
       child: Padding(
         padding: _padding,
         child: Text(
-          AppLocaleKey.documentsReviewNotice.tr(),
+          message,
           style: AppTextStyles.xxxxxsMedium.copyWith(
             color: colors.textMuted,
             fontWeight: FontWeight.w400,

@@ -1,0 +1,11 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="SubmissionDocumentIcon">
+<path id="Vector" d="M15 7H38L49 18V53C49 54.0609 48.5786 55.0783 47.8284 55.8284C47.0783 56.5786 46.0609 57 45 57H15C13.9391 57 12.9217 56.5786 12.1716 55.8284C11.4214 55.0783 11 54.0609 11 53V11C11 9.93913 11.4214 8.92172 12.1716 8.17157C12.9217 7.42143 13.9391 7 15 7Z" fill="white" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" stroke="#073763"/>
+<g id="Vector_2">
+<path d="M38 7V18H49M20 28H40ZM20 36H33Z" fill="white"/>
+<path d="M38 7V18H49M20 28H40M20 36H33" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" stroke="#073763"/>
+</g>
+<path id="Vector_3" d="M43 56C49.6274 56 55 50.6274 55 44C55 37.3726 49.6274 32 43 32C36.3726 32 31 37.3726 31 44C31 50.6274 36.3726 56 43 56Z" fill="#087EAF" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" stroke="white"/>
+<path id="Vector_4" d="M37.5 44L41 47.5L48 39.5" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" stroke="white"/>
+</g>
+</svg>

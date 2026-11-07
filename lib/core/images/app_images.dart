@@ -254,6 +254,10 @@ class AppImages {
   /// assets/svg/sms.svg
   static const String assetsSvgSms = "assets/svg/sms.svg";
 
+  /// Assets for assetsSvgSubmissionDocument
+  /// assets/svg/submission_document.svg
+  static const String assetsSvgSubmissionDocument = "assets/svg/submission_document.svg";
+
   /// Assets for assetsSvgUpload
   /// assets/svg/upload.svg
   static const String assetsSvgUpload = "assets/svg/upload.svg";
