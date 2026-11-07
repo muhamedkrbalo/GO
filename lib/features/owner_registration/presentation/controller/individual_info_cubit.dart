@@ -21,4 +21,8 @@ class IndividualInfoCubit extends Cubit<IndividualInfoState> {
   void selectNationality(Country nationality) => emit(state.copyWith(nationality: nationality));
 
   void selectPhoneCountry(Country country) => emit(state.copyWith(phoneCountry: country));
+
+  void mobileNumberChanged(String mobileNumber) => emit(state.copyWith(mobileNumber: mobileNumber));
+
+  void emailChanged(String email) => emit(state.copyWith(email: email));
 }

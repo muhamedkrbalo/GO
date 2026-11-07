@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 
 import '../../../../../core/routes/routes_name.dart';
 import '../../controller/owner_address_cubit.dart';
+import '../../controller/owner_registration_draft_cubit.dart';
 import 'registration_form_actions.dart';
 
 class OwnerAddressActions extends StatelessWidget {
@@ -15,7 +16,12 @@ class OwnerAddressActions extends StatelessWidget {
       selector: (state) => state.canContinue,
       builder: (context, canContinue) => RegistrationFormActions(
         canContinue: canContinue,
-        onContinue: () => context.pushNamed(RouteNames.unitSelection),
+        onContinue: () {
+          context.read<OwnerRegistrationDraftCubit>().saveAddress(
+            context.read<OwnerAddressCubit>().state,
+          );
+          context.pushNamed(RouteNames.unitSelection);
+        },
       ),
     );
   }

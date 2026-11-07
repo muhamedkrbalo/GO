@@ -15,6 +15,7 @@ class OwnerRegistrationStepHeader extends StatelessWidget {
     this.stepTitle,
     this.stepHint,
     this.onBack,
+    this.progressColors,
   });
 
   final String stepLabel;
@@ -22,6 +23,7 @@ class OwnerRegistrationStepHeader extends StatelessWidget {
   final String? stepTitle;
   final String? stepHint;
   final VoidCallback? onBack;
+  final List<Color>? progressColors;
 
   static const _padding = EdgeInsetsDirectional.fromSTEB(24, 12, 24, 16);
   static const _backgroundOpacity = 0.95;
@@ -123,7 +125,7 @@ class OwnerRegistrationStepHeader extends StatelessWidget {
                           gradient: LinearGradient(
                             begin: AlignmentDirectional.centerStart,
                             end: AlignmentDirectional.centerEnd,
-                            colors: [colors.oceanAccent, colors.cyanAccent],
+                            colors: progressColors ?? [colors.oceanAccent, colors.cyanAccent],
                           ),
                         ),
                       ),

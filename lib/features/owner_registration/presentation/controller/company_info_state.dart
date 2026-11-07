@@ -3,6 +3,8 @@ part of 'company_info_cubit.dart';
 class CompanyInfoState extends Equatable {
   const CompanyInfoState({
     required this.phoneCountry,
+    this.mobileNumber = '',
+    this.email = '',
     this.legalName = '',
     this.registrationNumber = '',
     this.legalForm,
@@ -14,6 +16,8 @@ class CompanyInfoState extends Equatable {
   final LegalForm? legalForm;
   final Country? registrationCountry;
   final Country phoneCountry;
+  final String mobileNumber;
+  final String email;
 
   bool get canContinue =>
       legalName.trim().isNotEmpty &&
@@ -26,6 +30,8 @@ class CompanyInfoState extends Equatable {
     LegalForm? legalForm,
     Country? registrationCountry,
     Country? phoneCountry,
+    String? mobileNumber,
+    String? email,
   }) {
     return CompanyInfoState(
       legalName: legalName ?? this.legalName,
@@ -33,6 +39,8 @@ class CompanyInfoState extends Equatable {
       legalForm: legalForm ?? this.legalForm,
       registrationCountry: registrationCountry ?? this.registrationCountry,
       phoneCountry: phoneCountry ?? this.phoneCountry,
+      mobileNumber: mobileNumber ?? this.mobileNumber,
+      email: email ?? this.email,
     );
   }
 
@@ -43,5 +51,7 @@ class CompanyInfoState extends Equatable {
     legalForm,
     registrationCountry?.countryCode,
     phoneCountry.countryCode,
+    mobileNumber,
+    email,
   ];
 }

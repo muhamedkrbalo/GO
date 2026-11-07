@@ -6,8 +6,17 @@ import '../../data/model/owner_unit.dart';
 part 'unit_selection_state.dart';
 
 class UnitSelectionCubit extends Cubit<UnitSelectionState> {
-  UnitSelectionCubit(List<OwnerUnit> units)
-    : super(UnitSelectionState(units: units, visibleUnits: units));
+  UnitSelectionCubit(List<OwnerUnit> units, {Set<String> selectedIds = const {}})
+    : super(
+        UnitSelectionState(
+          units: units,
+          visibleUnits: units,
+          selectedIds: {
+            for (final unit in units)
+              if (unit.status.isSelectable && selectedIds.contains(unit.id)) unit.id,
+          },
+        ),
+      );
 
   void search(String query) {
     if (query == state.query) return;

@@ -18,6 +18,8 @@ class OwnerAddressCubit extends Cubit<OwnerAddressState> {
 
   void cityChanged(String city) => emit(state.copyWith(city: city));
 
+  void districtChanged(String district) => emit(state.copyWith(district: district));
+
   void addressLine1Changed(String addressLine1) => emit(state.copyWith(addressLine1: addressLine1));
 
   void selectType(AddressType type) => emit(state.copyWith(type: type));

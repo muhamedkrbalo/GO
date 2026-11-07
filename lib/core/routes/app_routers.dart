@@ -23,8 +23,10 @@ import '../../features/owner_registration/presentation/controller/company_info_c
 import '../../features/owner_registration/presentation/controller/individual_info_cubit.dart';
 import '../../features/owner_registration/presentation/controller/owner_address_cubit.dart';
 import '../../features/owner_registration/presentation/controller/owner_documents_cubit.dart';
+import '../../features/owner_registration/presentation/controller/owner_registration_draft_cubit.dart';
 import '../../features/owner_registration/presentation/controller/owner_type_cubit.dart';
 import '../../features/owner_registration/presentation/controller/ownership_details_cubit.dart';
+import '../../features/owner_registration/presentation/controller/registration_review_cubit.dart';
 import '../../features/owner_registration/presentation/controller/selected_units_review_cubit.dart';
 import '../../features/owner_registration/presentation/controller/unit_selection_cubit.dart';
 import '../../features/owner_registration/presentation/view/screen/company_info_screen.dart';
@@ -33,6 +35,7 @@ import '../../features/owner_registration/presentation/view/screen/owner_address
 import '../../features/owner_registration/presentation/view/screen/owner_documents_screen.dart';
 import '../../features/owner_registration/presentation/view/screen/owner_type_screen.dart';
 import '../../features/owner_registration/presentation/view/screen/ownership_details_screen.dart';
+import '../../features/owner_registration/presentation/view/screen/registration_review_screen.dart';
 import '../../features/owner_registration/presentation/view/screen/selected_units_review_screen.dart';
 import '../../features/owner_registration/presentation/view/screen/unit_selection_screen.dart';
 import '../../features/splash/presentation/view/screen/splash_screen.dart';
@@ -186,6 +189,16 @@ class AppRouters {
         ),
       ),
       GoRoute(
+        path: RoutePaths.registrationReview,
+        name: RouteNames.registrationReview,
+        redirect: (context, state) =>
+            sl<OwnerRegistrationDraftCubit>().state.units.isEmpty ? RoutePaths.ownerType : null,
+        builder: (context, state) => BlocProvider(
+          create: (_) => sl<RegistrationReviewCubit>(),
+          child: const RegistrationReviewScreen(),
+        ),
+      ),
+      GoRoute(
         path: RoutePaths.home,
         name: RouteNames.home,
         builder: (context, state) => const HomeScreen(),
@@ -220,6 +233,7 @@ class AppRouters {
     RoutePaths.selectedUnitsReview,
     RoutePaths.ownershipDetails,
     RoutePaths.ownerDocuments,
+    RoutePaths.registrationReview,
   };
 
   /// Login gating, in one place:

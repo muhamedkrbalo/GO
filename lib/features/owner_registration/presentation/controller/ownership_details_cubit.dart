@@ -8,8 +8,23 @@ import '../../data/model/unit_details_status.dart';
 part 'ownership_details_state.dart';
 
 class OwnershipDetailsCubit extends Cubit<OwnershipDetailsState> {
-  OwnershipDetailsCubit(List<OwnerUnit> units)
-    : super(OwnershipDetailsState(units: List.unmodifiable(units)));
+  OwnershipDetailsCubit(List<OwnerUnit> units, {Map<String, UnitOwnership> details = const {}})
+    : super(_initialState(units, details));
+
+  static OwnershipDetailsState _initialState(
+    List<OwnerUnit> units,
+    Map<String, UnitOwnership> details,
+  ) {
+    final kept = {for (final unit in units) unit.id: ?details[unit.id]};
+    return OwnershipDetailsState(
+      units: List.unmodifiable(units),
+      details: kept,
+      savedIds: {
+        for (final entry in kept.entries)
+          if (entry.value.isValid) entry.key,
+      },
+    );
+  }
 
   void selectUnit(int index) {
     if (index == state.activeIndex || index < 0 || index >= state.units.length) return;

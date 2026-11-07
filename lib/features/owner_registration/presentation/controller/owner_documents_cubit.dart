@@ -7,8 +7,19 @@ import '../../data/model/owner_unit.dart';
 part 'owner_documents_state.dart';
 
 class OwnerDocumentsCubit extends Cubit<OwnerDocumentsState> {
-  OwnerDocumentsCubit(List<OwnerUnit> units)
-    : super(OwnerDocumentsState(units: List.unmodifiable(units)));
+  OwnerDocumentsCubit(
+    List<OwnerUnit> units, {
+    Map<DocumentSlot, UploadedDocument> documents = const {},
+  }) : super(
+         OwnerDocumentsState(
+           units: List.unmodifiable(units),
+           documents: {
+             for (final entry in documents.entries)
+               if (entry.key.unitId == null || units.any((unit) => unit.id == entry.key.unitId))
+                 entry.key: entry.value,
+           },
+         ),
+       );
 
   void attach(DocumentSlot slot, UploadedDocument document) {
     if (slot.type.scope == DocumentScope.unit &&

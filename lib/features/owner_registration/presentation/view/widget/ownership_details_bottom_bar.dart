@@ -10,6 +10,7 @@ import '../../../../../core/routes/routes_name.dart';
 import '../../../../../core/theme/app_sizes.dart';
 import '../../../../../core/theme/app_text_styles.dart';
 import '../../../../../core/theme/extensions/theme_extensions.dart';
+import '../../controller/owner_registration_draft_cubit.dart';
 import '../../controller/ownership_details_cubit.dart';
 import 'registration_sticky_footer.dart';
 
@@ -25,6 +26,7 @@ class OwnershipDetailsBottomBar extends StatelessWidget {
   void _continue(BuildContext context) {
     final cubit = context.read<OwnershipDetailsCubit>()..continueToNextUnit();
     if (!cubit.state.isComplete) return;
+    context.read<OwnerRegistrationDraftCubit>().saveOwnership(cubit.state.details);
     context.pushNamed(RouteNames.ownerDocuments, extra: cubit.state.units);
   }
 

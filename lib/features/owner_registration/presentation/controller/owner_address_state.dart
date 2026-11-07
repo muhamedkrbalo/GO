@@ -5,6 +5,7 @@ class OwnerAddressState extends Equatable {
     this.country,
     this.governorate = '',
     this.city = '',
+    this.district = '',
     this.addressLine1 = '',
     this.type = AddressType.residential,
     this.isPrimary = true,
@@ -13,6 +14,7 @@ class OwnerAddressState extends Equatable {
   final Country? country;
   final String governorate;
   final String city;
+  final String district;
   final String addressLine1;
   final AddressType type;
   final bool isPrimary;
@@ -27,6 +29,7 @@ class OwnerAddressState extends Equatable {
     Country? country,
     String? governorate,
     String? city,
+    String? district,
     String? addressLine1,
     AddressType? type,
     bool? isPrimary,
@@ -35,6 +38,7 @@ class OwnerAddressState extends Equatable {
       country: country ?? this.country,
       governorate: governorate ?? this.governorate,
       city: city ?? this.city,
+      district: district ?? this.district,
       addressLine1: addressLine1 ?? this.addressLine1,
       type: type ?? this.type,
       isPrimary: isPrimary ?? this.isPrimary,
@@ -46,6 +50,7 @@ class OwnerAddressState extends Equatable {
     country?.countryCode,
     governorate,
     city,
+    district,
     addressLine1,
     type,
     isPrimary,

@@ -13,8 +13,10 @@ import '../../features/owner_registration/presentation/controller/company_info_c
 import '../../features/owner_registration/presentation/controller/individual_info_cubit.dart';
 import '../../features/owner_registration/presentation/controller/owner_address_cubit.dart';
 import '../../features/owner_registration/presentation/controller/owner_documents_cubit.dart';
+import '../../features/owner_registration/presentation/controller/owner_registration_draft_cubit.dart';
 import '../../features/owner_registration/presentation/controller/owner_type_cubit.dart';
 import '../../features/owner_registration/presentation/controller/ownership_details_cubit.dart';
+import '../../features/owner_registration/presentation/controller/registration_review_cubit.dart';
 import '../../features/owner_registration/presentation/controller/selected_units_review_cubit.dart';
 import '../../features/owner_registration/presentation/controller/unit_selection_cubit.dart';
 import '../../features/splash/data/repository/splash_repository.dart';
@@ -97,14 +99,29 @@ void _initOwnerRegistration() {
   sl.registerFactory<IndividualInfoCubit>(IndividualInfoCubit.new);
   sl.registerFactory<CompanyInfoCubit>(CompanyInfoCubit.new);
   sl.registerFactory<OwnerAddressCubit>(OwnerAddressCubit.new);
-  sl.registerFactory<UnitSelectionCubit>(() => UnitSelectionCubit(sampleUnits));
+  sl.registerLazySingleton<OwnerRegistrationDraftCubit>(OwnerRegistrationDraftCubit.new);
+  sl.registerFactory<UnitSelectionCubit>(
+    () => UnitSelectionCubit(
+      sampleUnits,
+      selectedIds: sl<OwnerRegistrationDraftCubit>().state.unitIds,
+    ),
+  );
   sl.registerFactoryParam<SelectedUnitsReviewCubit, List<OwnerUnit>, void>(
     (units, _) => SelectedUnitsReviewCubit(units),
   );
   sl.registerFactoryParam<OwnershipDetailsCubit, List<OwnerUnit>, void>(
-    (units, _) => OwnershipDetailsCubit(units),
+    (units, _) => OwnershipDetailsCubit(
+      units,
+      details: sl<OwnerRegistrationDraftCubit>().state.ownership,
+    ),
   );
   sl.registerFactoryParam<OwnerDocumentsCubit, List<OwnerUnit>, void>(
-    (units, _) => OwnerDocumentsCubit(units),
+    (units, _) => OwnerDocumentsCubit(
+      units,
+      documents: sl<OwnerRegistrationDraftCubit>().state.documents,
+    ),
+  );
+  sl.registerFactory<RegistrationReviewCubit>(
+    () => RegistrationReviewCubit(sl<OwnerRegistrationDraftCubit>().state),
   );
 }

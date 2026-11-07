@@ -16,6 +16,7 @@ class RegistrationPhoneField extends StatelessWidget {
     required this.onCountrySelect,
     this.helperText,
     this.validator,
+    this.onChanged,
   });
 
   final TextEditingController controller;
@@ -25,6 +26,7 @@ class RegistrationPhoneField extends StatelessWidget {
   final ValueChanged<Country> onCountrySelect;
   final String? helperText;
   final String? Function(String?)? validator;
+  final ValueChanged<String>? onChanged;
 
   static const _prefixHeight = 50.0;
   static const _prefixBorderWidth = 1.0;
@@ -37,6 +39,7 @@ class RegistrationPhoneField extends StatelessWidget {
       hintText: hintText,
       helperText: helperText,
       keyboardType: TextInputType.phone,
+      onChanged: onChanged,
       inputFormatters: [FilteringTextInputFormatter.digitsOnly],
       validator: validator,
       prefixIcon: CountryCodePrefix(

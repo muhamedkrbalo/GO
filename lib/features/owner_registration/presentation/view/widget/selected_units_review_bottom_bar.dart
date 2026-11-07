@@ -6,6 +6,7 @@ import 'package:go_router/go_router.dart';
 import '../../../../../core/custom_widgets/buttons/primary_arrow_button.dart';
 import '../../../../../core/locale/app_locale_key.dart';
 import '../../../../../core/routes/routes_name.dart';
+import '../../controller/owner_registration_draft_cubit.dart';
 import '../../controller/selected_units_review_cubit.dart';
 import 'registration_sticky_footer.dart';
 
@@ -20,10 +21,11 @@ class SelectedUnitsReviewBottomBar extends StatelessWidget {
         builder: (context, canContinue) => PrimaryArrowButton(
           text: AppLocaleKey.continue_.tr(),
           isEnabled: canContinue,
-          onPressed: () => context.pushNamed(
-            RouteNames.ownershipDetails,
-            extra: context.read<SelectedUnitsReviewCubit>().state.units,
-          ),
+          onPressed: () {
+            final units = context.read<SelectedUnitsReviewCubit>().state.units;
+            context.read<OwnerRegistrationDraftCubit>().saveUnits(units);
+            context.pushNamed(RouteNames.ownershipDetails, extra: units);
+          },
         ),
       ),
     );

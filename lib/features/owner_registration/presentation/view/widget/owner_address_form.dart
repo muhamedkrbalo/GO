@@ -102,6 +102,7 @@ class _OwnerAddressFormState extends State<OwnerAddressForm> with ValidationMixi
               ),
               RegistrationTextField(
                 controller: _districtController,
+                onChanged: cubit.districtChanged,
                 title: AppLocaleKey.areaDistrict.tr(),
                 hintText: AppLocaleKey.enterDistrictOrArea.tr(),
               ),
