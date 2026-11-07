@@ -25,6 +25,8 @@ class RegistrationTextField extends StatelessWidget {
     this.onTap,
     this.textDirection,
     this.enabled = true,
+    this.minLines,
+    this.maxLines = 1,
   });
 
   final String title;
@@ -42,6 +44,8 @@ class RegistrationTextField extends StatelessWidget {
   final VoidCallback? onTap;
   final ui.TextDirection? textDirection;
   final bool enabled;
+  final int? minLines;
+  final int? maxLines;
 
   static const _borderWidth = 1.0;
   static const _titleGap = 7.0;
@@ -72,6 +76,8 @@ class RegistrationTextField extends StatelessWidget {
           onTap: onTap,
           textDirection: textDirection,
           enabled: enabled,
+          minLines: minLines,
+          maxLines: maxLines,
           fillColor: enabled ? null : colors.selectedSurface,
           borderWidth: _borderWidth,
           borderColor: colors.subtleBorder,

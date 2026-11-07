@@ -13,11 +13,13 @@ class PrimaryArrowButton extends StatelessWidget {
     required this.text,
     required this.isEnabled,
     required this.onPressed,
+    this.textStyle = AppTextStyles.sBold,
   });
 
   final String text;
   final bool isEnabled;
   final VoidCallback? onPressed;
+  final TextStyle textStyle;
 
   static const _height = 52.0;
   static const _radius = 12.0;
@@ -37,7 +39,7 @@ class PrimaryArrowButton extends StatelessWidget {
       isEnabled: isEnabled,
       disabledColor: colors.subtleBorder,
       disabledBorderColor: colors.subtleBorder,
-      style: AppTextStyles.sBold.copyWith(color: foreground, height: _textHeight),
+      style: textStyle.copyWith(color: foreground, height: _textHeight),
       suffixIcon: Padding(
         padding: const EdgeInsetsDirectional.only(start: AppSpacing.xs5),
         child: SvgPicture.asset(

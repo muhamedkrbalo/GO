@@ -1,87 +1,56 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../../core/images/app_images.dart';
 import '../../../../../core/locale/app_locale_key.dart';
 import '../../../../../core/theme/app_sizes.dart';
 import '../../../../../core/theme/extensions/theme_extensions.dart';
-import '../../controller/ownership_details_cubit.dart';
+import '../widget/owner_registration_step_header.dart';
 import '../widget/ownership_details_bottom_bar.dart';
-import '../widget/ownership_details_header.dart';
-import '../widget/ownership_details_intro.dart';
-import '../widget/ownership_unit_card.dart';
-import '../widget/registration_progress_header.dart';
-import '../widget/review_notice.dart';
-import '../widget/selected_units_summary.dart';
+import '../widget/ownership_details_form.dart';
+import '../widget/registration_intro.dart';
+import '../widget/unit_info_strip.dart';
+import '../widget/unit_tabs_card.dart';
 
 class OwnershipDetailsScreen extends StatelessWidget {
   const OwnershipDetailsScreen({super.key});
 
-  static const _step = 5;
-  static const _progress = 0.8;
-  static const _introPadding = EdgeInsets.fromLTRB(20, 24, 20, 0);
-  static const _listPadding = EdgeInsets.symmetric(horizontal: 20);
-  static const _noticePadding = EdgeInsets.fromLTRB(20, 16, 20, 24);
+  static const _step = 6;
+  static const _stepCount = 8;
+  static const _progress = 0.75;
+  static const _contentPadding = EdgeInsetsDirectional.fromSTEB(20, 24, 20, 28);
+  static const _formGap = SizedBox(height: 22);
 
   @override
   Widget build(BuildContext context) {
-    final units = context.read<OwnershipDetailsCubit>().state.units;
-
     return Scaffold(
       backgroundColor: context.customColors.canvas,
       bottomNavigationBar: const OwnershipDetailsBottomBar(),
-      body: SafeArea(
-        bottom: false,
-        child: Column(
-          children: [
-            RegistrationProgressHeader(
-              step: _step,
-              progress: _progress,
-              completedLabel: AppLocaleKey.unitsSelectedComplete.tr(),
+      body: Column(
+        children: [
+          OwnerRegistrationStepHeader(
+            stepLabel: AppLocaleKey.stepXOfY.tr(args: ['$_step', '$_stepCount']),
+            progress: _progress,
+          ),
+          Expanded(
+            child: ListView(
+              padding: _contentPadding,
+              keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
+              children: [
+                RegistrationIntro(
+                  eyebrow: AppLocaleKey.perUnitDetails.tr(),
+                  title: AppLocaleKey.ownershipInformation.tr(),
+                  subtitle: AppLocaleKey.ownershipInformationDescription.tr(),
+                ),
+                AppSpacing.gapV20,
+                const UnitTabsCard(),
+                AppSpacing.gapV12,
+                const UnitInfoStrip(),
+                _formGap,
+                const OwnershipDetailsForm(),
+              ],
             ),
-            Expanded(
-              child: CustomScrollView(
-                slivers: [
-                  SliverPadding(
-                    padding: _introPadding,
-                    sliver: SliverList.list(
-                      children: [
-                        const OwnershipDetailsIntro(),
-                        AppSpacing.gapV20,
-                        SelectedUnitsSummary(units: units),
-                        AppSpacing.gapV20,
-                        const OwnershipDetailsHeader(),
-                        AppSpacing.gapV10,
-                      ],
-                    ),
-                  ),
-                  SliverPadding(
-                    padding: _listPadding,
-                    sliver: SliverList.separated(
-                      itemCount: units.length,
-                      separatorBuilder: (_, _) => AppSpacing.gapV12,
-                      itemBuilder: (context, index) => OwnershipUnitCard(
-                        key: ValueKey(units[index].id),
-                        unit: units[index],
-                        initiallyExpanded: index == 0,
-                      ),
-                    ),
-                  ),
-                  SliverPadding(
-                    padding: _noticePadding,
-                    sliver: SliverToBoxAdapter(
-                      child: ReviewNotice(
-                        icon: AppImages.assetsSvgShieldCheck,
-                        message: AppLocaleKey.ownershipReviewNotice.tr(),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

@@ -3,11 +3,18 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../data/model/owner_unit.dart';
 import '../../data/model/ownership_type.dart';
+import '../../data/model/unit_details_status.dart';
 
 part 'ownership_details_state.dart';
 
 class OwnershipDetailsCubit extends Cubit<OwnershipDetailsState> {
-  OwnershipDetailsCubit(List<OwnerUnit> units) : super(OwnershipDetailsState(units: units));
+  OwnershipDetailsCubit(List<OwnerUnit> units)
+    : super(OwnershipDetailsState(units: List.unmodifiable(units)));
+
+  void selectUnit(int index) {
+    if (index == state.activeIndex || index < 0 || index >= state.units.length) return;
+    emit(state.copyWith(activeIndex: index));
+  }
 
   void setType(String unitId, OwnershipType type) {
     _update(unitId, (details) => details.copyWith(type: type));
@@ -17,11 +24,40 @@ class OwnershipDetailsCubit extends Cubit<OwnershipDetailsState> {
     _update(unitId, (details) => details.copyWith(date: date));
   }
 
+  void setDocumentNumber(String unitId, String value) {
+    _update(unitId, (details) => details.copyWith(documentNumber: value));
+  }
+
+  void setDocumentDate(String unitId, DateTime date) {
+    _update(unitId, (details) => details.copyWith(documentDate: date));
+  }
+
+  void setNotes(String unitId, String value) {
+    _update(unitId, (details) => details.copyWith(notes: value));
+  }
+
+  void saveActiveUnit() {
+    if (!state.canSaveActive) return;
+    final unitId = state.activeUnit.id;
+    if (state.savedIds.contains(unitId)) return;
+    emit(state.copyWith(savedIds: {...state.savedIds, unitId}));
+  }
+
+  void continueToNextUnit() {
+    saveActiveUnit();
+    if (!state.savedIds.contains(state.activeUnit.id)) return;
+    final next = state.nextPendingIndex;
+    if (next != null) emit(state.copyWith(activeIndex: next));
+  }
+
   void _update(String unitId, UnitOwnership Function(UnitOwnership details) change) {
+    final current = state.detailsOf(unitId);
+    final updated = change(current);
+    if (updated == current) return;
     emit(
-      OwnershipDetailsState(
-        units: state.units,
-        details: {...state.details, unitId: change(state.detailsOf(unitId))},
+      state.copyWith(
+        details: {...state.details, unitId: updated},
+        savedIds: {...state.savedIds}..remove(unitId),
       ),
     );
   }
