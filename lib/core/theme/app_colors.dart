@@ -39,6 +39,7 @@ class AppColors {
   static const oceanBlue = Color(0xff087EAF);
   static const deepCyan = Color(0xff155E75);
   static const iceBlue = Color(0xffEEF8FB);
+  static const cream = Color(0xffFFF8EB);
 
   // neutrals
   static const white = Color(0xffffffff);

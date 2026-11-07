@@ -70,6 +70,7 @@ class CustomColors extends ThemeExtension<CustomColors> {
     required this.oceanAccent,
     required this.oceanText,
     required this.iconTileSurface,
+    required this.goldSurface,
   });
 
   static const light = CustomColors(
@@ -134,6 +135,7 @@ class CustomColors extends ThemeExtension<CustomColors> {
     oceanAccent: AppColors.oceanBlue,
     oceanText: AppColors.deepCyan,
     iconTileSurface: AppColors.iceBlue,
+    goldSurface: AppColors.cream,
   );
 
   static const dark = CustomColors(
@@ -198,6 +200,7 @@ class CustomColors extends ThemeExtension<CustomColors> {
     oceanAccent: AppColors.darkInfo,
     oceanText: AppColors.darkInfo,
     iconTileSurface: AppColors.darkSurfaceVariant,
+    goldSurface: AppColors.darkWarningSurface,
   );
 
   /// Strong text: titles, form labels, input text.
@@ -278,6 +281,7 @@ class CustomColors extends ThemeExtension<CustomColors> {
   final Color oceanAccent;
   final Color oceanText;
   final Color iconTileSurface;
+  final Color goldSurface;
 
   @override
   CustomColors copyWith({
@@ -342,6 +346,7 @@ class CustomColors extends ThemeExtension<CustomColors> {
     Color? oceanAccent,
     Color? oceanText,
     Color? iconTileSurface,
+    Color? goldSurface,
   }) {
     return CustomColors(
       textPrimary: textPrimary ?? this.textPrimary,
@@ -405,6 +410,7 @@ class CustomColors extends ThemeExtension<CustomColors> {
       oceanAccent: oceanAccent ?? this.oceanAccent,
       oceanText: oceanText ?? this.oceanText,
       iconTileSurface: iconTileSurface ?? this.iconTileSurface,
+      goldSurface: goldSurface ?? this.goldSurface,
     );
   }
 
@@ -473,6 +479,7 @@ class CustomColors extends ThemeExtension<CustomColors> {
       oceanAccent: Color.lerp(oceanAccent, other.oceanAccent, t)!,
       oceanText: Color.lerp(oceanText, other.oceanText, t)!,
       iconTileSurface: Color.lerp(iconTileSurface, other.iconTileSurface, t)!,
+      goldSurface: Color.lerp(goldSurface, other.goldSurface, t)!,
     );
   }
 }

@@ -13,6 +13,7 @@ abstract final class RoutePaths {
   static const String companyInfo = '/company-info';
   static const String ownerAddress = '/owner-address';
   static const String unitSelection = '/unit-selection';
+  static const String selectedUnitsReview = '/selected-units-review';
   static const String ownershipDetails = '/ownership-details';
   static const String ownerDocuments = '/owner-documents';
   static const String home = '/home';
@@ -34,6 +35,7 @@ abstract final class RouteNames {
   static const String companyInfo = 'companyInfo';
   static const String ownerAddress = 'ownerAddress';
   static const String unitSelection = 'unitSelection';
+  static const String selectedUnitsReview = 'selectedUnitsReview';
   static const String ownershipDetails = 'ownershipDetails';
   static const String ownerDocuments = 'ownerDocuments';
   static const String home = 'home';

@@ -54,6 +54,15 @@ void main() {
     expect(cubit.state.selectedIds, isEmpty);
   });
 
+  test('keepSelected drops units removed during review and ignores unknown ids', () {
+    cubit
+      ..toggleUnit(unit('unit-204'))
+      ..toggleUnit(unit('cabin-06'))
+      ..keepSelected(['cabin-06', 'villa-08']);
+
+    expect(cubit.state.selectedIds, {'cabin-06'});
+  });
+
   test('view selected shows only selected units and turns off when nothing is selected', () {
     cubit
       ..toggleUnit(unit('unit-204'))

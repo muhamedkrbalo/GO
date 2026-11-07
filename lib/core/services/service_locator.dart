@@ -15,6 +15,7 @@ import '../../features/owner_registration/presentation/controller/owner_address_
 import '../../features/owner_registration/presentation/controller/owner_documents_cubit.dart';
 import '../../features/owner_registration/presentation/controller/owner_type_cubit.dart';
 import '../../features/owner_registration/presentation/controller/ownership_details_cubit.dart';
+import '../../features/owner_registration/presentation/controller/selected_units_review_cubit.dart';
 import '../../features/owner_registration/presentation/controller/unit_selection_cubit.dart';
 import '../../features/splash/data/repository/splash_repository.dart';
 import '../../features/splash/presentation/controller/splash_cubit.dart';
@@ -97,6 +98,9 @@ void _initOwnerRegistration() {
   sl.registerFactory<CompanyInfoCubit>(CompanyInfoCubit.new);
   sl.registerFactory<OwnerAddressCubit>(OwnerAddressCubit.new);
   sl.registerFactory<UnitSelectionCubit>(() => UnitSelectionCubit(sampleUnits));
+  sl.registerFactoryParam<SelectedUnitsReviewCubit, List<OwnerUnit>, void>(
+    (units, _) => SelectedUnitsReviewCubit(units),
+  );
   sl.registerFactoryParam<OwnershipDetailsCubit, List<OwnerUnit>, void>(
     (units, _) => OwnershipDetailsCubit(units),
   );

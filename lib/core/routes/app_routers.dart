@@ -25,6 +25,7 @@ import '../../features/owner_registration/presentation/controller/owner_address_
 import '../../features/owner_registration/presentation/controller/owner_documents_cubit.dart';
 import '../../features/owner_registration/presentation/controller/owner_type_cubit.dart';
 import '../../features/owner_registration/presentation/controller/ownership_details_cubit.dart';
+import '../../features/owner_registration/presentation/controller/selected_units_review_cubit.dart';
 import '../../features/owner_registration/presentation/controller/unit_selection_cubit.dart';
 import '../../features/owner_registration/presentation/view/screen/company_info_screen.dart';
 import '../../features/owner_registration/presentation/view/screen/individual_info_screen.dart';
@@ -32,6 +33,7 @@ import '../../features/owner_registration/presentation/view/screen/owner_address
 import '../../features/owner_registration/presentation/view/screen/owner_documents_screen.dart';
 import '../../features/owner_registration/presentation/view/screen/owner_type_screen.dart';
 import '../../features/owner_registration/presentation/view/screen/ownership_details_screen.dart';
+import '../../features/owner_registration/presentation/view/screen/selected_units_review_screen.dart';
 import '../../features/owner_registration/presentation/view/screen/unit_selection_screen.dart';
 import '../../features/splash/presentation/view/screen/splash_screen.dart';
 import '../auth/auth_session.dart';
@@ -154,6 +156,16 @@ class AppRouters {
         ),
       ),
       GoRoute(
+        path: RoutePaths.selectedUnitsReview,
+        name: RouteNames.selectedUnitsReview,
+        redirect: (context, state) =>
+            state.extra is List<OwnerUnit> ? null : RoutePaths.unitSelection,
+        builder: (context, state) => BlocProvider(
+          create: (_) => sl<SelectedUnitsReviewCubit>(param1: state.extra! as List<OwnerUnit>),
+          child: const SelectedUnitsReviewScreen(),
+        ),
+      ),
+      GoRoute(
         path: RoutePaths.ownershipDetails,
         name: RouteNames.ownershipDetails,
         redirect: (context, state) =>
@@ -205,6 +217,7 @@ class AppRouters {
     RoutePaths.companyInfo,
     RoutePaths.ownerAddress,
     RoutePaths.unitSelection,
+    RoutePaths.selectedUnitsReview,
     RoutePaths.ownershipDetails,
     RoutePaths.ownerDocuments,
   };

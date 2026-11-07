@@ -36,6 +36,12 @@ class UnitSelectionCubit extends Cubit<UnitSelectionState> {
 
   void toggleShowSelectedOnly() => _apply(showSelectedOnly: !state.showSelectedOnly);
 
+  void keepSelected(Iterable<String> unitIds) {
+    final selectedIds = state.selectedIds.intersection(unitIds.toSet());
+    if (selectedIds.length == state.selectedIds.length) return;
+    _apply(selectedIds: selectedIds);
+  }
+
   void _apply({
     String? query,
     Object? village = _keep,

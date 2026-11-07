@@ -848,6 +848,17 @@ class AppLocaleKey {
   static const selectedUnits = 'selectedUnits';
   static const cantFindYourUnit = 'cantFindYourUnit';
   static const availableForRegistrationReview = 'availableForRegistrationReview';
+  static const selectionReview = 'selectionReview';
+  static const reviewSelectedUnits = 'reviewSelectedUnits';
+  static const reviewSelectedUnitsDescription = 'reviewSelectedUnitsDescription';
+  static const totalSelectedUnits = 'totalSelectedUnits';
+  static const villages = 'villages';
+  static const buildings = 'buildings';
+  static const selected = 'selected';
+  static const ownershipVerificationStatus = 'ownershipVerificationStatus';
+  static const notSubmitted = 'notSubmitted';
+  static const remove = 'remove';
+  static const noSelectedUnits = 'noSelectedUnits';
   static const apartment = 'apartment';
   static const villa = 'villa';
   static const chalet = 'chalet';

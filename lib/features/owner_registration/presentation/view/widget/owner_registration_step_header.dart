@@ -14,12 +14,14 @@ class OwnerRegistrationStepHeader extends StatelessWidget {
     required this.progress,
     this.stepTitle,
     this.stepHint,
+    this.onBack,
   });
 
   final String stepLabel;
   final double progress;
   final String? stepTitle;
   final String? stepHint;
+  final VoidCallback? onBack;
 
   static const _padding = EdgeInsetsDirectional.fromSTEB(24, 12, 24, 16);
   static const _backgroundOpacity = 0.95;
@@ -51,9 +53,9 @@ class OwnerRegistrationStepHeader extends StatelessWidget {
                 child: Stack(
                   alignment: Alignment.center,
                   children: [
-                    const Align(
+                    Align(
                       alignment: AlignmentDirectional.centerStart,
-                      child: HeaderBackButton(),
+                      child: HeaderBackButton(onPressed: onBack),
                     ),
                     Padding(
                       padding: const EdgeInsetsDirectional.symmetric(horizontal: _titleSidePadding),

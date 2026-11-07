@@ -6,74 +6,47 @@ import 'package:go_router/go_router.dart';
 import '../../../../../core/custom_widgets/buttons/primary_arrow_button.dart';
 import '../../../../../core/locale/app_locale_key.dart';
 import '../../../../../core/routes/routes_name.dart';
-import '../../../../../core/theme/app_shadows.dart';
 import '../../../../../core/theme/app_sizes.dart';
 import '../../../../../core/theme/app_text_styles.dart';
 import '../../../../../core/theme/extensions/theme_extensions.dart';
+import '../../../data/model/owner_unit.dart';
 import '../../controller/unit_selection_cubit.dart';
+import 'registration_sticky_footer.dart';
 
 class UnitSelectionBottomBar extends StatelessWidget {
   const UnitSelectionBottomBar({super.key});
 
-  static const _padding = EdgeInsetsDirectional.fromSTEB(20, 10, 20, 4);
-  static const _backgroundOpacity = 0.97;
+  static const _topPadding = 10.0;
   static const _buttonGap = SizedBox(height: 9);
-  static const _exitMinSize = Size(0, 44);
-  static const _textHeight = 1.5;
+
+  Future<void> _review(BuildContext context) async {
+    final cubit = context.read<UnitSelectionCubit>();
+    final remaining = await context.pushNamed<List<OwnerUnit>>(
+      RouteNames.selectedUnitsReview,
+      extra: cubit.state.selectedUnits,
+    );
+    if (remaining == null || cubit.isClosed) return;
+    cubit.keepSelected(remaining.map((unit) => unit.id));
+  }
 
   @override
   Widget build(BuildContext context) {
-    final colors = context.customColors;
-
-    return DecoratedBox(
-      decoration: BoxDecoration(
-        color: colors.surface.withValues(alpha: _backgroundOpacity),
-        border: Border(top: BorderSide(color: colors.subtleBorder)),
-        boxShadow: AppShadows.stickyFooter,
-      ),
-      child: SafeArea(
-        top: false,
-        child: Padding(
-          padding: _padding,
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              BlocSelector<UnitSelectionCubit, UnitSelectionState, int>(
-                selector: (state) => state.selectedCount,
-                builder: (context, selectedCount) => Column(
-                  mainAxisSize: MainAxisSize.min,
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    _SelectedUnitsCount(count: selectedCount),
-                    _buttonGap,
-                    PrimaryArrowButton(
-                      text: AppLocaleKey.continue_.tr(),
-                      isEnabled: selectedCount > 0,
-                      onPressed: () => context.pushNamed(
-                        RouteNames.ownershipDetails,
-                        extra: context.read<UnitSelectionCubit>().state.selectedUnits,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Align(
-                alignment: AlignmentDirectional.centerStart,
-                child: TextButton(
-                  onPressed: () => context.goNamed(RouteNames.welcome),
-                  style: TextButton.styleFrom(
-                    minimumSize: _exitMinSize,
-                    padding: EdgeInsets.zero,
-                    tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                    foregroundColor: colors.textPrimary,
-                    textStyle: AppTextStyles.xsBold.copyWith(height: _textHeight),
-                  ),
-                  child: Text(AppLocaleKey.saveAndExit.tr()),
-                ),
-              ),
-            ],
-          ),
+    return RegistrationStickyFooter(
+      topPadding: _topPadding,
+      child: BlocSelector<UnitSelectionCubit, UnitSelectionState, int>(
+        selector: (state) => state.selectedCount,
+        builder: (context, selectedCount) => Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            _SelectedUnitsCount(count: selectedCount),
+            _buttonGap,
+            PrimaryArrowButton(
+              text: AppLocaleKey.continue_.tr(),
+              isEnabled: selectedCount > 0,
+              onPressed: () => _review(context),
+            ),
+          ],
         ),
       ),
     );
