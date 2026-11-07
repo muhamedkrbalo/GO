@@ -2,51 +2,23 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../../core/custom_widgets/buttons/header_back_button.dart';
 import '../../../../../core/locale/app_locale_key.dart';
 import '../../../../../core/theme/app_sizes.dart';
 import '../../../../../core/theme/app_text_styles.dart';
 import '../../../../../core/theme/extensions/theme_extensions.dart';
 import '../../controller/registration_status_cubit.dart';
+import 'centered_title_header.dart';
 
 class RegistrationStatusHeader extends StatelessWidget {
   const RegistrationStatusHeader({super.key});
 
-  static const _height = 72.0;
-  static const _padding = EdgeInsetsDirectional.only(start: 22, end: 20);
-  static const _backgroundOpacity = 0.96;
-  static const _textHeight = 1.5;
-
   @override
   Widget build(BuildContext context) {
-    final colors = context.customColors;
-
-    return DecoratedBox(
-      decoration: BoxDecoration(
-        color: colors.surface.withValues(alpha: _backgroundOpacity),
-        border: Border(bottom: BorderSide(color: colors.subtleBorder)),
-      ),
-      child: SafeArea(
-        bottom: false,
-        child: SizedBox(
-          height: _height,
-          child: Padding(
-            padding: _padding,
-            child: NavigationToolbar(
-              leading: const HeaderBackButton(),
-              middle: Text(
-                AppLocaleKey.myOwnerRegistration.tr(),
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-                style: AppTextStyles.sBold.copyWith(color: colors.textPrimary, height: _textHeight),
-              ),
-              trailing: BlocSelector<RegistrationStatusCubit, RegistrationStatusState, int>(
-                selector: (state) => state.updateCount,
-                builder: (context, count) => _UpdatesIndicator(count: count),
-              ),
-            ),
-          ),
-        ),
+    return CenteredTitleHeader(
+      title: AppLocaleKey.myOwnerRegistration.tr(),
+      trailing: BlocSelector<RegistrationStatusCubit, RegistrationStatusState, int>(
+        selector: (state) => state.updateCount,
+        builder: (context, count) => _UpdatesIndicator(count: count),
       ),
     );
   }

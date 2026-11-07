@@ -20,6 +20,7 @@ import '../../features/onboarding/presentation/view/screen/onboarding_screen.dar
 import '../../features/onboarding/presentation/view/screen/welcome_screen.dart';
 import '../../features/owner_registration/data/model/owner_unit.dart';
 import '../../features/owner_registration/data/model/registration_receipt.dart';
+import '../../features/owner_registration/data/model/unit_review.dart';
 import '../../features/owner_registration/presentation/controller/company_info_cubit.dart';
 import '../../features/owner_registration/presentation/controller/individual_info_cubit.dart';
 import '../../features/owner_registration/presentation/controller/owner_address_cubit.dart';
@@ -41,6 +42,7 @@ import '../../features/owner_registration/presentation/view/screen/registration_
 import '../../features/owner_registration/presentation/view/screen/registration_status_screen.dart';
 import '../../features/owner_registration/presentation/view/screen/selected_units_review_screen.dart';
 import '../../features/owner_registration/presentation/view/screen/submission_confirmation_screen.dart';
+import '../../features/owner_registration/presentation/view/screen/unit_review_details_screen.dart';
 import '../../features/owner_registration/presentation/view/screen/unit_selection_screen.dart';
 import '../../features/splash/presentation/view/screen/splash_screen.dart';
 import '../auth/auth_session.dart';
@@ -221,6 +223,12 @@ class AppRouters {
         ),
       ),
       GoRoute(
+        path: RoutePaths.unitReviewDetails,
+        name: RouteNames.unitReviewDetails,
+        redirect: (context, state) => state.extra is UnitReview ? null : RoutePaths.home,
+        builder: (context, state) => UnitReviewDetailsScreen(review: state.extra! as UnitReview),
+      ),
+      GoRoute(
         path: RoutePaths.home,
         name: RouteNames.home,
         builder: (context, state) => const HomeScreen(),
@@ -258,6 +266,7 @@ class AppRouters {
     RoutePaths.registrationReview,
     RoutePaths.registrationSubmitted,
     RoutePaths.registrationStatus,
+    RoutePaths.unitReviewDetails,
   };
 
   /// Login gating, in one place:

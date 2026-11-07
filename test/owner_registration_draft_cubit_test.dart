@@ -133,6 +133,8 @@ void main() {
       expect(receipt?.referenceNumber, 'GO-OWNER-${submittedAt.millisecondsSinceEpoch}');
       expect(receipt?.submittedAt, submittedAt);
       expect(receipt?.unitCount, units.length);
+      expect(receipt?.units.first.ownershipType, OwnershipType.sole);
+      expect(receipt?.units.first.documents, [file]);
     });
 
     test('submitting twice keeps the first receipt', () {

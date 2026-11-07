@@ -3,6 +3,7 @@ import 'package:equatable/equatable.dart';
 import '../../../../core/locale/app_locale_key.dart';
 import 'owner_unit.dart';
 import 'ownership_type.dart';
+import 'submitted_unit.dart';
 
 enum UnitReviewStatus {
   underReview(AppLocaleKey.underReview, AppLocaleKey.unitUnderReviewMessage),
@@ -46,21 +47,36 @@ enum OverallReviewStatus {
   final String labelKey;
 }
 
-class UnitReview extends Equatable {
-  const UnitReview({
-    required this.unit,
-    required this.status,
-    required this.submittedAt,
-    this.ownershipType,
-    this.hasUpdate = false,
-  });
+class ReviewTimelineEvent extends Equatable {
+  const ReviewTimelineEvent({required this.titleKey, required this.date, required this.isComplete});
 
-  final OwnerUnit unit;
-  final UnitReviewStatus status;
-  final DateTime submittedAt;
-  final OwnershipType? ownershipType;
-  final bool hasUpdate;
+  final String titleKey;
+  final DateTime date;
+  final bool isComplete;
 
   @override
-  List<Object?> get props => [unit, status, submittedAt, ownershipType, hasUpdate];
+  List<Object?> get props => [titleKey, date, isComplete];
+}
+
+class UnitReview extends Equatable {
+  const UnitReview({
+    required this.submission,
+    required this.status,
+    required this.submittedAt,
+    this.hasUpdate = false,
+    this.timeline = const [],
+  });
+
+  final SubmittedUnit submission;
+  final UnitReviewStatus status;
+  final DateTime submittedAt;
+  final bool hasUpdate;
+  final List<ReviewTimelineEvent> timeline;
+
+  OwnerUnit get unit => submission.unit;
+
+  OwnershipType? get ownershipType => submission.ownershipType;
+
+  @override
+  List<Object?> get props => [submission, status, submittedAt, hasUpdate, timeline];
 }

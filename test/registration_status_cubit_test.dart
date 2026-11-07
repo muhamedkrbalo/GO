@@ -1,7 +1,9 @@
+import 'package:flutter_hr_erb/features/owner_registration/data/model/owner_document.dart';
 import 'package:flutter_hr_erb/features/owner_registration/data/model/ownership_type.dart';
 import 'package:flutter_hr_erb/features/owner_registration/data/model/registration_receipt.dart';
 import 'package:flutter_hr_erb/features/owner_registration/data/model/sample_unit_reviews.dart';
 import 'package:flutter_hr_erb/features/owner_registration/data/model/sample_units.dart';
+import 'package:flutter_hr_erb/features/owner_registration/data/model/submitted_unit.dart';
 import 'package:flutter_hr_erb/features/owner_registration/data/model/unit_review.dart';
 import 'package:flutter_hr_erb/features/owner_registration/presentation/controller/registration_status_cubit.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -9,15 +11,21 @@ import 'package:flutter_test/flutter_test.dart';
 void main() {
   final submittedAt = DateTime(2026, 11, 3);
   final units = [sampleUnits[0], sampleUnits[3], sampleUnits[5], sampleUnits[7]];
+  const document = UploadedDocument(name: 'contract.pdf', sizeInBytes: 2048);
   final receipt = RegistrationReceipt.issue(
     submittedAt: submittedAt,
-    units: units,
-    ownershipTypes: {units[0].id: OwnershipType.sole},
+    units: [
+      SubmittedUnit(unit: units[0], ownershipType: OwnershipType.sole, documents: const [document]),
+      for (final unit in units.skip(1)) SubmittedUnit(unit: unit),
+    ],
   );
   late RegistrationStatusCubit cubit;
 
-  UnitReview review(int index, UnitReviewStatus status) =>
-      UnitReview(unit: units[index], status: status, submittedAt: submittedAt);
+  UnitReview review(int index, UnitReviewStatus status) => UnitReview(
+    submission: SubmittedUnit(unit: units[index]),
+    status: status,
+    submittedAt: submittedAt,
+  );
 
   setUp(
     () => cubit = RegistrationStatusCubit(receipt: receipt, reviews: prototypeUnitReviews(receipt)),
@@ -33,6 +41,15 @@ void main() {
     expect(reviews[1].ownershipType, isNull);
     expect(reviews.map((review) => review.status), UnitReviewStatus.values);
     expect(cubit.state.updateCount, 2);
+  });
+
+  test('timeline marks the final step pending only while the unit is under review', () {
+    final reviews = cubit.state.reviews;
+
+    expect(reviews.first.timeline.map((event) => event.isComplete), [true, true, false]);
+    expect(reviews[2].timeline.last.isComplete, isTrue);
+    expect(reviews.first.timeline.last.date, submittedAt.add(const Duration(days: 2)));
+    expect(reviews.first.submission.documents.single.name, 'contract.pdf');
   });
 
   test('filters narrow the visible reviews and All shows everything again', () {
