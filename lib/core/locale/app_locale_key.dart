@@ -742,7 +742,6 @@ class AppLocaleKey {
   static const companyOwnerOption = 'companyOwnerOption';
   static const selectionDefinesNextStepNote = 'selectionDefinesNextStepNote';
   static const reviewBeforeSubmitting = 'reviewBeforeSubmitting';
-  static const stepOfOwnerRegistration = 'stepOfOwnerRegistration';
   static const ownerTypeSelected = 'ownerTypeSelected';
   static const individualOwner = 'individualOwner';
   static const yourPersonalInformation = 'yourPersonalInformation';
@@ -805,7 +804,6 @@ class AppLocaleKey {
   static const female = 'female';
   static const businessContact = 'businessContact';
   static const businessContactDescription = 'businessContactDescription';
-  static const back = 'back';
   static const ownerDetailsComplete = 'ownerDetailsComplete';
   static const businessEntityAddress = 'businessEntityAddress';
   static const whereAreYouBased = 'whereAreYouBased';
@@ -872,6 +870,19 @@ class AppLocaleKey {
   static const addAdditionalDetails = 'addAdditionalDetails';
   static const saveUnitDetails = 'saveUnitDetails';
   static const continueToNextUnit = 'continueToNextUnit';
+  static const verificationFiles = 'verificationFiles';
+  static const uploadRequiredDocuments = 'uploadRequiredDocuments';
+  static const nationalIdOrIdentityDocument = 'nationalIdOrIdentityDocument';
+  static const additionalIdentityDocument = 'additionalIdentityDocument';
+  static const purchaseContract = 'purchaseContract';
+  static const allocationDocument = 'allocationDocument';
+  static const ownershipCertificate = 'ownershipCertificate';
+  static const unitDocuments = 'unitDocuments';
+  static const overallStatus = 'overallStatus';
+  static const uploadedCount = 'uploadedCount';
+  static const unitWithVillage = 'unitWithVillage';
+  static const missing = 'missing';
+  static const uploaded = 'uploaded';
   static const apartment = 'apartment';
   static const villa = 'villa';
   static const chalet = 'chalet';
@@ -891,16 +902,11 @@ class AppLocaleKey {
   static const jointOwnership = 'jointOwnership';
   static const inheritedOwnership = 'inheritedOwnership';
   static const continueToDocuments = 'continueToDocuments';
-  static const ownershipDetailsComplete = 'ownershipDetailsComplete';
-  static const documentVerification = 'documentVerification';
-  static const uploadYourDocuments = 'uploadYourDocuments';
   static const uploadDocumentsDescription = 'uploadDocumentsDescription';
   static const ownerDocuments = 'ownerDocuments';
   static const ownerDocumentsDescription = 'ownerDocumentsDescription';
   static const unitOwnershipDocuments = 'unitOwnershipDocuments';
   static const unitOwnershipDocumentsDescription = 'unitOwnershipDocumentsDescription';
-  static const nationalIdOrPassport = 'nationalIdOrPassport';
-  static const additionalSupportingDocument = 'additionalSupportingDocument';
   static const ownershipContract = 'ownershipContract';
   static const requiredBadge = 'requiredBadge';
   static const uploadDocument = 'uploadDocument';
@@ -908,7 +914,6 @@ class AppLocaleKey {
   static const documentsRequired = 'documentsRequired';
   static const readyForReview = 'readyForReview';
   static const documentsReviewNotice = 'documentsReviewNotice';
-  static const continueToReview = 'continueToReview';
   static const documentTooLarge = 'documentTooLarge';
   static const removeDocument = 'removeDocument';
 }

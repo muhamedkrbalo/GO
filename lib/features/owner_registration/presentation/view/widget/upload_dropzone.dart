@@ -5,7 +5,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 import '../../../../../core/custom_widgets/dotted_decoration/dotted_decoration.dart';
 import '../../../../../core/images/app_images.dart';
 import '../../../../../core/locale/app_locale_key.dart';
-import '../../../../../core/theme/app_sizes.dart';
 import '../../../../../core/theme/app_text_styles.dart';
 import '../../../../../core/theme/extensions/theme_extensions.dart';
 
@@ -14,48 +13,78 @@ class UploadDropzone extends StatelessWidget {
 
   final VoidCallback onTap;
 
-  static const _height = 40.8;
-  static const _radius = BorderRadius.all(Radius.circular(10.4));
-  static const _borderWidth = 1.6;
-  static const _dash = [5, 4];
-  static const _iconSize = 16.0;
+  static const _radius = BorderRadius.all(Radius.circular(10));
+  static const _padding = EdgeInsetsDirectional.symmetric(horizontal: 10, vertical: 16);
+  static const _dash = [4, 3];
+  static const _tileSize = 34.0;
+  static const _tileRadius = BorderRadius.all(Radius.circular(9));
+  static const _iconSize = 18.0;
+  static const _titleGap = SizedBox(height: 8);
+  static const _hintGap = SizedBox(height: 4);
+  static const _textHeight = 1.5;
 
   @override
   Widget build(BuildContext context) {
     final colors = context.customColors;
 
-    return Material(
-      color: colors.selectedSurface,
-      borderRadius: _radius,
-      child: InkWell(
-        onTap: onTap,
+    return Semantics(
+      button: true,
+      child: Material(
+        color: colors.canvas,
         borderRadius: _radius,
-        child: DecoratedBox(
-          position: DecorationPosition.foreground,
-          decoration: DottedDecoration(
-            shape: Shape.box,
-            borderRadius: _radius,
-            color: colors.hint,
-            dash: _dash,
-            strokeWidth: _borderWidth,
-          ),
-          child: SizedBox(
-            height: _height,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                SvgPicture.asset(
-                  AppImages.assetsSvgUpload,
-                  width: _iconSize,
-                  height: _iconSize,
-                  colorFilter: ColorFilter.mode(colors.accentText, BlendMode.srcIn),
-                ),
-                AppSpacing.gapH5,
-                Text(
-                  AppLocaleKey.uploadDocument.tr(),
-                  style: AppTextStyles.xxxsBold.copyWith(color: colors.accentText),
-                ),
-              ],
+        child: InkWell(
+          onTap: onTap,
+          borderRadius: _radius,
+          child: DecoratedBox(
+            position: DecorationPosition.foreground,
+            decoration: DottedDecoration(
+              shape: Shape.box,
+              borderRadius: _radius,
+              color: colors.border,
+              dash: _dash,
+            ),
+            child: Padding(
+              padding: _padding,
+              child: Column(
+                children: [
+                  DecoratedBox(
+                    decoration: BoxDecoration(
+                      color: colors.iconTileSurface,
+                      borderRadius: _tileRadius,
+                    ),
+                    child: SizedBox.square(
+                      dimension: _tileSize,
+                      child: Center(
+                        child: SvgPicture.asset(
+                          AppImages.assetsSvgUploadTray,
+                          width: _iconSize,
+                          height: _iconSize,
+                          colorFilter: ColorFilter.mode(colors.oceanAccent, BlendMode.srcIn),
+                        ),
+                      ),
+                    ),
+                  ),
+                  _titleGap,
+                  Text(
+                    AppLocaleKey.uploadDocument.tr(),
+                    textAlign: TextAlign.center,
+                    style: AppTextStyles.xxxsBold.copyWith(
+                      color: colors.textPrimary,
+                      height: _textHeight,
+                    ),
+                  ),
+                  _hintGap,
+                  Text(
+                    AppLocaleKey.documentFormatsHint.tr(),
+                    textAlign: TextAlign.center,
+                    style: AppTextStyles.xxxxxsMedium.copyWith(
+                      color: colors.hint,
+                      fontWeight: FontWeight.w400,
+                      height: _textHeight,
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ),

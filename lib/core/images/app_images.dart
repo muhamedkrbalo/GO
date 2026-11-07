@@ -257,5 +257,9 @@ class AppImages {
   /// Assets for assetsSvgUpload
   /// assets/svg/upload.svg
   static const String assetsSvgUpload = "assets/svg/upload.svg";
+
+  /// Assets for assetsSvgUploadTray
+  /// assets/svg/upload_tray.svg
+  static const String assetsSvgUploadTray = "assets/svg/upload_tray.svg";
 }
 
