@@ -11,15 +11,16 @@ class UnitStatusBadge extends StatelessWidget {
 
   final UnitStatus status;
 
-  static const _padding = EdgeInsets.symmetric(horizontal: 6.7, vertical: 3.5);
+  static const _padding = EdgeInsetsDirectional.symmetric(horizontal: 7, vertical: 4);
+  static const _textHeight = 1.5;
 
   @override
   Widget build(BuildContext context) {
     final colors = context.customColors;
     final (background, foreground) = switch (status) {
-      UnitStatus.eligible => (colors.primaryLight, colors.accentText),
-      UnitStatus.alreadyOwned => (colors.subtleBorder, colors.textMuted),
-      UnitStatus.notEligible || UnitStatus.inactive => (colors.warningSurface, colors.warning),
+      UnitStatus.eligible => (colors.successSurface, colors.success),
+      UnitStatus.alreadyOwned || UnitStatus.notEligible => (colors.errorSurface, colors.error),
+      UnitStatus.inactive => (colors.primaryLight, colors.textMuted),
     };
 
     return DecoratedBox(
@@ -28,7 +29,11 @@ class UnitStatusBadge extends StatelessWidget {
         padding: _padding,
         child: Text(
           status.labelKey.tr(),
-          style: AppTextStyles.xxxsBold.copyWith(color: foreground, height: 1.3),
+          style: AppTextStyles.xxxxxsMedium.copyWith(
+            color: foreground,
+            fontWeight: FontWeight.w700,
+            height: _textHeight,
+          ),
         ),
       ),
     );

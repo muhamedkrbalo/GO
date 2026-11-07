@@ -14,15 +14,15 @@ enum UnitType {
 }
 
 enum UnitStatus {
-  eligible(AppLocaleKey.eligible),
-  alreadyOwned(AppLocaleKey.alreadyOwned, reasonKey: AppLocaleKey.registeredToAnotherOwner),
-  notEligible(AppLocaleKey.notEligible, reasonKey: AppLocaleKey.unitNotEligible),
-  inactive(AppLocaleKey.inactive, reasonKey: AppLocaleKey.unitInactive);
+  eligible(AppLocaleKey.eligible, AppLocaleKey.availableForRegistrationReview),
+  alreadyOwned(AppLocaleKey.alreadyOwned, AppLocaleKey.registeredToAnotherOwner),
+  notEligible(AppLocaleKey.notEligible, AppLocaleKey.unitNotEligible),
+  inactive(AppLocaleKey.inactive, AppLocaleKey.unitInactive);
 
-  const UnitStatus(this.labelKey, {this.reasonKey});
+  const UnitStatus(this.labelKey, this.descriptionKey);
 
   final String labelKey;
-  final String? reasonKey;
+  final String descriptionKey;
 
   bool get isSelectable => this == UnitStatus.eligible;
 }

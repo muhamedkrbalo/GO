@@ -17,27 +17,28 @@ class UnitCard extends StatelessWidget {
   final VoidCallback onTap;
 
   static const _duration = Duration(milliseconds: 160);
-  static const _padding = EdgeInsets.all(12.8);
-  static const _radius = BorderRadius.all(Radius.circular(12));
-  static const _borderWidth = 1.6;
-  static const _disabledOpacity = 0.72;
-  static const _lineGap = SizedBox(height: 3.5);
+  static const _padding = EdgeInsetsDirectional.all(14);
+  static const _radius = BorderRadius.all(Radius.circular(13));
+  static const _minHeight = 100.0;
+  static const _disabledOpacity = 0.78;
+  static const _checkboxTopOffset = EdgeInsetsDirectional.only(top: 1);
 
   @override
   Widget build(BuildContext context) {
     final colors = context.customColors;
     final isSelectable = unit.status.isSelectable;
-    final reasonKey = unit.status.reasonKey;
 
     final card = AnimatedContainer(
       duration: _duration,
+      constraints: const BoxConstraints(minHeight: _minHeight),
       decoration: BoxDecoration(
-        color: isSelected ? colors.selectedSurface : colors.surface,
+        color: isSelected
+            ? colors.selectedSurface
+            : isSelectable
+            ? colors.surface
+            : colors.canvas,
         borderRadius: _radius,
-        border: Border.all(
-          color: isSelected ? colors.primary : colors.subtleBorder,
-          width: _borderWidth,
-        ),
+        border: Border.all(color: isSelected ? colors.oceanAccent : colors.subtleBorder),
       ),
       child: Material(
         type: MaterialType.transparency,
@@ -49,48 +50,16 @@ class UnitCard extends StatelessWidget {
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                _UnitCheckbox(isSelected: isSelected, isEnabled: isSelectable, duration: _duration),
-                AppSpacing.gapH12,
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        children: [
-                          Expanded(
-                            child: Text(
-                              unit.name,
-                              style: AppTextStyles.xsBold.copyWith(
-                                color: colors.textSecondary,
-                                height: 1.3,
-                              ),
-                            ),
-                          ),
-                          UnitStatusBadge(status: unit.status),
-                        ],
-                      ),
-                      _lineGap,
-                      Text(
-                        unit.location,
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                        style: AppTextStyles.xxxsRegular.copyWith(color: colors.textMuted),
-                      ),
-                      _lineGap,
-                      Text(
-                        unit.type.labelKey.tr(),
-                        style: AppTextStyles.xxxsSemiBold.copyWith(color: colors.accentText),
-                      ),
-                      if (reasonKey != null) ...[
-                        _lineGap,
-                        Text(
-                          reasonKey.tr(),
-                          style: AppTextStyles.xxxsRegular.copyWith(color: colors.warning),
-                        ),
-                      ],
-                    ],
+                Padding(
+                  padding: _checkboxTopOffset,
+                  child: _UnitCheckbox(
+                    isSelected: isSelected,
+                    isEnabled: isSelectable,
+                    duration: _duration,
                   ),
                 ),
+                AppSpacing.gapH12,
+                Expanded(child: _UnitDetails(unit: unit)),
               ],
             ),
           ),
@@ -106,6 +75,113 @@ class UnitCard extends StatelessWidget {
   }
 }
 
+class _UnitDetails extends StatelessWidget {
+  const _UnitDetails({required this.unit});
+
+  final OwnerUnit unit;
+
+  static const _rowGap = SizedBox(height: 6);
+  static const _nameRowHeight = 20.0;
+  static const _nameHeight = 1.5;
+  static const _metaHeight = 1.35;
+
+  @override
+  Widget build(BuildContext context) {
+    final colors = context.customColors;
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        SizedBox(
+          height: _nameRowHeight,
+          child: Row(
+            children: [
+              Expanded(
+                child: Text(
+                  unit.name,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: AppTextStyles.xsBold.copyWith(
+                    color: colors.textSecondary,
+                    height: _nameHeight,
+                  ),
+                ),
+              ),
+              AppSpacing.gapH8,
+              UnitStatusBadge(status: unit.status),
+            ],
+          ),
+        ),
+        _rowGap,
+        _UnitLocation(building: unit.building, village: unit.village),
+        _rowGap,
+        Row(
+          children: [
+            Text(
+              unit.type.labelKey.tr().toUpperCase(),
+              style: AppTextStyles.xxxxxsMedium.copyWith(
+                color: colors.oceanAccent,
+                fontWeight: FontWeight.w700,
+                height: _nameHeight,
+              ),
+            ),
+            AppSpacing.gapH8,
+            Expanded(
+              child: Text(
+                unit.status.descriptionKey.tr(),
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                style: AppTextStyles.xxxxxsMedium.copyWith(
+                  color: colors.hint,
+                  fontWeight: FontWeight.w400,
+                  height: _metaHeight,
+                ),
+              ),
+            ),
+          ],
+        ),
+      ],
+    );
+  }
+}
+
+class _UnitLocation extends StatelessWidget {
+  const _UnitLocation({required this.building, required this.village});
+
+  final String? building;
+  final String village;
+
+  static const _dotSize = 3.0;
+  static const _dotGap = SizedBox(width: 6);
+  static const _textHeight = 1.5;
+
+  @override
+  Widget build(BuildContext context) {
+    final colors = context.customColors;
+    final style = AppTextStyles.xxxsSemiBold.copyWith(color: colors.formLabel, height: _textHeight);
+    final building = this.building;
+
+    return Row(
+      children: [
+        if (building != null) ...[
+          Flexible(
+            child: Text(building, maxLines: 1, overflow: TextOverflow.ellipsis, style: style),
+          ),
+          _dotGap,
+          DecoratedBox(
+            decoration: BoxDecoration(color: colors.accentBar, shape: BoxShape.circle),
+            child: const SizedBox.square(dimension: _dotSize),
+          ),
+          _dotGap,
+        ],
+        Flexible(
+          child: Text(village, maxLines: 1, overflow: TextOverflow.ellipsis, style: style),
+        ),
+      ],
+    );
+  }
+}
+
 class _UnitCheckbox extends StatelessWidget {
   const _UnitCheckbox({required this.isSelected, required this.isEnabled, required this.duration});
 
@@ -113,10 +189,9 @@ class _UnitCheckbox extends StatelessWidget {
   final bool isEnabled;
   final Duration duration;
 
-  static const _size = 19.2;
+  static const _size = 22.0;
   static const _iconSize = 12.0;
-  static const _borderWidth = 1.6;
-  static const _radius = BorderRadius.all(Radius.circular(5.6));
+  static const _radius = BorderRadius.all(Radius.circular(6));
 
   @override
   Widget build(BuildContext context) {
@@ -128,19 +203,12 @@ class _UnitCheckbox extends StatelessWidget {
       height: _size,
       decoration: BoxDecoration(
         color: isSelected
-            ? colors.primary
+            ? colors.oceanAccent
             : isEnabled
             ? colors.surface
-            : colors.canvas,
+            : colors.subtleBorder,
         borderRadius: _radius,
-        border: Border.all(
-          color: isSelected
-              ? colors.primary
-              : isEnabled
-              ? colors.hint
-              : colors.border,
-          width: _borderWidth,
-        ),
+        border: Border.all(color: isSelected ? colors.oceanAccent : colors.border),
       ),
       child: isSelected
           ? Center(

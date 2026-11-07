@@ -65,6 +65,10 @@ class AppShadows {
     BoxShadow(color: Color(0x0D0F172A), offset: Offset(0, -8), blurRadius: 24),
   ];
 
+  static const stickyFooter = [
+    BoxShadow(color: Color(0x0F073763), offset: Offset(0, -10), blurRadius: 30),
+  ];
+
   /// Large, soft shadow under hero images and cards.
   static const card = [BoxShadow(color: Color(0x170F172A), offset: Offset(0, 16), blurRadius: 32)];
 }
