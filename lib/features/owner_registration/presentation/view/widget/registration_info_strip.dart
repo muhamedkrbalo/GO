@@ -18,12 +18,14 @@ class RegistrationInfoStrip extends StatelessWidget {
     this.radius = 11,
     this.minHeight = 0,
     this.valueColor,
+    this.isBordered = true,
   });
 
   final List<InfoStripItem> items;
   final double radius;
   final double minHeight;
   final Color? valueColor;
+  final bool isBordered;
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +35,7 @@ class RegistrationInfoStrip extends StatelessWidget {
       decoration: BoxDecoration(
         color: colors.surface,
         borderRadius: BorderRadius.all(Radius.circular(radius)),
-        border: Border.all(color: colors.subtleBorder),
+        border: isBordered ? Border.all(color: colors.subtleBorder) : null,
       ),
       child: Row(
         children: [

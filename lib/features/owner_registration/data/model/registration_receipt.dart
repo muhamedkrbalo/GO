@@ -1,17 +1,26 @@
 import 'package:equatable/equatable.dart';
 
+import 'owner_unit.dart';
+import 'ownership_type.dart';
+
 class RegistrationReceipt extends Equatable {
   const RegistrationReceipt({
     required this.referenceNumber,
     required this.submittedAt,
-    required this.unitCount,
+    required this.units,
+    this.ownershipTypes = const {},
   });
 
-  factory RegistrationReceipt.issue({required DateTime submittedAt, required int unitCount}) {
+  factory RegistrationReceipt.issue({
+    required DateTime submittedAt,
+    required List<OwnerUnit> units,
+    Map<String, OwnershipType> ownershipTypes = const {},
+  }) {
     return RegistrationReceipt(
       referenceNumber: '$_referencePrefix${submittedAt.millisecondsSinceEpoch}',
       submittedAt: submittedAt,
-      unitCount: unitCount,
+      units: List.unmodifiable(units),
+      ownershipTypes: Map.unmodifiable(ownershipTypes),
     );
   }
 
@@ -19,8 +28,11 @@ class RegistrationReceipt extends Equatable {
 
   final String referenceNumber;
   final DateTime submittedAt;
-  final int unitCount;
+  final List<OwnerUnit> units;
+  final Map<String, OwnershipType> ownershipTypes;
+
+  int get unitCount => units.length;
 
   @override
-  List<Object?> get props => [referenceNumber, submittedAt, unitCount];
+  List<Object?> get props => [referenceNumber, submittedAt, units, ownershipTypes];
 }

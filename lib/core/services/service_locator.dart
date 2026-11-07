@@ -8,6 +8,8 @@ import '../../features/auth/presentation/controller/verify_account_cubit.dart';
 import '../../features/auth/presentation/controller/verify_code_cubit.dart';
 import '../../features/onboarding/presentation/controller/onboarding_cubit.dart';
 import '../../features/owner_registration/data/model/owner_unit.dart';
+import '../../features/owner_registration/data/model/registration_receipt.dart';
+import '../../features/owner_registration/data/model/sample_unit_reviews.dart';
 import '../../features/owner_registration/data/model/sample_units.dart';
 import '../../features/owner_registration/presentation/controller/company_info_cubit.dart';
 import '../../features/owner_registration/presentation/controller/individual_info_cubit.dart';
@@ -17,6 +19,7 @@ import '../../features/owner_registration/presentation/controller/owner_registra
 import '../../features/owner_registration/presentation/controller/owner_type_cubit.dart';
 import '../../features/owner_registration/presentation/controller/ownership_details_cubit.dart';
 import '../../features/owner_registration/presentation/controller/registration_review_cubit.dart';
+import '../../features/owner_registration/presentation/controller/registration_status_cubit.dart';
 import '../../features/owner_registration/presentation/controller/selected_units_review_cubit.dart';
 import '../../features/owner_registration/presentation/controller/unit_selection_cubit.dart';
 import '../../features/splash/data/repository/splash_repository.dart';
@@ -119,6 +122,12 @@ void _initOwnerRegistration() {
     (units, _) => OwnerDocumentsCubit(
       units,
       documents: sl<OwnerRegistrationDraftCubit>().state.documents,
+    ),
+  );
+  sl.registerFactoryParam<RegistrationStatusCubit, RegistrationReceipt, void>(
+    (receipt, _) => RegistrationStatusCubit(
+      receipt: receipt,
+      reviews: prototypeUnitReviews(receipt),
     ),
   );
   sl.registerFactory<RegistrationReviewCubit>(

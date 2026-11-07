@@ -28,6 +28,7 @@ import '../../features/owner_registration/presentation/controller/owner_registra
 import '../../features/owner_registration/presentation/controller/owner_type_cubit.dart';
 import '../../features/owner_registration/presentation/controller/ownership_details_cubit.dart';
 import '../../features/owner_registration/presentation/controller/registration_review_cubit.dart';
+import '../../features/owner_registration/presentation/controller/registration_status_cubit.dart';
 import '../../features/owner_registration/presentation/controller/selected_units_review_cubit.dart';
 import '../../features/owner_registration/presentation/controller/unit_selection_cubit.dart';
 import '../../features/owner_registration/presentation/view/screen/company_info_screen.dart';
@@ -37,6 +38,7 @@ import '../../features/owner_registration/presentation/view/screen/owner_documen
 import '../../features/owner_registration/presentation/view/screen/owner_type_screen.dart';
 import '../../features/owner_registration/presentation/view/screen/ownership_details_screen.dart';
 import '../../features/owner_registration/presentation/view/screen/registration_review_screen.dart';
+import '../../features/owner_registration/presentation/view/screen/registration_status_screen.dart';
 import '../../features/owner_registration/presentation/view/screen/selected_units_review_screen.dart';
 import '../../features/owner_registration/presentation/view/screen/submission_confirmation_screen.dart';
 import '../../features/owner_registration/presentation/view/screen/unit_selection_screen.dart';
@@ -209,6 +211,16 @@ class AppRouters {
             SubmissionConfirmationScreen(receipt: state.extra! as RegistrationReceipt),
       ),
       GoRoute(
+        path: RoutePaths.registrationStatus,
+        name: RouteNames.registrationStatus,
+        redirect: (context, state) =>
+            state.extra is RegistrationReceipt ? null : RoutePaths.home,
+        builder: (context, state) => BlocProvider(
+          create: (_) => sl<RegistrationStatusCubit>(param1: state.extra! as RegistrationReceipt),
+          child: const RegistrationStatusScreen(),
+        ),
+      ),
+      GoRoute(
         path: RoutePaths.home,
         name: RouteNames.home,
         builder: (context, state) => const HomeScreen(),
@@ -245,6 +257,7 @@ class AppRouters {
     RoutePaths.ownerDocuments,
     RoutePaths.registrationReview,
     RoutePaths.registrationSubmitted,
+    RoutePaths.registrationStatus,
   };
 
   /// Login gating, in one place:

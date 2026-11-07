@@ -26,7 +26,10 @@ class RegistrationReviewCubit extends Cubit<RegistrationReviewState> {
       state.copyWith(
         receipt: RegistrationReceipt.issue(
           submittedAt: _clock(),
-          unitCount: state.draft.units.length,
+          units: state.draft.units,
+          ownershipTypes: {
+            for (final entry in state.draft.ownership.entries) entry.key: ?entry.value.type,
+          },
         ),
       ),
     );

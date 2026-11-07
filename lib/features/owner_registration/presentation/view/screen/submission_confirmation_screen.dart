@@ -1,7 +1,9 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../../core/locale/app_locale_key.dart';
+import '../../../../../core/routes/routes_name.dart';
 import '../../../../../core/theme/app_sizes.dart';
 import '../../../../../core/theme/extensions/theme_extensions.dart';
 import '../../../data/model/registration_receipt.dart';
@@ -30,7 +32,9 @@ class SubmissionConfirmationScreen extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: colors.canvas,
-      bottomNavigationBar: const SubmissionConfirmationBottomBar(),
+      bottomNavigationBar: SubmissionConfirmationBottomBar(
+        onViewStatus: () => context.pushNamed(RouteNames.registrationStatus, extra: receipt),
+      ),
       body: Stack(
         children: [
           PositionedDirectional(
