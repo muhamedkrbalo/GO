@@ -469,5 +469,10 @@
   "reviewBrokerDetailsBeforeSubmitting": "Review your details before submitting your Broker registration.",
   "allRequiredInfoComplete": "All configured required information and documents are complete.",
   "completeRequiredInfoToSubmit": "Complete the missing required information and documents to submit.",
-  "submitBrokerRegistration": "Submit Broker Registration"
+  "submitBrokerRegistration": "Submit Broker Registration",
+  "registrationSubmittedTitle": "Registration Submitted",
+  "brokerRegistrationSubmittedDescription": "Your Broker registration has been submitted successfully. Our team will review your information.",
+  "pendingApproval": "Pending Approval",
+  "brokerSubmissionDisclaimer": "Submission does not grant Broker approval, Village access, or operational permissions.",
+  "status": "Status"
 }

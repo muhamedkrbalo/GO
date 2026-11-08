@@ -4,9 +4,10 @@ import '../../theme/app_text_styles.dart';
 import '../../theme/extensions/theme_extensions.dart';
 
 class RegistrationNotice extends StatelessWidget {
-  const RegistrationNotice({super.key, required this.message});
+  const RegistrationNotice({super.key, required this.message, this.textAlign});
 
   final String message;
+  final TextAlign? textAlign;
 
   static const _padding = EdgeInsetsDirectional.symmetric(horizontal: 12, vertical: 10);
   static const _accentWidth = 2.0;
@@ -27,6 +28,7 @@ class RegistrationNotice extends StatelessWidget {
         padding: _padding,
         child: Text(
           message,
+          textAlign: textAlign,
           style: AppTextStyles.xxxxxsMedium.copyWith(
             color: colors.textMuted,
             fontWeight: FontWeight.w400,

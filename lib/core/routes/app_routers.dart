@@ -14,6 +14,7 @@ import '../../features/auth/presentation/view/screen/login_screen.dart';
 import '../../features/auth/presentation/view/screen/register_screen.dart';
 import '../../features/auth/presentation/view/screen/verify_account_screen.dart';
 import '../../features/auth/presentation/view/screen/verify_code_screen.dart';
+import '../../features/broker_registration/data/model/broker_registration_receipt.dart';
 import '../../features/broker_registration/presentation/controller/broker_business_address_cubit.dart';
 import '../../features/broker_registration/presentation/controller/broker_documents_cubit.dart';
 import '../../features/broker_registration/presentation/controller/broker_identity_info_cubit.dart';
@@ -25,6 +26,7 @@ import '../../features/broker_registration/presentation/view/screen/broker_docum
 import '../../features/broker_registration/presentation/view/screen/broker_identity_info_screen.dart';
 import '../../features/broker_registration/presentation/view/screen/broker_personal_info_screen.dart';
 import '../../features/broker_registration/presentation/view/screen/broker_review_screen.dart';
+import '../../features/broker_registration/presentation/view/screen/broker_submission_confirmation_screen.dart';
 import '../../features/broker_registration/presentation/view/screen/broker_type_screen.dart';
 import '../../features/home/presentation/view/screen/home_screen.dart';
 import '../../features/onboarding/presentation/controller/onboarding_cubit.dart';
@@ -195,6 +197,14 @@ class AppRouters {
         builder: (context, state) => const BrokerReviewScreen(),
       ),
       GoRoute(
+        path: RoutePaths.brokerSubmitted,
+        name: RouteNames.brokerSubmitted,
+        redirect: (context, state) =>
+            state.extra is BrokerRegistrationReceipt ? null : RoutePaths.home,
+        builder: (context, state) =>
+            BrokerSubmissionConfirmationScreen(receipt: state.extra! as BrokerRegistrationReceipt),
+      ),
+      GoRoute(
         path: RoutePaths.individualInfo,
         name: RouteNames.individualInfo,
         builder: (context, state) => BlocProvider(
@@ -336,6 +346,7 @@ class AppRouters {
     RoutePaths.brokerBusinessContact,
     RoutePaths.brokerDocuments,
     RoutePaths.brokerReview,
+    RoutePaths.brokerSubmitted,
   };
 
   /// Login gating, in one place:

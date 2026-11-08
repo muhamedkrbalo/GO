@@ -472,6 +472,11 @@
     "reviewBrokerDetailsBeforeSubmitting": "راجع بياناتك قبل إرسال طلب تسجيلك كوسيط.",
     "allRequiredInfoComplete": "جميع البيانات والمستندات المطلوبة مكتملة.",
     "completeRequiredInfoToSubmit": "أكمل البيانات والمستندات المطلوبة الناقصة لتتمكن من الإرسال.",
-    "submitBrokerRegistration": "إرسال تسجيل الوسيط"
+    "submitBrokerRegistration": "إرسال تسجيل الوسيط",
+    "registrationSubmittedTitle": "تم إرسال التسجيل",
+    "brokerRegistrationSubmittedDescription": "تم إرسال طلب تسجيلك كوسيط بنجاح. سيقوم فريقنا بمراجعة بياناتك.",
+    "pendingApproval": "بانتظار الموافقة",
+    "brokerSubmissionDisclaimer": "لا يمنح الإرسال موافقة الوسيط أو صلاحية دخول القرية أو أي صلاحيات تشغيلية.",
+    "status": "الحالة"
   }
   

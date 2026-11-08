@@ -1023,4 +1023,8 @@ class AppLocaleKey {
   static const allRequiredInfoComplete = 'allRequiredInfoComplete';
   static const completeRequiredInfoToSubmit = 'completeRequiredInfoToSubmit';
   static const submitBrokerRegistration = 'submitBrokerRegistration';
+  static const registrationSubmittedTitle = 'registrationSubmittedTitle';
+  static const brokerRegistrationSubmittedDescription = 'brokerRegistrationSubmittedDescription';
+  static const pendingApproval = 'pendingApproval';
+  static const brokerSubmissionDisclaimer = 'brokerSubmissionDisclaimer';
 }
