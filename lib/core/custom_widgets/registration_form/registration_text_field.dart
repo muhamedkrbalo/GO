@@ -3,9 +3,9 @@ import 'dart:ui' as ui;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import '../../../../../core/custom_widgets/custom_form_field/custom_form_field.dart';
-import '../../../../../core/theme/app_text_styles.dart';
-import '../../../../../core/theme/extensions/theme_extensions.dart';
+import '../../theme/app_text_styles.dart';
+import '../../theme/extensions/theme_extensions.dart';
+import '../custom_form_field/custom_form_field.dart';
 
 class RegistrationTextField extends StatelessWidget {
   const RegistrationTextField({

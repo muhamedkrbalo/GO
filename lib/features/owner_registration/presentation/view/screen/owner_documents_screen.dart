@@ -2,6 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../../core/custom_widgets/registration_form/registration_intro.dart';
 import '../../../../../core/locale/app_locale_key.dart';
 import '../../../../../core/theme/app_sizes.dart';
 import '../../../../../core/theme/extensions/theme_extensions.dart';
@@ -12,7 +13,6 @@ import '../widget/document_upload_card.dart';
 import '../widget/documents_summary_strip.dart';
 import '../widget/owner_documents_bottom_bar.dart';
 import '../widget/owner_registration_step_header.dart';
-import '../widget/registration_intro.dart';
 import '../widget/registration_notice.dart';
 import '../widget/unit_documents_card.dart';
 

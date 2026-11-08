@@ -987,11 +987,12 @@ class AppLocaleKey {
   static const documentTooLarge = 'documentTooLarge';
   static const removeDocument = 'removeDocument';
   static const brokerRegistration = 'brokerRegistration';
-  static const stepOfTotal = 'stepOfTotal';
   static const howWouldYouLikeToRegister = 'howWouldYouLikeToRegister';
   static const chooseBrokerAccountType = 'chooseBrokerAccountType';
   static const individualBroker = 'individualBroker';
   static const individualBrokerDescription = 'individualBrokerDescription';
   static const companyBroker = 'companyBroker';
   static const companyBrokerDescription = 'companyBrokerDescription';
+  static const tellUsAboutIndividualBroker = 'tellUsAboutIndividualBroker';
+  static const businessEntityContactNote = 'businessEntityContactNote';
 }

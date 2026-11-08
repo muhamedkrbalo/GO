@@ -5,15 +5,15 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../core/custom_widgets/bottom_sheet/option_picker_sheet.dart';
+import '../../../../../core/custom_widgets/registration_form/registration_phone_field.dart';
+import '../../../../../core/custom_widgets/registration_form/registration_picker_field.dart';
+import '../../../../../core/custom_widgets/registration_form/registration_text_field.dart';
 import '../../../../../core/custom_widgets/validation/validation_mixin.dart';
 import '../../../../../core/extension/context_ui_extension.dart';
 import '../../../../../core/locale/app_locale_key.dart';
 import '../../../../../core/utils/country_code_methods.dart';
 import '../../../data/model/id_type.dart';
 import '../../controller/individual_info_cubit.dart';
-import 'registration_phone_field.dart';
-import 'registration_picker_field.dart';
-import 'registration_text_field.dart';
 
 class IndividualInfoForm extends StatefulWidget {
   const IndividualInfoForm({super.key});

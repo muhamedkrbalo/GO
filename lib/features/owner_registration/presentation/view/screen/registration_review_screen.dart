@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../../../core/custom_widgets/registration_form/registration_intro.dart';
 import '../../../../../core/locale/app_locale_key.dart';
 import '../../../../../core/routes/routes_name.dart';
 import '../../../../../core/theme/app_sizes.dart';
@@ -16,7 +17,6 @@ import '../widget/owner_address_review.dart';
 import '../widget/owner_info_review.dart';
 import '../widget/owner_registration_step_header.dart';
 import '../widget/registration_confirmation_tile.dart';
-import '../widget/registration_intro.dart';
 import '../widget/registration_review_bottom_bar.dart';
 import '../widget/review_section_card.dart';
 import '../widget/selected_units_review.dart';

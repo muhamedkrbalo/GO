@@ -2,11 +2,11 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../../../core/locale/app_locale_key.dart';
-import '../../../../../core/routes/routes_name.dart';
-import '../../../../../core/theme/app_shadows.dart';
-import '../../../../../core/theme/app_text_styles.dart';
-import '../../../../../core/theme/extensions/theme_extensions.dart';
+import '../../locale/app_locale_key.dart';
+import '../../routes/routes_name.dart';
+import '../../theme/app_shadows.dart';
+import '../../theme/app_text_styles.dart';
+import '../../theme/extensions/theme_extensions.dart';
 
 class RegistrationStickyFooter extends StatelessWidget {
   const RegistrationStickyFooter({
@@ -14,11 +14,15 @@ class RegistrationStickyFooter extends StatelessWidget {
     required this.child,
     this.topPadding = 12,
     this.showSaveAndExit = true,
+    this.saveAndExitAlignment = AlignmentDirectional.centerStart,
+    this.saveAndExitTextStyle = AppTextStyles.xsBold,
   });
 
   final Widget child;
   final double topPadding;
   final bool showSaveAndExit;
+  final AlignmentGeometry saveAndExitAlignment;
+  final TextStyle saveAndExitTextStyle;
 
   static const _horizontalPadding = 20.0;
   static const _bottomPadding = 4.0;
@@ -53,7 +57,7 @@ class RegistrationStickyFooter extends StatelessWidget {
               child,
               if (showSaveAndExit)
                 Align(
-                  alignment: AlignmentDirectional.centerStart,
+                  alignment: saveAndExitAlignment,
                   child: TextButton(
                     onPressed: () => context.goNamed(RouteNames.welcome),
                     style: TextButton.styleFrom(
@@ -61,7 +65,7 @@ class RegistrationStickyFooter extends StatelessWidget {
                       padding: EdgeInsets.zero,
                       tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                       foregroundColor: colors.textPrimary,
-                      textStyle: AppTextStyles.xsBold.copyWith(height: _textHeight),
+                      textStyle: saveAndExitTextStyle.copyWith(height: _textHeight),
                     ),
                     child: Text(AppLocaleKey.saveAndExit.tr()),
                   ),

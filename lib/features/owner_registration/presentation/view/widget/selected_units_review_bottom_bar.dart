@@ -4,11 +4,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../../core/custom_widgets/buttons/primary_arrow_button.dart';
+import '../../../../../core/custom_widgets/registration_form/registration_sticky_footer.dart';
 import '../../../../../core/locale/app_locale_key.dart';
 import '../../../../../core/routes/routes_name.dart';
 import '../../controller/owner_registration_draft_cubit.dart';
 import '../../controller/selected_units_review_cubit.dart';
-import 'registration_sticky_footer.dart';
 
 class SelectedUnitsReviewBottomBar extends StatelessWidget {
   const SelectedUnitsReviewBottomBar({super.key});

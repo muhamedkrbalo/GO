@@ -2,8 +2,8 @@ import 'package:country_picker/country_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import '../../../../../core/custom_widgets/custom_form_field/country_code_prefix.dart';
-import '../../../../../core/theme/extensions/theme_extensions.dart';
+import '../../theme/extensions/theme_extensions.dart';
+import '../custom_form_field/country_code_prefix.dart';
 import 'registration_text_field.dart';
 
 class RegistrationPhoneField extends StatelessWidget {
@@ -15,6 +15,7 @@ class RegistrationPhoneField extends StatelessWidget {
     required this.country,
     required this.onCountrySelect,
     this.helperText,
+    this.isRequired = false,
     this.validator,
     this.onChanged,
   });
@@ -25,6 +26,7 @@ class RegistrationPhoneField extends StatelessWidget {
   final Country country;
   final ValueChanged<Country> onCountrySelect;
   final String? helperText;
+  final bool isRequired;
   final String? Function(String?)? validator;
   final ValueChanged<String>? onChanged;
 
@@ -38,6 +40,7 @@ class RegistrationPhoneField extends StatelessWidget {
       title: title,
       hintText: hintText,
       helperText: helperText,
+      isRequired: isRequired,
       keyboardType: TextInputType.phone,
       onChanged: onChanged,
       inputFormatters: [FilteringTextInputFormatter.digitsOnly],

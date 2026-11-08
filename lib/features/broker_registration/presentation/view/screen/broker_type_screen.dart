@@ -27,7 +27,7 @@ class BrokerTypeScreen extends StatelessWidget {
         children: [
           RegistrationStepHeader(
             title: AppLocaleKey.brokerRegistration.tr(),
-            stepLabel: AppLocaleKey.stepOfTotal.tr(args: ['$_step', '$_totalSteps']),
+            stepLabel: AppLocaleKey.stepXOfY.tr(args: ['$_step', '$_totalSteps']),
             progress: _step / _totalSteps,
           ),
           Expanded(

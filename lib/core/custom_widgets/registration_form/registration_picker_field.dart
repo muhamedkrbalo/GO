@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-import '../../../../../core/images/app_images.dart';
-import '../../../../../core/theme/extensions/theme_extensions.dart';
+import '../../images/app_images.dart';
+import '../../theme/extensions/theme_extensions.dart';
 import 'registration_text_field.dart';
 
 class RegistrationPickerField extends StatefulWidget {

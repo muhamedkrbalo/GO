@@ -3,14 +3,14 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../../core/custom_widgets/registration_form/registration_picker_field.dart';
+import '../../../../../core/custom_widgets/registration_form/registration_text_field.dart';
 import '../../../../../core/custom_widgets/validation/validation_mixin.dart';
 import '../../../../../core/locale/app_locale_key.dart';
 import '../../../../../core/utils/country_code_methods.dart';
 import '../../controller/owner_address_cubit.dart';
 import 'address_type_card.dart';
-import 'registration_picker_field.dart';
 import 'registration_section_card.dart';
-import 'registration_text_field.dart';
 
 class OwnerAddressForm extends StatefulWidget {
   const OwnerAddressForm({super.key});

@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 
 import '../../../../../core/custom_widgets/buttons/custom_button.dart';
 import '../../../../../core/custom_widgets/buttons/primary_arrow_button.dart';
+import '../../../../../core/custom_widgets/registration_form/registration_sticky_footer.dart';
 import '../../../../../core/locale/app_locale_key.dart';
 import '../../../../../core/routes/routes_name.dart';
 import '../../../../../core/theme/app_sizes.dart';
@@ -12,7 +13,6 @@ import '../../../../../core/theme/app_text_styles.dart';
 import '../../../../../core/theme/extensions/theme_extensions.dart';
 import '../../controller/owner_registration_draft_cubit.dart';
 import '../../controller/ownership_details_cubit.dart';
-import 'registration_sticky_footer.dart';
 
 class OwnershipDetailsBottomBar extends StatelessWidget {
   const OwnershipDetailsBottomBar({super.key});

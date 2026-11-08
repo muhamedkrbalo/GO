@@ -433,11 +433,13 @@
     "other": "That code is incorrect. {} attempts remaining."
   },
   "brokerRegistration": "Broker Registration",
-  "stepOfTotal": "Step {} of {}",
   "howWouldYouLikeToRegister": "How would you like to register?",
   "chooseBrokerAccountType": "Choose the type of broker account you want to create.",
   "individualBroker": "Individual Broker",
   "individualBrokerDescription": "Register as an individual and manage your brokerage activities.",
   "companyBroker": "Company Broker",
-  "companyBrokerDescription": "Register a legally established company to provide brokerage services."
+  "companyBrokerDescription": "Register a legally established company to provide brokerage services.",
+  "personalInformation": "Personal Information",
+  "tellUsAboutIndividualBroker": "Tell us about the individual conducting brokerage activities.",
+  "businessEntityContactNote": "Business Entity contact — separate from your GO login."
 }

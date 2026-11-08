@@ -25,12 +25,13 @@ class BrokerTypeActions extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        BlocSelector<BrokerTypeCubit, BrokerType?, bool>(
-          selector: (selected) => selected != null,
-          builder: (context, hasSelection) => PrimaryArrowButton(
+        BlocBuilder<BrokerTypeCubit, BrokerType?>(
+          builder: (context, selected) => PrimaryArrowButton(
             text: AppLocaleKey.continue_.tr(),
-            isEnabled: hasSelection,
-            onPressed: null,
+            isEnabled: selected != null,
+            onPressed: selected == BrokerType.individual
+                ? () => context.pushNamed(RouteNames.brokerPersonalInfo)
+                : null,
           ),
         ),
         const SizedBox(height: _gap),
