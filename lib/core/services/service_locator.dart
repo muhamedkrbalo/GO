@@ -8,6 +8,7 @@ import '../../features/auth/presentation/controller/verify_account_cubit.dart';
 import '../../features/auth/presentation/controller/verify_code_cubit.dart';
 import '../../features/broker_registration/data/model/broker_registration_receipt.dart';
 import '../../features/broker_registration/presentation/controller/broker_business_address_cubit.dart';
+import '../../features/broker_registration/presentation/controller/broker_company_info_cubit.dart';
 import '../../features/broker_registration/presentation/controller/broker_documents_cubit.dart';
 import '../../features/broker_registration/presentation/controller/broker_identity_info_cubit.dart';
 import '../../features/broker_registration/presentation/controller/broker_personal_info_cubit.dart';
@@ -149,6 +150,11 @@ void _initBrokerRegistration() {
   sl.registerFactory<BrokerPersonalInfoCubit>(
     () => BrokerPersonalInfoCubit(
       initialState: sl<BrokerRegistrationDraftCubit>().state.personalInfo,
+    ),
+  );
+  sl.registerFactory<BrokerCompanyInfoCubit>(
+    () => BrokerCompanyInfoCubit(
+      initialState: sl<BrokerRegistrationDraftCubit>().state.companyInfo,
     ),
   );
   sl.registerFactory<BrokerIdentityInfoCubit>(

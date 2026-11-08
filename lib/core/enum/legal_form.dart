@@ -1,4 +1,4 @@
-import '../../../../core/locale/app_locale_key.dart';
+import '../locale/app_locale_key.dart';
 
 enum LegalForm {
   limitedLiability(AppLocaleKey.limitedLiabilityCompany),

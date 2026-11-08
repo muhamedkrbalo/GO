@@ -16,6 +16,7 @@ import '../../features/auth/presentation/view/screen/verify_account_screen.dart'
 import '../../features/auth/presentation/view/screen/verify_code_screen.dart';
 import '../../features/broker_registration/data/model/broker_registration_receipt.dart';
 import '../../features/broker_registration/presentation/controller/broker_business_address_cubit.dart';
+import '../../features/broker_registration/presentation/controller/broker_company_info_cubit.dart';
 import '../../features/broker_registration/presentation/controller/broker_documents_cubit.dart';
 import '../../features/broker_registration/presentation/controller/broker_identity_info_cubit.dart';
 import '../../features/broker_registration/presentation/controller/broker_personal_info_cubit.dart';
@@ -23,6 +24,7 @@ import '../../features/broker_registration/presentation/controller/broker_regist
 import '../../features/broker_registration/presentation/controller/broker_type_cubit.dart';
 import '../../features/broker_registration/presentation/view/screen/broker_business_address_screen.dart';
 import '../../features/broker_registration/presentation/view/screen/broker_business_contact_screen.dart';
+import '../../features/broker_registration/presentation/view/screen/broker_company_info_screen.dart';
 import '../../features/broker_registration/presentation/view/screen/broker_documents_screen.dart';
 import '../../features/broker_registration/presentation/view/screen/broker_identity_info_screen.dart';
 import '../../features/broker_registration/presentation/view/screen/broker_personal_info_screen.dart';
@@ -162,6 +164,14 @@ class AppRouters {
         builder: (context, state) => BlocProvider(
           create: (_) => sl<BrokerPersonalInfoCubit>(),
           child: const BrokerPersonalInfoScreen(),
+        ),
+      ),
+      GoRoute(
+        path: RoutePaths.brokerCompanyInfo,
+        name: RouteNames.brokerCompanyInfo,
+        builder: (context, state) => BlocProvider(
+          create: (_) => sl<BrokerCompanyInfoCubit>(),
+          child: const BrokerCompanyInfoScreen(),
         ),
       ),
       GoRoute(
@@ -355,6 +365,7 @@ class AppRouters {
     RoutePaths.unitReviewDetails,
     RoutePaths.brokerType,
     RoutePaths.brokerPersonalInfo,
+    RoutePaths.brokerCompanyInfo,
     RoutePaths.brokerIdentityInfo,
     RoutePaths.brokerBusinessAddress,
     RoutePaths.brokerBusinessContact,

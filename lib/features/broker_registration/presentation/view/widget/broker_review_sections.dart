@@ -23,25 +23,51 @@ class BrokerReviewSections extends StatelessWidget {
     final personal = draft.personalInfo;
     final identity = draft.identityInfo;
     final address = draft.businessAddress;
+    final company = draft.companyInfo;
     final nationality = personal?.nationality;
+    final registrationCountry = company?.registrationCountry;
     final country = address?.country;
+    final entityRoute = draft.isCompany
+        ? RouteNames.brokerCompanyInfo
+        : RouteNames.brokerPersonalInfo;
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         BrokerSummarySection(
           title: AppLocaleKey.entityInformation.tr(),
-          onEdit: () => _returnTo(context, RouteNames.brokerPersonalInfo),
+          onEdit: () => _returnTo(context, entityRoute),
           items: [
             ReviewInfoItem(
               label: AppLocaleKey.entityType.tr(),
               rawValue: draft.brokerType?.titleKey.tr(),
             ),
-            ReviewInfoItem(label: AppLocaleKey.legalName.tr(), rawValue: personal?.fullName),
-            ReviewInfoItem(
-              label: AppLocaleKey.nationality.tr(),
-              rawValue: nationality?.getTranslatedName(context) ?? nationality?.name,
-            ),
+            if (draft.isCompany) ...[
+              ReviewInfoItem(
+                label: AppLocaleKey.legalCompanyName.tr(),
+                rawValue: company?.legalName,
+              ),
+              ReviewInfoItem(
+                label: AppLocaleKey.commercialRegistrationNumber.tr(),
+                rawValue: company?.registrationNumber,
+                isLtr: true,
+              ),
+              ReviewInfoItem(
+                label: AppLocaleKey.legalForm.tr(),
+                rawValue: company?.legalForm?.labelKey.tr(),
+              ),
+              ReviewInfoItem(
+                label: AppLocaleKey.countryOfRegistration.tr(),
+                rawValue:
+                    registrationCountry?.getTranslatedName(context) ?? registrationCountry?.name,
+              ),
+            ] else ...[
+              ReviewInfoItem(label: AppLocaleKey.legalName.tr(), rawValue: personal?.fullName),
+              ReviewInfoItem(
+                label: AppLocaleKey.nationality.tr(),
+                rawValue: nationality?.getTranslatedName(context) ?? nationality?.name,
+              ),
+            ],
             ReviewInfoItem(
               label: AppLocaleKey.mobile.tr(),
               rawValue: draft.businessMobile,
@@ -90,7 +116,7 @@ class BrokerReviewSections extends StatelessWidget {
         AppSpacing.gapV10,
         BrokerSummarySection(
           title: AppLocaleKey.businessContactInformation.tr(),
-          onEdit: () => _returnTo(context, RouteNames.brokerPersonalInfo),
+          onEdit: () => _returnTo(context, entityRoute),
           items: [
             ReviewInfoItem(
               label: AppLocaleKey.mobile.tr(),

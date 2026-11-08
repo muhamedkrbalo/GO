@@ -2,7 +2,7 @@ import 'package:country_picker/country_picker.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../data/model/legal_form.dart';
+import '../../../../core/enum/legal_form.dart';
 
 part 'company_info_state.dart';
 

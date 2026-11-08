@@ -45,8 +45,8 @@ class BrokerReviewScreen extends StatelessWidget {
       ),
       footer: BrokerFormFooter(
         label: AppLocaleKey.submitBrokerRegistration.tr(),
-       // isEnabled: isReady,
-       isEnabled: true,
+        // isEnabled: isReady,
+        isEnabled: true,
         onContinue: () => _submit(context),
       ),
     );

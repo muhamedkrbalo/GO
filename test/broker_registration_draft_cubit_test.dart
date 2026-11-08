@@ -1,9 +1,11 @@
 import 'package:country_picker/country_picker.dart';
 import 'package:flutter_hr_erb/core/enum/id_type.dart';
+import 'package:flutter_hr_erb/core/enum/legal_form.dart';
 import 'package:flutter_hr_erb/core/models/uploaded_document.dart';
 import 'package:flutter_hr_erb/features/broker_registration/data/model/broker_document_type.dart';
 import 'package:flutter_hr_erb/features/broker_registration/data/model/broker_type.dart';
 import 'package:flutter_hr_erb/features/broker_registration/presentation/controller/broker_business_address_cubit.dart';
+import 'package:flutter_hr_erb/features/broker_registration/presentation/controller/broker_company_info_cubit.dart';
 import 'package:flutter_hr_erb/features/broker_registration/presentation/controller/broker_identity_info_cubit.dart';
 import 'package:flutter_hr_erb/features/broker_registration/presentation/controller/broker_personal_info_cubit.dart';
 import 'package:flutter_hr_erb/features/broker_registration/presentation/controller/broker_registration_draft_cubit.dart';
@@ -125,6 +127,39 @@ void main() {
       cubit.saveIdentityInfo(const BrokerIdentityInfoState());
 
       expect(cubit.state.isReadyToSubmit, isFalse);
+    });
+  });
+
+  group('company broker', () {
+    final company = BrokerCompanyInfoState(
+      phoneCountry: Country.parse('EG'),
+      legalName: 'Rooftop Regency LLC',
+      registrationNumber: 'CR-102938',
+      legalForm: LegalForm.limitedLiability,
+      registrationDate: DateTime(2019, 5, 14),
+      registrationCountry: Country.parse('EG'),
+      mobileNumber: '1011112222',
+      email: 'info@rooftop.com',
+    );
+
+    test('business contacts come from the company info', () {
+      cubit
+        ..startRegistration(BrokerType.company)
+        ..savePersonalInfo(personalInfo())
+        ..saveCompanyInfo(company);
+
+      expect(cubit.state.businessMobile, '+20 1011112222');
+      expect(cubit.state.businessEmail, 'info@rooftop.com');
+    });
+
+    test('entity info is complete from the company step, not the personal one', () {
+      cubit
+        ..startRegistration(BrokerType.company)
+        ..savePersonalInfo(personalInfo());
+      expect(cubit.state.isEntityInfoComplete, isFalse);
+
+      cubit.saveCompanyInfo(company);
+      expect(cubit.state.isEntityInfoComplete, isTrue);
     });
   });
 }

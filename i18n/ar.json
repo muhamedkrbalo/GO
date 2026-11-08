@@ -489,6 +489,13 @@
     "prototypeStatusControls": "أدوات تجربة الحالة",
     "previewPending": "معاينة قيد الانتظار",
     "previewCorrection": "معاينة التصحيح",
-    "previewApproved": "معاينة الموافقة"
+    "previewApproved": "معاينة الموافقة",
+    "taxRegistrationNumber": "الرقم الضريبي",
+    "enterTaxRegistrationNumber": "أدخل الرقم الضريبي",
+    "registrationDate": "تاريخ التسجيل",
+    "selectRegistrationDate": "اختر تاريخ التسجيل",
+    "enterOfficialEmail": "أدخل البريد الإلكتروني الرسمي",
+    "companyInformation": "بيانات الشركة",
+    "enterBrokerCompanyInformation": "أدخل البيانات الرسمية للشركة التي تقدم خدمات الوساطة."
   }
   

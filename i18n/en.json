@@ -486,5 +486,12 @@
   "prototypeStatusControls": "Prototype status controls",
   "previewPending": "Preview Pending",
   "previewCorrection": "Preview Correction",
-  "previewApproved": "Preview Approved"
+  "previewApproved": "Preview Approved",
+  "taxRegistrationNumber": "Tax Registration Number",
+  "enterTaxRegistrationNumber": "Enter tax registration number",
+  "registrationDate": "Registration Date",
+  "selectRegistrationDate": "Select registration date",
+  "enterOfficialEmail": "Enter official email",
+  "companyInformation": "Company Information",
+  "enterBrokerCompanyInformation": "Enter the official information of the company providing brokerage services."
 }

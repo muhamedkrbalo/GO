@@ -4,6 +4,7 @@ class BrokerRegistrationDraft extends Equatable {
   const BrokerRegistrationDraft({
     this.brokerType,
     this.personalInfo,
+    this.companyInfo,
     this.identityInfo,
     this.businessAddress,
     this.documents = const {},
@@ -11,29 +12,38 @@ class BrokerRegistrationDraft extends Equatable {
 
   final BrokerType? brokerType;
   final BrokerPersonalInfoState? personalInfo;
+  final BrokerCompanyInfoState? companyInfo;
   final BrokerIdentityInfoState? identityInfo;
   final BrokerBusinessAddressState? businessAddress;
   final Map<BrokerDocumentType, UploadedDocument> documents;
 
+  bool get isCompany => brokerType == BrokerType.company;
+
   String? get businessMobile {
-    final info = personalInfo;
-    if (info == null || info.mobileNumber.trim().isEmpty) return null;
-    return '+${info.phoneCountry.phoneCode} ${info.mobileNumber.trim()}';
+    final (country, mobile) = isCompany
+        ? (companyInfo?.phoneCountry, companyInfo?.mobileNumber.trim())
+        : (personalInfo?.phoneCountry, personalInfo?.mobileNumber.trim());
+    if (country == null || mobile == null || mobile.isEmpty) return null;
+    return '+${country.phoneCode} $mobile';
   }
 
   String? get businessEmail {
-    final email = personalInfo?.email.trim();
+    final email = (isCompany ? companyInfo?.email : personalInfo?.email)?.trim();
     return email == null || email.isEmpty ? null : email;
   }
 
+  bool get isEntityInfoComplete =>
+      isCompany ? (companyInfo?.canContinue ?? false) : (personalInfo?.canContinue ?? false);
+
   bool get isReadyToSubmit =>
-      (personalInfo?.canContinue ?? false) &&
+      isEntityInfoComplete &&
       (identityInfo?.canContinue ?? false) &&
       (businessAddress?.canContinue ?? false) &&
       BrokerDocumentType.values.where((type) => type.isRequired).every(documents.containsKey);
 
   BrokerRegistrationDraft copyWith({
     BrokerPersonalInfoState? personalInfo,
+    BrokerCompanyInfoState? companyInfo,
     BrokerIdentityInfoState? identityInfo,
     BrokerBusinessAddressState? businessAddress,
     Map<BrokerDocumentType, UploadedDocument>? documents,
@@ -41,6 +51,7 @@ class BrokerRegistrationDraft extends Equatable {
     return BrokerRegistrationDraft(
       brokerType: brokerType,
       personalInfo: personalInfo ?? this.personalInfo,
+      companyInfo: companyInfo ?? this.companyInfo,
       identityInfo: identityInfo ?? this.identityInfo,
       businessAddress: businessAddress ?? this.businessAddress,
       documents: documents ?? this.documents,
@@ -48,5 +59,12 @@ class BrokerRegistrationDraft extends Equatable {
   }
 
   @override
-  List<Object?> get props => [brokerType, personalInfo, identityInfo, businessAddress, documents];
+  List<Object?> get props => [
+    brokerType,
+    personalInfo,
+    companyInfo,
+    identityInfo,
+    businessAddress,
+    documents,
+  ];
 }

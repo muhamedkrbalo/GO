@@ -5,6 +5,7 @@ import '../../../../core/models/uploaded_document.dart';
 import '../../data/model/broker_document_type.dart';
 import '../../data/model/broker_type.dart';
 import 'broker_business_address_cubit.dart';
+import 'broker_company_info_cubit.dart';
 import 'broker_identity_info_cubit.dart';
 import 'broker_personal_info_cubit.dart';
 
@@ -20,6 +21,10 @@ class BrokerRegistrationDraftCubit extends Cubit<BrokerRegistrationDraft> {
 
   void savePersonalInfo(BrokerPersonalInfoState personalInfo) {
     emit(state.copyWith(personalInfo: personalInfo));
+  }
+
+  void saveCompanyInfo(BrokerCompanyInfoState companyInfo) {
+    emit(state.copyWith(companyInfo: companyInfo));
   }
 
   void saveIdentityInfo(BrokerIdentityInfoState identityInfo) {

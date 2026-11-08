@@ -21,7 +21,10 @@ class BrokerTypeActions extends StatelessWidget {
 
   void _continue(BuildContext context, BrokerType type) {
     context.read<BrokerRegistrationDraftCubit>().startRegistration(type);
-    context.pushNamed(RouteNames.brokerPersonalInfo);
+    context.pushNamed(switch (type) {
+      BrokerType.individual => RouteNames.brokerPersonalInfo,
+      BrokerType.company => RouteNames.brokerCompanyInfo,
+    });
   }
 
   @override
@@ -35,9 +38,7 @@ class BrokerTypeActions extends StatelessWidget {
           builder: (context, selected) => PrimaryArrowButton(
             text: AppLocaleKey.continue_.tr(),
             isEnabled: selected != null,
-            onPressed: selected == BrokerType.individual
-                ? () => _continue(context, BrokerType.individual)
-                : null,
+            onPressed: selected == null ? null : () => _continue(context, selected),
           ),
         ),
         const SizedBox(height: _gap),

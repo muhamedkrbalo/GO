@@ -8,10 +8,10 @@ import '../../../../../core/custom_widgets/registration_form/registration_phone_
 import '../../../../../core/custom_widgets/registration_form/registration_picker_field.dart';
 import '../../../../../core/custom_widgets/registration_form/registration_text_field.dart';
 import '../../../../../core/custom_widgets/validation/validation_mixin.dart';
+import '../../../../../core/enum/legal_form.dart';
 import '../../../../../core/extension/context_ui_extension.dart';
 import '../../../../../core/locale/app_locale_key.dart';
 import '../../../../../core/utils/country_code_methods.dart';
-import '../../../data/model/legal_form.dart';
 import '../../controller/company_info_cubit.dart';
 
 class CompanyInfoForm extends StatefulWidget {

@@ -1039,4 +1039,11 @@ class AppLocaleKey {
   static const previewPending = 'previewPending';
   static const previewCorrection = 'previewCorrection';
   static const previewApproved = 'previewApproved';
+  static const taxRegistrationNumber = 'taxRegistrationNumber';
+  static const enterTaxRegistrationNumber = 'enterTaxRegistrationNumber';
+  static const registrationDate = 'registrationDate';
+  static const selectRegistrationDate = 'selectRegistrationDate';
+  static const enterOfficialEmail = 'enterOfficialEmail';
+  static const companyInformation = 'companyInformation';
+  static const enterBrokerCompanyInformation = 'enterBrokerCompanyInformation';
 }
