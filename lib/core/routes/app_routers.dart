@@ -24,6 +24,7 @@ import '../../features/broker_registration/presentation/view/screen/broker_busin
 import '../../features/broker_registration/presentation/view/screen/broker_documents_screen.dart';
 import '../../features/broker_registration/presentation/view/screen/broker_identity_info_screen.dart';
 import '../../features/broker_registration/presentation/view/screen/broker_personal_info_screen.dart';
+import '../../features/broker_registration/presentation/view/screen/broker_review_screen.dart';
 import '../../features/broker_registration/presentation/view/screen/broker_type_screen.dart';
 import '../../features/home/presentation/view/screen/home_screen.dart';
 import '../../features/onboarding/presentation/controller/onboarding_cubit.dart';
@@ -189,6 +190,11 @@ class AppRouters {
         ),
       ),
       GoRoute(
+        path: RoutePaths.brokerReview,
+        name: RouteNames.brokerReview,
+        builder: (context, state) => const BrokerReviewScreen(),
+      ),
+      GoRoute(
         path: RoutePaths.individualInfo,
         name: RouteNames.individualInfo,
         builder: (context, state) => BlocProvider(
@@ -329,6 +335,7 @@ class AppRouters {
     RoutePaths.brokerBusinessAddress,
     RoutePaths.brokerBusinessContact,
     RoutePaths.brokerDocuments,
+    RoutePaths.brokerReview,
   };
 
   /// Login gating, in one place:

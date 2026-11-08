@@ -1,6 +1,9 @@
 import 'package:country_picker/country_picker.dart';
 import 'package:flutter_hr_erb/core/enum/id_type.dart';
+import 'package:flutter_hr_erb/core/models/uploaded_document.dart';
+import 'package:flutter_hr_erb/features/broker_registration/data/model/broker_document_type.dart';
 import 'package:flutter_hr_erb/features/broker_registration/data/model/broker_type.dart';
+import 'package:flutter_hr_erb/features/broker_registration/presentation/controller/broker_business_address_cubit.dart';
 import 'package:flutter_hr_erb/features/broker_registration/presentation/controller/broker_identity_info_cubit.dart';
 import 'package:flutter_hr_erb/features/broker_registration/presentation/controller/broker_personal_info_cubit.dart';
 import 'package:flutter_hr_erb/features/broker_registration/presentation/controller/broker_registration_draft_cubit.dart';
@@ -73,5 +76,55 @@ void main() {
       ..clear();
 
     expect(cubit.state, const BrokerRegistrationDraft());
+  });
+
+  group('isReadyToSubmit', () {
+    void fillEverything() {
+      cubit
+        ..startRegistration(BrokerType.individual)
+        ..savePersonalInfo(
+          BrokerPersonalInfoState(
+            phoneCountry: Country.parse('EG'),
+            fullName: 'Nada Ali',
+            nationality: Country.parse('EG'),
+            mobileNumber: '1024055926',
+            email: 'nada@gmail.com',
+          ),
+        )
+        ..saveIdentityInfo(const BrokerIdentityInfoState(idType: IdType.passport, idNumber: 'A1'))
+        ..saveBusinessAddress(
+          BrokerBusinessAddressState(
+            country: Country.parse('EG'),
+            governorate: 'Cairo',
+            city: 'Nasr City',
+            addressLine1: '12 Abbas St',
+          ),
+        )
+        ..saveDocuments({
+          BrokerDocumentType.identityFront: const UploadedDocument(name: 'f.png', sizeInBytes: 1),
+        });
+    }
+
+    test('is true when every step is complete', () {
+      fillEverything();
+
+      expect(cubit.state.isReadyToSubmit, isTrue);
+    });
+
+    test('is false when the required document is missing', () {
+      fillEverything();
+      cubit.saveDocuments({
+        BrokerDocumentType.identityBack: const UploadedDocument(name: 'b.png', sizeInBytes: 1),
+      });
+
+      expect(cubit.state.isReadyToSubmit, isFalse);
+    });
+
+    test('is false when a step was skipped', () {
+      fillEverything();
+      cubit.saveIdentityInfo(const BrokerIdentityInfoState());
+
+      expect(cubit.state.isReadyToSubmit, isFalse);
+    });
   });
 }

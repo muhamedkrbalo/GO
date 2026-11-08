@@ -26,6 +26,12 @@ class BrokerRegistrationDraft extends Equatable {
     return email == null || email.isEmpty ? null : email;
   }
 
+  bool get isReadyToSubmit =>
+      (personalInfo?.canContinue ?? false) &&
+      (identityInfo?.canContinue ?? false) &&
+      (businessAddress?.canContinue ?? false) &&
+      BrokerDocumentType.values.where((type) => type.isRequired).every(documents.containsKey);
+
   BrokerRegistrationDraft copyWith({
     BrokerPersonalInfoState? personalInfo,
     BrokerIdentityInfoState? identityInfo,

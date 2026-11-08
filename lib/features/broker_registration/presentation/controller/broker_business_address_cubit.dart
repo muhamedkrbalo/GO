@@ -7,7 +7,9 @@ import '../../../../core/enum/address_type.dart';
 part 'broker_business_address_state.dart';
 
 class BrokerBusinessAddressCubit extends Cubit<BrokerBusinessAddressState> {
-  BrokerBusinessAddressCubit() : super(const BrokerBusinessAddressState());
+  BrokerBusinessAddressCubit({
+    BrokerBusinessAddressState initialState = const BrokerBusinessAddressState(),
+  }) : super(initialState);
 
   void selectCountry(Country country) {
     if (country.countryCode == state.country?.countryCode) return;

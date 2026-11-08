@@ -51,4 +51,17 @@ void main() {
 
     expect(cubit.state.phoneCountry.countryCode, 'SA');
   });
+
+  test('restores a previously saved state', () {
+    final restored = BrokerPersonalInfoCubit(
+      initialState: BrokerPersonalInfoState(
+        phoneCountry: Country.parse('SA'),
+        fullName: 'Mona Adel',
+      ),
+    );
+    addTearDown(restored.close);
+
+    expect(restored.state.fullName, 'Mona Adel');
+    expect(restored.state.phoneCountry.countryCode, 'SA');
+  });
 }

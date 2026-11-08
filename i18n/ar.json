@@ -463,6 +463,15 @@
     "requiredDocuments": "المستندات المطلوبة",
     "uploadBrokerDocuments": "ارفع المستندات اللازمة للتحقق من تسجيلك كوسيط.",
     "identityDocumentFront": "وثيقة الهوية — الوجه الأمامي",
-    "identityDocumentBack": "وثيقة الهوية — الوجه الخلفي"
+    "identityDocumentBack": "وثيقة الهوية — الوجه الخلفي",
+    "entityInformation": "بيانات الكيان",
+    "legalName": "الاسم القانوني",
+    "mobile": "الجوال",
+    "uploadedDocuments": "المستندات المرفوعة",
+    "reviewYourInformation": "راجع بياناتك",
+    "reviewBrokerDetailsBeforeSubmitting": "راجع بياناتك قبل إرسال طلب تسجيلك كوسيط.",
+    "allRequiredInfoComplete": "جميع البيانات والمستندات المطلوبة مكتملة.",
+    "completeRequiredInfoToSubmit": "أكمل البيانات والمستندات المطلوبة الناقصة لتتمكن من الإرسال.",
+    "submitBrokerRegistration": "إرسال تسجيل الوسيط"
   }
   

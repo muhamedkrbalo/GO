@@ -1014,4 +1014,13 @@ class AppLocaleKey {
   static const uploadBrokerDocuments = 'uploadBrokerDocuments';
   static const identityDocumentFront = 'identityDocumentFront';
   static const identityDocumentBack = 'identityDocumentBack';
+  static const entityInformation = 'entityInformation';
+  static const legalName = 'legalName';
+  static const mobile = 'mobile';
+  static const uploadedDocuments = 'uploadedDocuments';
+  static const reviewYourInformation = 'reviewYourInformation';
+  static const reviewBrokerDetailsBeforeSubmitting = 'reviewBrokerDetailsBeforeSubmitting';
+  static const allRequiredInfoComplete = 'allRequiredInfoComplete';
+  static const completeRequiredInfoToSubmit = 'completeRequiredInfoToSubmit';
+  static const submitBrokerRegistration = 'submitBrokerRegistration';
 }

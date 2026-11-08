@@ -20,11 +20,19 @@ class BrokerIdentityInfoForm extends StatefulWidget {
 }
 
 class _BrokerIdentityInfoFormState extends State<BrokerIdentityInfoForm> with ValidationMixin {
-  final _idNumberController = TextEditingController();
+  late final TextEditingController _idNumberController;
 
   static const _fieldGap = SizedBox(height: 18);
   static final _digitsOnly = [FilteringTextInputFormatter.digitsOnly];
   static final _alphanumericOnly = [FilteringTextInputFormatter.allow(RegExp('[a-zA-Z0-9]'))];
+
+  @override
+  void initState() {
+    super.initState();
+    _idNumberController = TextEditingController(
+      text: context.read<BrokerIdentityInfoCubit>().state.idNumber,
+    );
+  }
 
   @override
   void dispose() {

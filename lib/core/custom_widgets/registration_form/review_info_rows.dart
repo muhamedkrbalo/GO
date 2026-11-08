@@ -3,9 +3,9 @@ import 'dart:ui' as ui;
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../../core/locale/app_locale_key.dart';
-import '../../../../../core/theme/app_text_styles.dart';
-import '../../../../../core/theme/extensions/theme_extensions.dart';
+import '../../locale/app_locale_key.dart';
+import '../../theme/app_text_styles.dart';
+import '../../theme/extensions/theme_extensions.dart';
 
 class ReviewInfoItem {
   const ReviewInfoItem({required this.label, required this.rawValue, this.isLtr = false});

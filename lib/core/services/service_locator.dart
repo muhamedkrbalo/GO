@@ -144,9 +144,24 @@ void _initOwnerRegistration() {
 
 void _initBrokerRegistration() {
   sl.registerFactory<BrokerTypeCubit>(BrokerTypeCubit.new);
-  sl.registerFactory<BrokerPersonalInfoCubit>(BrokerPersonalInfoCubit.new);
-  sl.registerFactory<BrokerIdentityInfoCubit>(BrokerIdentityInfoCubit.new);
-  sl.registerFactory<BrokerBusinessAddressCubit>(BrokerBusinessAddressCubit.new);
+  sl.registerFactory<BrokerPersonalInfoCubit>(
+    () => BrokerPersonalInfoCubit(
+      initialState: sl<BrokerRegistrationDraftCubit>().state.personalInfo,
+    ),
+  );
+  sl.registerFactory<BrokerIdentityInfoCubit>(
+    () => BrokerIdentityInfoCubit(
+      initialState:
+          sl<BrokerRegistrationDraftCubit>().state.identityInfo ?? const BrokerIdentityInfoState(),
+    ),
+  );
+  sl.registerFactory<BrokerBusinessAddressCubit>(
+    () => BrokerBusinessAddressCubit(
+      initialState:
+          sl<BrokerRegistrationDraftCubit>().state.businessAddress ??
+          const BrokerBusinessAddressState(),
+    ),
+  );
   sl.registerLazySingleton<BrokerRegistrationDraftCubit>(BrokerRegistrationDraftCubit.new);
   sl.registerFactory<BrokerDocumentsCubit>(
     () => BrokerDocumentsCubit(documents: sl<BrokerRegistrationDraftCubit>().state.documents),

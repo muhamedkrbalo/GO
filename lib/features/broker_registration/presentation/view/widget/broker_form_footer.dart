@@ -7,10 +7,16 @@ import '../../../../../core/locale/app_locale_key.dart';
 import '../../../../../core/theme/app_text_styles.dart';
 
 class BrokerFormFooter extends StatelessWidget {
-  const BrokerFormFooter({super.key, required this.isEnabled, required this.onContinue});
+  const BrokerFormFooter({
+    super.key,
+    required this.isEnabled,
+    required this.onContinue,
+    this.label,
+  });
 
   final bool isEnabled;
   final VoidCallback? onContinue;
+  final String? label;
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +24,7 @@ class BrokerFormFooter extends StatelessWidget {
       saveAndExitAlignment: AlignmentDirectional.center,
       saveAndExitTextStyle: AppTextStyles.xxsBold,
       child: PrimaryArrowButton(
-        text: AppLocaleKey.continue_.tr(),
+        text: label ?? AppLocaleKey.continue_.tr(),
         textStyle: AppTextStyles.xs13Bold,
         isEnabled: isEnabled,
         onPressed: onContinue,

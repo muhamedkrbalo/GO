@@ -6,7 +6,8 @@ import '../../../../core/enum/id_type.dart';
 part 'broker_identity_info_state.dart';
 
 class BrokerIdentityInfoCubit extends Cubit<BrokerIdentityInfoState> {
-  BrokerIdentityInfoCubit() : super(const BrokerIdentityInfoState());
+  BrokerIdentityInfoCubit({BrokerIdentityInfoState initialState = const BrokerIdentityInfoState()})
+    : super(initialState);
 
   void selectIdType(IdType idType) {
     if (idType == state.idType) return;

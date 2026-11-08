@@ -5,8 +5,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 part 'broker_personal_info_state.dart';
 
 class BrokerPersonalInfoCubit extends Cubit<BrokerPersonalInfoState> {
-  BrokerPersonalInfoCubit()
-    : super(BrokerPersonalInfoState(phoneCountry: Country.parse(_defaultPhoneCountryCode)));
+  BrokerPersonalInfoCubit({BrokerPersonalInfoState? initialState})
+    : super(
+        initialState ??
+            BrokerPersonalInfoState(phoneCountry: Country.parse(_defaultPhoneCountryCode)),
+      );
 
   static const _defaultPhoneCountryCode = 'EG';
 

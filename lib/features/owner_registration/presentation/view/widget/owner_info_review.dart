@@ -2,12 +2,12 @@ import 'package:country_picker/country_picker.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../../core/custom_widgets/registration_form/review_info_rows.dart';
 import '../../../../../core/locale/app_locale_key.dart';
 import '../../../data/model/owner_type.dart';
 import '../../controller/company_info_cubit.dart';
 import '../../controller/individual_info_cubit.dart';
 import '../../controller/owner_registration_draft_cubit.dart';
-import 'review_info_rows.dart';
 
 class OwnerInfoReview extends StatelessWidget {
   const OwnerInfoReview({super.key, required this.draft});

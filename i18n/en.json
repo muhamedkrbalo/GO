@@ -460,5 +460,14 @@
   "requiredDocuments": "Required Documents",
   "uploadBrokerDocuments": "Upload the documents needed to verify your Broker registration.",
   "identityDocumentFront": "Identity Document — Front",
-  "identityDocumentBack": "Identity Document — Back"
+  "identityDocumentBack": "Identity Document — Back",
+  "entityInformation": "Entity Information",
+  "legalName": "Legal Name",
+  "mobile": "Mobile",
+  "uploadedDocuments": "Uploaded Documents",
+  "reviewYourInformation": "Review Your Information",
+  "reviewBrokerDetailsBeforeSubmitting": "Review your details before submitting your Broker registration.",
+  "allRequiredInfoComplete": "All configured required information and documents are complete.",
+  "completeRequiredInfoToSubmit": "Complete the missing required information and documents to submit.",
+  "submitBrokerRegistration": "Submit Broker Registration"
 }

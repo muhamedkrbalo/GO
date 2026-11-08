@@ -23,14 +23,26 @@ class BrokerBusinessAddressForm extends StatefulWidget {
 
 class _BrokerBusinessAddressFormState extends State<BrokerBusinessAddressForm>
     with ValidationMixin {
-  final _governorateController = TextEditingController();
-  final _cityController = TextEditingController();
-  final _districtController = TextEditingController();
-  final _addressLine1Controller = TextEditingController();
-  final _addressLine2Controller = TextEditingController();
-  final _postalCodeController = TextEditingController();
+  late final TextEditingController _governorateController;
+  late final TextEditingController _cityController;
+  late final TextEditingController _districtController;
+  late final TextEditingController _addressLine1Controller;
+  late final TextEditingController _addressLine2Controller;
+  late final TextEditingController _postalCodeController;
 
   static const _fieldGap = SizedBox(height: 18);
+
+  @override
+  void initState() {
+    super.initState();
+    final state = context.read<BrokerBusinessAddressCubit>().state;
+    _governorateController = TextEditingController(text: state.governorate);
+    _cityController = TextEditingController(text: state.city);
+    _districtController = TextEditingController(text: state.district);
+    _addressLine1Controller = TextEditingController(text: state.addressLine1);
+    _addressLine2Controller = TextEditingController(text: state.addressLine2);
+    _postalCodeController = TextEditingController(text: state.postalCode);
+  }
 
   @override
   void dispose() {

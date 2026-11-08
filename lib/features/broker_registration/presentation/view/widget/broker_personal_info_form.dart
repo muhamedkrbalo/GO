@@ -19,11 +19,20 @@ class BrokerPersonalInfoForm extends StatefulWidget {
 }
 
 class _BrokerPersonalInfoFormState extends State<BrokerPersonalInfoForm> with ValidationMixin {
-  final _nameController = TextEditingController();
-  final _mobileController = TextEditingController();
-  final _emailController = TextEditingController();
+  late final TextEditingController _nameController;
+  late final TextEditingController _mobileController;
+  late final TextEditingController _emailController;
 
   static const _fieldGap = SizedBox(height: 18);
+
+  @override
+  void initState() {
+    super.initState();
+    final state = context.read<BrokerPersonalInfoCubit>().state;
+    _nameController = TextEditingController(text: state.fullName);
+    _mobileController = TextEditingController(text: state.mobileNumber);
+    _emailController = TextEditingController(text: state.email);
+  }
 
   @override
   void dispose() {
