@@ -431,5 +431,13 @@
     "zero": "Too many incorrect attempts. Request a new code.",
     "one": "That code is incorrect. 1 attempt remaining.",
     "other": "That code is incorrect. {} attempts remaining."
-  }
+  },
+  "brokerRegistration": "Broker Registration",
+  "stepOfTotal": "Step {} of {}",
+  "howWouldYouLikeToRegister": "How would you like to register?",
+  "chooseBrokerAccountType": "Choose the type of broker account you want to create.",
+  "individualBroker": "Individual Broker",
+  "individualBrokerDescription": "Register as an individual and manage your brokerage activities.",
+  "companyBroker": "Company Broker",
+  "companyBrokerDescription": "Register a legally established company to provide brokerage services."
 }

@@ -6,6 +6,7 @@ import '../../features/auth/presentation/controller/business_role_cubit.dart';
 import '../../features/auth/presentation/controller/register_cubit.dart';
 import '../../features/auth/presentation/controller/verify_account_cubit.dart';
 import '../../features/auth/presentation/controller/verify_code_cubit.dart';
+import '../../features/broker_registration/presentation/controller/broker_type_cubit.dart';
 import '../../features/onboarding/presentation/controller/onboarding_cubit.dart';
 import '../../features/owner_registration/data/model/owner_unit.dart';
 import '../../features/owner_registration/data/model/registration_receipt.dart';
@@ -45,6 +46,7 @@ Future<void> initDependencies() async {
   _initOnboarding();
   _initAuth();
   _initOwnerRegistration();
+  _initBrokerRegistration();
 }
 
 /// Tears down user-scoped resources in dependency order.
@@ -133,4 +135,8 @@ void _initOwnerRegistration() {
   sl.registerFactory<RegistrationReviewCubit>(
     () => RegistrationReviewCubit(sl<OwnerRegistrationDraftCubit>().state),
   );
+}
+
+void _initBrokerRegistration() {
+  sl.registerFactory<BrokerTypeCubit>(BrokerTypeCubit.new);
 }

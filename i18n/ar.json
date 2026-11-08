@@ -434,6 +434,14 @@
       "few": "الرمز غير صحيح. تبقّت {} محاولات.",
       "many": "الرمز غير صحيح. تبقّت {} محاولة.",
       "other": "الرمز غير صحيح. تبقّت {} محاولة."
-    }
+    },
+    "brokerRegistration": "تسجيل الوسيط",
+    "stepOfTotal": "الخطوة {} من {}",
+    "howWouldYouLikeToRegister": "كيف تودّ التسجيل؟",
+    "chooseBrokerAccountType": "اختر نوع حساب الوسيط الذي تريد إنشاءه.",
+    "individualBroker": "وسيط فرد",
+    "individualBrokerDescription": "سجّل بصفتك فردًا وأدِر أنشطة الوساطة الخاصة بك.",
+    "companyBroker": "شركة وساطة",
+    "companyBrokerDescription": "سجّل شركة قائمة قانونيًا لتقديم خدمات الوساطة."
   }
   

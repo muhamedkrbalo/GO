@@ -18,9 +18,12 @@ class BusinessRoleContinueButton extends StatelessWidget {
       builder: (context, selected) => PrimaryArrowButton(
         text: AppLocaleKey.continue_.tr(),
         isEnabled: selected != null,
-        onPressed: selected == BusinessRole.owner
-            ? () => context.pushNamed(RouteNames.ownerType)
-            : null,
+        onPressed: selected == null
+            ? null
+            : () => context.pushNamed(switch (selected) {
+                BusinessRole.owner => RouteNames.ownerType,
+                BusinessRole.broker => RouteNames.brokerType,
+              }),
       ),
     );
   }
