@@ -1,6 +1,5 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../core/custom_widgets/document_upload/upload_dropzone.dart';
 import '../../../../../core/custom_widgets/document_upload/uploaded_document_tile.dart';
@@ -11,13 +10,22 @@ import '../../../../../core/theme/app_sizes.dart';
 import '../../../../../core/theme/app_text_styles.dart';
 import '../../../../../core/theme/extensions/theme_extensions.dart';
 import '../../../../../core/utils/document_picker_methods.dart';
-import '../../../data/model/broker_document_type.dart';
-import '../../controller/broker_documents_cubit.dart';
 
-class BrokerDocumentCard extends StatelessWidget {
-  const BrokerDocumentCard({super.key, required this.type});
+class BrokerUploadCard extends StatelessWidget {
+  const BrokerUploadCard({
+    super.key,
+    required this.title,
+    required this.isRequired,
+    required this.document,
+    required this.onAttach,
+    required this.onRemove,
+  });
 
-  final BrokerDocumentType type;
+  final String title;
+  final bool isRequired;
+  final UploadedDocument? document;
+  final ValueChanged<UploadedDocument> onAttach;
+  final VoidCallback onRemove;
 
   static const _padding = EdgeInsetsDirectional.all(14);
   static const _radius = BorderRadius.all(Radius.circular(13));
@@ -26,17 +34,13 @@ class BrokerDocumentCard extends StatelessWidget {
   static const _textHeight = 1.5;
 
   Future<void> _pick(BuildContext context) async {
-    final cubit = context.read<BrokerDocumentsCubit>();
     final file = await DocumentPickerMethods.pickDocument();
     if (file == null) return;
     if (file.sizeInBytes > DocumentPickerMethods.maxSizeInBytes) {
       if (context.mounted) context.showErrorToast(message: AppLocaleKey.documentTooLarge.tr());
       return;
     }
-    cubit.attach(
-      type,
-      UploadedDocument(name: file.name, sizeInBytes: file.sizeInBytes, path: file.path),
-    );
+    onAttach(UploadedDocument(name: file.name, sizeInBytes: file.sizeInBytes, path: file.path));
   }
 
   @override
@@ -58,7 +62,7 @@ class BrokerDocumentCard extends StatelessWidget {
               children: [
                 Expanded(
                   child: Text(
-                    type.titleKey.tr(),
+                    title,
                     style: AppTextStyles.xxxsBold.copyWith(
                       color: colors.textSecondary,
                       height: _textHeight,
@@ -66,23 +70,18 @@ class BrokerDocumentCard extends StatelessWidget {
                   ),
                 ),
                 AppSpacing.gapH8,
-                _RequirementBadge(isRequired: type.isRequired),
+                _RequirementBadge(isRequired: isRequired),
               ],
             ),
             _titleToBodyGap,
-            BlocSelector<BrokerDocumentsCubit, BrokerDocumentsState, UploadedDocument?>(
-              selector: (state) => state.documentOf(type),
-              builder: (context, document) => document == null
-                  ? UploadDropzone(
-                      showIconTile: false,
-                      iconSize: _uploadIconSize,
-                      onTap: () => _pick(context),
-                    )
-                  : UploadedDocumentTile(
-                      document: document,
-                      onRemove: () => context.read<BrokerDocumentsCubit>().remove(type),
-                    ),
-            ),
+            if (document case final uploaded?)
+              UploadedDocumentTile(document: uploaded, onRemove: onRemove)
+            else
+              UploadDropzone(
+                showIconTile: false,
+                iconSize: _uploadIconSize,
+                onTap: () => _pick(context),
+              ),
           ],
         ),
       ),

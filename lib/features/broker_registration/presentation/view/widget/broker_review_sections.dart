@@ -24,6 +24,7 @@ class BrokerReviewSections extends StatelessWidget {
     final identity = draft.identityInfo;
     final address = draft.businessAddress;
     final company = draft.companyInfo;
+    final representative = draft.representative;
     final nationality = personal?.nationality;
     final registrationCountry = company?.registrationCountry;
     final country = address?.country;
@@ -96,6 +97,42 @@ class BrokerReviewSections extends StatelessWidget {
             ),
           ],
         ),
+        if (draft.isCompany) ...[
+          AppSpacing.gapV10,
+          BrokerSummarySection(
+            title: AppLocaleKey.authorizedRepresentative.tr(),
+            onEdit: () => _returnTo(context, RouteNames.brokerRepresentative),
+            items: [
+              ReviewInfoItem(
+                label: AppLocaleKey.representativeFullName.tr(),
+                rawValue: representative?.fullName,
+              ),
+              ReviewInfoItem(
+                label: AppLocaleKey.idType.tr(),
+                rawValue: representative?.idType?.labelKey.tr(),
+              ),
+              ReviewInfoItem(
+                label: AppLocaleKey.idNumber.tr(),
+                rawValue: representative?.idNumber,
+                isLtr: true,
+              ),
+              ReviewInfoItem(
+                label: AppLocaleKey.mobile.tr(),
+                rawValue: representative?.mobileNumber,
+                isLtr: true,
+              ),
+              ReviewInfoItem(
+                label: AppLocaleKey.email.tr(),
+                rawValue: representative?.email,
+                isLtr: true,
+              ),
+              ReviewInfoItem(
+                label: AppLocaleKey.proofOfAuthorization.tr(),
+                rawValue: representative?.proofOfAuthorization?.name,
+              ),
+            ],
+          ),
+        ],
         AppSpacing.gapV10,
         BrokerSummarySection(
           title: AppLocaleKey.businessAddressTitle.tr(),

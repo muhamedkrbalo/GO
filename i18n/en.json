@@ -493,5 +493,11 @@
   "selectRegistrationDate": "Select registration date",
   "enterOfficialEmail": "Enter official email",
   "companyInformation": "Company Information",
-  "enterBrokerCompanyInformation": "Enter the official information of the company providing brokerage services."
+  "enterBrokerCompanyInformation": "Enter the official information of the company providing brokerage services.",
+  "companyAuthorization": "Company authorization",
+  "authorizedRepresentative": "Authorized Representative",
+  "addAuthorizedRepresentative": "Add the person authorized to represent this company on GO.",
+  "registeringAccountMustBeAuthorized": "The registering account must be authorized to represent this company.",
+  "representativeFullName": "Representative Full Name",
+  "proofOfAuthorization": "Proof of Authorization"
 }

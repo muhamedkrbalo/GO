@@ -9,6 +9,7 @@ import 'package:flutter_hr_erb/features/broker_registration/presentation/control
 import 'package:flutter_hr_erb/features/broker_registration/presentation/controller/broker_identity_info_cubit.dart';
 import 'package:flutter_hr_erb/features/broker_registration/presentation/controller/broker_personal_info_cubit.dart';
 import 'package:flutter_hr_erb/features/broker_registration/presentation/controller/broker_registration_draft_cubit.dart';
+import 'package:flutter_hr_erb/features/broker_registration/presentation/controller/broker_representative_cubit.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
@@ -152,14 +153,37 @@ void main() {
       expect(cubit.state.businessEmail, 'info@rooftop.com');
     });
 
-    test('entity info is complete from the company step, not the personal one', () {
+    test('entity info needs the company step and the authorized representative', () {
       cubit
         ..startRegistration(BrokerType.company)
         ..savePersonalInfo(personalInfo());
       expect(cubit.state.isEntityInfoComplete, isFalse);
 
       cubit.saveCompanyInfo(company);
+      expect(cubit.state.isEntityInfoComplete, isFalse);
+
+      cubit.saveRepresentative(
+        BrokerRepresentativeState(
+          phoneCountry: Country.parse('EG'),
+          fullName: 'Omar Hassan',
+          idType: IdType.nationalId,
+          idNumber: '29801011234567',
+          mobileNumber: '1024055926',
+          email: 'omar@rooftop.com',
+          proofOfAuthorization: const UploadedDocument(name: 'auth.pdf', sizeInBytes: 1),
+        ),
+      );
       expect(cubit.state.isEntityInfoComplete, isTrue);
+    });
+
+    test('company brokers shift address and contact one step later', () {
+      cubit.startRegistration(BrokerType.individual);
+      expect(cubit.state.businessAddressStep, 4);
+      expect(cubit.state.businessContactStep, 5);
+
+      cubit.startRegistration(BrokerType.company);
+      expect(cubit.state.businessAddressStep, 5);
+      expect(cubit.state.businessContactStep, 6);
     });
   });
 }

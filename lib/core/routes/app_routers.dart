@@ -21,6 +21,7 @@ import '../../features/broker_registration/presentation/controller/broker_docume
 import '../../features/broker_registration/presentation/controller/broker_identity_info_cubit.dart';
 import '../../features/broker_registration/presentation/controller/broker_personal_info_cubit.dart';
 import '../../features/broker_registration/presentation/controller/broker_registration_status_cubit.dart';
+import '../../features/broker_registration/presentation/controller/broker_representative_cubit.dart';
 import '../../features/broker_registration/presentation/controller/broker_type_cubit.dart';
 import '../../features/broker_registration/presentation/view/screen/broker_business_address_screen.dart';
 import '../../features/broker_registration/presentation/view/screen/broker_business_contact_screen.dart';
@@ -29,6 +30,7 @@ import '../../features/broker_registration/presentation/view/screen/broker_docum
 import '../../features/broker_registration/presentation/view/screen/broker_identity_info_screen.dart';
 import '../../features/broker_registration/presentation/view/screen/broker_personal_info_screen.dart';
 import '../../features/broker_registration/presentation/view/screen/broker_registration_status_screen.dart';
+import '../../features/broker_registration/presentation/view/screen/broker_representative_screen.dart';
 import '../../features/broker_registration/presentation/view/screen/broker_review_screen.dart';
 import '../../features/broker_registration/presentation/view/screen/broker_submission_confirmation_screen.dart';
 import '../../features/broker_registration/presentation/view/screen/broker_type_screen.dart';
@@ -180,6 +182,14 @@ class AppRouters {
         builder: (context, state) => BlocProvider(
           create: (_) => sl<BrokerIdentityInfoCubit>(),
           child: const BrokerIdentityInfoScreen(),
+        ),
+      ),
+      GoRoute(
+        path: RoutePaths.brokerRepresentative,
+        name: RouteNames.brokerRepresentative,
+        builder: (context, state) => BlocProvider(
+          create: (_) => sl<BrokerRepresentativeCubit>(),
+          child: const BrokerRepresentativeScreen(),
         ),
       ),
       GoRoute(
@@ -367,6 +377,7 @@ class AppRouters {
     RoutePaths.brokerPersonalInfo,
     RoutePaths.brokerCompanyInfo,
     RoutePaths.brokerIdentityInfo,
+    RoutePaths.brokerRepresentative,
     RoutePaths.brokerBusinessAddress,
     RoutePaths.brokerBusinessContact,
     RoutePaths.brokerDocuments,

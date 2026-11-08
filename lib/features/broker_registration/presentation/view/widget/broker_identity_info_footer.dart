@@ -15,7 +15,10 @@ class BrokerIdentityInfoFooter extends StatelessWidget {
     context.read<BrokerRegistrationDraftCubit>().saveIdentityInfo(
       context.read<BrokerIdentityInfoCubit>().state,
     );
-    context.pushNamed(RouteNames.brokerBusinessAddress);
+    final draft = context.read<BrokerRegistrationDraftCubit>().state;
+    context.pushNamed(
+      draft.isCompany ? RouteNames.brokerRepresentative : RouteNames.brokerBusinessAddress,
+    );
   }
 
   @override

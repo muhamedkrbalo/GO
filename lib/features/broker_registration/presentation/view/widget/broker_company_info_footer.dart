@@ -11,7 +11,7 @@ class BrokerCompanyInfoFooter extends StatelessWidget {
   const BrokerCompanyInfoFooter({super.key});
 
   void _continue(BuildContext context) {
-   // if (!Form.of(context).validate()) return;
+    // if (!Form.of(context).validate()) return;
     context.read<BrokerRegistrationDraftCubit>().saveCompanyInfo(
       context.read<BrokerCompanyInfoCubit>().state,
     );

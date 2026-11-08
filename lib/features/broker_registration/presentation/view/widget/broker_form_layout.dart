@@ -15,6 +15,7 @@ class BrokerFormLayout extends StatelessWidget {
     required this.subtitle,
     required this.form,
     required this.footer,
+    this.introToFormGap = 28,
   });
 
   final int step;
@@ -23,10 +24,10 @@ class BrokerFormLayout extends StatelessWidget {
   final String subtitle;
   final Widget form;
   final Widget footer;
+  final double introToFormGap;
 
   static const totalSteps = 8;
   static const _contentPadding = EdgeInsetsDirectional.fromSTEB(22, 28, 22, 34);
-  static const _introToFormGap = SizedBox(height: 28);
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +48,7 @@ class BrokerFormLayout extends StatelessWidget {
                 keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
                 children: [
                   RegistrationIntro(eyebrow: eyebrow, title: title, subtitle: subtitle),
-                  _introToFormGap,
+                  SizedBox(height: introToFormGap),
                   form,
                 ],
               ),

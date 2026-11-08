@@ -14,6 +14,7 @@ import '../../features/broker_registration/presentation/controller/broker_identi
 import '../../features/broker_registration/presentation/controller/broker_personal_info_cubit.dart';
 import '../../features/broker_registration/presentation/controller/broker_registration_draft_cubit.dart';
 import '../../features/broker_registration/presentation/controller/broker_registration_status_cubit.dart';
+import '../../features/broker_registration/presentation/controller/broker_representative_cubit.dart';
 import '../../features/broker_registration/presentation/controller/broker_type_cubit.dart';
 import '../../features/onboarding/presentation/controller/onboarding_cubit.dart';
 import '../../features/owner_registration/data/model/owner_unit.dart';
@@ -161,6 +162,11 @@ void _initBrokerRegistration() {
     () => BrokerIdentityInfoCubit(
       initialState:
           sl<BrokerRegistrationDraftCubit>().state.identityInfo ?? const BrokerIdentityInfoState(),
+    ),
+  );
+  sl.registerFactory<BrokerRepresentativeCubit>(
+    () => BrokerRepresentativeCubit(
+      initialState: sl<BrokerRegistrationDraftCubit>().state.representative,
     ),
   );
   sl.registerFactory<BrokerBusinessAddressCubit>(

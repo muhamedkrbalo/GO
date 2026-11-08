@@ -8,6 +8,7 @@ import 'broker_business_address_cubit.dart';
 import 'broker_company_info_cubit.dart';
 import 'broker_identity_info_cubit.dart';
 import 'broker_personal_info_cubit.dart';
+import 'broker_representative_cubit.dart';
 
 part 'broker_registration_draft_state.dart';
 
@@ -29,6 +30,10 @@ class BrokerRegistrationDraftCubit extends Cubit<BrokerRegistrationDraft> {
 
   void saveIdentityInfo(BrokerIdentityInfoState identityInfo) {
     emit(state.copyWith(identityInfo: identityInfo));
+  }
+
+  void saveRepresentative(BrokerRepresentativeState representative) {
+    emit(state.copyWith(representative: representative));
   }
 
   void saveBusinessAddress(BrokerBusinessAddressState businessAddress) {

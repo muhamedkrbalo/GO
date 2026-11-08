@@ -496,6 +496,12 @@
     "selectRegistrationDate": "اختر تاريخ التسجيل",
     "enterOfficialEmail": "أدخل البريد الإلكتروني الرسمي",
     "companyInformation": "بيانات الشركة",
-    "enterBrokerCompanyInformation": "أدخل البيانات الرسمية للشركة التي تقدم خدمات الوساطة."
+    "enterBrokerCompanyInformation": "أدخل البيانات الرسمية للشركة التي تقدم خدمات الوساطة.",
+    "companyAuthorization": "تفويض الشركة",
+    "authorizedRepresentative": "الممثل المفوّض",
+    "addAuthorizedRepresentative": "أضف الشخص المفوّض بتمثيل هذه الشركة على GO.",
+    "registeringAccountMustBeAuthorized": "يجب أن يكون الحساب المُسجِّل مفوّضًا بتمثيل هذه الشركة.",
+    "representativeFullName": "الاسم الكامل للممثل",
+    "proofOfAuthorization": "إثبات التفويض"
   }
   

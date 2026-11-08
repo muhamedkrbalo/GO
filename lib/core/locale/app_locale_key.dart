@@ -1046,4 +1046,10 @@ class AppLocaleKey {
   static const enterOfficialEmail = 'enterOfficialEmail';
   static const companyInformation = 'companyInformation';
   static const enterBrokerCompanyInformation = 'enterBrokerCompanyInformation';
+  static const companyAuthorization = 'companyAuthorization';
+  static const authorizedRepresentative = 'authorizedRepresentative';
+  static const addAuthorizedRepresentative = 'addAuthorizedRepresentative';
+  static const registeringAccountMustBeAuthorized = 'registeringAccountMustBeAuthorized';
+  static const representativeFullName = 'representativeFullName';
+  static const proofOfAuthorization = 'proofOfAuthorization';
 }

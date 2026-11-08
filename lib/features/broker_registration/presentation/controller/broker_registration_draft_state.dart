@@ -6,6 +6,7 @@ class BrokerRegistrationDraft extends Equatable {
     this.personalInfo,
     this.companyInfo,
     this.identityInfo,
+    this.representative,
     this.businessAddress,
     this.documents = const {},
   });
@@ -14,6 +15,7 @@ class BrokerRegistrationDraft extends Equatable {
   final BrokerPersonalInfoState? personalInfo;
   final BrokerCompanyInfoState? companyInfo;
   final BrokerIdentityInfoState? identityInfo;
+  final BrokerRepresentativeState? representative;
   final BrokerBusinessAddressState? businessAddress;
   final Map<BrokerDocumentType, UploadedDocument> documents;
 
@@ -32,8 +34,13 @@ class BrokerRegistrationDraft extends Equatable {
     return email == null || email.isEmpty ? null : email;
   }
 
-  bool get isEntityInfoComplete =>
-      isCompany ? (companyInfo?.canContinue ?? false) : (personalInfo?.canContinue ?? false);
+  bool get isEntityInfoComplete => isCompany
+      ? (companyInfo?.canContinue ?? false) && (representative?.canContinue ?? false)
+      : (personalInfo?.canContinue ?? false);
+
+  int get businessAddressStep => isCompany ? 5 : 4;
+
+  int get businessContactStep => isCompany ? 6 : 5;
 
   bool get isReadyToSubmit =>
       isEntityInfoComplete &&
@@ -45,6 +52,7 @@ class BrokerRegistrationDraft extends Equatable {
     BrokerPersonalInfoState? personalInfo,
     BrokerCompanyInfoState? companyInfo,
     BrokerIdentityInfoState? identityInfo,
+    BrokerRepresentativeState? representative,
     BrokerBusinessAddressState? businessAddress,
     Map<BrokerDocumentType, UploadedDocument>? documents,
   }) {
@@ -53,6 +61,7 @@ class BrokerRegistrationDraft extends Equatable {
       personalInfo: personalInfo ?? this.personalInfo,
       companyInfo: companyInfo ?? this.companyInfo,
       identityInfo: identityInfo ?? this.identityInfo,
+      representative: representative ?? this.representative,
       businessAddress: businessAddress ?? this.businessAddress,
       documents: documents ?? this.documents,
     );
@@ -64,6 +73,7 @@ class BrokerRegistrationDraft extends Equatable {
     personalInfo,
     companyInfo,
     identityInfo,
+    representative,
     businessAddress,
     documents,
   ];
