@@ -998,4 +998,9 @@ class AppLocaleKey {
   static const identityVerification = 'identityVerification';
   static const identityInformation = 'identityInformation';
   static const provideIdentityDetails = 'provideIdentityDetails';
+  static const businessLocation = 'businessLocation';
+  static const businessAddressTitle = 'businessAddressTitle';
+  static const addBrokerOfficialAddress = 'addBrokerOfficialAddress';
+  static const floorSuiteDetailsHint = 'floorSuiteDetailsHint';
+  static const setAsPrimaryBusinessAddress = 'setAsPrimaryBusinessAddress';
 }

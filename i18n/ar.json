@@ -447,6 +447,11 @@
     "businessEntityContactNote": "بيانات تواصل الكيان التجاري — منفصلة عن بيانات دخولك إلى GO.",
     "identityVerification": "التحقق من الهوية",
     "identityInformation": "بيانات الهوية",
-    "provideIdentityDetails": "أدخل بيانات الهوية المطلوبة للتحقق."
+    "provideIdentityDetails": "أدخل بيانات الهوية المطلوبة للتحقق.",
+    "businessLocation": "موقع النشاط",
+    "businessAddressTitle": "عنوان النشاط التجاري",
+    "addBrokerOfficialAddress": "أضف العنوان الرسمي المرتبط بكيان الوساطة التجاري هذا.",
+    "floorSuiteDetailsHint": "الطابق، المكتب، تفاصيل إضافية",
+    "setAsPrimaryBusinessAddress": "تعيين كعنوان النشاط الرئيسي"
   }
   

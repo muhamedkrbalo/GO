@@ -1,9 +1,9 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../../core/enum/address_type.dart';
 import '../../../../../core/theme/app_text_styles.dart';
 import '../../../../../core/theme/extensions/theme_extensions.dart';
-import '../../../data/model/address_type.dart';
 
 class AddressTypeSelector extends StatelessWidget {
   const AddressTypeSelector({super.key, required this.selected, required this.onSelect});

@@ -444,5 +444,10 @@
   "businessEntityContactNote": "Business Entity contact — separate from your GO login.",
   "identityVerification": "Verification identity",
   "identityInformation": "Identity Information",
-  "provideIdentityDetails": "Provide the identity details required for verification."
+  "provideIdentityDetails": "Provide the identity details required for verification.",
+  "businessLocation": "Business location",
+  "businessAddressTitle": "Business Address",
+  "addBrokerOfficialAddress": "Add the official address associated with this Broker Business Entity.",
+  "floorSuiteDetailsHint": "Floor, suite, additional details",
+  "setAsPrimaryBusinessAddress": "Set as primary business address"
 }

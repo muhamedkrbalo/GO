@@ -2,7 +2,7 @@ import 'package:country_picker/country_picker.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../data/model/address_type.dart';
+import '../../../../core/enum/address_type.dart';
 
 part 'owner_address_state.dart';
 

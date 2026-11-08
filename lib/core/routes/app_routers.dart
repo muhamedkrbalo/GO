@@ -14,9 +14,11 @@ import '../../features/auth/presentation/view/screen/login_screen.dart';
 import '../../features/auth/presentation/view/screen/register_screen.dart';
 import '../../features/auth/presentation/view/screen/verify_account_screen.dart';
 import '../../features/auth/presentation/view/screen/verify_code_screen.dart';
+import '../../features/broker_registration/presentation/controller/broker_business_address_cubit.dart';
 import '../../features/broker_registration/presentation/controller/broker_identity_info_cubit.dart';
 import '../../features/broker_registration/presentation/controller/broker_personal_info_cubit.dart';
 import '../../features/broker_registration/presentation/controller/broker_type_cubit.dart';
+import '../../features/broker_registration/presentation/view/screen/broker_business_address_screen.dart';
 import '../../features/broker_registration/presentation/view/screen/broker_identity_info_screen.dart';
 import '../../features/broker_registration/presentation/view/screen/broker_personal_info_screen.dart';
 import '../../features/broker_registration/presentation/view/screen/broker_type_screen.dart';
@@ -163,6 +165,14 @@ class AppRouters {
         ),
       ),
       GoRoute(
+        path: RoutePaths.brokerBusinessAddress,
+        name: RouteNames.brokerBusinessAddress,
+        builder: (context, state) => BlocProvider(
+          create: (_) => sl<BrokerBusinessAddressCubit>(),
+          child: const BrokerBusinessAddressScreen(),
+        ),
+      ),
+      GoRoute(
         path: RoutePaths.individualInfo,
         name: RouteNames.individualInfo,
         builder: (context, state) => BlocProvider(
@@ -300,6 +310,7 @@ class AppRouters {
     RoutePaths.brokerType,
     RoutePaths.brokerPersonalInfo,
     RoutePaths.brokerIdentityInfo,
+    RoutePaths.brokerBusinessAddress,
   };
 
   /// Login gating, in one place:
