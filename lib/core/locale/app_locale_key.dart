@@ -1027,4 +1027,16 @@ class AppLocaleKey {
   static const brokerRegistrationSubmittedDescription = 'brokerRegistrationSubmittedDescription';
   static const pendingApproval = 'pendingApproval';
   static const brokerSubmissionDisclaimer = 'brokerSubmissionDisclaimer';
+  static const brokerRegistrationStatus = 'brokerRegistrationStatus';
+  static const registrationReview = 'registrationReview';
+  static const trackBrokerRegistration = 'trackBrokerRegistration';
+  static const registrationReference = 'registrationReference';
+  static const lastUpdated = 'lastUpdated';
+  static const brokerQueuedForReviewMessage = 'brokerQueuedForReviewMessage';
+  static const brokerCorrectionMessage = 'brokerCorrectionMessage';
+  static const brokerApprovedMessage = 'brokerApprovedMessage';
+  static const prototypeStatusControls = 'prototypeStatusControls';
+  static const previewPending = 'previewPending';
+  static const previewCorrection = 'previewCorrection';
+  static const previewApproved = 'previewApproved';
 }

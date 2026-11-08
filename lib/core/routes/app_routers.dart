@@ -19,12 +19,14 @@ import '../../features/broker_registration/presentation/controller/broker_busine
 import '../../features/broker_registration/presentation/controller/broker_documents_cubit.dart';
 import '../../features/broker_registration/presentation/controller/broker_identity_info_cubit.dart';
 import '../../features/broker_registration/presentation/controller/broker_personal_info_cubit.dart';
+import '../../features/broker_registration/presentation/controller/broker_registration_status_cubit.dart';
 import '../../features/broker_registration/presentation/controller/broker_type_cubit.dart';
 import '../../features/broker_registration/presentation/view/screen/broker_business_address_screen.dart';
 import '../../features/broker_registration/presentation/view/screen/broker_business_contact_screen.dart';
 import '../../features/broker_registration/presentation/view/screen/broker_documents_screen.dart';
 import '../../features/broker_registration/presentation/view/screen/broker_identity_info_screen.dart';
 import '../../features/broker_registration/presentation/view/screen/broker_personal_info_screen.dart';
+import '../../features/broker_registration/presentation/view/screen/broker_registration_status_screen.dart';
 import '../../features/broker_registration/presentation/view/screen/broker_review_screen.dart';
 import '../../features/broker_registration/presentation/view/screen/broker_submission_confirmation_screen.dart';
 import '../../features/broker_registration/presentation/view/screen/broker_type_screen.dart';
@@ -205,6 +207,18 @@ class AppRouters {
             BrokerSubmissionConfirmationScreen(receipt: state.extra! as BrokerRegistrationReceipt),
       ),
       GoRoute(
+        path: RoutePaths.brokerRegistrationStatus,
+        name: RouteNames.brokerRegistrationStatus,
+        redirect: (context, state) =>
+            state.extra is BrokerRegistrationReceipt ? null : RoutePaths.home,
+        builder: (context, state) => BlocProvider(
+          create: (_) => sl<BrokerRegistrationStatusCubit>(
+            param1: state.extra! as BrokerRegistrationReceipt,
+          ),
+          child: const BrokerRegistrationStatusScreen(),
+        ),
+      ),
+      GoRoute(
         path: RoutePaths.individualInfo,
         name: RouteNames.individualInfo,
         builder: (context, state) => BlocProvider(
@@ -347,6 +361,7 @@ class AppRouters {
     RoutePaths.brokerDocuments,
     RoutePaths.brokerReview,
     RoutePaths.brokerSubmitted,
+    RoutePaths.brokerRegistrationStatus,
   };
 
   /// Login gating, in one place:

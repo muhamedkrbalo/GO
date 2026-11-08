@@ -6,11 +6,13 @@ import '../../features/auth/presentation/controller/business_role_cubit.dart';
 import '../../features/auth/presentation/controller/register_cubit.dart';
 import '../../features/auth/presentation/controller/verify_account_cubit.dart';
 import '../../features/auth/presentation/controller/verify_code_cubit.dart';
+import '../../features/broker_registration/data/model/broker_registration_receipt.dart';
 import '../../features/broker_registration/presentation/controller/broker_business_address_cubit.dart';
 import '../../features/broker_registration/presentation/controller/broker_documents_cubit.dart';
 import '../../features/broker_registration/presentation/controller/broker_identity_info_cubit.dart';
 import '../../features/broker_registration/presentation/controller/broker_personal_info_cubit.dart';
 import '../../features/broker_registration/presentation/controller/broker_registration_draft_cubit.dart';
+import '../../features/broker_registration/presentation/controller/broker_registration_status_cubit.dart';
 import '../../features/broker_registration/presentation/controller/broker_type_cubit.dart';
 import '../../features/onboarding/presentation/controller/onboarding_cubit.dart';
 import '../../features/owner_registration/data/model/owner_unit.dart';
@@ -163,6 +165,9 @@ void _initBrokerRegistration() {
     ),
   );
   sl.registerLazySingleton<BrokerRegistrationDraftCubit>(BrokerRegistrationDraftCubit.new);
+  sl.registerFactoryParam<BrokerRegistrationStatusCubit, BrokerRegistrationReceipt, void>(
+    (receipt, _) => BrokerRegistrationStatusCubit(receipt: receipt),
+  );
   sl.registerFactory<BrokerDocumentsCubit>(
     () => BrokerDocumentsCubit(documents: sl<BrokerRegistrationDraftCubit>().state.documents),
   );

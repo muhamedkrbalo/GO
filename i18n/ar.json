@@ -477,6 +477,18 @@
     "brokerRegistrationSubmittedDescription": "تم إرسال طلب تسجيلك كوسيط بنجاح. سيقوم فريقنا بمراجعة بياناتك.",
     "pendingApproval": "بانتظار الموافقة",
     "brokerSubmissionDisclaimer": "لا يمنح الإرسال موافقة الوسيط أو صلاحية دخول القرية أو أي صلاحيات تشغيلية.",
-    "status": "الحالة"
+    "status": "الحالة",
+    "brokerRegistrationStatus": "حالة تسجيل الوسيط",
+    "registrationReview": "مراجعة التسجيل",
+    "trackBrokerRegistration": "تابع مراجعة تسجيل كيان الوساطة التجاري الخاص بك.",
+    "registrationReference": "مرجع التسجيل",
+    "lastUpdated": "آخر تحديث",
+    "brokerQueuedForReviewMessage": "طلب تسجيلك في قائمة انتظار المراجعة.",
+    "brokerCorrectionMessage": "بعض بياناتك تحتاج إلى تصحيح قبل الموافقة عليها.",
+    "brokerApprovedMessage": "تمت الموافقة على تسجيلك كوسيط.",
+    "prototypeStatusControls": "أدوات تجربة الحالة",
+    "previewPending": "معاينة قيد الانتظار",
+    "previewCorrection": "معاينة التصحيح",
+    "previewApproved": "معاينة الموافقة"
   }
   

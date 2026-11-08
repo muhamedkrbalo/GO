@@ -9,8 +9,8 @@ class RegistrationStepHeader extends StatelessWidget {
   const RegistrationStepHeader({
     super.key,
     required this.title,
-    required this.stepLabel,
-    required this.progress,
+    this.stepLabel,
+    this.progress,
     this.stepTitle,
     this.stepHint,
     this.onBack,
@@ -18,8 +18,8 @@ class RegistrationStepHeader extends StatelessWidget {
   });
 
   final String title;
-  final String stepLabel;
-  final double progress;
+  final String? stepLabel;
+  final double? progress;
   final String? stepTitle;
   final String? stepHint;
   final VoidCallback? onBack;
@@ -72,17 +72,18 @@ class RegistrationStepHeader extends StatelessWidget {
                         ),
                       ),
                     ),
-                    Align(
-                      alignment: AlignmentDirectional.centerEnd,
-                      child: Text(
-                        stepLabel.toUpperCase(),
-                        style: AppTextStyles.xxxxsBold.copyWith(
-                          color: colors.stepLabel,
-                          letterSpacing: _stepLetterSpacing,
-                          height: _textHeight,
+                    if (stepLabel case final label?)
+                      Align(
+                        alignment: AlignmentDirectional.centerEnd,
+                        child: Text(
+                          label.toUpperCase(),
+                          style: AppTextStyles.xxxxsBold.copyWith(
+                            color: colors.stepLabel,
+                            letterSpacing: _stepLetterSpacing,
+                            height: _textHeight,
+                          ),
                         ),
                       ),
-                    ),
                   ],
                 ),
               ),
@@ -109,30 +110,32 @@ class RegistrationStepHeader extends StatelessWidget {
                   ],
                 ),
               ],
-              AppSpacing.gapV8,
-              ClipRRect(
-                borderRadius: AppRadius.brCircle,
-                child: SizedBox(
-                  height: _barHeight,
-                  child: ColoredBox(
-                    color: colors.subtleBorder,
-                    child: FractionallySizedBox(
-                      alignment: AlignmentDirectional.centerStart,
-                      widthFactor: progress,
-                      child: DecoratedBox(
-                        decoration: BoxDecoration(
-                          borderRadius: AppRadius.brCircle,
-                          gradient: LinearGradient(
-                            begin: AlignmentDirectional.centerStart,
-                            end: AlignmentDirectional.centerEnd,
-                            colors: progressColors ?? [colors.oceanAccent, colors.cyanAccent],
+              if (progress case final value?) ...[
+                AppSpacing.gapV8,
+                ClipRRect(
+                  borderRadius: AppRadius.brCircle,
+                  child: SizedBox(
+                    height: _barHeight,
+                    child: ColoredBox(
+                      color: colors.subtleBorder,
+                      child: FractionallySizedBox(
+                        alignment: AlignmentDirectional.centerStart,
+                        widthFactor: value,
+                        child: DecoratedBox(
+                          decoration: BoxDecoration(
+                            borderRadius: AppRadius.brCircle,
+                            gradient: LinearGradient(
+                              begin: AlignmentDirectional.centerStart,
+                              end: AlignmentDirectional.centerEnd,
+                              colors: progressColors ?? [colors.oceanAccent, colors.cyanAccent],
+                            ),
                           ),
                         ),
                       ),
                     ),
                   ),
                 ),
-              ),
+              ],
             ],
           ),
         ),

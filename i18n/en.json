@@ -474,5 +474,17 @@
   "brokerRegistrationSubmittedDescription": "Your Broker registration has been submitted successfully. Our team will review your information.",
   "pendingApproval": "Pending Approval",
   "brokerSubmissionDisclaimer": "Submission does not grant Broker approval, Village access, or operational permissions.",
-  "status": "Status"
+  "status": "Status",
+  "brokerRegistrationStatus": "Broker Registration Status",
+  "registrationReview": "Registration review",
+  "trackBrokerRegistration": "Track the review of your Broker Business Entity registration.",
+  "registrationReference": "Registration Reference",
+  "lastUpdated": "Last Updated",
+  "brokerQueuedForReviewMessage": "Your registration is queued for review.",
+  "brokerCorrectionMessage": "Some of your information needs correction before it can be approved.",
+  "brokerApprovedMessage": "Your Broker registration has been approved.",
+  "prototypeStatusControls": "Prototype status controls",
+  "previewPending": "Preview Pending",
+  "previewCorrection": "Preview Correction",
+  "previewApproved": "Preview Approved"
 }
