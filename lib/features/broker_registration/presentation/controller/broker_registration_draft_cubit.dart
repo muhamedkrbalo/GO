@@ -1,6 +1,8 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../core/models/uploaded_document.dart';
+import '../../data/model/broker_document_type.dart';
 import '../../data/model/broker_type.dart';
 import 'broker_business_address_cubit.dart';
 import 'broker_identity_info_cubit.dart';
@@ -26,6 +28,10 @@ class BrokerRegistrationDraftCubit extends Cubit<BrokerRegistrationDraft> {
 
   void saveBusinessAddress(BrokerBusinessAddressState businessAddress) {
     emit(state.copyWith(businessAddress: businessAddress));
+  }
+
+  void saveDocuments(Map<BrokerDocumentType, UploadedDocument> documents) {
+    emit(state.copyWith(documents: Map.unmodifiable(documents)));
   }
 
   void clear() => emit(const BrokerRegistrationDraft());

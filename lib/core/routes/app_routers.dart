@@ -15,11 +15,13 @@ import '../../features/auth/presentation/view/screen/register_screen.dart';
 import '../../features/auth/presentation/view/screen/verify_account_screen.dart';
 import '../../features/auth/presentation/view/screen/verify_code_screen.dart';
 import '../../features/broker_registration/presentation/controller/broker_business_address_cubit.dart';
+import '../../features/broker_registration/presentation/controller/broker_documents_cubit.dart';
 import '../../features/broker_registration/presentation/controller/broker_identity_info_cubit.dart';
 import '../../features/broker_registration/presentation/controller/broker_personal_info_cubit.dart';
 import '../../features/broker_registration/presentation/controller/broker_type_cubit.dart';
 import '../../features/broker_registration/presentation/view/screen/broker_business_address_screen.dart';
 import '../../features/broker_registration/presentation/view/screen/broker_business_contact_screen.dart';
+import '../../features/broker_registration/presentation/view/screen/broker_documents_screen.dart';
 import '../../features/broker_registration/presentation/view/screen/broker_identity_info_screen.dart';
 import '../../features/broker_registration/presentation/view/screen/broker_personal_info_screen.dart';
 import '../../features/broker_registration/presentation/view/screen/broker_type_screen.dart';
@@ -179,6 +181,14 @@ class AppRouters {
         builder: (context, state) => const BrokerBusinessContactScreen(),
       ),
       GoRoute(
+        path: RoutePaths.brokerDocuments,
+        name: RouteNames.brokerDocuments,
+        builder: (context, state) => BlocProvider(
+          create: (_) => sl<BrokerDocumentsCubit>(),
+          child: const BrokerDocumentsScreen(),
+        ),
+      ),
+      GoRoute(
         path: RoutePaths.individualInfo,
         name: RouteNames.individualInfo,
         builder: (context, state) => BlocProvider(
@@ -318,6 +328,7 @@ class AppRouters {
     RoutePaths.brokerIdentityInfo,
     RoutePaths.brokerBusinessAddress,
     RoutePaths.brokerBusinessContact,
+    RoutePaths.brokerDocuments,
   };
 
   /// Login gating, in one place:

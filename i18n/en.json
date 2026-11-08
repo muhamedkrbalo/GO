@@ -456,5 +456,9 @@
   "businessMobile": "Business Mobile",
   "businessEmail": "Business Email",
   "existingContactsUsedNote": "These existing Business Entity contacts will be used for brokerage communication.",
-  "businessContactsSeparateNote": "Business contacts remain separate from the verified GO login account."
+  "businessContactsSeparateNote": "Business contacts remain separate from the verified GO login account.",
+  "requiredDocuments": "Required Documents",
+  "uploadBrokerDocuments": "Upload the documents needed to verify your Broker registration.",
+  "identityDocumentFront": "Identity Document — Front",
+  "identityDocumentBack": "Identity Document — Back"
 }

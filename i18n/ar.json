@@ -459,6 +459,10 @@
     "businessMobile": "جوال النشاط",
     "businessEmail": "بريد النشاط الإلكتروني",
     "existingContactsUsedNote": "سيتم استخدام بيانات التواصل الحالية للكيان التجاري في مراسلات الوساطة.",
-    "businessContactsSeparateNote": "تظل بيانات التواصل التجاري منفصلة عن حساب دخول GO الموثّق."
+    "businessContactsSeparateNote": "تظل بيانات التواصل التجاري منفصلة عن حساب دخول GO الموثّق.",
+    "requiredDocuments": "المستندات المطلوبة",
+    "uploadBrokerDocuments": "ارفع المستندات اللازمة للتحقق من تسجيلك كوسيط.",
+    "identityDocumentFront": "وثيقة الهوية — الوجه الأمامي",
+    "identityDocumentBack": "وثيقة الهوية — الوجه الخلفي"
   }
   

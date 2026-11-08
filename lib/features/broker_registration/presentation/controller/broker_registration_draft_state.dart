@@ -6,12 +6,14 @@ class BrokerRegistrationDraft extends Equatable {
     this.personalInfo,
     this.identityInfo,
     this.businessAddress,
+    this.documents = const {},
   });
 
   final BrokerType? brokerType;
   final BrokerPersonalInfoState? personalInfo;
   final BrokerIdentityInfoState? identityInfo;
   final BrokerBusinessAddressState? businessAddress;
+  final Map<BrokerDocumentType, UploadedDocument> documents;
 
   String? get businessMobile {
     final info = personalInfo;
@@ -28,15 +30,17 @@ class BrokerRegistrationDraft extends Equatable {
     BrokerPersonalInfoState? personalInfo,
     BrokerIdentityInfoState? identityInfo,
     BrokerBusinessAddressState? businessAddress,
+    Map<BrokerDocumentType, UploadedDocument>? documents,
   }) {
     return BrokerRegistrationDraft(
       brokerType: brokerType,
       personalInfo: personalInfo ?? this.personalInfo,
       identityInfo: identityInfo ?? this.identityInfo,
       businessAddress: businessAddress ?? this.businessAddress,
+      documents: documents ?? this.documents,
     );
   }
 
   @override
-  List<Object?> get props => [brokerType, personalInfo, identityInfo, businessAddress];
+  List<Object?> get props => [brokerType, personalInfo, identityInfo, businessAddress, documents];
 }

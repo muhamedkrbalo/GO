@@ -1010,4 +1010,8 @@ class AppLocaleKey {
   static const businessEmail = 'businessEmail';
   static const existingContactsUsedNote = 'existingContactsUsedNote';
   static const businessContactsSeparateNote = 'businessContactsSeparateNote';
+  static const requiredDocuments = 'requiredDocuments';
+  static const uploadBrokerDocuments = 'uploadBrokerDocuments';
+  static const identityDocumentFront = 'identityDocumentFront';
+  static const identityDocumentBack = 'identityDocumentBack';
 }

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../../core/locale/app_locale_key.dart';
 import '../widget/broker_business_contact_content.dart';
-import '../widget/broker_form_footer.dart';
+import '../widget/broker_business_contact_footer.dart';
 import '../widget/broker_form_layout.dart';
 
 class BrokerBusinessContactScreen extends StatelessWidget {
@@ -19,7 +19,7 @@ class BrokerBusinessContactScreen extends StatelessWidget {
       title: AppLocaleKey.businessContactInformation.tr(),
       subtitle: AppLocaleKey.addOfficialContactDetails.tr(),
       form: const BrokerBusinessContactContent(),
-      footer: const BrokerFormFooter(isEnabled: true, onContinue: null),
+      footer: const BrokerBusinessContactFooter(),
     );
   }
 }

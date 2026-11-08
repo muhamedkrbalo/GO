@@ -2,12 +2,12 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-import '../../../../../core/images/app_images.dart';
-import '../../../../../core/locale/app_locale_key.dart';
-import '../../../../../core/theme/app_sizes.dart';
-import '../../../../../core/theme/app_text_styles.dart';
-import '../../../../../core/theme/extensions/theme_extensions.dart';
-import '../../../data/model/owner_document.dart';
+import '../../images/app_images.dart';
+import '../../locale/app_locale_key.dart';
+import '../../models/uploaded_document.dart';
+import '../../theme/app_sizes.dart';
+import '../../theme/app_text_styles.dart';
+import '../../theme/extensions/theme_extensions.dart';
 
 class UploadedDocumentTile extends StatelessWidget {
   const UploadedDocumentTile({super.key, required this.document, required this.onRemove});
