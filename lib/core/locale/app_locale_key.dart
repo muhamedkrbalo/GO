@@ -995,4 +995,7 @@ class AppLocaleKey {
   static const companyBrokerDescription = 'companyBrokerDescription';
   static const tellUsAboutIndividualBroker = 'tellUsAboutIndividualBroker';
   static const businessEntityContactNote = 'businessEntityContactNote';
+  static const identityVerification = 'identityVerification';
+  static const identityInformation = 'identityInformation';
+  static const provideIdentityDetails = 'provideIdentityDetails';
 }

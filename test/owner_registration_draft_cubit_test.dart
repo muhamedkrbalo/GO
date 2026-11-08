@@ -1,5 +1,5 @@
 import 'package:country_picker/country_picker.dart';
-import 'package:flutter_hr_erb/features/owner_registration/data/model/id_type.dart';
+import 'package:flutter_hr_erb/core/enum/id_type.dart';
 import 'package:flutter_hr_erb/features/owner_registration/data/model/owner_document.dart';
 import 'package:flutter_hr_erb/features/owner_registration/data/model/owner_type.dart';
 import 'package:flutter_hr_erb/features/owner_registration/data/model/ownership_type.dart';

@@ -441,5 +441,8 @@
   "companyBrokerDescription": "Register a legally established company to provide brokerage services.",
   "personalInformation": "Personal Information",
   "tellUsAboutIndividualBroker": "Tell us about the individual conducting brokerage activities.",
-  "businessEntityContactNote": "Business Entity contact — separate from your GO login."
+  "businessEntityContactNote": "Business Entity contact — separate from your GO login.",
+  "identityVerification": "Verification identity",
+  "identityInformation": "Identity Information",
+  "provideIdentityDetails": "Provide the identity details required for verification."
 }

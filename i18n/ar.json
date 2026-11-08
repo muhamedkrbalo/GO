@@ -444,6 +444,9 @@
     "companyBrokerDescription": "سجّل شركة قائمة قانونيًا لتقديم خدمات الوساطة.",
     "personalInformation": "المعلومات الشخصية",
     "tellUsAboutIndividualBroker": "أخبرنا عن الشخص الذي يمارس أنشطة الوساطة.",
-    "businessEntityContactNote": "بيانات تواصل الكيان التجاري — منفصلة عن بيانات دخولك إلى GO."
+    "businessEntityContactNote": "بيانات تواصل الكيان التجاري — منفصلة عن بيانات دخولك إلى GO.",
+    "identityVerification": "التحقق من الهوية",
+    "identityInformation": "بيانات الهوية",
+    "provideIdentityDetails": "أدخل بيانات الهوية المطلوبة للتحقق."
   }
   

@@ -9,10 +9,10 @@ import '../../../../../core/custom_widgets/registration_form/registration_phone_
 import '../../../../../core/custom_widgets/registration_form/registration_picker_field.dart';
 import '../../../../../core/custom_widgets/registration_form/registration_text_field.dart';
 import '../../../../../core/custom_widgets/validation/validation_mixin.dart';
+import '../../../../../core/enum/id_type.dart';
 import '../../../../../core/extension/context_ui_extension.dart';
 import '../../../../../core/locale/app_locale_key.dart';
 import '../../../../../core/utils/country_code_methods.dart';
-import '../../../data/model/id_type.dart';
 import '../../controller/individual_info_cubit.dart';
 
 class IndividualInfoForm extends StatefulWidget {
