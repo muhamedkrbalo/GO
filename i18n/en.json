@@ -499,5 +499,6 @@
   "addAuthorizedRepresentative": "Add the person authorized to represent this company on GO.",
   "registeringAccountMustBeAuthorized": "The registering account must be authorized to represent this company.",
   "representativeFullName": "Representative Full Name",
-  "proofOfAuthorization": "Proof of Authorization"
+  "proofOfAuthorization": "Proof of Authorization",
+  "continueToVillageSelection": "Continue to Village Selection"
 }

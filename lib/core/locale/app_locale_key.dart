@@ -1052,4 +1052,5 @@ class AppLocaleKey {
   static const registeringAccountMustBeAuthorized = 'registeringAccountMustBeAuthorized';
   static const representativeFullName = 'representativeFullName';
   static const proofOfAuthorization = 'proofOfAuthorization';
+  static const continueToVillageSelection = 'continueToVillageSelection';
 }

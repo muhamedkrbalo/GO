@@ -502,6 +502,7 @@
     "addAuthorizedRepresentative": "أضف الشخص المفوّض بتمثيل هذه الشركة على GO.",
     "registeringAccountMustBeAuthorized": "يجب أن يكون الحساب المُسجِّل مفوّضًا بتمثيل هذه الشركة.",
     "representativeFullName": "الاسم الكامل للممثل",
-    "proofOfAuthorization": "إثبات التفويض"
+    "proofOfAuthorization": "إثبات التفويض",
+    "continueToVillageSelection": "المتابعة لاختيار القرية"
   }
   

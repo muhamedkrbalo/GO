@@ -55,4 +55,14 @@ void main() {
 
     expect(cubit.state.receipt, receipt);
   });
+
+  test('isApproved is true only for the approved status', () {
+    expect(cubit.state.isApproved, isFalse);
+
+    cubit.previewStatus(BrokerReviewStatus.approved);
+    expect(cubit.state.isApproved, isTrue);
+
+    cubit.previewStatus(BrokerReviewStatus.correctionRequired);
+    expect(cubit.state.isApproved, isFalse);
+  });
 }

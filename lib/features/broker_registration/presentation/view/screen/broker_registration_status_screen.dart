@@ -1,11 +1,14 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../core/custom_widgets/registration_form/registration_intro.dart';
 import '../../../../../core/custom_widgets/registration_step_header/registration_step_header.dart';
 import '../../../../../core/locale/app_locale_key.dart';
 import '../../../../../core/theme/extensions/theme_extensions.dart';
+import '../../controller/broker_registration_status_cubit.dart';
 import '../widget/broker_status_card.dart';
+import '../widget/broker_status_footer.dart';
 import '../widget/broker_status_preview_controls.dart';
 
 class BrokerRegistrationStatusScreen extends StatelessWidget {
@@ -18,9 +21,13 @@ class BrokerRegistrationStatusScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final title = AppLocaleKey.brokerRegistrationStatus.tr();
+    final isApproved = context.select<BrokerRegistrationStatusCubit, bool>(
+      (cubit) => cubit.state.isApproved,
+    );
 
     return Scaffold(
       backgroundColor: context.customColors.canvas,
+      bottomNavigationBar: isApproved ? const BrokerStatusFooter(onContinue: null) : null,
       body: Column(
         children: [
           RegistrationStepHeader(title: title),
@@ -37,8 +44,7 @@ class BrokerRegistrationStatusScreen extends StatelessWidget {
                   ),
                   _cardGap,
                   const BrokerStatusCard(),
-                  _controlsGap,
-                  const BrokerStatusPreviewControls(),
+                  if (!isApproved) ...[_controlsGap, const BrokerStatusPreviewControls()],
                 ],
               ),
             ),

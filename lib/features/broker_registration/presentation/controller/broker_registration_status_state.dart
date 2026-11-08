@@ -11,6 +11,8 @@ class BrokerRegistrationStatusState extends Equatable {
   final BrokerReviewStatus status;
   final DateTime lastUpdated;
 
+  bool get isApproved => status == BrokerReviewStatus.approved;
+
   List<BrokerReviewStatus> get previewOptions =>
       BrokerReviewStatus.values.where((option) => option != status).toList(growable: false);
 
