@@ -449,5 +449,12 @@
   "businessAddressTitle": "Business Address",
   "addBrokerOfficialAddress": "Add the official address associated with this Broker Business Entity.",
   "floorSuiteDetailsHint": "Floor, suite, additional details",
-  "setAsPrimaryBusinessAddress": "Set as primary business address"
+  "setAsPrimaryBusinessAddress": "Set as primary business address",
+  "officialCommunication": "Official communication",
+  "businessContactInformation": "Business Contact Information",
+  "addOfficialContactDetails": "Add the official contact details used for brokerage communication.",
+  "businessMobile": "Business Mobile",
+  "businessEmail": "Business Email",
+  "existingContactsUsedNote": "These existing Business Entity contacts will be used for brokerage communication.",
+  "businessContactsSeparateNote": "Business contacts remain separate from the verified GO login account."
 }

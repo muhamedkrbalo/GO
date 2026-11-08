@@ -2,13 +2,13 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../../../core/custom_widgets/registration_form/registration_notice.dart';
 import '../../../../../core/locale/app_locale_key.dart';
 import '../../../../../core/routes/routes_name.dart';
 import '../../../../../core/theme/app_sizes.dart';
 import '../../../../../core/theme/extensions/theme_extensions.dart';
 import '../../../data/model/registration_receipt.dart';
 import '../widget/next_steps_card.dart';
-import '../widget/registration_notice.dart';
 import '../widget/submission_confirmation_bottom_bar.dart';
 import '../widget/submission_confirmation_header.dart';
 import '../widget/submission_details_card.dart';

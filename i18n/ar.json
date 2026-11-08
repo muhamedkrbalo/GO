@@ -452,6 +452,13 @@
     "businessAddressTitle": "عنوان النشاط التجاري",
     "addBrokerOfficialAddress": "أضف العنوان الرسمي المرتبط بكيان الوساطة التجاري هذا.",
     "floorSuiteDetailsHint": "الطابق، المكتب، تفاصيل إضافية",
-    "setAsPrimaryBusinessAddress": "تعيين كعنوان النشاط الرئيسي"
+    "setAsPrimaryBusinessAddress": "تعيين كعنوان النشاط الرئيسي",
+    "officialCommunication": "التواصل الرسمي",
+    "businessContactInformation": "بيانات التواصل التجاري",
+    "addOfficialContactDetails": "أضف بيانات التواصل الرسمية المستخدمة في مراسلات الوساطة.",
+    "businessMobile": "جوال النشاط",
+    "businessEmail": "بريد النشاط الإلكتروني",
+    "existingContactsUsedNote": "سيتم استخدام بيانات التواصل الحالية للكيان التجاري في مراسلات الوساطة.",
+    "businessContactsSeparateNote": "تظل بيانات التواصل التجاري منفصلة عن حساب دخول GO الموثّق."
   }
   

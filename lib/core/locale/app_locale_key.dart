@@ -1003,4 +1003,11 @@ class AppLocaleKey {
   static const addBrokerOfficialAddress = 'addBrokerOfficialAddress';
   static const floorSuiteDetailsHint = 'floorSuiteDetailsHint';
   static const setAsPrimaryBusinessAddress = 'setAsPrimaryBusinessAddress';
+  static const officialCommunication = 'officialCommunication';
+  static const businessContactInformation = 'businessContactInformation';
+  static const addOfficialContactDetails = 'addOfficialContactDetails';
+  static const businessMobile = 'businessMobile';
+  static const businessEmail = 'businessEmail';
+  static const existingContactsUsedNote = 'existingContactsUsedNote';
+  static const businessContactsSeparateNote = 'businessContactsSeparateNote';
 }

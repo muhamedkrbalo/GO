@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 
 import '../../../../../core/routes/routes_name.dart';
 import '../../controller/broker_personal_info_cubit.dart';
+import '../../controller/broker_registration_draft_cubit.dart';
 import 'broker_form_footer.dart';
 
 class BrokerPersonalInfoFooter extends StatelessWidget {
@@ -11,6 +12,9 @@ class BrokerPersonalInfoFooter extends StatelessWidget {
 
   void _continue(BuildContext context) {
     // if (!Form.of(context).validate()) return;
+    context.read<BrokerRegistrationDraftCubit>().savePersonalInfo(
+      context.read<BrokerPersonalInfoCubit>().state,
+    );
     context.pushNamed(RouteNames.brokerIdentityInfo);
   }
 
@@ -21,8 +25,8 @@ class BrokerPersonalInfoFooter extends StatelessWidget {
       builder: (context, canContinue) => BrokerFormFooter(
         //isEnabled: canContinue,
         isEnabled: true,
-        onContinue:()=>_continue(context),
-     //   onContinue: canContinue ? () => _continue(context) : null,
+        onContinue: () => _continue(context),
+        //   onContinue: canContinue ? () => _continue(context) : null,
       ),
     );
   }

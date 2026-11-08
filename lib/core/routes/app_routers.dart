@@ -19,6 +19,7 @@ import '../../features/broker_registration/presentation/controller/broker_identi
 import '../../features/broker_registration/presentation/controller/broker_personal_info_cubit.dart';
 import '../../features/broker_registration/presentation/controller/broker_type_cubit.dart';
 import '../../features/broker_registration/presentation/view/screen/broker_business_address_screen.dart';
+import '../../features/broker_registration/presentation/view/screen/broker_business_contact_screen.dart';
 import '../../features/broker_registration/presentation/view/screen/broker_identity_info_screen.dart';
 import '../../features/broker_registration/presentation/view/screen/broker_personal_info_screen.dart';
 import '../../features/broker_registration/presentation/view/screen/broker_type_screen.dart';
@@ -173,6 +174,11 @@ class AppRouters {
         ),
       ),
       GoRoute(
+        path: RoutePaths.brokerBusinessContact,
+        name: RouteNames.brokerBusinessContact,
+        builder: (context, state) => const BrokerBusinessContactScreen(),
+      ),
+      GoRoute(
         path: RoutePaths.individualInfo,
         name: RouteNames.individualInfo,
         builder: (context, state) => BlocProvider(
@@ -311,6 +317,7 @@ class AppRouters {
     RoutePaths.brokerPersonalInfo,
     RoutePaths.brokerIdentityInfo,
     RoutePaths.brokerBusinessAddress,
+    RoutePaths.brokerBusinessContact,
   };
 
   /// Login gating, in one place:

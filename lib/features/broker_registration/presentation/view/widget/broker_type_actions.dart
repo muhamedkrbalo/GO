@@ -9,6 +9,7 @@ import '../../../../../core/routes/routes_name.dart';
 import '../../../../../core/theme/app_text_styles.dart';
 import '../../../../../core/theme/extensions/theme_extensions.dart';
 import '../../../data/model/broker_type.dart';
+import '../../controller/broker_registration_draft_cubit.dart';
 import '../../controller/broker_type_cubit.dart';
 
 class BrokerTypeActions extends StatelessWidget {
@@ -17,6 +18,11 @@ class BrokerTypeActions extends StatelessWidget {
   static const _gap = 11.0;
   static const _minTapSize = Size.fromHeight(42);
   static const _textHeight = 1.5;
+
+  void _continue(BuildContext context, BrokerType type) {
+    context.read<BrokerRegistrationDraftCubit>().startRegistration(type);
+    context.pushNamed(RouteNames.brokerPersonalInfo);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +36,7 @@ class BrokerTypeActions extends StatelessWidget {
             text: AppLocaleKey.continue_.tr(),
             isEnabled: selected != null,
             onPressed: selected == BrokerType.individual
-                ? () => context.pushNamed(RouteNames.brokerPersonalInfo)
+                ? () => _continue(context, BrokerType.individual)
                 : null,
           ),
         ),
