@@ -1,13 +1,13 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../../core/custom_widgets/registration_form/registration_intro.dart';
 import '../../../../../core/locale/app_locale_key.dart';
 import '../../../../../core/theme/app_sizes.dart';
 import '../../../../../core/theme/extensions/theme_extensions.dart';
 import '../widget/owner_registration_step_header.dart';
 import '../widget/ownership_details_bottom_bar.dart';
 import '../widget/ownership_details_form.dart';
-import '../widget/registration_intro.dart';
 import '../widget/unit_info_strip.dart';
 import '../widget/unit_tabs_card.dart';
 

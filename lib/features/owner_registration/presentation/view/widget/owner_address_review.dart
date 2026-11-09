@@ -1,9 +1,9 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../../core/custom_widgets/registration_form/review_info_rows.dart';
 import '../../../../../core/locale/app_locale_key.dart';
 import '../../controller/owner_address_cubit.dart';
-import 'review_info_rows.dart';
 
 class OwnerAddressReview extends StatelessWidget {
   const OwnerAddressReview({super.key, required this.address});

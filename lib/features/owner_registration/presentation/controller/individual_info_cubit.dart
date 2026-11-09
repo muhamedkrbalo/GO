@@ -2,7 +2,7 @@ import 'package:country_picker/country_picker.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../data/model/id_type.dart';
+import '../../../../core/enum/id_type.dart';
 
 part 'individual_info_state.dart';
 

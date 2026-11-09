@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
+import '../../../../../core/custom_widgets/registration_form/registration_intro.dart';
 import '../../../../../core/theme/extensions/theme_extensions.dart';
 import 'owner_registration_step_header.dart';
-import 'registration_intro.dart';
 
 class RegistrationFormLayout extends StatelessWidget {
   const RegistrationFormLayout({

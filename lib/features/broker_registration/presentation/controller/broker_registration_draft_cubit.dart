@@ -1,0 +1,48 @@
+import 'package:equatable/equatable.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../../../../core/models/uploaded_document.dart';
+import '../../data/model/broker_document_type.dart';
+import '../../data/model/broker_type.dart';
+import 'broker_business_address_cubit.dart';
+import 'broker_company_info_cubit.dart';
+import 'broker_identity_info_cubit.dart';
+import 'broker_personal_info_cubit.dart';
+import 'broker_representative_cubit.dart';
+
+part 'broker_registration_draft_state.dart';
+
+class BrokerRegistrationDraftCubit extends Cubit<BrokerRegistrationDraft> {
+  BrokerRegistrationDraftCubit() : super(const BrokerRegistrationDraft());
+
+  void startRegistration(BrokerType brokerType) {
+    if (state.brokerType == brokerType) return;
+    emit(BrokerRegistrationDraft(brokerType: brokerType));
+  }
+
+  void savePersonalInfo(BrokerPersonalInfoState personalInfo) {
+    emit(state.copyWith(personalInfo: personalInfo));
+  }
+
+  void saveCompanyInfo(BrokerCompanyInfoState companyInfo) {
+    emit(state.copyWith(companyInfo: companyInfo));
+  }
+
+  void saveIdentityInfo(BrokerIdentityInfoState identityInfo) {
+    emit(state.copyWith(identityInfo: identityInfo));
+  }
+
+  void saveRepresentative(BrokerRepresentativeState representative) {
+    emit(state.copyWith(representative: representative));
+  }
+
+  void saveBusinessAddress(BrokerBusinessAddressState businessAddress) {
+    emit(state.copyWith(businessAddress: businessAddress));
+  }
+
+  void saveDocuments(Map<BrokerDocumentType, UploadedDocument> documents) {
+    emit(state.copyWith(documents: Map.unmodifiable(documents)));
+  }
+
+  void clear() => emit(const BrokerRegistrationDraft());
+}

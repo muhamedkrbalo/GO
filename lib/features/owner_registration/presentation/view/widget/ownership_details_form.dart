@@ -3,14 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../core/custom_widgets/bottom_sheet/option_picker_sheet.dart';
+import '../../../../../core/custom_widgets/registration_form/registration_picker_field.dart';
+import '../../../../../core/custom_widgets/registration_form/registration_text_field.dart';
 import '../../../../../core/extension/context_ui_extension.dart';
 import '../../../../../core/locale/app_locale_key.dart';
 import '../../../../../core/theme/extensions/theme_extensions.dart';
 import '../../../../../core/utils/date_methods.dart';
 import '../../../data/model/ownership_type.dart';
 import '../../controller/ownership_details_cubit.dart';
-import 'registration_picker_field.dart';
-import 'registration_text_field.dart';
 
 class OwnershipDetailsForm extends StatelessWidget {
   const OwnershipDetailsForm({super.key});

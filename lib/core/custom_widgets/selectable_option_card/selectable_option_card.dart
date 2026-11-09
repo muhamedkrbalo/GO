@@ -23,6 +23,9 @@ class SelectableOptionCard extends StatelessWidget {
     this.gap = 15,
     this.titleToDescriptionGap = 7,
     this.indicatorSize = 22,
+    this.selectedBorderWidth = 1.6,
+    this.selectedIconTileColor,
+    this.selectedIconColor,
   });
 
   final String icon;
@@ -39,15 +42,21 @@ class SelectableOptionCard extends StatelessWidget {
   final double gap;
   final double titleToDescriptionGap;
   final double indicatorSize;
+  final double selectedBorderWidth;
+  final Color? selectedIconTileColor;
+  final Color? selectedIconColor;
 
   static const _duration = Duration(milliseconds: 180);
   static const _borderWidth = 1.0;
-  static const _selectedBorderWidth = 1.6;
   static const _textHeight = 1.5;
 
   @override
   Widget build(BuildContext context) {
     final colors = context.customColors;
+    final iconTileColor = isSelected
+        ? selectedIconTileColor ?? colors.iconTileSurface
+        : colors.iconTileSurface;
+    final iconColor = isSelected ? selectedIconColor ?? colors.oceanAccent : colors.oceanAccent;
 
     return Semantics(
       button: true,
@@ -60,7 +69,7 @@ class SelectableOptionCard extends StatelessWidget {
           borderRadius: borderRadius,
           border: Border.all(
             color: isSelected ? colors.primary : colors.subtleBorder,
-            width: isSelected ? _selectedBorderWidth : _borderWidth,
+            width: isSelected ? selectedBorderWidth : _borderWidth,
           ),
           boxShadow: AppShadows.roleCard,
         ),
@@ -75,11 +84,9 @@ class SelectableOptionCard extends StatelessWidget {
                 padding: padding,
                 child: Row(
                   children: [
-                    DecoratedBox(
-                      decoration: BoxDecoration(
-                        color: colors.iconTileSurface,
-                        borderRadius: iconTileRadius,
-                      ),
+                    AnimatedContainer(
+                      duration: _duration,
+                      decoration: BoxDecoration(color: iconTileColor, borderRadius: iconTileRadius),
                       child: SizedBox.square(
                         dimension: iconTileSize,
                         child: Center(
@@ -87,7 +94,7 @@ class SelectableOptionCard extends StatelessWidget {
                             icon,
                             width: iconSize,
                             height: iconSize,
-                            colorFilter: ColorFilter.mode(colors.oceanAccent, BlendMode.srcIn),
+                            colorFilter: ColorFilter.mode(iconColor, BlendMode.srcIn),
                           ),
                         ),
                       ),

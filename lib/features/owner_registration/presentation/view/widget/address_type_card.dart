@@ -2,11 +2,11 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../../core/enum/address_type.dart';
 import '../../../../../core/locale/app_locale_key.dart';
 import '../../../../../core/theme/app_sizes.dart';
 import '../../../../../core/theme/app_text_styles.dart';
 import '../../../../../core/theme/extensions/theme_extensions.dart';
-import '../../../data/model/address_type.dart';
 import '../../controller/owner_address_cubit.dart';
 import 'address_type_selector.dart';
 import 'primary_address_toggle.dart';

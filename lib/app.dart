@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hr_erb/core/network/connectivity/connectivity_cubit.dart';
 import 'package:flutter_hr_erb/core/network/connectivity/connectivity_wrapper.dart';
 import 'package:flutter_hr_erb/core/services/service_locator.dart';
+import 'package:flutter_hr_erb/features/broker_registration/presentation/controller/broker_registration_draft_cubit.dart';
 import 'package:flutter_hr_erb/features/owner_registration/presentation/controller/owner_registration_draft_cubit.dart';
 import 'core/routes/app_routers.dart';
 import 'core/theme/cubit/theme_cubit.dart';
@@ -32,6 +33,7 @@ class _GOState extends State<GO> {
         BlocProvider<ThemeCubit>.value(value: sl<ThemeCubit>()),
         BlocProvider<ConnectivityCubit>.value(value: sl<ConnectivityCubit>()),
         BlocProvider<OwnerRegistrationDraftCubit>.value(value: sl<OwnerRegistrationDraftCubit>()),
+        BlocProvider<BrokerRegistrationDraftCubit>.value(value: sl<BrokerRegistrationDraftCubit>()),
       ],
       child: BlocBuilder<ThemeCubit, ThemeMode>(
         builder: (context, themeMode) {

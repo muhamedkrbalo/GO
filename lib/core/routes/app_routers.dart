@@ -14,6 +14,34 @@ import '../../features/auth/presentation/view/screen/login_screen.dart';
 import '../../features/auth/presentation/view/screen/register_screen.dart';
 import '../../features/auth/presentation/view/screen/verify_account_screen.dart';
 import '../../features/auth/presentation/view/screen/verify_code_screen.dart';
+import '../../features/broker_registration/data/model/broker_activation_checklist.dart';
+import '../../features/broker_registration/data/model/broker_registration_receipt.dart';
+import '../../features/broker_registration/data/model/broker_village_assignment.dart';
+import '../../features/broker_registration/presentation/controller/broker_business_address_cubit.dart';
+import '../../features/broker_registration/presentation/controller/broker_company_info_cubit.dart';
+import '../../features/broker_registration/presentation/controller/broker_documents_cubit.dart';
+import '../../features/broker_registration/presentation/controller/broker_identity_info_cubit.dart';
+import '../../features/broker_registration/presentation/controller/broker_personal_info_cubit.dart';
+import '../../features/broker_registration/presentation/controller/broker_registration_status_cubit.dart';
+import '../../features/broker_registration/presentation/controller/broker_representative_cubit.dart';
+import '../../features/broker_registration/presentation/controller/broker_type_cubit.dart';
+import '../../features/broker_registration/presentation/controller/broker_village_selection_cubit.dart';
+import '../../features/broker_registration/presentation/view/screen/broker_activation_screen.dart';
+import '../../features/broker_registration/presentation/view/screen/broker_business_address_screen.dart';
+import '../../features/broker_registration/presentation/view/screen/broker_business_contact_screen.dart';
+import '../../features/broker_registration/presentation/view/screen/broker_company_info_screen.dart';
+import '../../features/broker_registration/presentation/view/screen/broker_documents_screen.dart';
+import '../../features/broker_registration/presentation/view/screen/broker_identity_info_screen.dart';
+import '../../features/broker_registration/presentation/view/screen/broker_personal_info_screen.dart';
+import '../../features/broker_registration/presentation/view/screen/broker_registration_status_screen.dart';
+import '../../features/broker_registration/presentation/view/screen/broker_representative_screen.dart';
+import '../../features/broker_registration/presentation/view/screen/broker_review_screen.dart';
+import '../../features/broker_registration/presentation/view/screen/broker_submission_confirmation_screen.dart';
+import '../../features/broker_registration/presentation/view/screen/broker_type_screen.dart';
+import '../../features/broker_registration/presentation/view/screen/broker_village_assignments_screen.dart';
+import '../../features/broker_registration/presentation/view/screen/broker_village_endorsement_screen.dart';
+import '../../features/broker_registration/presentation/view/screen/broker_village_requests_submitted_screen.dart';
+import '../../features/broker_registration/presentation/view/screen/broker_village_selection_screen.dart';
 import '../../features/home/presentation/view/screen/home_screen.dart';
 import '../../features/onboarding/presentation/controller/onboarding_cubit.dart';
 import '../../features/onboarding/presentation/view/screen/onboarding_screen.dart';
@@ -131,6 +159,136 @@ class AppRouters {
           create: (_) => sl<OwnerTypeCubit>(),
           child: const OwnerTypeScreen(),
         ),
+      ),
+      GoRoute(
+        path: RoutePaths.brokerType,
+        name: RouteNames.brokerType,
+        builder: (context, state) => BlocProvider(
+          create: (_) => sl<BrokerTypeCubit>(),
+          child: const BrokerTypeScreen(),
+        ),
+      ),
+      GoRoute(
+        path: RoutePaths.brokerPersonalInfo,
+        name: RouteNames.brokerPersonalInfo,
+        builder: (context, state) => BlocProvider(
+          create: (_) => sl<BrokerPersonalInfoCubit>(),
+          child: const BrokerPersonalInfoScreen(),
+        ),
+      ),
+      GoRoute(
+        path: RoutePaths.brokerCompanyInfo,
+        name: RouteNames.brokerCompanyInfo,
+        builder: (context, state) => BlocProvider(
+          create: (_) => sl<BrokerCompanyInfoCubit>(),
+          child: const BrokerCompanyInfoScreen(),
+        ),
+      ),
+      GoRoute(
+        path: RoutePaths.brokerIdentityInfo,
+        name: RouteNames.brokerIdentityInfo,
+        builder: (context, state) => BlocProvider(
+          create: (_) => sl<BrokerIdentityInfoCubit>(),
+          child: const BrokerIdentityInfoScreen(),
+        ),
+      ),
+      GoRoute(
+        path: RoutePaths.brokerRepresentative,
+        name: RouteNames.brokerRepresentative,
+        builder: (context, state) => BlocProvider(
+          create: (_) => sl<BrokerRepresentativeCubit>(),
+          child: const BrokerRepresentativeScreen(),
+        ),
+      ),
+      GoRoute(
+        path: RoutePaths.brokerBusinessAddress,
+        name: RouteNames.brokerBusinessAddress,
+        builder: (context, state) => BlocProvider(
+          create: (_) => sl<BrokerBusinessAddressCubit>(),
+          child: const BrokerBusinessAddressScreen(),
+        ),
+      ),
+      GoRoute(
+        path: RoutePaths.brokerBusinessContact,
+        name: RouteNames.brokerBusinessContact,
+        builder: (context, state) => const BrokerBusinessContactScreen(),
+      ),
+      GoRoute(
+        path: RoutePaths.brokerDocuments,
+        name: RouteNames.brokerDocuments,
+        builder: (context, state) => BlocProvider(
+          create: (_) => sl<BrokerDocumentsCubit>(),
+          child: const BrokerDocumentsScreen(),
+        ),
+      ),
+      GoRoute(
+        path: RoutePaths.brokerReview,
+        name: RouteNames.brokerReview,
+        builder: (context, state) => const BrokerReviewScreen(),
+      ),
+      GoRoute(
+        path: RoutePaths.brokerSubmitted,
+        name: RouteNames.brokerSubmitted,
+        redirect: (context, state) =>
+            state.extra is BrokerRegistrationReceipt ? null : RoutePaths.home,
+        builder: (context, state) =>
+            BrokerSubmissionConfirmationScreen(receipt: state.extra! as BrokerRegistrationReceipt),
+      ),
+      GoRoute(
+        path: RoutePaths.brokerRegistrationStatus,
+        name: RouteNames.brokerRegistrationStatus,
+        redirect: (context, state) =>
+            state.extra is BrokerRegistrationReceipt ? null : RoutePaths.home,
+        builder: (context, state) => BlocProvider(
+          create: (_) => sl<BrokerRegistrationStatusCubit>(
+            param1: state.extra! as BrokerRegistrationReceipt,
+          ),
+          child: const BrokerRegistrationStatusScreen(),
+        ),
+      ),
+      GoRoute(
+        path: RoutePaths.brokerVillageSelection,
+        name: RouteNames.brokerVillageSelection,
+        builder: (context, state) => BlocProvider(
+          create: (_) => sl<BrokerVillageSelectionCubit>(),
+          child: const BrokerVillageSelectionScreen(),
+        ),
+      ),
+      GoRoute(
+        path: RoutePaths.brokerVillageRequestsSubmitted,
+        name: RouteNames.brokerVillageRequestsSubmitted,
+        redirect: (context, state) => state.extra is List<BrokerVillageAssignment>
+            ? null
+            : RoutePaths.brokerVillageSelection,
+        builder: (context, state) => BrokerVillageRequestsSubmittedScreen(
+          assignments: state.extra! as List<BrokerVillageAssignment>,
+        ),
+      ),
+      GoRoute(
+        path: RoutePaths.brokerVillageAssignments,
+        name: RouteNames.brokerVillageAssignments,
+        redirect: (context, state) => state.extra is List<BrokerVillageAssignment>
+            ? null
+            : RoutePaths.brokerVillageSelection,
+        builder: (context, state) => BrokerVillageAssignmentsScreen(
+          assignments: state.extra! as List<BrokerVillageAssignment>,
+        ),
+      ),
+      GoRoute(
+        path: RoutePaths.brokerVillageEndorsement,
+        name: RouteNames.brokerVillageEndorsement,
+        redirect: (context, state) =>
+            state.extra is BrokerVillageAssignment ? null : RoutePaths.brokerVillageSelection,
+        builder: (context, state) =>
+            BrokerVillageEndorsementScreen(assignment: state.extra! as BrokerVillageAssignment),
+      ),
+      GoRoute(
+        path: RoutePaths.brokerActivation,
+        name: RouteNames.brokerActivation,
+        redirect: (context, state) =>
+            state.extra is BrokerActivationChecklist ? null : RoutePaths.brokerVillageSelection,
+        builder: (context, state) =>
+            BrokerActivationScreen(checklist: state.extra! as BrokerActivationChecklist),
       ),
       GoRoute(
         path: RoutePaths.individualInfo,
@@ -267,6 +425,22 @@ class AppRouters {
     RoutePaths.registrationSubmitted,
     RoutePaths.registrationStatus,
     RoutePaths.unitReviewDetails,
+    RoutePaths.brokerType,
+    RoutePaths.brokerPersonalInfo,
+    RoutePaths.brokerCompanyInfo,
+    RoutePaths.brokerIdentityInfo,
+    RoutePaths.brokerRepresentative,
+    RoutePaths.brokerBusinessAddress,
+    RoutePaths.brokerBusinessContact,
+    RoutePaths.brokerDocuments,
+    RoutePaths.brokerReview,
+    RoutePaths.brokerSubmitted,
+    RoutePaths.brokerRegistrationStatus,
+    RoutePaths.brokerVillageSelection,
+    RoutePaths.brokerVillageRequestsSubmitted,
+    RoutePaths.brokerVillageAssignments,
+    RoutePaths.brokerVillageEndorsement,
+    RoutePaths.brokerActivation,
   };
 
   /// Login gating, in one place:

@@ -2,14 +2,14 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../../core/custom_widgets/registration_form/registration_intro.dart';
+import '../../../../../core/custom_widgets/registration_form/registration_notice.dart';
 import '../../../../../core/locale/app_locale_key.dart';
 import '../../../../../core/theme/app_sizes.dart';
 import '../../../../../core/theme/extensions/theme_extensions.dart';
 import '../../controller/registration_status_cubit.dart';
 import '../widget/overall_status_card.dart';
 import '../widget/prototype_data_pill.dart';
-import '../widget/registration_intro.dart';
-import '../widget/registration_notice.dart';
 import '../widget/registration_status_header.dart';
 import '../widget/review_filter_bar.dart';
 import '../widget/unit_reviews_sliver.dart';

@@ -6,6 +6,18 @@ import '../../features/auth/presentation/controller/business_role_cubit.dart';
 import '../../features/auth/presentation/controller/register_cubit.dart';
 import '../../features/auth/presentation/controller/verify_account_cubit.dart';
 import '../../features/auth/presentation/controller/verify_code_cubit.dart';
+import '../../features/broker_registration/data/model/broker_registration_receipt.dart';
+import '../../features/broker_registration/data/model/sample_broker_villages.dart';
+import '../../features/broker_registration/presentation/controller/broker_business_address_cubit.dart';
+import '../../features/broker_registration/presentation/controller/broker_company_info_cubit.dart';
+import '../../features/broker_registration/presentation/controller/broker_documents_cubit.dart';
+import '../../features/broker_registration/presentation/controller/broker_identity_info_cubit.dart';
+import '../../features/broker_registration/presentation/controller/broker_personal_info_cubit.dart';
+import '../../features/broker_registration/presentation/controller/broker_registration_draft_cubit.dart';
+import '../../features/broker_registration/presentation/controller/broker_registration_status_cubit.dart';
+import '../../features/broker_registration/presentation/controller/broker_representative_cubit.dart';
+import '../../features/broker_registration/presentation/controller/broker_type_cubit.dart';
+import '../../features/broker_registration/presentation/controller/broker_village_selection_cubit.dart';
 import '../../features/onboarding/presentation/controller/onboarding_cubit.dart';
 import '../../features/owner_registration/data/model/owner_unit.dart';
 import '../../features/owner_registration/data/model/registration_receipt.dart';
@@ -45,6 +57,7 @@ Future<void> initDependencies() async {
   _initOnboarding();
   _initAuth();
   _initOwnerRegistration();
+  _initBrokerRegistration();
 }
 
 /// Tears down user-scoped resources in dependency order.
@@ -132,5 +145,47 @@ void _initOwnerRegistration() {
   );
   sl.registerFactory<RegistrationReviewCubit>(
     () => RegistrationReviewCubit(sl<OwnerRegistrationDraftCubit>().state),
+  );
+}
+
+void _initBrokerRegistration() {
+  sl.registerFactory<BrokerTypeCubit>(BrokerTypeCubit.new);
+  sl.registerFactory<BrokerPersonalInfoCubit>(
+    () => BrokerPersonalInfoCubit(
+      initialState: sl<BrokerRegistrationDraftCubit>().state.personalInfo,
+    ),
+  );
+  sl.registerFactory<BrokerCompanyInfoCubit>(
+    () => BrokerCompanyInfoCubit(
+      initialState: sl<BrokerRegistrationDraftCubit>().state.companyInfo,
+    ),
+  );
+  sl.registerFactory<BrokerIdentityInfoCubit>(
+    () => BrokerIdentityInfoCubit(
+      initialState:
+          sl<BrokerRegistrationDraftCubit>().state.identityInfo ?? const BrokerIdentityInfoState(),
+    ),
+  );
+  sl.registerFactory<BrokerRepresentativeCubit>(
+    () => BrokerRepresentativeCubit(
+      initialState: sl<BrokerRegistrationDraftCubit>().state.representative,
+    ),
+  );
+  sl.registerFactory<BrokerBusinessAddressCubit>(
+    () => BrokerBusinessAddressCubit(
+      initialState:
+          sl<BrokerRegistrationDraftCubit>().state.businessAddress ??
+          const BrokerBusinessAddressState(),
+    ),
+  );
+  sl.registerLazySingleton<BrokerRegistrationDraftCubit>(BrokerRegistrationDraftCubit.new);
+  sl.registerFactoryParam<BrokerRegistrationStatusCubit, BrokerRegistrationReceipt, void>(
+    (receipt, _) => BrokerRegistrationStatusCubit(receipt: receipt),
+  );
+  sl.registerFactory<BrokerDocumentsCubit>(
+    () => BrokerDocumentsCubit(documents: sl<BrokerRegistrationDraftCubit>().state.documents),
+  );
+  sl.registerFactory<BrokerVillageSelectionCubit>(
+    () => BrokerVillageSelectionCubit(sampleBrokerVillages),
   );
 }

@@ -1,5 +1,5 @@
 import 'package:country_picker/country_picker.dart';
-import 'package:flutter_hr_erb/features/owner_registration/data/model/id_type.dart';
+import 'package:flutter_hr_erb/core/enum/id_type.dart';
 import 'package:flutter_hr_erb/features/owner_registration/presentation/controller/individual_info_cubit.dart';
 import 'package:flutter_test/flutter_test.dart';
 

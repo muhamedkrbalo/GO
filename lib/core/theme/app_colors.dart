@@ -80,6 +80,8 @@ class AppColors {
   static const darkSuccess = Color(0xff32D583);
   static const darkSuccessSurface = Color(0xff053321);
   static const darkSuccessBorder = Color(0xff085D3A);
+  static const jade = Color(0xff12A998);
+  static const darkJade = Color(0xff2DD4BF);
   static const info = Color(0xff0369A1);
   static const infoSurface = Color(0xffF0F9FF);
   static const infoBorder = Color(0xffBAE6FD);

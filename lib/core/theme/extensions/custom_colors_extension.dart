@@ -71,6 +71,7 @@ class CustomColors extends ThemeExtension<CustomColors> {
     required this.oceanText,
     required this.iconTileSurface,
     required this.goldSurface,
+    required this.progressComplete,
   });
 
   static const light = CustomColors(
@@ -136,6 +137,7 @@ class CustomColors extends ThemeExtension<CustomColors> {
     oceanText: AppColors.deepCyan,
     iconTileSurface: AppColors.iceBlue,
     goldSurface: AppColors.cream,
+    progressComplete: AppColors.jade,
   );
 
   static const dark = CustomColors(
@@ -201,6 +203,7 @@ class CustomColors extends ThemeExtension<CustomColors> {
     oceanText: AppColors.darkInfo,
     iconTileSurface: AppColors.darkSurfaceVariant,
     goldSurface: AppColors.darkWarningSurface,
+    progressComplete: AppColors.darkJade,
   );
 
   /// Strong text: titles, form labels, input text.
@@ -282,6 +285,7 @@ class CustomColors extends ThemeExtension<CustomColors> {
   final Color oceanText;
   final Color iconTileSurface;
   final Color goldSurface;
+  final Color progressComplete;
 
   @override
   CustomColors copyWith({
@@ -347,6 +351,7 @@ class CustomColors extends ThemeExtension<CustomColors> {
     Color? oceanText,
     Color? iconTileSurface,
     Color? goldSurface,
+    Color? progressComplete,
   }) {
     return CustomColors(
       textPrimary: textPrimary ?? this.textPrimary,
@@ -411,6 +416,7 @@ class CustomColors extends ThemeExtension<CustomColors> {
       oceanText: oceanText ?? this.oceanText,
       iconTileSurface: iconTileSurface ?? this.iconTileSurface,
       goldSurface: goldSurface ?? this.goldSurface,
+      progressComplete: progressComplete ?? this.progressComplete,
     );
   }
 
@@ -480,6 +486,7 @@ class CustomColors extends ThemeExtension<CustomColors> {
       oceanText: Color.lerp(oceanText, other.oceanText, t)!,
       iconTileSurface: Color.lerp(iconTileSurface, other.iconTileSurface, t)!,
       goldSurface: Color.lerp(goldSurface, other.goldSurface, t)!,
+      progressComplete: Color.lerp(progressComplete, other.progressComplete, t)!,
     );
   }
 }

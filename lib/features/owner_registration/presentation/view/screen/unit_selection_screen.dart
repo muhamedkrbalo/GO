@@ -1,12 +1,12 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../../core/custom_widgets/registration_form/registration_intro.dart';
 import '../../../../../core/locale/app_locale_key.dart';
 import '../../../../../core/theme/app_sizes.dart';
 import '../../../../../core/theme/extensions/theme_extensions.dart';
 import '../widget/cant_find_unit_button.dart';
 import '../widget/owner_registration_step_header.dart';
-import '../widget/registration_intro.dart';
 import '../widget/unit_filters.dart';
 import '../widget/unit_list_header.dart';
 import '../widget/unit_list_sliver.dart';

@@ -2,6 +2,8 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../../core/custom_widgets/document_upload/upload_dropzone.dart';
+import '../../../../../core/custom_widgets/document_upload/uploaded_document_tile.dart';
 import '../../../../../core/extension/context_ui_extension.dart';
 import '../../../../../core/locale/app_locale_key.dart';
 import '../../../../../core/theme/app_shadows.dart';
@@ -11,8 +13,6 @@ import '../../../../../core/theme/extensions/theme_extensions.dart';
 import '../../../../../core/utils/document_picker_methods.dart';
 import '../../../data/model/owner_document.dart';
 import '../../controller/owner_documents_cubit.dart';
-import 'upload_dropzone.dart';
-import 'uploaded_document_tile.dart';
 
 class DocumentUploadCard extends StatelessWidget {
   const DocumentUploadCard({super.key, required this.slot});

@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../../../core/custom_widgets/registration_form/registration_intro.dart';
 import '../../../../../core/locale/app_locale_key.dart';
 import '../../../../../core/theme/app_sizes.dart';
 import '../../../../../core/theme/extensions/theme_extensions.dart';
 import '../../controller/selected_units_review_cubit.dart';
 import '../widget/owner_registration_step_header.dart';
-import '../widget/registration_intro.dart';
 import '../widget/selected_units_review_bottom_bar.dart';
 import '../widget/selected_units_review_sliver.dart';
 import '../widget/selected_units_section_header.dart';
