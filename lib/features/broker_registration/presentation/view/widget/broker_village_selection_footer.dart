@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 
 import '../../../../../core/locale/app_locale_key.dart';
 import '../../../../../core/routes/routes_name.dart';
+import '../../../data/model/broker_village_assignment.dart';
 import '../../controller/broker_village_selection_cubit.dart';
 import 'broker_form_footer.dart';
 
@@ -12,9 +13,13 @@ class BrokerVillageSelectionFooter extends StatelessWidget {
   const BrokerVillageSelectionFooter({super.key});
 
   void _submit(BuildContext context) {
+    final submittedAt = DateTime.now();
     context.pushNamed(
       RouteNames.brokerVillageRequestsSubmitted,
-      extra: context.read<BrokerVillageSelectionCubit>().state.selectedVillages,
+      extra: [
+        for (final village in context.read<BrokerVillageSelectionCubit>().state.selectedVillages)
+          BrokerVillageAssignment.requested(village, submittedAt: submittedAt),
+      ],
     );
   }
 

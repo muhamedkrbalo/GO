@@ -1073,4 +1073,13 @@ class AppLocaleKey {
   static const numberOfRequests = 'numberOfRequests';
   static const pendingProcessing = 'pendingProcessing';
   static const viewVillageAssignmentStatus = 'viewVillageAssignmentStatus';
+  static const pendingEndorsement = 'pendingEndorsement';
+  static const endorsementsProgress = 'endorsementsProgress';
+  static const lastUpdatedOn = 'lastUpdatedOn';
+  static const openVillage = 'openVillage';
+  static const continueToActivation = 'continueToActivation';
+  static const independentAssignments = 'independentAssignments';
+  static const myVillages = 'myVillages';
+  static const trackVillageEndorsements = 'trackVillageEndorsements';
+  static const inactiveVillagesNotice = 'inactiveVillagesNotice';
 }

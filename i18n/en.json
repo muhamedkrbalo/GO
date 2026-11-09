@@ -520,5 +520,17 @@
   "villageRequestsSubmittedDescription": "Each Village assignment will be reviewed independently and may require Owner endorsements.",
   "numberOfRequests": "Number of Requests",
   "pendingProcessing": "Pending Processing",
-  "viewVillageAssignmentStatus": "View Village Assignment Status"
+  "viewVillageAssignmentStatus": "View Village Assignment Status",
+  "pendingEndorsement": "Pending Endorsement",
+  "active": "Active",
+  "suspended": "Suspended",
+  "expired": "Expired",
+  "endorsementsProgress": "Endorsements: {} of {}",
+  "lastUpdatedOn": "Last updated {}",
+  "openVillage": "Open Village",
+  "continueToActivation": "Continue to Activation",
+  "independentAssignments": "Independent assignments",
+  "myVillages": "My Villages",
+  "trackVillageEndorsements": "Track each Village request and endorsement requirement independently.",
+  "inactiveVillagesNotice": "Pending, rejected, suspended, and expired Villages remain unavailable for operations."
 }

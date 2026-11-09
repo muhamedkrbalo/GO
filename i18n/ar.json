@@ -523,6 +523,18 @@
     "villageRequestsSubmittedDescription": "ستتم مراجعة كل طلب تخصيص قرية بشكل مستقل، وقد يتطلب موافقة المالكين.",
     "numberOfRequests": "عدد الطلبات",
     "pendingProcessing": "قيد المعالجة",
-    "viewVillageAssignmentStatus": "عرض حالة تخصيص القرى"
+    "viewVillageAssignmentStatus": "عرض حالة تخصيص القرى",
+    "pendingEndorsement": "بانتظار الموافقة",
+    "active": "نشطة",
+    "suspended": "موقوفة",
+    "expired": "منتهية",
+    "endorsementsProgress": "الموافقات: {} من {}",
+    "lastUpdatedOn": "آخر تحديث {}",
+    "openVillage": "فتح القرية",
+    "continueToActivation": "المتابعة إلى التفعيل",
+    "independentAssignments": "تخصيصات مستقلة",
+    "myVillages": "القرى الخاصة بي",
+    "trackVillageEndorsements": "تابع كل طلب قرية ومتطلبات موافقاته بشكل مستقل.",
+    "inactiveVillagesNotice": "تظل القرى قيد الانتظار والمرفوضة والموقوفة والمنتهية غير متاحة للعمليات."
 }
   

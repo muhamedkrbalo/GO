@@ -1,21 +1,23 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../../core/custom_widgets/buttons/primary_arrow_button.dart';
 import '../../../../../core/custom_widgets/registration_form/registration_sticky_footer.dart';
 import '../../../../../core/locale/app_locale_key.dart';
+import '../../../../../core/routes/routes_name.dart';
 import '../../../../../core/theme/app_sizes.dart';
 import '../../../../../core/theme/app_text_styles.dart';
 import '../../../../../core/theme/extensions/theme_extensions.dart';
-import '../../../data/model/broker_village.dart';
+import '../../../data/model/broker_village_assignment.dart';
 import '../widget/broker_submission_hero.dart';
 import '../widget/broker_village_request_card.dart';
 import '../widget/broker_village_requests_summary_card.dart';
 
 class BrokerVillageRequestsSubmittedScreen extends StatelessWidget {
-  const BrokerVillageRequestsSubmittedScreen({super.key, required this.villages});
+  const BrokerVillageRequestsSubmittedScreen({super.key, required this.assignments});
 
-  final List<BrokerVillage> villages;
+  final List<BrokerVillageAssignment> assignments;
 
   static const _contentPadding = EdgeInsetsDirectional.fromSTEB(22, 28, 22, 34);
 
@@ -29,7 +31,8 @@ class BrokerVillageRequestsSubmittedScreen extends StatelessWidget {
           text: AppLocaleKey.viewVillageAssignmentStatus.tr(),
           textStyle: AppTextStyles.xs13Bold,
           isEnabled: true,
-          onPressed: null,
+          onPressed: () =>
+              context.pushNamed(RouteNames.brokerVillageAssignments, extra: assignments),
         ),
       ),
       body: SafeArea(
@@ -51,17 +54,17 @@ class BrokerVillageRequestsSubmittedScreen extends StatelessWidget {
                     ),
                   ),
                   SliverList.separated(
-                    itemCount: villages.length,
+                    itemCount: assignments.length,
                     separatorBuilder: (_, _) => AppSpacing.gapV10,
                     itemBuilder: (context, index) {
-                      final village = villages[index];
+                      final village = assignments[index].village;
                       return BrokerVillageRequestCard(key: ValueKey(village.id), village: village);
                     },
                   ),
                   SliverToBoxAdapter(
                     child: Padding(
                       padding: const EdgeInsetsDirectional.only(top: AppSpacing.xxl24),
-                      child: BrokerVillageRequestsSummaryCard(requestCount: villages.length),
+                      child: BrokerVillageRequestsSummaryCard(requestCount: assignments.length),
                     ),
                   ),
                 ],
