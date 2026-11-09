@@ -540,5 +540,19 @@
   "progress": "Progress",
   "endorsementStatus": "Endorsement Status",
   "endorsementCompleted": "Endorsement Completed",
-  "countOfTotal": "{} of {}"
+  "countOfTotal": "{} of {}",
+  "brokerActivation": "Broker Activation",
+  "activationRequirements": "Activation requirements",
+  "yourBrokerAccount": "Your Broker Account",
+  "reviewActivationConditions": "Review the conditions required before brokerage operations can begin.",
+  "allActivationRequirementsComplete": "All configured activation requirements are complete.",
+  "activationRequirementsPending": "Some activation requirements are still pending.",
+  "complete": "Complete",
+  "brokerRegistrationApproved": "Broker Registration Approved",
+  "businessRelationshipApproved": "Business Relationship Approved",
+  "requiredVillageAssignmentsApproved": "Required Village Assignments Approved",
+  "requiredOwnerEndorsementsCompleted": "Required Owner Endorsements Completed",
+  "subscriptionActive": "Subscription Active",
+  "requiredPermissionsAvailable": "Required Permissions Available",
+  "goToBrokerDashboard": "Go to Broker Dashboard"
 }

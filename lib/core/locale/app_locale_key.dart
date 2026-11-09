@@ -1090,4 +1090,18 @@ class AppLocaleKey {
   static const endorsementStatus = 'endorsementStatus';
   static const endorsementCompleted = 'endorsementCompleted';
   static const countOfTotal = 'countOfTotal';
+  static const brokerActivation = 'brokerActivation';
+  static const activationRequirements = 'activationRequirements';
+  static const yourBrokerAccount = 'yourBrokerAccount';
+  static const reviewActivationConditions = 'reviewActivationConditions';
+  static const allActivationRequirementsComplete = 'allActivationRequirementsComplete';
+  static const activationRequirementsPending = 'activationRequirementsPending';
+  static const complete = 'complete';
+  static const brokerRegistrationApproved = 'brokerRegistrationApproved';
+  static const businessRelationshipApproved = 'businessRelationshipApproved';
+  static const requiredVillageAssignmentsApproved = 'requiredVillageAssignmentsApproved';
+  static const requiredOwnerEndorsementsCompleted = 'requiredOwnerEndorsementsCompleted';
+  static const subscriptionActive = 'subscriptionActive';
+  static const requiredPermissionsAvailable = 'requiredPermissionsAvailable';
+  static const goToBrokerDashboard = 'goToBrokerDashboard';
 }

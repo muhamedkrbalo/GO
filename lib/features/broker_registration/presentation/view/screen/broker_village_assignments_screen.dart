@@ -12,6 +12,7 @@ import '../../../../../core/routes/routes_name.dart';
 import '../../../../../core/theme/app_sizes.dart';
 import '../../../../../core/theme/app_text_styles.dart';
 import '../../../../../core/theme/extensions/theme_extensions.dart';
+import '../../../data/model/broker_activation_checklist.dart';
 import '../../../data/model/broker_village_assignment.dart';
 import '../widget/broker_village_assignment_card.dart';
 
@@ -32,7 +33,12 @@ class BrokerVillageAssignmentsScreen extends StatelessWidget {
           text: AppLocaleKey.continueToActivation.tr(),
           textStyle: AppTextStyles.xs13Bold,
           isEnabled: true,
-          onPressed: null,
+          onPressed: () => context.pushNamed(
+            RouteNames.brokerActivation,
+            extra: const BrokerActivationChecklist(
+              completed: {...BrokerActivationRequirement.values},
+            ),
+          ),
         ),
       ),
       body: Column(

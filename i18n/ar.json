@@ -543,6 +543,20 @@
     "progress": "التقدّم",
     "endorsementStatus": "حالة الموافقة",
     "endorsementCompleted": "اكتملت الموافقات",
-    "countOfTotal": "{} من {}"
+    "countOfTotal": "{} من {}",
+    "brokerActivation": "تفعيل الوسيط",
+    "activationRequirements": "متطلبات التفعيل",
+    "yourBrokerAccount": "حساب الوسيط الخاص بك",
+    "reviewActivationConditions": "راجع الشروط المطلوبة قبل بدء عمليات الوساطة.",
+    "allActivationRequirementsComplete": "اكتملت جميع متطلبات التفعيل المحددة.",
+    "activationRequirementsPending": "لا تزال بعض متطلبات التفعيل قيد الانتظار.",
+    "complete": "مكتمل",
+    "brokerRegistrationApproved": "تمت الموافقة على تسجيل الوسيط",
+    "businessRelationshipApproved": "تمت الموافقة على العلاقة التجارية",
+    "requiredVillageAssignmentsApproved": "تمت الموافقة على تخصيصات القرى المطلوبة",
+    "requiredOwnerEndorsementsCompleted": "اكتملت موافقات الملّاك المطلوبة",
+    "subscriptionActive": "الاشتراك نشط",
+    "requiredPermissionsAvailable": "الصلاحيات المطلوبة متاحة",
+    "goToBrokerDashboard": "الانتقال إلى لوحة تحكم الوسيط"
 }
   

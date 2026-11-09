@@ -14,6 +14,7 @@ import '../../features/auth/presentation/view/screen/login_screen.dart';
 import '../../features/auth/presentation/view/screen/register_screen.dart';
 import '../../features/auth/presentation/view/screen/verify_account_screen.dart';
 import '../../features/auth/presentation/view/screen/verify_code_screen.dart';
+import '../../features/broker_registration/data/model/broker_activation_checklist.dart';
 import '../../features/broker_registration/data/model/broker_registration_receipt.dart';
 import '../../features/broker_registration/data/model/broker_village_assignment.dart';
 import '../../features/broker_registration/presentation/controller/broker_business_address_cubit.dart';
@@ -25,6 +26,7 @@ import '../../features/broker_registration/presentation/controller/broker_regist
 import '../../features/broker_registration/presentation/controller/broker_representative_cubit.dart';
 import '../../features/broker_registration/presentation/controller/broker_type_cubit.dart';
 import '../../features/broker_registration/presentation/controller/broker_village_selection_cubit.dart';
+import '../../features/broker_registration/presentation/view/screen/broker_activation_screen.dart';
 import '../../features/broker_registration/presentation/view/screen/broker_business_address_screen.dart';
 import '../../features/broker_registration/presentation/view/screen/broker_business_contact_screen.dart';
 import '../../features/broker_registration/presentation/view/screen/broker_company_info_screen.dart';
@@ -281,6 +283,14 @@ class AppRouters {
             BrokerVillageEndorsementScreen(assignment: state.extra! as BrokerVillageAssignment),
       ),
       GoRoute(
+        path: RoutePaths.brokerActivation,
+        name: RouteNames.brokerActivation,
+        redirect: (context, state) =>
+            state.extra is BrokerActivationChecklist ? null : RoutePaths.brokerVillageSelection,
+        builder: (context, state) =>
+            BrokerActivationScreen(checklist: state.extra! as BrokerActivationChecklist),
+      ),
+      GoRoute(
         path: RoutePaths.individualInfo,
         name: RouteNames.individualInfo,
         builder: (context, state) => BlocProvider(
@@ -430,6 +440,7 @@ class AppRouters {
     RoutePaths.brokerVillageRequestsSubmitted,
     RoutePaths.brokerVillageAssignments,
     RoutePaths.brokerVillageEndorsement,
+    RoutePaths.brokerActivation,
   };
 
   /// Login gating, in one place:
