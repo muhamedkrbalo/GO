@@ -76,6 +76,7 @@ void main() {
   });
 
   testWidgets('router redirects on auth status changes', (tester) async {
+    AppRouters.previewOwnerNavigation = false;
     session.value = AuthStatus.unknown;
     await tester.pumpWidget(MaterialApp.router(routerConfig: AppRouters.router));
     await tester.pump();

@@ -202,6 +202,22 @@ class AppImages {
   /// assets/svg/mail.svg
   static const String assetsSvgMail = "assets/svg/mail.svg";
 
+  /// Assets for assetsSvgNavHome
+  /// assets/svg/navHome.svg
+  static const String assetsSvgNavHome = "assets/svg/navHome.svg";
+
+  /// Assets for assetsSvgNavMore
+  /// assets/svg/navMore.svg
+  static const String assetsSvgNavMore = "assets/svg/navMore.svg";
+
+  /// Assets for assetsSvgNavSubscription
+  /// assets/svg/navSubscription.svg
+  static const String assetsSvgNavSubscription = "assets/svg/navSubscription.svg";
+
+  /// Assets for assetsSvgNavUnits
+  /// assets/svg/navUnits.svg
+  static const String assetsSvgNavUnits = "assets/svg/navUnits.svg";
+
   /// Assets for assetsSvgOnboarding1
   /// assets/svg/onboarding1.svg
   static const String assetsSvgOnboarding1 = "assets/svg/onboarding1.svg";

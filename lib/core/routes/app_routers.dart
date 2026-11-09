@@ -46,6 +46,9 @@ import '../../features/home/presentation/view/screen/home_screen.dart';
 import '../../features/onboarding/presentation/controller/onboarding_cubit.dart';
 import '../../features/onboarding/presentation/view/screen/onboarding_screen.dart';
 import '../../features/onboarding/presentation/view/screen/welcome_screen.dart';
+import '../../features/owner_navigation/data/model/owner_navigation_tab.dart';
+import '../../features/owner_navigation/presentation/view/screen/owner_navigation_shell.dart';
+import '../../features/owner_navigation/presentation/view/screen/owner_tab_placeholder_screen.dart';
 import '../../features/owner_registration/data/model/owner_unit.dart';
 import '../../features/owner_registration/data/model/registration_receipt.dart';
 import '../../features/owner_registration/data/model/unit_review.dart';
@@ -86,6 +89,13 @@ class AppRouters {
       GlobalKey<NavigatorState>();
 
   static final AuthSession _authSession = sl<AuthSession>();
+
+  // UI PREVIEW SWITCH
+  // true  → after the splash the app always opens the owner bottom navigation (Home tab),
+  //         even when signed out. Use this while building the UI.
+  // false → normal auth flow: signed out goes to onboarding/welcome, signed in goes to Home.
+  // To restore the real flow, set this to false. Nothing else needs to change.
+  static bool previewOwnerNavigation = true;
 
   static final GoRouter router = GoRouter(
     navigatorKey: navigatorKey,
@@ -386,10 +396,50 @@ class AppRouters {
         redirect: (context, state) => state.extra is UnitReview ? null : RoutePaths.home,
         builder: (context, state) => UnitReviewDetailsScreen(review: state.extra! as UnitReview),
       ),
-      GoRoute(
-        path: RoutePaths.home,
-        name: RouteNames.home,
-        builder: (context, state) => const HomeScreen(),
+      StatefulShellRoute.indexedStack(
+        builder: (context, state, navigationShell) =>
+            OwnerNavigationShell(navigationShell: navigationShell),
+        branches: [
+          StatefulShellBranch(
+            routes: [
+              GoRoute(
+                path: RoutePaths.home,
+                name: RouteNames.home,
+                builder: (context, state) => const HomeScreen(),
+              ),
+            ],
+          ),
+          StatefulShellBranch(
+            routes: [
+              GoRoute(
+                path: RoutePaths.ownerUnits,
+                name: RouteNames.ownerUnits,
+                builder: (context, state) =>
+                    const OwnerTabPlaceholderScreen(tab: OwnerNavigationTab.units),
+              ),
+            ],
+          ),
+          StatefulShellBranch(
+            routes: [
+              GoRoute(
+                path: RoutePaths.ownerSubscription,
+                name: RouteNames.ownerSubscription,
+                builder: (context, state) =>
+                    const OwnerTabPlaceholderScreen(tab: OwnerNavigationTab.subscription),
+              ),
+            ],
+          ),
+          StatefulShellBranch(
+            routes: [
+              GoRoute(
+                path: RoutePaths.ownerMore,
+                name: RouteNames.ownerMore,
+                builder: (context, state) =>
+                    const OwnerTabPlaceholderScreen(tab: OwnerNavigationTab.more),
+              ),
+            ],
+          ),
+        ],
       ),
       GoRoute(
         path: RoutePaths.zoomImage,
@@ -453,6 +503,11 @@ class AppRouters {
       case AuthStatus.unknown:
         return location == RoutePaths.splash ? null : RoutePaths.splash;
       case AuthStatus.unauthenticated:
+        // UI PREVIEW: skip onboarding/welcome and land on the bottom navigation.
+        // Controlled by [previewOwnerNavigation] above.
+        if (previewOwnerNavigation) {
+          return location == RoutePaths.splash ? RoutePaths.home : null;
+        }
         if (_signedOutPaths.contains(location)) return null;
         return HiveMethods.isFirstTime() ? RoutePaths.onboarding : RoutePaths.welcome;
       case AuthStatus.authenticated:

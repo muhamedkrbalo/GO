@@ -37,6 +37,9 @@ abstract final class RoutePaths {
   static const String registrationStatus = '/registration-status';
   static const String unitReviewDetails = '/unit-review-details';
   static const String home = '/home';
+  static const String ownerUnits = '/owner-units';
+  static const String ownerSubscription = '/owner-subscription';
+  static const String ownerMore = '/owner-more';
   static const String zoomImage = '/zoom-image';
 }
 
@@ -79,5 +82,8 @@ abstract final class RouteNames {
   static const String registrationStatus = 'registrationStatus';
   static const String unitReviewDetails = 'unitReviewDetails';
   static const String home = 'home';
+  static const String ownerUnits = 'ownerUnits';
+  static const String ownerSubscription = 'ownerSubscription';
+  static const String ownerMore = 'ownerMore';
   static const String zoomImage = 'zoomImage';
 }

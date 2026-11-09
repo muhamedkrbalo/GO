@@ -557,6 +557,10 @@
     "requiredOwnerEndorsementsCompleted": "اكتملت موافقات الملّاك المطلوبة",
     "subscriptionActive": "الاشتراك نشط",
     "requiredPermissionsAvailable": "الصلاحيات المطلوبة متاحة",
-    "goToBrokerDashboard": "الانتقال إلى لوحة تحكم الوسيط"
+    "goToBrokerDashboard": "الانتقال إلى لوحة تحكم الوسيط",
+    "home": "الرئيسية",
+    "units": "الوحدات",
+    "subscription": "الاشتراك",
+    "more": "المزيد"
 }
   

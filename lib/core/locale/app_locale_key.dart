@@ -1104,4 +1104,7 @@ class AppLocaleKey {
   static const subscriptionActive = 'subscriptionActive';
   static const requiredPermissionsAvailable = 'requiredPermissionsAvailable';
   static const goToBrokerDashboard = 'goToBrokerDashboard';
+  static const units = 'units';
+  static const subscription = 'subscription';
+  static const more = 'more';
 }

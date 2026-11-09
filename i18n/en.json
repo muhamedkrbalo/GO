@@ -554,5 +554,9 @@
   "requiredOwnerEndorsementsCompleted": "Required Owner Endorsements Completed",
   "subscriptionActive": "Subscription Active",
   "requiredPermissionsAvailable": "Required Permissions Available",
-  "goToBrokerDashboard": "Go to Broker Dashboard"
+  "goToBrokerDashboard": "Go to Broker Dashboard",
+  "home": "Home",
+  "units": "Units",
+  "subscription": "Subscription",
+  "more": "More"
 }
