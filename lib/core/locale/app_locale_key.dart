@@ -1053,4 +1053,24 @@ class AppLocaleKey {
   static const representativeFullName = 'representativeFullName';
   static const proofOfAuthorization = 'proofOfAuthorization';
   static const continueToVillageSelection = 'continueToVillageSelection';
+  static const villageAssignment = 'villageAssignment';
+  static const approvedBroker = 'approvedBroker';
+  static const selectVillages = 'selectVillages';
+  static const chooseBrokerVillages = 'chooseBrokerVillages';
+  static const searchVillages = 'searchVillages';
+  static const allAreas = 'allAreas';
+  static const selectedVillages = 'selectedVillages';
+  static const selectedOfMax = 'selectedOfMax';
+  static const available = 'available';
+  static const unavailable = 'unavailable';
+  static const alreadyAssigned = 'alreadyAssigned';
+  static const noVillagesFound = 'noVillagesFound';
+  static const villageRequestsReviewNotice = 'villageRequestsReviewNotice';
+  static const submitVillageRequests = 'submitVillageRequests';
+  static const villageLocation = 'villageLocation';
+  static const villageRequestsSubmitted = 'villageRequestsSubmitted';
+  static const villageRequestsSubmittedDescription = 'villageRequestsSubmittedDescription';
+  static const numberOfRequests = 'numberOfRequests';
+  static const pendingProcessing = 'pendingProcessing';
+  static const viewVillageAssignmentStatus = 'viewVillageAssignmentStatus';
 }

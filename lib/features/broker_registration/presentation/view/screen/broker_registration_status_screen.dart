@@ -1,10 +1,12 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../../core/custom_widgets/registration_form/registration_intro.dart';
 import '../../../../../core/custom_widgets/registration_step_header/registration_step_header.dart';
 import '../../../../../core/locale/app_locale_key.dart';
+import '../../../../../core/routes/routes_name.dart';
 import '../../../../../core/theme/extensions/theme_extensions.dart';
 import '../../controller/broker_registration_status_cubit.dart';
 import '../widget/broker_status_card.dart';
@@ -27,7 +29,11 @@ class BrokerRegistrationStatusScreen extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: context.customColors.canvas,
-      bottomNavigationBar: isApproved ? const BrokerStatusFooter(onContinue: null) : null,
+      bottomNavigationBar: isApproved
+          ? BrokerStatusFooter(
+              onContinue: () => context.pushNamed(RouteNames.brokerVillageSelection),
+            )
+          : null,
       body: Column(
         children: [
           RegistrationStepHeader(title: title),

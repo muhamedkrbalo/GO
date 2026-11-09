@@ -20,6 +20,8 @@ abstract final class RoutePaths {
   static const String brokerReview = '/broker-review';
   static const String brokerSubmitted = '/broker-submitted';
   static const String brokerRegistrationStatus = '/broker-registration-status';
+  static const String brokerVillageSelection = '/broker-village-selection';
+  static const String brokerVillageRequestsSubmitted = '/broker-village-requests-submitted';
   static const String individualInfo = '/individual-info';
   static const String companyInfo = '/company-info';
   static const String ownerAddress = '/owner-address';
@@ -57,6 +59,8 @@ abstract final class RouteNames {
   static const String brokerReview = 'brokerReview';
   static const String brokerSubmitted = 'brokerSubmitted';
   static const String brokerRegistrationStatus = 'brokerRegistrationStatus';
+  static const String brokerVillageSelection = 'brokerVillageSelection';
+  static const String brokerVillageRequestsSubmitted = 'brokerVillageRequestsSubmitted';
   static const String individualInfo = 'individualInfo';
   static const String companyInfo = 'companyInfo';
   static const String ownerAddress = 'ownerAddress';

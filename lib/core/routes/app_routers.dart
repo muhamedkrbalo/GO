@@ -15,6 +15,7 @@ import '../../features/auth/presentation/view/screen/register_screen.dart';
 import '../../features/auth/presentation/view/screen/verify_account_screen.dart';
 import '../../features/auth/presentation/view/screen/verify_code_screen.dart';
 import '../../features/broker_registration/data/model/broker_registration_receipt.dart';
+import '../../features/broker_registration/data/model/broker_village.dart';
 import '../../features/broker_registration/presentation/controller/broker_business_address_cubit.dart';
 import '../../features/broker_registration/presentation/controller/broker_company_info_cubit.dart';
 import '../../features/broker_registration/presentation/controller/broker_documents_cubit.dart';
@@ -23,6 +24,7 @@ import '../../features/broker_registration/presentation/controller/broker_person
 import '../../features/broker_registration/presentation/controller/broker_registration_status_cubit.dart';
 import '../../features/broker_registration/presentation/controller/broker_representative_cubit.dart';
 import '../../features/broker_registration/presentation/controller/broker_type_cubit.dart';
+import '../../features/broker_registration/presentation/controller/broker_village_selection_cubit.dart';
 import '../../features/broker_registration/presentation/view/screen/broker_business_address_screen.dart';
 import '../../features/broker_registration/presentation/view/screen/broker_business_contact_screen.dart';
 import '../../features/broker_registration/presentation/view/screen/broker_company_info_screen.dart';
@@ -34,6 +36,8 @@ import '../../features/broker_registration/presentation/view/screen/broker_repre
 import '../../features/broker_registration/presentation/view/screen/broker_review_screen.dart';
 import '../../features/broker_registration/presentation/view/screen/broker_submission_confirmation_screen.dart';
 import '../../features/broker_registration/presentation/view/screen/broker_type_screen.dart';
+import '../../features/broker_registration/presentation/view/screen/broker_village_requests_submitted_screen.dart';
+import '../../features/broker_registration/presentation/view/screen/broker_village_selection_screen.dart';
 import '../../features/home/presentation/view/screen/home_screen.dart';
 import '../../features/onboarding/presentation/controller/onboarding_cubit.dart';
 import '../../features/onboarding/presentation/view/screen/onboarding_screen.dart';
@@ -239,6 +243,22 @@ class AppRouters {
         ),
       ),
       GoRoute(
+        path: RoutePaths.brokerVillageSelection,
+        name: RouteNames.brokerVillageSelection,
+        builder: (context, state) => BlocProvider(
+          create: (_) => sl<BrokerVillageSelectionCubit>(),
+          child: const BrokerVillageSelectionScreen(),
+        ),
+      ),
+      GoRoute(
+        path: RoutePaths.brokerVillageRequestsSubmitted,
+        name: RouteNames.brokerVillageRequestsSubmitted,
+        redirect: (context, state) =>
+            state.extra is List<BrokerVillage> ? null : RoutePaths.brokerVillageSelection,
+        builder: (context, state) =>
+            BrokerVillageRequestsSubmittedScreen(villages: state.extra! as List<BrokerVillage>),
+      ),
+      GoRoute(
         path: RoutePaths.individualInfo,
         name: RouteNames.individualInfo,
         builder: (context, state) => BlocProvider(
@@ -384,6 +404,8 @@ class AppRouters {
     RoutePaths.brokerReview,
     RoutePaths.brokerSubmitted,
     RoutePaths.brokerRegistrationStatus,
+    RoutePaths.brokerVillageSelection,
+    RoutePaths.brokerVillageRequestsSubmitted,
   };
 
   /// Login gating, in one place:

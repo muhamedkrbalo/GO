@@ -8,7 +8,16 @@ import '../../../../../core/theme/app_text_styles.dart';
 import '../../../../../core/theme/extensions/theme_extensions.dart';
 
 class BrokerSubmissionHero extends StatelessWidget {
-  const BrokerSubmissionHero({super.key});
+  const BrokerSubmissionHero({
+    super.key,
+    this.titleKey = AppLocaleKey.registrationSubmittedTitle,
+    this.subtitleKey = AppLocaleKey.brokerRegistrationSubmittedDescription,
+    this.showLogo = true,
+  });
+
+  final String titleKey;
+  final String subtitleKey;
+  final bool showLogo;
 
   static const _logoWidth = 90.0;
   static const _logoHeight = 60.0;
@@ -26,18 +35,19 @@ class BrokerSubmissionHero extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colors = context.customColors;
-    final logoCacheWidth = (_logoWidth * MediaQuery.devicePixelRatioOf(context)).round();
 
     return Column(
       children: [
-        Image.asset(
-          AppImages.assetsImagesGoBrandLogo,
-          width: _logoWidth,
-          height: _logoHeight,
-          cacheWidth: logoCacheWidth,
-          fit: BoxFit.cover,
-        ),
-        _logoGap,
+        if (showLogo) ...[
+          Image.asset(
+            AppImages.assetsImagesGoBrandLogo,
+            width: _logoWidth,
+            height: _logoHeight,
+            cacheWidth: (_logoWidth * MediaQuery.devicePixelRatioOf(context)).round(),
+            fit: BoxFit.cover,
+          ),
+          _logoGap,
+        ],
         DecoratedBox(
           decoration: BoxDecoration(
             color: colors.oceanAccent,
@@ -52,7 +62,7 @@ class BrokerSubmissionHero extends StatelessWidget {
         ),
         _titleGap,
         Text(
-          AppLocaleKey.registrationSubmittedTitle.tr(),
+          titleKey.tr(),
           textAlign: TextAlign.center,
           style: AppTextStyles.xxlSemiBold.copyWith(
             color: colors.textSecondary,
@@ -64,7 +74,7 @@ class BrokerSubmissionHero extends StatelessWidget {
         ConstrainedBox(
           constraints: const BoxConstraints(maxWidth: _subtitleMaxWidth),
           child: Text(
-            AppLocaleKey.brokerRegistrationSubmittedDescription.tr(),
+            subtitleKey.tr(),
             textAlign: TextAlign.center,
             style: AppTextStyles.xsRegular.copyWith(
               color: colors.textMuted,

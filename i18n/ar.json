@@ -503,6 +503,26 @@
     "registeringAccountMustBeAuthorized": "يجب أن يكون الحساب المُسجِّل مفوّضًا بتمثيل هذه الشركة.",
     "representativeFullName": "الاسم الكامل للممثل",
     "proofOfAuthorization": "إثبات التفويض",
-    "continueToVillageSelection": "المتابعة لاختيار القرية"
-  }
+    "continueToVillageSelection": "المتابعة لاختيار القرية",
+    "villageAssignment": "تخصيص القرى",
+    "approvedBroker": "وسيط معتمد",
+    "selectVillages": "اختر القرى",
+    "chooseBrokerVillages": "اختر القرى التي تريد ممارسة أنشطة الوساطة فيها.",
+    "searchVillages": "ابحث عن القرى",
+    "allAreas": "كل المناطق",
+    "selectedVillages": "القرى المختارة",
+    "selectedOfMax": "{} / {}",
+    "available": "متاحة",
+    "unavailable": "غير متاحة",
+    "alreadyAssigned": "مخصصة بالفعل",
+    "noVillagesFound": "لا توجد قرى تطابق بحثك.",
+    "villageRequestsReviewNotice": "تُراجَع طلبات القرى بشكل مستقل ولا تُنشئ علاقات وساطة بين الوحدات والوسطاء.",
+    "submitVillageRequests": "إرسال طلبات القرى",
+    "villageLocation": "{} · {}",
+    "villageRequestsSubmitted": "تم إرسال طلبات القرى",
+    "villageRequestsSubmittedDescription": "ستتم مراجعة كل طلب تخصيص قرية بشكل مستقل، وقد يتطلب موافقة المالكين.",
+    "numberOfRequests": "عدد الطلبات",
+    "pendingProcessing": "قيد المعالجة",
+    "viewVillageAssignmentStatus": "عرض حالة تخصيص القرى"
+}
   

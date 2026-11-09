@@ -7,6 +7,7 @@ import '../../features/auth/presentation/controller/register_cubit.dart';
 import '../../features/auth/presentation/controller/verify_account_cubit.dart';
 import '../../features/auth/presentation/controller/verify_code_cubit.dart';
 import '../../features/broker_registration/data/model/broker_registration_receipt.dart';
+import '../../features/broker_registration/data/model/sample_broker_villages.dart';
 import '../../features/broker_registration/presentation/controller/broker_business_address_cubit.dart';
 import '../../features/broker_registration/presentation/controller/broker_company_info_cubit.dart';
 import '../../features/broker_registration/presentation/controller/broker_documents_cubit.dart';
@@ -16,6 +17,7 @@ import '../../features/broker_registration/presentation/controller/broker_regist
 import '../../features/broker_registration/presentation/controller/broker_registration_status_cubit.dart';
 import '../../features/broker_registration/presentation/controller/broker_representative_cubit.dart';
 import '../../features/broker_registration/presentation/controller/broker_type_cubit.dart';
+import '../../features/broker_registration/presentation/controller/broker_village_selection_cubit.dart';
 import '../../features/onboarding/presentation/controller/onboarding_cubit.dart';
 import '../../features/owner_registration/data/model/owner_unit.dart';
 import '../../features/owner_registration/data/model/registration_receipt.dart';
@@ -182,5 +184,8 @@ void _initBrokerRegistration() {
   );
   sl.registerFactory<BrokerDocumentsCubit>(
     () => BrokerDocumentsCubit(documents: sl<BrokerRegistrationDraftCubit>().state.documents),
+  );
+  sl.registerFactory<BrokerVillageSelectionCubit>(
+    () => BrokerVillageSelectionCubit(sampleBrokerVillages),
   );
 }
