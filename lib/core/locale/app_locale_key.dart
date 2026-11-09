@@ -1082,4 +1082,12 @@ class AppLocaleKey {
   static const myVillages = 'myVillages';
   static const trackVillageEndorsements = 'trackVillageEndorsements';
   static const inactiveVillagesNotice = 'inactiveVillagesNotice';
+  static const villageEndorsement = 'villageEndorsement';
+  static const endorsementsProvidedByOwners = 'endorsementsProvidedByOwners';
+  static const requiredEndorsements = 'requiredEndorsements';
+  static const receivedEndorsements = 'receivedEndorsements';
+  static const progress = 'progress';
+  static const endorsementStatus = 'endorsementStatus';
+  static const endorsementCompleted = 'endorsementCompleted';
+  static const countOfTotal = 'countOfTotal';
 }

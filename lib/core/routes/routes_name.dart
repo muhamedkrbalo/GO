@@ -23,6 +23,7 @@ abstract final class RoutePaths {
   static const String brokerVillageSelection = '/broker-village-selection';
   static const String brokerVillageRequestsSubmitted = '/broker-village-requests-submitted';
   static const String brokerVillageAssignments = '/broker-village-assignments';
+  static const String brokerVillageEndorsement = '/broker-village-endorsement';
   static const String individualInfo = '/individual-info';
   static const String companyInfo = '/company-info';
   static const String ownerAddress = '/owner-address';
@@ -63,6 +64,7 @@ abstract final class RouteNames {
   static const String brokerVillageSelection = 'brokerVillageSelection';
   static const String brokerVillageRequestsSubmitted = 'brokerVillageRequestsSubmitted';
   static const String brokerVillageAssignments = 'brokerVillageAssignments';
+  static const String brokerVillageEndorsement = 'brokerVillageEndorsement';
   static const String individualInfo = 'individualInfo';
   static const String companyInfo = 'companyInfo';
   static const String ownerAddress = 'ownerAddress';

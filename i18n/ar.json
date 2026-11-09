@@ -535,6 +535,14 @@
     "independentAssignments": "تخصيصات مستقلة",
     "myVillages": "القرى الخاصة بي",
     "trackVillageEndorsements": "تابع كل طلب قرية ومتطلبات موافقاته بشكل مستقل.",
-    "inactiveVillagesNotice": "تظل القرى قيد الانتظار والمرفوضة والموقوفة والمنتهية غير متاحة للعمليات."
+    "inactiveVillagesNotice": "تظل القرى قيد الانتظار والمرفوضة والموقوفة والمنتهية غير متاحة للعمليات.",
+    "villageEndorsement": "موافقة القرية",
+    "endorsementsProvidedByOwners": "يقدّم الموافقات الملّاكُ الحاليون المؤهَّلون في هذه القرية.",
+    "requiredEndorsements": "الموافقات المطلوبة",
+    "receivedEndorsements": "الموافقات المستلمة",
+    "progress": "التقدّم",
+    "endorsementStatus": "حالة الموافقة",
+    "endorsementCompleted": "اكتملت الموافقات",
+    "countOfTotal": "{} من {}"
 }
   

@@ -45,6 +45,11 @@ class BrokerVillageAssignment extends Equatable {
   final int requiredEndorsements;
   final DateTime lastUpdated;
 
+  bool get isEndorsementComplete => endorsementCount >= requiredEndorsements;
+
+  String get endorsementStatusKey =>
+      isEndorsementComplete ? AppLocaleKey.endorsementCompleted : AppLocaleKey.pendingEndorsement;
+
   @override
   List<Object?> get props => [village, status, endorsementCount, requiredEndorsements, lastUpdated];
 }

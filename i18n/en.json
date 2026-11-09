@@ -532,5 +532,13 @@
   "independentAssignments": "Independent assignments",
   "myVillages": "My Villages",
   "trackVillageEndorsements": "Track each Village request and endorsement requirement independently.",
-  "inactiveVillagesNotice": "Pending, rejected, suspended, and expired Villages remain unavailable for operations."
+  "inactiveVillagesNotice": "Pending, rejected, suspended, and expired Villages remain unavailable for operations.",
+  "villageEndorsement": "Village Endorsement",
+  "endorsementsProvidedByOwners": "Endorsements are provided by eligible existing Owners in this Village.",
+  "requiredEndorsements": "Required Endorsements",
+  "receivedEndorsements": "Received Endorsements",
+  "progress": "Progress",
+  "endorsementStatus": "Endorsement Status",
+  "endorsementCompleted": "Endorsement Completed",
+  "countOfTotal": "{} of {}"
 }

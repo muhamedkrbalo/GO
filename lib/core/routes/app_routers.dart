@@ -37,6 +37,7 @@ import '../../features/broker_registration/presentation/view/screen/broker_revie
 import '../../features/broker_registration/presentation/view/screen/broker_submission_confirmation_screen.dart';
 import '../../features/broker_registration/presentation/view/screen/broker_type_screen.dart';
 import '../../features/broker_registration/presentation/view/screen/broker_village_assignments_screen.dart';
+import '../../features/broker_registration/presentation/view/screen/broker_village_endorsement_screen.dart';
 import '../../features/broker_registration/presentation/view/screen/broker_village_requests_submitted_screen.dart';
 import '../../features/broker_registration/presentation/view/screen/broker_village_selection_screen.dart';
 import '../../features/home/presentation/view/screen/home_screen.dart';
@@ -272,6 +273,14 @@ class AppRouters {
         ),
       ),
       GoRoute(
+        path: RoutePaths.brokerVillageEndorsement,
+        name: RouteNames.brokerVillageEndorsement,
+        redirect: (context, state) =>
+            state.extra is BrokerVillageAssignment ? null : RoutePaths.brokerVillageSelection,
+        builder: (context, state) =>
+            BrokerVillageEndorsementScreen(assignment: state.extra! as BrokerVillageAssignment),
+      ),
+      GoRoute(
         path: RoutePaths.individualInfo,
         name: RouteNames.individualInfo,
         builder: (context, state) => BlocProvider(
@@ -420,6 +429,7 @@ class AppRouters {
     RoutePaths.brokerVillageSelection,
     RoutePaths.brokerVillageRequestsSubmitted,
     RoutePaths.brokerVillageAssignments,
+    RoutePaths.brokerVillageEndorsement,
   };
 
   /// Login gating, in one place:
