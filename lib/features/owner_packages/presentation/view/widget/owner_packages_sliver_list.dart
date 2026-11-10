@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
+
+import '../../../../../core/routes/routes_name.dart';
 
 import '../../../data/model/owner_package.dart';
 import '../../controller/owner_packages_cubit.dart';
@@ -9,6 +12,16 @@ class OwnerPackagesSliverList extends StatelessWidget {
   const OwnerPackagesSliverList({super.key});
 
   static const _cardsGap = SizedBox(height: 9);
+
+  Future<void> _openDetails(BuildContext context, OwnerPackage package) async {
+    final cubit = context.read<OwnerPackagesCubit>();
+    final selectedId = await context.pushNamed<String>(
+      RouteNames.ownerPackageDetails,
+      extra: package,
+    );
+    if (selectedId == null || cubit.isClosed) return;
+    cubit.selectPackage(selectedId);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -26,6 +39,7 @@ class OwnerPackagesSliverList extends StatelessWidget {
               package: package,
               isSelected: isSelected,
               onSelect: () => context.read<OwnerPackagesCubit>().selectPackage(package.id),
+              onView: () => _openDetails(context, package),
             ),
           );
         },

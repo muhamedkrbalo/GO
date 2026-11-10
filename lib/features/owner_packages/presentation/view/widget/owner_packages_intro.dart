@@ -1,12 +1,19 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../../core/locale/app_locale_key.dart';
 import '../../../../../core/theme/app_text_styles.dart';
 import '../../../../../core/theme/extensions/theme_extensions.dart';
 
 class OwnerPackagesIntro extends StatelessWidget {
-  const OwnerPackagesIntro({super.key});
+  const OwnerPackagesIntro({
+    super.key,
+    required this.eyebrow,
+    required this.title,
+    required this.subtitle,
+  });
+
+  final String eyebrow;
+  final String title;
+  final String subtitle;
 
   static const _maxTextWidth = 342.0;
   static const _titleGap = SizedBox(height: 7);
@@ -27,7 +34,7 @@ class OwnerPackagesIntro extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            AppLocaleKey.eligiblePackages.tr().toUpperCase(),
+            eyebrow.toUpperCase(),
             style: AppTextStyles.xxxxsBold.copyWith(
               color: colors.oceanAccent,
               letterSpacing: _eyebrowLetterSpacing,
@@ -36,7 +43,7 @@ class OwnerPackagesIntro extends StatelessWidget {
           ),
           _titleGap,
           Text(
-            AppLocaleKey.chooseYourPackage.tr(),
+            title,
             style: AppTextStyles.xxlSemiBold.copyWith(
               color: colors.textSecondary,
               letterSpacing: _titleLetterSpacing,
@@ -45,7 +52,7 @@ class OwnerPackagesIntro extends StatelessWidget {
           ),
           _subtitleGap,
           Text(
-            AppLocaleKey.choosePackageDescription.tr(),
+            subtitle,
             style: AppTextStyles.xsRegular.copyWith(
               color: colors.textMuted,
               height: _subtitleHeight,

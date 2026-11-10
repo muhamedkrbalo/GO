@@ -602,6 +602,19 @@
     "packageBusinessUsersLimit": "مستخدمو الأعمال: {}",
     "viewPackage": "عرض الباقة",
     "selectPackage": "اختيار الباقة",
-    "comparePackages": "مقارنة الباقات"
+    "comparePackages": "مقارنة الباقات",
+    "packageDetails": "تفاصيل الباقة",
+    "packageDetailsDescription": "راجع صلاحيات الباقة وحدودها والشروط التجارية المحددة.",
+    "packagePrice": "سعر الباقة",
+    "monthSubscription": "اشتراك لمدة {} شهرًا",
+    "oneTimeActivationFee": "رسوم التسجيل والتفعيل لمرة واحدة",
+    "activationFeeNote": "تُطبَّق فقط على التفعيل الأول لكل شاليه عند تحديدها، ولا تُحتسب عند التجديد.",
+    "includedFeatures": "المزايا المشمولة",
+    "resourceLimits": "حدود الموارد",
+    "businessUsers": "مستخدمو الأعمال",
+    "excludedFeatures": "المزايا غير المشمولة",
+    "subscriptionTerms": "شروط الاشتراك",
+    "confirmSelection": "تأكيد الاختيار",
+    "backToPackages": "العودة إلى الباقات"
 }
   

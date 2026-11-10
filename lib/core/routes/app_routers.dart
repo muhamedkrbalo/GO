@@ -49,7 +49,9 @@ import '../../features/owner_home/presentation/view/screen/owner_home_screen.dar
 import '../../features/owner_navigation/data/model/owner_navigation_tab.dart';
 import '../../features/owner_navigation/presentation/view/screen/owner_navigation_shell.dart';
 import '../../features/owner_navigation/presentation/view/screen/owner_tab_placeholder_screen.dart';
+import '../../features/owner_packages/data/model/owner_package.dart';
 import '../../features/owner_packages/presentation/controller/owner_packages_cubit.dart';
+import '../../features/owner_packages/presentation/view/screen/owner_package_details_screen.dart';
 import '../../features/owner_packages/presentation/view/screen/owner_packages_screen.dart';
 import '../../features/owner_registration/data/model/owner_unit.dart';
 import '../../features/owner_registration/data/model/registration_receipt.dart';
@@ -450,6 +452,14 @@ class AppRouters {
           create: (_) => sl<OwnerPackagesCubit>(),
           child: const OwnerPackagesScreen(),
         ),
+      ),
+      GoRoute(
+        path: RoutePaths.ownerPackageDetails,
+        name: RouteNames.ownerPackageDetails,
+        redirect: (context, state) =>
+            state.extra is OwnerPackage ? null : RoutePaths.ownerPackages,
+        builder: (context, state) =>
+            OwnerPackageDetailsScreen(package: state.extra! as OwnerPackage),
       ),
       GoRoute(
         path: RoutePaths.zoomImage,

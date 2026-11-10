@@ -9,6 +9,9 @@ class OwnerPackage extends Equatable {
     required this.features,
     required this.unitsLimit,
     required this.businessUsersLimit,
+    this.excludedFeatures = const [],
+    this.activationFee,
+    this.termsSummary,
   });
 
   final String id;
@@ -18,6 +21,9 @@ class OwnerPackage extends Equatable {
   final List<String> features;
   final int unitsLimit;
   final int businessUsersLimit;
+  final List<String> excludedFeatures;
+  final double? activationFee;
+  final String? termsSummary;
 
   @override
   List<Object?> get props => [
@@ -28,5 +34,8 @@ class OwnerPackage extends Equatable {
     features,
     unitsLimit,
     businessUsersLimit,
+    excludedFeatures,
+    activationFee,
+    termsSummary,
   ];
 }

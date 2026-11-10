@@ -599,5 +599,18 @@
   "packageBusinessUsersLimit": "Business Users: {}",
   "viewPackage": "View Package",
   "selectPackage": "Select Package",
-  "comparePackages": "Compare Packages"
+  "comparePackages": "Compare Packages",
+  "packageDetails": "Package Details",
+  "packageDetailsDescription": "Review package access, limits, and configured commercial terms.",
+  "packagePrice": "Package Price",
+  "monthSubscription": "{}-month subscription",
+  "oneTimeActivationFee": "One-time Registration and Activation Fee",
+  "activationFeeNote": "Applied only to the first activation per chalet where configured. Not charged on renewal.",
+  "includedFeatures": "Included Features",
+  "resourceLimits": "Resource Limits",
+  "businessUsers": "Business Users",
+  "excludedFeatures": "Excluded Features",
+  "subscriptionTerms": "Subscription Terms",
+  "confirmSelection": "Confirm Selection",
+  "backToPackages": "Back to Packages"
 }

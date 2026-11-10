@@ -30,7 +30,13 @@ class OwnerPackagesScreen extends StatelessWidget {
                   padding: _contentPadding,
                   sliver: SliverMainAxisGroup(
                     slivers: [
-                      const SliverToBoxAdapter(child: OwnerPackagesIntro()),
+                      SliverToBoxAdapter(
+                        child: OwnerPackagesIntro(
+                          eyebrow: AppLocaleKey.eligiblePackages.tr(),
+                          title: AppLocaleKey.chooseYourPackage.tr(),
+                          subtitle: AppLocaleKey.choosePackageDescription.tr(),
+                        ),
+                      ),
                       _introToCardsGap,
                       const OwnerPackagesSliverList(),
                       SliverToBoxAdapter(

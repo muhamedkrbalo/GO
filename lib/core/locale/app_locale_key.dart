@@ -1148,4 +1148,17 @@ class AppLocaleKey {
   static const viewPackage = 'viewPackage';
   static const selectPackage = 'selectPackage';
   static const comparePackages = 'comparePackages';
+  static const packageDetails = 'packageDetails';
+  static const packageDetailsDescription = 'packageDetailsDescription';
+  static const packagePrice = 'packagePrice';
+  static const monthSubscription = 'monthSubscription';
+  static const oneTimeActivationFee = 'oneTimeActivationFee';
+  static const activationFeeNote = 'activationFeeNote';
+  static const includedFeatures = 'includedFeatures';
+  static const resourceLimits = 'resourceLimits';
+  static const businessUsers = 'businessUsers';
+  static const excludedFeatures = 'excludedFeatures';
+  static const subscriptionTerms = 'subscriptionTerms';
+  static const confirmSelection = 'confirmSelection';
+  static const backToPackages = 'backToPackages';
 }

@@ -7,7 +7,9 @@ import '../../../../../core/theme/app_text_styles.dart';
 import '../../../../../core/theme/extensions/theme_extensions.dart';
 import '../../../../owner_registration/presentation/view/widget/prototype_data_pill.dart';
 import '../../../data/model/owner_package.dart';
+import 'egp_amount.dart';
 import 'owner_package_action_button.dart';
+import 'owner_package_feature_list.dart';
 
 class OwnerPackageCard extends StatelessWidget {
   const OwnerPackageCard({
@@ -55,7 +57,7 @@ class OwnerPackageCard extends StatelessWidget {
             AppSpacing.gapV12,
             _PackagePrice(price: package.price, durationMonths: package.durationMonths),
             AppSpacing.gapV12,
-            _PackageFeatures(features: package.features),
+            OwnerPackageFeatureList(features: package.features),
             _limitsGap,
             _PackageLimits(
               unitsLimit: package.unitsLimit,
@@ -139,7 +141,6 @@ class _PackagePrice extends StatelessWidget {
   final double price;
   final int durationMonths;
 
-  static final _priceFormat = NumberFormat('#,##0.00', 'en');
   static const _textHeight = 1.5;
 
   @override
@@ -148,7 +149,7 @@ class _PackagePrice extends StatelessWidget {
 
     return Text.rich(
       TextSpan(
-        text: AppLocaleKey.egpAmount.tr(args: [_priceFormat.format(price)]),
+        text: formatEgpAmount(price),
         style: AppTextStyles.mBold.copyWith(color: colors.textSecondary, height: _textHeight),
         children: [
           const TextSpan(text: ' '),
@@ -161,46 +162,6 @@ class _PackagePrice extends StatelessWidget {
           ),
         ],
       ),
-    );
-  }
-}
-
-class _PackageFeatures extends StatelessWidget {
-  const _PackageFeatures({required this.features});
-
-  final List<String> features;
-
-  static const _iconSize = 9.0;
-  static const _iconGap = SizedBox(width: 4);
-  static const _rowGap = 6.0;
-  static const _textHeight = 1.5;
-
-  @override
-  Widget build(BuildContext context) {
-    final colors = context.customColors;
-
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      spacing: _rowGap,
-      children: [
-        for (final feature in features)
-          Row(
-            children: [
-              Icon(Icons.check_rounded, size: _iconSize, color: colors.linkMuted),
-              _iconGap,
-              Expanded(
-                child: Text(
-                  feature,
-                  style: AppTextStyles.xxxxxsMedium.copyWith(
-                    color: colors.linkMuted,
-                    fontWeight: FontWeight.w400,
-                    height: _textHeight,
-                  ),
-                ),
-              ),
-            ],
-          ),
-      ],
     );
   }
 }
