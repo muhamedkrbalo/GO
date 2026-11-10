@@ -1,8 +1,10 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../../core/custom_widgets/custom_app_bar/custom_app_bar.dart';
 import '../../../../../core/locale/app_locale_key.dart';
+import '../../../../../core/routes/routes_name.dart';
 import '../../../../../core/theme/extensions/theme_extensions.dart';
 import '../widget/owner_package_action_button.dart';
 import '../widget/owner_packages_bottom_bar.dart';
@@ -54,7 +56,11 @@ class OwnerPackagesScreen extends StatelessWidget {
               ],
             ),
           ),
-          OwnerPackagesBottomBar(label: AppLocaleKey.selectPackage.tr()),
+          OwnerPackagesBottomBar(
+            label: AppLocaleKey.selectPackage.tr(),
+            onContinue: (package) =>
+                context.pushNamed(RouteNames.ownerPackageConfirmation, extra: package),
+          ),
         ],
       ),
     );

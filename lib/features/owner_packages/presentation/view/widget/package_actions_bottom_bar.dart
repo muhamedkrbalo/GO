@@ -9,16 +9,16 @@ class PackageActionsBottomBar extends StatelessWidget {
   const PackageActionsBottomBar({
     super.key,
     required this.confirmLabel,
-    required this.backLabel,
     required this.onConfirm,
-    required this.onBack,
+    this.backLabel,
+    this.onBack,
     this.isConfirmEnabled = true,
   });
 
   final String confirmLabel;
-  final String backLabel;
   final VoidCallback? onConfirm;
-  final VoidCallback onBack;
+  final String? backLabel;
+  final VoidCallback? onBack;
   final bool isConfirmEnabled;
 
   static const _backButtonSize = Size(double.infinity, 38);
@@ -27,6 +27,7 @@ class PackageActionsBottomBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colors = context.customColors;
+    final backLabel = this.backLabel;
 
     return RegistrationStickyFooter(
       showSaveAndExit: false,
@@ -35,17 +36,18 @@ class PackageActionsBottomBar extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           PrimaryArrowButton(text: confirmLabel, isEnabled: isConfirmEnabled, onPressed: onConfirm),
-          TextButton(
-            onPressed: onBack,
-            style: TextButton.styleFrom(
-              minimumSize: _backButtonSize,
-              padding: EdgeInsets.zero,
-              tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-              foregroundColor: colors.textPrimary,
-              textStyle: AppTextStyles.xxsBold.copyWith(height: _textHeight),
+          if (backLabel != null)
+            TextButton(
+              onPressed: onBack,
+              style: TextButton.styleFrom(
+                minimumSize: _backButtonSize,
+                padding: EdgeInsets.zero,
+                tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                foregroundColor: colors.textPrimary,
+                textStyle: AppTextStyles.xxsBold.copyWith(height: _textHeight),
+              ),
+              child: Text(backLabel),
             ),
-            child: Text(backLabel),
-          ),
         ],
       ),
     );

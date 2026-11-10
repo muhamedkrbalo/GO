@@ -1223,4 +1223,11 @@ class AppLocaleKey {
   static const chooseHigherPackage = 'chooseHigherPackage';
   static const reviewUpgrade = 'reviewUpgrade';
   static const noUpgradeOptions = 'noUpgradeOptions';
+  static const upgradeConfirmation = 'upgradeConfirmation';
+  static const confirmPackageChange = 'confirmPackageChange';
+  static const confirmUpgrade = 'confirmUpgrade';
+  static const reviewCommercialRules = 'reviewCommercialRules';
+  static const newPackage = 'newPackage';
+  static const newLimits = 'newLimits';
+  static const additionalAmountDue = 'additionalAmountDue';
 }

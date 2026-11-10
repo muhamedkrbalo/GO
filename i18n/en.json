@@ -676,5 +676,12 @@
   "upgradeYourPackage": "Upgrade Your Package",
   "chooseHigherPackage": "Choose an eligible higher package.",
   "reviewUpgrade": "Review Upgrade",
-  "noUpgradeOptions": "You are already on the highest available package."
+  "noUpgradeOptions": "You are already on the highest available package.",
+  "upgradeConfirmation": "Upgrade Confirmation",
+  "confirmPackageChange": "Confirm package change",
+  "confirmUpgrade": "Confirm Upgrade",
+  "reviewCommercialRules": "Review configured commercial and effective-date rules.",
+  "newPackage": "New Package",
+  "newLimits": "New Limits",
+  "additionalAmountDue": "Additional Amount Due"
 }

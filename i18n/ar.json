@@ -679,6 +679,13 @@
     "upgradeYourPackage": "قم بترقية باقتك",
     "chooseHigherPackage": "اختر باقة أعلى متاحة لك.",
     "reviewUpgrade": "مراجعة الترقية",
-    "noUpgradeOptions": "أنت مشترك بالفعل في أعلى باقة متاحة."
+    "noUpgradeOptions": "أنت مشترك بالفعل في أعلى باقة متاحة.",
+    "upgradeConfirmation": "تأكيد الترقية",
+    "confirmPackageChange": "تأكيد تغيير الباقة",
+    "confirmUpgrade": "تأكيد الترقية",
+    "reviewCommercialRules": "راجع القواعد التجارية وقواعد تاريخ السريان المحددة.",
+    "newPackage": "الباقة الجديدة",
+    "newLimits": "الحدود الجديدة",
+    "additionalAmountDue": "المبلغ الإضافي المستحق"
 }
   

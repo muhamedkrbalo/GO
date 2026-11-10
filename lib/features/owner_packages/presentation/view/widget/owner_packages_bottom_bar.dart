@@ -1,21 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
 
 import '../../../../../core/custom_widgets/buttons/primary_arrow_button.dart';
 import '../../../../../core/custom_widgets/registration_form/registration_sticky_footer.dart';
-import '../../../../../core/routes/routes_name.dart';
+import '../../../data/model/owner_package.dart';
 import '../../controller/owner_packages_cubit.dart';
 
 class OwnerPackagesBottomBar extends StatelessWidget {
-  const OwnerPackagesBottomBar({super.key, required this.label});
+  const OwnerPackagesBottomBar({super.key, required this.label, required this.onContinue});
 
   final String label;
+  final ValueChanged<OwnerPackage> onContinue;
 
-  void _openConfirmation(BuildContext context) {
+  void _continue(BuildContext context) {
     final package = context.read<OwnerPackagesCubit>().state.selectedPackage;
-    if (package == null) return;
-    context.pushNamed(RouteNames.ownerPackageConfirmation, extra: package);
+    if (package != null) onContinue(package);
   }
 
   @override
@@ -27,7 +26,7 @@ class OwnerPackagesBottomBar extends StatelessWidget {
         builder: (context, canContinue) => PrimaryArrowButton(
           text: label,
           isEnabled: canContinue,
-          onPressed: () => _openConfirmation(context),
+          onPressed: () => _continue(context),
         ),
       ),
     );

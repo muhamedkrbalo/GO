@@ -46,6 +46,7 @@ abstract final class RoutePaths {
   static const String ownerPackagePayment = '/owner-package-payment';
   static const String ownerSubscriptionCancellation = '/owner-subscription-cancellation';
   static const String ownerSubscriptionUpgrade = '/owner-subscription-upgrade';
+  static const String ownerUpgradeConfirmation = '/owner-upgrade-confirmation';
   static const String zoomImage = '/zoom-image';
 }
 
@@ -97,5 +98,6 @@ abstract final class RouteNames {
   static const String ownerPackagePayment = 'ownerPackagePayment';
   static const String ownerSubscriptionCancellation = 'ownerSubscriptionCancellation';
   static const String ownerSubscriptionUpgrade = 'ownerSubscriptionUpgrade';
+  static const String ownerUpgradeConfirmation = 'ownerUpgradeConfirmation';
   static const String zoomImage = 'zoomImage';
 }
