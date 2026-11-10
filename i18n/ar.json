@@ -590,6 +590,18 @@
     "updates": "التحديثات",
     "notificationsAndRecentActivity": "الإشعارات والنشاط الأخير",
     "noRecentActivity": "لا يوجد نشاط حديث",
-    "recentActivityEmptyMessage": "ستظهر تحديثات الطلب والاشتراك هنا."
+    "recentActivityEmptyMessage": "ستظهر تحديثات الطلب والاشتراك هنا.",
+    "ownerPackages": "باقات المالك",
+    "eligiblePackages": "الباقات المتاحة",
+    "chooseYourPackage": "اختر باقتك",
+    "choosePackageDescription": "اختر الباقة التي تناسب احتياجات إدارة عقاراتك.",
+    "ownerPackage": "باقة المالك",
+    "egpAmount": "{} ج.م",
+    "perMonths": "/ {} شهرًا",
+    "packageUnitsLimit": "الوحدات: {}",
+    "packageBusinessUsersLimit": "مستخدمو الأعمال: {}",
+    "viewPackage": "عرض الباقة",
+    "selectPackage": "اختيار الباقة",
+    "comparePackages": "مقارنة الباقات"
 }
   

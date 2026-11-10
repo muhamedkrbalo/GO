@@ -1136,4 +1136,16 @@ class AppLocaleKey {
   static const notificationsAndRecentActivity = 'notificationsAndRecentActivity';
   static const noRecentActivity = 'noRecentActivity';
   static const recentActivityEmptyMessage = 'recentActivityEmptyMessage';
+  static const ownerPackages = 'ownerPackages';
+  static const eligiblePackages = 'eligiblePackages';
+  static const chooseYourPackage = 'chooseYourPackage';
+  static const choosePackageDescription = 'choosePackageDescription';
+  static const ownerPackage = 'ownerPackage';
+  static const egpAmount = 'egpAmount';
+  static const perMonths = 'perMonths';
+  static const packageUnitsLimit = 'packageUnitsLimit';
+  static const packageBusinessUsersLimit = 'packageBusinessUsersLimit';
+  static const viewPackage = 'viewPackage';
+  static const selectPackage = 'selectPackage';
+  static const comparePackages = 'comparePackages';
 }

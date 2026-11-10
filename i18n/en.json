@@ -587,5 +587,17 @@
   "updates": "Updates",
   "notificationsAndRecentActivity": "Notifications & Recent Activity",
   "noRecentActivity": "No recent activity",
-  "recentActivityEmptyMessage": "Application and subscription updates will appear here."
+  "recentActivityEmptyMessage": "Application and subscription updates will appear here.",
+  "ownerPackages": "Owner Packages",
+  "eligiblePackages": "Eligible packages",
+  "chooseYourPackage": "Choose Your Package",
+  "choosePackageDescription": "Select the package that matches your property management needs.",
+  "ownerPackage": "Owner Package",
+  "egpAmount": "EGP {}",
+  "perMonths": "/{} months",
+  "packageUnitsLimit": "Units: {}",
+  "packageBusinessUsersLimit": "Business Users: {}",
+  "viewPackage": "View Package",
+  "selectPackage": "Select Package",
+  "comparePackages": "Compare Packages"
 }

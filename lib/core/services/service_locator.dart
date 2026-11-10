@@ -19,6 +19,8 @@ import '../../features/broker_registration/presentation/controller/broker_repres
 import '../../features/broker_registration/presentation/controller/broker_type_cubit.dart';
 import '../../features/broker_registration/presentation/controller/broker_village_selection_cubit.dart';
 import '../../features/onboarding/presentation/controller/onboarding_cubit.dart';
+import '../../features/owner_packages/data/model/sample_owner_packages.dart';
+import '../../features/owner_packages/presentation/controller/owner_packages_cubit.dart';
 import '../../features/owner_registration/data/model/owner_unit.dart';
 import '../../features/owner_registration/data/model/registration_receipt.dart';
 import '../../features/owner_registration/data/model/sample_unit_reviews.dart';
@@ -58,6 +60,7 @@ Future<void> initDependencies() async {
   _initAuth();
   _initOwnerRegistration();
   _initBrokerRegistration();
+  _initOwnerPackages();
 }
 
 /// Tears down user-scoped resources in dependency order.
@@ -188,4 +191,8 @@ void _initBrokerRegistration() {
   sl.registerFactory<BrokerVillageSelectionCubit>(
     () => BrokerVillageSelectionCubit(sampleBrokerVillages),
   );
+}
+
+void _initOwnerPackages() {
+  sl.registerFactory<OwnerPackagesCubit>(() => OwnerPackagesCubit(sampleOwnerPackages));
 }

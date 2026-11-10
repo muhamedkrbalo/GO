@@ -104,7 +104,7 @@ class OwnerSubscriptionCard extends StatelessWidget {
           ),
           OwnerHomeCardLink(
             label: AppLocaleKey.viewSubscriptionOptions.tr(),
-            onTap: () => context.goNamed(RouteNames.ownerSubscription),
+            onTap: () => context.pushNamed(RouteNames.ownerPackages),
           ),
         ],
       ),

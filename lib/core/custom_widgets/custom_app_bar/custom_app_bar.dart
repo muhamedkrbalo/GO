@@ -1,68 +1,112 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_hr_erb/core/images/app_images.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:flutter_hr_erb/core/theme/extensions/theme_extensions.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
+import '../../images/app_images.dart';
+import '../../theme/app_text_styles.dart';
+import '../../theme/extensions/theme_extensions.dart';
 
-class CustomAppBar extends PreferredSize {
-  final double height;
-  final double radius;
-  final double elevation;
-  final Widget? leading;
-  final List<Widget>? actions;
-  final Widget? title;
-  final Color? appBarColor;
-  final Color? shadowColor;
-  final bool? centerTitle;
-  final PreferredSizeWidget? bottom;
-  final double? leadingWidth;
-  final bool automaticallyImplyLeading;
-  final BuildContext context;
-  final BorderRadiusGeometry? borderRadius;
-  final String? leadingIcon;
-  final void Function()? leadingOnTap;
-  CustomAppBar(
-    this.context, {
+class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
+  const CustomAppBar({
     super.key,
-    this.leadingOnTap,
-    this.leadingIcon,
-    this.height = kToolbarHeight,
-    this.radius = 0,
-    this.elevation = 0,
-    this.leading,
-    this.actions,
     this.title,
-    this.appBarColor,
-    this.centerTitle = false,
-    this.bottom,
-    this.leadingWidth,
-    this.shadowColor,
-    this.automaticallyImplyLeading = true,
-    this.borderRadius,
-  }) : super(
-         preferredSize: Size.fromHeight(height),
-         child: AppBar(
-           elevation: elevation,
-           backgroundColor: appBarColor ?? context.customColors.appBar,
-           toolbarHeight: height,
-           automaticallyImplyLeading: automaticallyImplyLeading,
-           shadowColor: shadowColor,
-           centerTitle: centerTitle,
-           title: title,
-           leading: InkWell(
-             onTap: leadingOnTap ?? () => Navigator.pop(context),
-             child:const Padding(
-               padding:  EdgeInsetsDirectional.only(start: 16.0, bottom: 20.0, top: 20.0),
-               
-              //  child: leading ?? SvgPicture.asset(AppImages.assetsSvgArrowBackIos),
-             ),
-           ),
-           actions: actions,
-           leadingWidth: leadingWidth ?? 30,
-           shape: RoundedRectangleBorder(
-             borderRadius: borderRadius ?? BorderRadius.vertical(bottom: Radius.circular(radius)),
-           ),
-           bottom: bottom,
-         ),
-       );
+    this.titleWidget,
+    this.actions,
+    this.showBackButton = true,
+    this.onBack,
+    this.backgroundColor,
+    this.showBottomBorder = true,
+    this.height = defaultHeight,
+  });
+
+  final String? title;
+  final Widget? titleWidget;
+  final List<Widget>? actions;
+  final bool showBackButton;
+  final VoidCallback? onBack;
+  final Color? backgroundColor;
+  final bool showBottomBorder;
+  final double height;
+
+  static const defaultHeight = 72.0;
+  static const _leadingStartPadding = 13.0;
+  static const _backButtonSize = 42.0;
+  static const _actionsEndPadding = EdgeInsetsDirectional.only(end: 13);
+  static const _titleHeight = 1.5;
+
+  @override
+  Size get preferredSize => Size.fromHeight(height);
+
+  @override
+  Widget build(BuildContext context) {
+    final colors = context.customColors;
+    final title = this.title;
+    final actions = this.actions;
+
+    return AppBar(
+      toolbarHeight: height,
+      backgroundColor: backgroundColor ?? colors.appBar,
+      surfaceTintColor: Colors.transparent,
+      elevation: 0,
+      scrolledUnderElevation: 0,
+      centerTitle: true,
+      automaticallyImplyLeading: false,
+      leadingWidth: showBackButton ? _leadingStartPadding + _backButtonSize : null,
+      leading: showBackButton
+          ? Padding(
+              padding: const EdgeInsetsDirectional.only(start: _leadingStartPadding),
+              child: _AppBarBackButton(size: _backButtonSize, onPressed: onBack),
+            )
+          : null,
+      title:
+          titleWidget ??
+          (title == null
+              ? null
+              : Text(
+                  title,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: AppTextStyles.sBold.copyWith(
+                    color: colors.textPrimary,
+                    height: _titleHeight,
+                  ),
+                )),
+      actions: actions == null ? null : [...actions, const Padding(padding: _actionsEndPadding)],
+      shape: showBottomBorder ? Border(bottom: BorderSide(color: colors.subtleBorder)) : null,
+    );
+  }
+}
+
+class _AppBarBackButton extends StatelessWidget {
+  const _AppBarBackButton({required this.size, this.onPressed});
+
+  final double size;
+  final VoidCallback? onPressed;
+
+  static const _iconSize = 20.0;
+
+  @override
+  Widget build(BuildContext context) {
+    final colors = context.customColors;
+
+    return Center(
+      child: SizedBox.square(
+        dimension: size,
+        child: IconButton(
+          tooltip: MaterialLocalizations.of(context).backButtonTooltip,
+          padding: EdgeInsets.zero,
+          onPressed: onPressed ?? () => Navigator.maybePop(context),
+          icon: Transform.flip(
+            flipX: true,
+            child: SvgPicture.asset(
+              AppImages.assetsSvgArrowForward,
+              width: _iconSize,
+              height: _iconSize,
+              matchTextDirection: true,
+              colorFilter: ColorFilter.mode(colors.accentText, BlendMode.srcIn),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
 }

@@ -31,11 +31,7 @@ class _ZoomImageScreenState extends State<ZoomImageScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(
-        context,
-        centerTitle: false,
-        automaticallyImplyLeading: true,
-      ),
+      appBar: const CustomAppBar(),
       body: PhotoView(
         imageProvider: _imageProvider(),
         loadingBuilder: (context, event) {

@@ -40,6 +40,7 @@ abstract final class RoutePaths {
   static const String ownerUnits = '/owner-units';
   static const String ownerSubscription = '/owner-subscription';
   static const String ownerMore = '/owner-more';
+  static const String ownerPackages = '/owner-packages';
   static const String zoomImage = '/zoom-image';
 }
 
@@ -85,5 +86,6 @@ abstract final class RouteNames {
   static const String ownerUnits = 'ownerUnits';
   static const String ownerSubscription = 'ownerSubscription';
   static const String ownerMore = 'ownerMore';
+  static const String ownerPackages = 'ownerPackages';
   static const String zoomImage = 'zoomImage';
 }

@@ -49,6 +49,8 @@ import '../../features/owner_home/presentation/view/screen/owner_home_screen.dar
 import '../../features/owner_navigation/data/model/owner_navigation_tab.dart';
 import '../../features/owner_navigation/presentation/view/screen/owner_navigation_shell.dart';
 import '../../features/owner_navigation/presentation/view/screen/owner_tab_placeholder_screen.dart';
+import '../../features/owner_packages/presentation/controller/owner_packages_cubit.dart';
+import '../../features/owner_packages/presentation/view/screen/owner_packages_screen.dart';
 import '../../features/owner_registration/data/model/owner_unit.dart';
 import '../../features/owner_registration/data/model/registration_receipt.dart';
 import '../../features/owner_registration/data/model/unit_review.dart';
@@ -440,6 +442,14 @@ class AppRouters {
             ],
           ),
         ],
+      ),
+      GoRoute(
+        path: RoutePaths.ownerPackages,
+        name: RouteNames.ownerPackages,
+        builder: (context, state) => BlocProvider(
+          create: (_) => sl<OwnerPackagesCubit>(),
+          child: const OwnerPackagesScreen(),
+        ),
       ),
       GoRoute(
         path: RoutePaths.zoomImage,
