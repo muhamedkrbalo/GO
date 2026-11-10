@@ -29,7 +29,10 @@ class SubscriptionActionsGrid extends StatelessWidget {
 
   VoidCallback? _handlerFor(BuildContext context, _SubscriptionAction action) {
     return switch (action) {
-      _SubscriptionAction.upgrade ||
+      _SubscriptionAction.upgrade => () => context.pushNamed(
+        RouteNames.ownerSubscriptionUpgrade,
+        extra: subscription,
+      ),
       _SubscriptionAction.downgrade => () => context.pushNamed(RouteNames.ownerPackages),
       _SubscriptionAction.cancel => () => context.pushNamed(
         RouteNames.ownerSubscriptionCancellation,

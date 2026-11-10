@@ -43,6 +43,11 @@ class OwnerSubscription extends Equatable {
   final List<BusinessRole> coveredRelationships;
   final String? previousPackageName;
 
+  List<OwnerPackage> upgradeOptions(List<OwnerPackage> catalog) => [
+    for (final option in catalog)
+      if (option.price > package.price) option,
+  ];
+
   @override
   List<Object?> get props => [
     package,

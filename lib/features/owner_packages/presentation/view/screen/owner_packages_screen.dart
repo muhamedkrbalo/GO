@@ -54,7 +54,7 @@ class OwnerPackagesScreen extends StatelessWidget {
               ],
             ),
           ),
-          const OwnerPackagesBottomBar(),
+          OwnerPackagesBottomBar(label: AppLocaleKey.selectPackage.tr()),
         ],
       ),
     );

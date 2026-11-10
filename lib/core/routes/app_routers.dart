@@ -51,6 +51,7 @@ import '../../features/owner_navigation/presentation/view/screen/owner_navigatio
 import '../../features/owner_navigation/presentation/view/screen/owner_tab_placeholder_screen.dart';
 import '../../features/owner_packages/data/model/owner_package.dart';
 import '../../features/owner_packages/data/model/owner_subscription.dart';
+import '../../features/owner_packages/data/model/sample_owner_packages.dart';
 import '../../features/owner_packages/data/model/sample_owner_subscription.dart';
 import '../../features/owner_packages/presentation/controller/owner_packages_cubit.dart';
 import '../../features/owner_packages/presentation/controller/package_payment_cubit.dart';
@@ -60,6 +61,7 @@ import '../../features/owner_packages/presentation/view/screen/owner_package_det
 import '../../features/owner_packages/presentation/view/screen/owner_package_payment_screen.dart';
 import '../../features/owner_packages/presentation/view/screen/owner_packages_screen.dart';
 import '../../features/owner_packages/presentation/view/screen/owner_subscription_cancellation_screen.dart';
+import '../../features/owner_packages/presentation/view/screen/owner_subscription_upgrade_screen.dart';
 import '../../features/owner_registration/data/model/owner_unit.dart';
 import '../../features/owner_registration/data/model/registration_receipt.dart';
 import '../../features/owner_registration/data/model/unit_review.dart';
@@ -477,6 +479,20 @@ class AppRouters {
             state.extra is OwnerPackage ? null : RoutePaths.ownerPackages,
         builder: (context, state) =>
             OwnerPackageConfirmationScreen(package: state.extra! as OwnerPackage),
+      ),
+      GoRoute(
+        path: RoutePaths.ownerSubscriptionUpgrade,
+        name: RouteNames.ownerSubscriptionUpgrade,
+        redirect: (context, state) =>
+            state.extra is OwnerSubscription ? null : RoutePaths.ownerSubscription,
+        builder: (context, state) {
+          final subscription = state.extra! as OwnerSubscription;
+          return BlocProvider(
+            create: (_) =>
+                sl<OwnerPackagesCubit>(param1: subscription.upgradeOptions(sampleOwnerPackages)),
+            child: OwnerSubscriptionUpgradeScreen(currentPackage: subscription.package),
+          );
+        },
       ),
       GoRoute(
         path: RoutePaths.ownerSubscriptionCancellation,

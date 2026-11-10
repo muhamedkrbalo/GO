@@ -670,5 +670,11 @@
   "cancellationTerms": "Cancellation Terms",
   "cancellationTermsDescription": "Cancellation preserves all subscription records and follows configured terms.",
   "confirmCancellation": "Confirm Cancellation",
-  "keepSubscription": "Keep Subscription"
+  "keepSubscription": "Keep Subscription",
+  "upgradeSubscription": "Upgrade Subscription",
+  "packageChange": "Package change",
+  "upgradeYourPackage": "Upgrade Your Package",
+  "chooseHigherPackage": "Choose an eligible higher package.",
+  "reviewUpgrade": "Review Upgrade",
+  "noUpgradeOptions": "You are already on the highest available package."
 }

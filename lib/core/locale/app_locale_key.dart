@@ -1217,4 +1217,10 @@ class AppLocaleKey {
   static const cancellationTermsDescription = 'cancellationTermsDescription';
   static const confirmCancellation = 'confirmCancellation';
   static const keepSubscription = 'keepSubscription';
+  static const upgradeSubscription = 'upgradeSubscription';
+  static const packageChange = 'packageChange';
+  static const upgradeYourPackage = 'upgradeYourPackage';
+  static const chooseHigherPackage = 'chooseHigherPackage';
+  static const reviewUpgrade = 'reviewUpgrade';
+  static const noUpgradeOptions = 'noUpgradeOptions';
 }
