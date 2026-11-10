@@ -635,6 +635,13 @@
     "instaPay": "إنستاباي",
     "fawry": "فوري",
     "paymentPendingNotice": "يظل الاشتراك قيد الانتظار حتى يؤكد المسؤول بيانات الدفع المرسلة يدويًا.",
-    "submitPaymentDetails": "إرسال بيانات الدفع"
+    "submitPaymentDetails": "إرسال بيانات الدفع",
+    "paymentMethodInstructions": "تعليمات {}",
+    "paymentInstructionsPrototype": "تعليمات تجريبية فقط. استخدم عنوان {} المحدد والظاهر في خدمة الدفع الفعلية.",
+    "paymentPrototypeWarning": "لا يُعرض في هذا النموذج التجريبي أي رقم حساب أو محفظة أو عنوان أو رابط دفع حقيقي.",
+    "paymentReference": "مرجع الدفع",
+    "paymentReferenceHint": "أدخل مرجع الدفع المحدد",
+    "uploadPaymentProof": "رفع إثبات الدفع",
+    "paymentProofFormats": "PDF أو JPG أو PNG"
 }
   

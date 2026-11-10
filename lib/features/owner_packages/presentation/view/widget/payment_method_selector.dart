@@ -43,8 +43,8 @@ class _PaymentMethodOption extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocSelector<PackagePaymentCubit, PaymentMethod?, bool>(
-      selector: (selected) => selected == method,
+    return BlocSelector<PackagePaymentCubit, PackagePaymentState, bool>(
+      selector: (state) => state.method == method,
       builder: (context, isSelected) => PaymentMethodTile(
         label: method.labelKey.tr(),
         isSelected: isSelected,

@@ -33,10 +33,10 @@ class PaymentMethodTile extends StatelessWidget {
         duration: _duration,
         height: height,
         decoration: BoxDecoration(
-          color: isSelected ? colors.selectedSurface : colors.surface,
+          color: isSelected ? colors.iconTileSurface : colors.surface,
           borderRadius: _radius,
           border: Border.all(
-            color: isSelected ? colors.primary : colors.subtleBorder,
+            color: isSelected ? colors.oceanAccent : colors.subtleBorder,
             width: _borderWidth,
           ),
         ),

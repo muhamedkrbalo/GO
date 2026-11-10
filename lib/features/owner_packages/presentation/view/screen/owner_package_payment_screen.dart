@@ -10,6 +10,7 @@ import '../../../data/model/owner_package.dart';
 import '../widget/owner_packages_intro.dart';
 import '../widget/package_payment_bottom_bar.dart';
 import '../widget/package_selection_summary_card.dart';
+import '../widget/payment_instructions_card.dart';
 import '../widget/payment_method_selector.dart';
 
 class OwnerPackagePaymentScreen extends StatelessWidget {
@@ -40,6 +41,7 @@ class OwnerPackagePaymentScreen extends StatelessWidget {
                 PackageSelectionSummaryCard(package: package, isCompact: true, showDuration: false),
                 AppSpacing.gapV16,
                 const PaymentMethodSelector(),
+                const PaymentInstructionsCard(),
                 _noticeGap,
                 AccentNotice(message: AppLocaleKey.paymentPendingNotice.tr()),
               ],

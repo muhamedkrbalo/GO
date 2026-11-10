@@ -1181,4 +1181,11 @@ class AppLocaleKey {
   static const fawry = 'fawry';
   static const paymentPendingNotice = 'paymentPendingNotice';
   static const submitPaymentDetails = 'submitPaymentDetails';
+  static const paymentMethodInstructions = 'paymentMethodInstructions';
+  static const paymentInstructionsPrototype = 'paymentInstructionsPrototype';
+  static const paymentPrototypeWarning = 'paymentPrototypeWarning';
+  static const paymentReference = 'paymentReference';
+  static const paymentReferenceHint = 'paymentReferenceHint';
+  static const uploadPaymentProof = 'uploadPaymentProof';
+  static const paymentProofFormats = 'paymentProofFormats';
 }

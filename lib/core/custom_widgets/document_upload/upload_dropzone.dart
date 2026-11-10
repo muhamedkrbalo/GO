@@ -14,11 +14,19 @@ class UploadDropzone extends StatelessWidget {
     required this.onTap,
     this.showIconTile = true,
     this.iconSize = 18,
+    this.showIcon = true,
+    this.title,
+    this.hint,
+    this.hintStyle,
   });
 
   final VoidCallback onTap;
   final bool showIconTile;
   final double iconSize;
+  final bool showIcon;
+  final String? title;
+  final String? hint;
+  final TextStyle? hintStyle;
 
   static const _radius = BorderRadius.all(Radius.circular(10));
   static const _padding = EdgeInsetsDirectional.symmetric(horizontal: 10, vertical: 16);
@@ -53,7 +61,9 @@ class UploadDropzone extends StatelessWidget {
               padding: _padding,
               child: Column(
                 children: [
-                  if (showIconTile)
+                  if (!showIcon)
+                    const SizedBox.shrink()
+                  else if (showIconTile)
                     DecoratedBox(
                       decoration: BoxDecoration(
                         color: colors.iconTileSurface,
@@ -66,9 +76,9 @@ class UploadDropzone extends StatelessWidget {
                     )
                   else
                     _UploadIcon(size: iconSize),
-                  _titleGap,
+                  if (showIcon) _titleGap,
                   Text(
-                    AppLocaleKey.uploadDocument.tr(),
+                    title ?? AppLocaleKey.uploadDocument.tr(),
                     textAlign: TextAlign.center,
                     style: AppTextStyles.xxxsBold.copyWith(
                       color: colors.textPrimary,
@@ -77,13 +87,15 @@ class UploadDropzone extends StatelessWidget {
                   ),
                   _hintGap,
                   Text(
-                    AppLocaleKey.documentFormatsHint.tr(),
+                    hint ?? AppLocaleKey.documentFormatsHint.tr(),
                     textAlign: TextAlign.center,
-                    style: AppTextStyles.xxxxxsMedium.copyWith(
-                      color: colors.hint,
-                      fontWeight: FontWeight.w400,
-                      height: _textHeight,
-                    ),
+                    style:
+                        hintStyle ??
+                        AppTextStyles.xxxxxsMedium.copyWith(
+                          color: colors.hint,
+                          fontWeight: FontWeight.w400,
+                          height: _textHeight,
+                        ),
                   ),
                 ],
               ),

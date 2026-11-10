@@ -632,5 +632,12 @@
   "instaPay": "InstaPay",
   "fawry": "Fawry",
   "paymentPendingNotice": "The subscription remains pending until an Administrator manually confirms the submitted payment details.",
-  "submitPaymentDetails": "Submit Payment Details"
+  "submitPaymentDetails": "Submit Payment Details",
+  "paymentMethodInstructions": "{} Instructions",
+  "paymentInstructionsPrototype": "Prototype instructions only. Use the configured {} address shown in the production payment service.",
+  "paymentPrototypeWarning": "No real account number, wallet, address, or payment link is shown in this prototype.",
+  "paymentReference": "Payment Reference",
+  "paymentReferenceHint": "Enter configured payment reference",
+  "uploadPaymentProof": "Upload Payment Proof",
+  "paymentProofFormats": "PDF, JPG or PNG"
 }

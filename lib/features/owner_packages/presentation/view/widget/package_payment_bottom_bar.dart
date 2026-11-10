@@ -4,7 +4,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../../core/locale/app_locale_key.dart';
-import '../../../data/model/payment_method.dart';
 import '../../controller/package_payment_cubit.dart';
 import 'package_actions_bottom_bar.dart';
 
@@ -13,12 +12,12 @@ class PackagePaymentBottomBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocSelector<PackagePaymentCubit, PaymentMethod?, bool>(
-      selector: (method) => method != null,
-      builder: (context, hasMethod) => PackageActionsBottomBar(
+    return BlocSelector<PackagePaymentCubit, PackagePaymentState, bool>(
+      selector: (state) => state.canSubmit,
+      builder: (context, canSubmit) => PackageActionsBottomBar(
         confirmLabel: AppLocaleKey.submitPaymentDetails.tr(),
         backLabel: AppLocaleKey.cancel.tr(),
-        isConfirmEnabled: hasMethod,
+        isConfirmEnabled: canSubmit,
         onConfirm: null,
         onBack: () => context.pop(),
       ),
