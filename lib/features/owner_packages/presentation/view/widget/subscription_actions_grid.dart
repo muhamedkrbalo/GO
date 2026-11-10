@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 
 import '../../../../../core/locale/app_locale_key.dart';
 import '../../../../../core/routes/routes_name.dart';
+import '../../../data/model/owner_subscription.dart';
 import 'package_option_tile.dart';
 import 'package_tile_grid.dart';
 
@@ -22,15 +23,20 @@ enum _SubscriptionAction {
 }
 
 class SubscriptionActionsGrid extends StatelessWidget {
-  const SubscriptionActionsGrid({super.key});
+  const SubscriptionActionsGrid({super.key, required this.subscription});
+
+  final OwnerSubscription subscription;
 
   VoidCallback? _handlerFor(BuildContext context, _SubscriptionAction action) {
     return switch (action) {
       _SubscriptionAction.upgrade ||
       _SubscriptionAction.downgrade => () => context.pushNamed(RouteNames.ownerPackages),
+      _SubscriptionAction.cancel => () => context.pushNamed(
+        RouteNames.ownerSubscriptionCancellation,
+        extra: subscription,
+      ),
       _SubscriptionAction.usageAndLimits ||
       _SubscriptionAction.renew ||
-      _SubscriptionAction.cancel ||
       _SubscriptionAction.viewHistory ||
       _SubscriptionAction.expiryStates => null,
     };

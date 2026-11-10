@@ -46,8 +46,9 @@ class PackageInfoRow extends StatelessWidget {
         child: Padding(
           padding: padding,
           child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Expanded(
+              Flexible(
                 child: Text(
                   label,
                   style: AppTextStyles.xxxxxsMedium.copyWith(
@@ -58,13 +59,15 @@ class PackageInfoRow extends StatelessWidget {
                 ),
               ),
               AppSpacing.gapH8,
-              Text(
-                value,
-                textAlign: TextAlign.end,
-                style: valueStyle.copyWith(
-                  color: colors.textPrimary,
-                  fontWeight: FontWeight.w700,
-                  height: _textHeight,
+              Flexible(
+                child: Text(
+                  value,
+                  textAlign: TextAlign.end,
+                  style: valueStyle.copyWith(
+                    color: colors.textPrimary,
+                    fontWeight: FontWeight.w700,
+                    height: _textHeight,
+                  ),
                 ),
               ),
             ],

@@ -661,6 +661,18 @@
     "downgrade": "تخفيض الباقة",
     "renew": "تجديد",
     "viewHistory": "عرض السجل",
-    "expiryStates": "حالات الانتهاء"
+    "expiryStates": "حالات الانتهاء",
+    "cancelSubscription": "إلغاء الاشتراك",
+    "subscriptionCancellation": "إلغاء الاشتراك",
+    "cancelSubscriptionQuestion": "هل أنت متأكد من رغبتك في إلغاء اشتراكك؟",
+    "cancelSubscriptionDescription": "يظل سجل الاشتراك محفوظًا، ويخضع الإلغاء للقواعد التجارية المحددة.",
+    "currentPackage": "الباقة الحالية",
+    "currentStatus": "الحالة الحالية",
+    "effectiveDate": "تاريخ السريان",
+    "effectiveAtPeriodEnd": "يسري في نهاية فترة الاشتراك الحالية.",
+    "cancellationTerms": "شروط الإلغاء",
+    "cancellationTermsDescription": "يحافظ الإلغاء على جميع سجلات الاشتراك ويخضع للشروط المحددة.",
+    "confirmCancellation": "تأكيد الإلغاء",
+    "keepSubscription": "الإبقاء على الاشتراك"
 }
   

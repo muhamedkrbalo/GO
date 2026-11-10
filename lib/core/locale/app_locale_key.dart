@@ -1205,4 +1205,16 @@ class AppLocaleKey {
   static const renew = 'renew';
   static const viewHistory = 'viewHistory';
   static const expiryStates = 'expiryStates';
+  static const cancelSubscription = 'cancelSubscription';
+  static const subscriptionCancellation = 'subscriptionCancellation';
+  static const cancelSubscriptionQuestion = 'cancelSubscriptionQuestion';
+  static const cancelSubscriptionDescription = 'cancelSubscriptionDescription';
+  static const currentPackage = 'currentPackage';
+  static const currentStatus = 'currentStatus';
+  static const effectiveDate = 'effectiveDate';
+  static const effectiveAtPeriodEnd = 'effectiveAtPeriodEnd';
+  static const cancellationTerms = 'cancellationTerms';
+  static const cancellationTermsDescription = 'cancellationTermsDescription';
+  static const confirmCancellation = 'confirmCancellation';
+  static const keepSubscription = 'keepSubscription';
 }

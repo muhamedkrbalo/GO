@@ -658,5 +658,17 @@
   "downgrade": "Downgrade",
   "renew": "Renew",
   "viewHistory": "View History",
-  "expiryStates": "Expiry States"
+  "expiryStates": "Expiry States",
+  "cancelSubscription": "Cancel Subscription",
+  "subscriptionCancellation": "Subscription cancellation",
+  "cancelSubscriptionQuestion": "Are you sure you want to cancel your subscription?",
+  "cancelSubscriptionDescription": "The subscription record remains preserved and cancellation follows configured commercial rules.",
+  "currentPackage": "Current Package",
+  "currentStatus": "Current Status",
+  "effectiveDate": "Effective Date",
+  "effectiveAtPeriodEnd": "Effective at the end of the current subscription period.",
+  "cancellationTerms": "Cancellation Terms",
+  "cancellationTermsDescription": "Cancellation preserves all subscription records and follows configured terms.",
+  "confirmCancellation": "Confirm Cancellation",
+  "keepSubscription": "Keep Subscription"
 }

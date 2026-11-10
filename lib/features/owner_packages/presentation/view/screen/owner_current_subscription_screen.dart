@@ -67,7 +67,7 @@ class OwnerCurrentSubscriptionScreen extends StatelessWidget {
             ),
           ],
           AppSpacing.gapV16,
-          const SubscriptionActionsGrid(),
+          SubscriptionActionsGrid(subscription: subscription),
         ],
       ),
     );
