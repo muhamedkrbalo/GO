@@ -65,6 +65,10 @@ class AppShadows {
     BoxShadow(color: Color(0x0D0F172A), offset: Offset(0, -8), blurRadius: 24),
   ];
 
+  static const oceanTile = [
+    BoxShadow(color: Color(0x33087EAF), offset: Offset(0, 10), blurRadius: 11),
+  ];
+
   static const heroBadge = [
     BoxShadow(color: Color(0x14073763), offset: Offset(0, 12), blurRadius: 28),
   ];

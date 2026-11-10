@@ -9,6 +9,7 @@ import 'package:flutter_hr_erb/core/services/service_locator.dart';
 import 'package:flutter_hr_erb/features/onboarding/presentation/controller/onboarding_cubit.dart';
 import 'package:flutter_hr_erb/features/onboarding/presentation/view/screen/onboarding_screen.dart';
 import 'package:flutter_hr_erb/features/onboarding/presentation/view/screen/welcome_screen.dart';
+import 'package:flutter_hr_erb/features/owner_home/presentation/view/screen/owner_home_screen.dart';
 import 'package:flutter_hr_erb/features/splash/presentation/view/screen/splash_screen.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:hive/hive.dart';
@@ -89,7 +90,7 @@ void main() {
 
     session.value = AuthStatus.authenticated;
     await tester.pumpAndSettle();
-    expect(find.text('Home Screen'), findsOneWidget);
+    expect(find.byType(OwnerHomeScreen), findsOneWidget);
 
     // e.g. a 401 from the interceptor, after onboarding was seen → welcome.
     // Real async: a Hive write left pending in fake time would hang Hive.close().

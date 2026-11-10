@@ -192,6 +192,12 @@ class AppTextStyles {
     fontWeight: FontWeight.w700,
   );
 
+  static const xl25Bold = TextStyle(
+    fontFamily: AppFonts.manrope,
+    fontSize: 25,
+    fontWeight: FontWeight.w700,
+  );
+
   // xxl - 28
   static const xxlBold = TextStyle(
     fontFamily: AppFonts.manrope,

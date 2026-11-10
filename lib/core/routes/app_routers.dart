@@ -42,10 +42,10 @@ import '../../features/broker_registration/presentation/view/screen/broker_villa
 import '../../features/broker_registration/presentation/view/screen/broker_village_endorsement_screen.dart';
 import '../../features/broker_registration/presentation/view/screen/broker_village_requests_submitted_screen.dart';
 import '../../features/broker_registration/presentation/view/screen/broker_village_selection_screen.dart';
-import '../../features/home/presentation/view/screen/home_screen.dart';
 import '../../features/onboarding/presentation/controller/onboarding_cubit.dart';
 import '../../features/onboarding/presentation/view/screen/onboarding_screen.dart';
 import '../../features/onboarding/presentation/view/screen/welcome_screen.dart';
+import '../../features/owner_home/presentation/view/screen/owner_home_screen.dart';
 import '../../features/owner_navigation/data/model/owner_navigation_tab.dart';
 import '../../features/owner_navigation/presentation/view/screen/owner_navigation_shell.dart';
 import '../../features/owner_navigation/presentation/view/screen/owner_tab_placeholder_screen.dart';
@@ -405,7 +405,7 @@ class AppRouters {
               GoRoute(
                 path: RoutePaths.home,
                 name: RouteNames.home,
-                builder: (context, state) => const HomeScreen(),
+                builder: (context, state) => const OwnerHomeScreen(),
               ),
             ],
           ),
