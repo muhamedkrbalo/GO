@@ -1,16 +1,22 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../core/custom_widgets/buttons/primary_arrow_button.dart';
 import '../../../../../core/custom_widgets/registration_form/registration_sticky_footer.dart';
-import '../../../../../core/locale/app_locale_key.dart';
 import '../../../../../core/theme/app_text_styles.dart';
 import '../../../../../core/theme/extensions/theme_extensions.dart';
 
-class PackageDetailsBottomBar extends StatelessWidget {
-  const PackageDetailsBottomBar({super.key, required this.onConfirm, required this.onBack});
+class PackageActionsBottomBar extends StatelessWidget {
+  const PackageActionsBottomBar({
+    super.key,
+    required this.confirmLabel,
+    required this.backLabel,
+    required this.onConfirm,
+    required this.onBack,
+  });
 
-  final VoidCallback onConfirm;
+  final String confirmLabel;
+  final String backLabel;
+  final VoidCallback? onConfirm;
   final VoidCallback onBack;
 
   static const _backButtonSize = Size(double.infinity, 38);
@@ -26,11 +32,7 @@ class PackageDetailsBottomBar extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          PrimaryArrowButton(
-            text: AppLocaleKey.confirmSelection.tr(),
-            isEnabled: true,
-            onPressed: onConfirm,
-          ),
+          PrimaryArrowButton(text: confirmLabel, isEnabled: true, onPressed: onConfirm),
           TextButton(
             onPressed: onBack,
             style: TextButton.styleFrom(
@@ -40,7 +42,7 @@ class PackageDetailsBottomBar extends StatelessWidget {
               foregroundColor: colors.textPrimary,
               textStyle: AppTextStyles.xxsBold.copyWith(height: _textHeight),
             ),
-            child: Text(AppLocaleKey.backToPackages.tr()),
+            child: Text(backLabel),
           ),
         ],
       ),

@@ -25,6 +25,8 @@ class OwnerPackage extends Equatable {
   final double? activationFee;
   final String? termsSummary;
 
+  double get totalDueOnActivation => price + (activationFee ?? 0);
+
   @override
   List<Object?> get props => [
     id,

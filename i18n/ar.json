@@ -615,6 +615,17 @@
     "excludedFeatures": "المزايا غير المشمولة",
     "subscriptionTerms": "شروط الاشتراك",
     "confirmSelection": "تأكيد الاختيار",
-    "backToPackages": "العودة إلى الباقات"
+    "backToPackages": "العودة إلى الباقات",
+    "confirmPackageSelection": "تأكيد اختيار الباقة",
+    "selectionConfirmation": "تأكيد الاختيار",
+    "selectionDoesNotActivateSubscription": "اختيار الباقة لا يُفعّل اشتراكًا مدفوعًا.",
+    "selectedPackage": "الباقة المختارة",
+    "subscriptionDuration": "مدة الاشتراك",
+    "monthsCount": "{} شهرًا",
+    "registrationAndActivationFee": "رسوم التسجيل والتفعيل",
+    "totalAmountDue": "إجمالي المبلغ المستحق",
+    "applicableTerms": "الشروط المطبقة",
+    "packageRevalidationNotice": "تتم إعادة التحقق من الأهلية وتوفر الباقة عند التأكيد، ويُعاد استخدام حساب اشتراك قائم مناسب متى كان ذلك مسموحًا.",
+    "cancelOrBack": "إلغاء / رجوع"
 }
   

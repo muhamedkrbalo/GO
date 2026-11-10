@@ -1161,4 +1161,15 @@ class AppLocaleKey {
   static const subscriptionTerms = 'subscriptionTerms';
   static const confirmSelection = 'confirmSelection';
   static const backToPackages = 'backToPackages';
+  static const confirmPackageSelection = 'confirmPackageSelection';
+  static const selectionConfirmation = 'selectionConfirmation';
+  static const selectionDoesNotActivateSubscription = 'selectionDoesNotActivateSubscription';
+  static const selectedPackage = 'selectedPackage';
+  static const subscriptionDuration = 'subscriptionDuration';
+  static const monthsCount = 'monthsCount';
+  static const registrationAndActivationFee = 'registrationAndActivationFee';
+  static const totalAmountDue = 'totalAmountDue';
+  static const applicableTerms = 'applicableTerms';
+  static const packageRevalidationNotice = 'packageRevalidationNotice';
+  static const cancelOrBack = 'cancelOrBack';
 }

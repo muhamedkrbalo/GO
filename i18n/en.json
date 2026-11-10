@@ -612,5 +612,16 @@
   "excludedFeatures": "Excluded Features",
   "subscriptionTerms": "Subscription Terms",
   "confirmSelection": "Confirm Selection",
-  "backToPackages": "Back to Packages"
+  "backToPackages": "Back to Packages",
+  "confirmPackageSelection": "Confirm Package Selection",
+  "selectionConfirmation": "Selection confirmation",
+  "selectionDoesNotActivateSubscription": "Package selection does not activate a paid subscription.",
+  "selectedPackage": "Selected Package",
+  "subscriptionDuration": "Subscription Duration",
+  "monthsCount": "{} months",
+  "registrationAndActivationFee": "Registration and Activation Fee",
+  "totalAmountDue": "Total Amount Due",
+  "applicableTerms": "Applicable Terms",
+  "packageRevalidationNotice": "Eligibility and package availability are revalidated on confirmation. A suitable existing Subscription Account is reused where permitted.",
+  "cancelOrBack": "Cancel / Back"
 }
