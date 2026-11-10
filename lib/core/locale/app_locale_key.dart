@@ -1188,4 +1188,21 @@ class AppLocaleKey {
   static const paymentReferenceHint = 'paymentReferenceHint';
   static const uploadPaymentProof = 'uploadPaymentProof';
   static const paymentProofFormats = 'paymentProofFormats';
+  static const currentSubscription = 'currentSubscription';
+  static const subscriptionAccount = 'subscriptionAccount';
+  static const currentSubscriptionDetails = 'currentSubscriptionDetails';
+  static const currentSubscriptionDescription = 'currentSubscriptionDescription';
+  static const packageName = 'packageName';
+  static const packageType = 'packageType';
+  static const startDate = 'startDate';
+  static const renewalDate = 'renewalDate';
+  static const duration = 'duration';
+  static const coveredBusinessRelationships = 'coveredBusinessRelationships';
+  static const previousSubscription = 'previousSubscription';
+  static const usageAndLimits = 'usageAndLimits';
+  static const upgrade = 'upgrade';
+  static const downgrade = 'downgrade';
+  static const renew = 'renew';
+  static const viewHistory = 'viewHistory';
+  static const expiryStates = 'expiryStates';
 }

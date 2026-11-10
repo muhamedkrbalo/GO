@@ -3,17 +3,19 @@ import 'package:flutter/material.dart';
 import '../../../../../core/theme/app_text_styles.dart';
 import '../../../../../core/theme/extensions/theme_extensions.dart';
 
-class PaymentMethodTile extends StatelessWidget {
-  const PaymentMethodTile({
+class PackageOptionTile extends StatelessWidget {
+  const PackageOptionTile({
     super.key,
     required this.label,
-    required this.isSelected,
     required this.onTap,
+    this.isSelectable = false,
+    this.isSelected = false,
   });
 
   final String label;
+  final VoidCallback? onTap;
+  final bool isSelectable;
   final bool isSelected;
-  final VoidCallback onTap;
 
   static const height = 44.0;
   static const _duration = Duration(milliseconds: 180);
@@ -27,8 +29,8 @@ class PaymentMethodTile extends StatelessWidget {
 
     return Semantics(
       button: true,
-      selected: isSelected,
-      inMutuallyExclusiveGroup: true,
+      selected: isSelectable ? isSelected : null,
+      inMutuallyExclusiveGroup: isSelectable ? true : null,
       child: AnimatedContainer(
         duration: _duration,
         height: height,
@@ -52,7 +54,7 @@ class PaymentMethodTile extends StatelessWidget {
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
                 style: AppTextStyles.xxxxxsMedium.copyWith(
-                  color: isSelected ? colors.textPrimary : colors.textMuted,
+                  color: isSelectable && !isSelected ? colors.textMuted : colors.textPrimary,
                   fontWeight: FontWeight.w700,
                   height: _textHeight,
                 ),

@@ -14,7 +14,7 @@ import '../widget/package_activation_fee_card.dart';
 import '../widget/package_details_section_card.dart';
 import '../widget/package_price_summary_card.dart';
 import '../widget/package_resource_limits_card.dart';
-import '../widget/package_terms_card.dart';
+import '../widget/package_text_section_card.dart';
 
 class OwnerPackageDetailsScreen extends StatelessWidget {
   const OwnerPackageDetailsScreen({super.key, required this.package});
@@ -79,9 +79,9 @@ class OwnerPackageDetailsScreen extends StatelessWidget {
                 ],
                 if (termsSummary != null) ...[
                   AppSpacing.gapV15,
-                  PackageTermsCard(
+                  PackageTextSectionCard(
                     title: AppLocaleKey.subscriptionTerms.tr(),
-                    summary: termsSummary,
+                    text: termsSummary,
                   ),
                 ],
               ],

@@ -12,7 +12,7 @@ import '../../../data/model/owner_package.dart';
 import '../widget/owner_packages_intro.dart';
 import '../widget/package_actions_bottom_bar.dart';
 import '../widget/package_selection_summary_card.dart';
-import '../widget/package_terms_card.dart';
+import '../widget/package_text_section_card.dart';
 
 class OwnerPackageConfirmationScreen extends StatelessWidget {
   const OwnerPackageConfirmationScreen({super.key, required this.package});
@@ -45,7 +45,10 @@ class OwnerPackageConfirmationScreen extends StatelessWidget {
                 PackageSelectionSummaryCard(package: package),
                 if (termsSummary != null) ...[
                   AppSpacing.gapV15,
-                  PackageTermsCard(title: AppLocaleKey.applicableTerms.tr(), summary: termsSummary),
+                  PackageTextSectionCard(
+                    title: AppLocaleKey.applicableTerms.tr(),
+                    text: termsSummary,
+                  ),
                 ],
                 _noticeGap,
                 AccentNotice(message: AppLocaleKey.packageRevalidationNotice.tr()),

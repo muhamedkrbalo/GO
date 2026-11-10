@@ -2,36 +2,18 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../../core/theme/app_sizes.dart';
 import '../../../data/model/payment_method.dart';
 import '../../controller/package_payment_cubit.dart';
-import 'payment_method_tile.dart';
+import 'package_option_tile.dart';
+import 'package_tile_grid.dart';
 
 class PaymentMethodSelector extends StatelessWidget {
   const PaymentMethodSelector({super.key});
 
-  static const _columns = 2;
-
   @override
   Widget build(BuildContext context) {
-    const methods = PaymentMethod.values;
-
-    return Column(
-      spacing: AppSpacing.s8,
-      children: [
-        for (var start = 0; start < methods.length; start += _columns)
-          Row(
-            spacing: AppSpacing.s8,
-            children: [
-              for (var index = start; index < start + _columns; index++)
-                Expanded(
-                  child: index < methods.length
-                      ? _PaymentMethodOption(method: methods[index])
-                      : const SizedBox.shrink(),
-                ),
-            ],
-          ),
-      ],
+    return PackageTileGrid(
+      children: [for (final method in PaymentMethod.values) _PaymentMethodOption(method: method)],
     );
   }
 }
@@ -45,8 +27,9 @@ class _PaymentMethodOption extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocSelector<PackagePaymentCubit, PackagePaymentState, bool>(
       selector: (state) => state.method == method,
-      builder: (context, isSelected) => PaymentMethodTile(
+      builder: (context, isSelected) => PackageOptionTile(
         label: method.labelKey.tr(),
+        isSelectable: true,
         isSelected: isSelected,
         onTap: () => context.read<PackagePaymentCubit>().selectMethod(method),
       ),

@@ -642,6 +642,25 @@
     "paymentReference": "مرجع الدفع",
     "paymentReferenceHint": "أدخل مرجع الدفع المحدد",
     "uploadPaymentProof": "رفع إثبات الدفع",
-    "paymentProofFormats": "PDF أو JPG أو PNG"
+    "paymentProofFormats": "PDF أو JPG أو PNG",
+    "currentSubscription": "الاشتراك الحالي",
+    "subscriptionAccount": "حساب الاشتراك",
+    "currentSubscriptionDetails": "تفاصيل الاشتراك الحالي",
+    "currentSubscriptionDescription": "معلومات الباقة والحساب المعتمدة.",
+    "packageName": "اسم الباقة",
+    "packageType": "نوع الباقة",
+    "startDate": "تاريخ البدء",
+    "endDate": "تاريخ الانتهاء",
+    "renewalDate": "تاريخ التجديد",
+    "duration": "المدة",
+    "cancelled": "ملغى",
+    "coveredBusinessRelationships": "علاقات الأعمال المشمولة",
+    "previousSubscription": "الاشتراك السابق",
+    "usageAndLimits": "الاستخدام والحدود",
+    "upgrade": "ترقية",
+    "downgrade": "تخفيض الباقة",
+    "renew": "تجديد",
+    "viewHistory": "عرض السجل",
+    "expiryStates": "حالات الانتهاء"
 }
   
