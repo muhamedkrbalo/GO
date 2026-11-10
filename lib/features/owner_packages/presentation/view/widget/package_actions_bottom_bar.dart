@@ -12,12 +12,14 @@ class PackageActionsBottomBar extends StatelessWidget {
     required this.backLabel,
     required this.onConfirm,
     required this.onBack,
+    this.isConfirmEnabled = true,
   });
 
   final String confirmLabel;
   final String backLabel;
   final VoidCallback? onConfirm;
   final VoidCallback onBack;
+  final bool isConfirmEnabled;
 
   static const _backButtonSize = Size(double.infinity, 38);
   static const _textHeight = 1.5;
@@ -32,7 +34,7 @@ class PackageActionsBottomBar extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          PrimaryArrowButton(text: confirmLabel, isEnabled: true, onPressed: onConfirm),
+          PrimaryArrowButton(text: confirmLabel, isEnabled: isConfirmEnabled, onPressed: onConfirm),
           TextButton(
             onPressed: onBack,
             style: TextButton.styleFrom(

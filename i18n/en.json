@@ -623,5 +623,14 @@
   "totalAmountDue": "Total Amount Due",
   "applicableTerms": "Applicable Terms",
   "packageRevalidationNotice": "Eligibility and package availability are revalidated on confirmation. A suitable existing Subscription Account is reused where permitted.",
-  "cancelOrBack": "Cancel / Back"
+  "cancelOrBack": "Cancel / Back",
+  "paymentDetails": "Payment Details",
+  "subscriptionPayment": "Subscription payment",
+  "completeYourPayment": "Complete Your Payment",
+  "paymentDetailsDescription": "Submit configured payment details for administrator confirmation.",
+  "bankTransfer": "Bank Transfer",
+  "instaPay": "InstaPay",
+  "fawry": "Fawry",
+  "paymentPendingNotice": "The subscription remains pending until an Administrator manually confirms the submitted payment details.",
+  "submitPaymentDetails": "Submit Payment Details"
 }

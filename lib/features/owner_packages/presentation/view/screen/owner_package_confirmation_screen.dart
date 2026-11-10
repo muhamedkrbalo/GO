@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 import '../../../../../core/custom_widgets/accent_notice/accent_notice.dart';
 import '../../../../../core/custom_widgets/custom_app_bar/custom_app_bar.dart';
 import '../../../../../core/locale/app_locale_key.dart';
+import '../../../../../core/routes/routes_name.dart';
 import '../../../../../core/theme/app_sizes.dart';
 import '../../../../../core/theme/extensions/theme_extensions.dart';
 import '../../../data/model/owner_package.dart';
@@ -54,7 +55,7 @@ class OwnerPackageConfirmationScreen extends StatelessWidget {
           PackageActionsBottomBar(
             confirmLabel: AppLocaleKey.confirm.tr(),
             backLabel: AppLocaleKey.cancelOrBack.tr(),
-            onConfirm: null,
+            onConfirm: () => context.pushNamed(RouteNames.ownerPackagePayment, extra: package),
             onBack: () => context.pop(),
           ),
         ],

@@ -11,6 +11,7 @@ class PackageInfoRow extends StatelessWidget {
     required this.value,
     this.showDivider = false,
     this.isHighlighted = false,
+    this.isEmphasized = false,
     this.padding = const EdgeInsetsDirectional.symmetric(vertical: 9),
     this.minHeight = 0,
   });
@@ -19,6 +20,7 @@ class PackageInfoRow extends StatelessWidget {
   final String value;
   final bool showDivider;
   final bool isHighlighted;
+  final bool isEmphasized;
   final EdgeInsetsGeometry padding;
   final double minHeight;
 
@@ -28,7 +30,7 @@ class PackageInfoRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colors = context.customColors;
-    final valueStyle = isHighlighted ? AppTextStyles.xxsBold : AppTextStyles.xxxxxsMedium;
+    final valueStyle = isEmphasized ? AppTextStyles.xxsBold : AppTextStyles.xxxxxsMedium;
 
     return DecoratedBox(
       decoration: BoxDecoration(

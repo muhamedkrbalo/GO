@@ -1172,4 +1172,13 @@ class AppLocaleKey {
   static const applicableTerms = 'applicableTerms';
   static const packageRevalidationNotice = 'packageRevalidationNotice';
   static const cancelOrBack = 'cancelOrBack';
+  static const paymentDetails = 'paymentDetails';
+  static const subscriptionPayment = 'subscriptionPayment';
+  static const completeYourPayment = 'completeYourPayment';
+  static const paymentDetailsDescription = 'paymentDetailsDescription';
+  static const bankTransfer = 'bankTransfer';
+  static const instaPay = 'instaPay';
+  static const fawry = 'fawry';
+  static const paymentPendingNotice = 'paymentPendingNotice';
+  static const submitPaymentDetails = 'submitPaymentDetails';
 }

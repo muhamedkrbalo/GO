@@ -21,6 +21,7 @@ import '../../features/broker_registration/presentation/controller/broker_villag
 import '../../features/onboarding/presentation/controller/onboarding_cubit.dart';
 import '../../features/owner_packages/data/model/sample_owner_packages.dart';
 import '../../features/owner_packages/presentation/controller/owner_packages_cubit.dart';
+import '../../features/owner_packages/presentation/controller/package_payment_cubit.dart';
 import '../../features/owner_registration/data/model/owner_unit.dart';
 import '../../features/owner_registration/data/model/registration_receipt.dart';
 import '../../features/owner_registration/data/model/sample_unit_reviews.dart';
@@ -195,4 +196,5 @@ void _initBrokerRegistration() {
 
 void _initOwnerPackages() {
   sl.registerFactory<OwnerPackagesCubit>(() => OwnerPackagesCubit(sampleOwnerPackages));
+  sl.registerFactory<PackagePaymentCubit>(PackagePaymentCubit.new);
 }

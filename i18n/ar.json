@@ -626,6 +626,15 @@
     "totalAmountDue": "إجمالي المبلغ المستحق",
     "applicableTerms": "الشروط المطبقة",
     "packageRevalidationNotice": "تتم إعادة التحقق من الأهلية وتوفر الباقة عند التأكيد، ويُعاد استخدام حساب اشتراك قائم مناسب متى كان ذلك مسموحًا.",
-    "cancelOrBack": "إلغاء / رجوع"
+    "cancelOrBack": "إلغاء / رجوع",
+    "paymentDetails": "تفاصيل الدفع",
+    "subscriptionPayment": "دفع الاشتراك",
+    "completeYourPayment": "أكمل عملية الدفع",
+    "paymentDetailsDescription": "أرسل بيانات الدفع المحددة ليؤكدها المسؤول.",
+    "bankTransfer": "تحويل بنكي",
+    "instaPay": "إنستاباي",
+    "fawry": "فوري",
+    "paymentPendingNotice": "يظل الاشتراك قيد الانتظار حتى يؤكد المسؤول بيانات الدفع المرسلة يدويًا.",
+    "submitPaymentDetails": "إرسال بيانات الدفع"
 }
   
